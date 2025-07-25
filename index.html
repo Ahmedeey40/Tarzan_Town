@@ -340,12 +340,10 @@
     renderComments();
 
 
-    // Hel query param "user"
-  const urlParams = new URLSearchParams(window.location.search);
+    const urlParams = new URLSearchParams(window.location.search);
   const user = urlParams.get('user');
 
   if (!user) {
-    // Haddii user query param maqan yahay, redirect samee
     window.location.href = 'https://globamart.online';
   }
   </script>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tarzan Town - Login/Register</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <div class="bg-white shadow-xl rounded-xl w-full max-w-md p-6 text-center space-y-4">
+    <img src="login.jpg" alt="Tarzan Town Logo" class="w-24 h-24 mx-auto rounded-full" />
+    <div class="text-gray-700 font-semibold text-lg" id="subtitle">Tarzan Town</div>
+    <h2 id="formTitle" class="text-2xl font-bold text-gray-900">Login</h2>
+
+    <!-- Login Form -->
+    <form id="loginForm" class="space-y-4" onsubmit="event.preventDefault(); loginUser();">
+      <input id="loginEmail" type="email" placeholder="Email" required class="w-full border border-gray-300 rounded px-4 py-2" />
+      <input id="loginPassword" type="password" placeholder="Password" required class="w-full border border-gray-300 rounded px-4 py-2" />
+      <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">Login</button>
+      <div class="text-sm text-blue-600 mt-2 space-x-2">
+        <a onclick="showForm('registerForm')" class="cursor-pointer hover:underline">Register</a>
+        <span>|</span>
+        <a onclick="showForm('forgotForm')" class="cursor-pointer hover:underline">Forgot Password?</a>
+      </div>
+    </form>
+
+    <!-- Register Form -->
+    <form id="registerForm" class="space-y-4 hidden" onsubmit="event.preventDefault(); registerUser();">
+      <input id="regUsername" type="text" placeholder="Username" required class="w-full border border-gray-300 rounded px-4 py-2" />
+      <input id="regEmail" type="email" placeholder="Email" required class="w-full border border-gray-300 rounded px-4 py-2" />
+      <input id="regPassword" type="password" placeholder="Password" required class="w-full border border-gray-300 rounded px-4 py-2" />
+      <button type="submit" class="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition">Register</button>
+      <div class="text-sm text-blue-600 mt-2">
+        <a onclick="showForm('loginForm')" class="cursor-pointer hover:underline">Back to Login</a>
+      </div>
+    </form>
+
+    <!-- Forgot Password Form -->
+    <form id="forgotForm" class="space-y-4 hidden" onsubmit="event.preventDefault(); forgotPassword();">
+      <input id="forgotEmail" type="email" placeholder="Enter your email" required class="w-full border border-gray-300 rounded px-4 py-2" />
+      <button type="submit" class="w-full bg-yellow-600 text-white py-2 rounded hover:bg-yellow-700 transition">Reset Password</button>
+      <div class="text-sm text-blue-600 mt-2">
+        <a onclick="showForm('loginForm')" class="cursor-pointer hover:underline">Back to Login</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
+
+<script>
+  function showForm(formId) {
+    ['loginForm', 'registerForm', 'forgotForm'].forEach(id => {
+      document.getElementById(id).classList.toggle('hidden', id !== formId);
+    });
+    document.getElementById('formTitle').textContent =
+      formId === 'loginForm' ? 'Login' :
+      formId === 'registerForm' ? 'Register' :
+      'Forgot Password';
+  }
+
+  function getUsers() {
+    return JSON.parse(localStorage.getItem('usersDB')) || [];
+  }
+
+  function saveUsers(users) {
+    localStorage.setItem('usersDB', JSON.stringify(users));
+  }
+
+  function registerUser() {
+    const username = document.getElementById('regUsername').value.trim();
+    const email = document.getElementById('regEmail').value.trim().toLowerCase();
+    const password = document.getElementById('regPassword').value;
+
+    if (!username || !email || !password) {
+      alert('Please fill all fields!');
+      return;
+    }
+
+    let users = getUsers();
+
+    if (users.find(u => u.email === email)) {
+      alert('Email already registered!');
+      return;
+    }
+    if (users.find(u => u.username.toLowerCase() === username.toLowerCase())) {
+      alert('Username already taken!');
+      return;
+    }
+
+    users.push({ username, email, password });
+    saveUsers(users);
+
+    localStorage.setItem('loggedInUserEmail', email);
+
+    // Qof kasta wuxuu u leexanayaa dashboard.html
+    window.location.href = 'dashboard.html';
+  }
+
+  function loginUser() {
+    const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+    const password = document.getElementById('loginPassword').value;
+
+    let users = getUsers();
+    const user = users.find(u => u.email === email && u.password === password);
+
+    if (!user) {
+      alert('Invalid email or password!');
+      return;
+    }
+
+    localStorage.setItem('loggedInUserEmail', email);
+
+    // Qof kasta wuxuu u leexanayaa dashboard.html
+    window.location.href = 'dashboard.html';
+  }
+
+  function forgotPassword() {
+    const email = document.getElementById('forgotEmail').value.trim().toLowerCase();
+    let users = getUsers();
+
+    if (users.some(u => u.email === email)) {
+      alert('Password reset link sent (demo only).');
+      showForm('loginForm');
+    } else {
+      alert('Email not found.');
+    }
+  }
+</script>

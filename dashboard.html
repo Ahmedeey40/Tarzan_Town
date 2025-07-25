@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center p-6">
+  <h1 id="welcomeMessage" class="text-3xl font-bold mb-4">Loading...</h1>
+  <p class="mb-6">Choose an option below:</p>
+
+  <div class="space-x-4">
+    <a href="user_dashboard.html" class="px-6 py-3 bg-blue-600 text-white rounded hover:bg-blue-700 transition">User Dashboard</a>
+    <a href="profile_edit.html" class="px-6 py-3 bg-green-600 text-white rounded hover:bg-green-700 transition">Edit Profile</a>
+  </div>
+
+  <!-- Button Get Link -->
+  <button id="getLinkBtn" class="mt-6 px-6 py-3 bg-purple-600 text-white rounded hover:bg-purple-700 transition">
+    Get Your Link
+  </button>
+
+  <!-- Link Display -->
+  <a id="userLink" href="#" target="_blank" rel="noopener noreferrer" class="mt-4 text-blue-700 underline cursor-pointer hidden"></a>
+
+  <button id="logoutBtn" class="mt-8 px-6 py-3 bg-red-600 text-white rounded hover:bg-red-700 transition">Logout</button>
+
+  <script>
+    const loggedInEmail = localStorage.getItem('loggedInUserEmail');
+    if (!loggedInEmail) {
+      window.location.href = 'index.html';
+    } else {
+      const users = JSON.parse(localStorage.getItem('usersDB')) || [];
+      const user = users.find(u => u.email === loggedInEmail);
+      const welcomeMsg = document.getElementById('welcomeMessage');
+
+      if (user) {
+        welcomeMsg.textContent = `Welcome to ${user.username}`;
+      } else {
+        welcomeMsg.textContent = 'Welcome to your Dashboard';
+      }
+
+      document.getElementById('getLinkBtn').addEventListener('click', () => {
+        if(user && user.username) {
+          const domain = 'https://globamart.online/';
+          // URL with query parameter for user_dashboard.html
+          const fullLink = `${window.location.origin}/user_dashboard.html?user=${encodeURIComponent(user.username)}`;
+
+          const linkDisplay = document.getElementById('userLink');
+          linkDisplay.textContent = fullLink;
+          linkDisplay.href = fullLink;
+          linkDisplay.classList.remove('hidden');
+        } else {
+          alert('User data not found!');
+        }
+      });
+    }
+
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      localStorage.removeItem('loggedInUserEmail');
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>

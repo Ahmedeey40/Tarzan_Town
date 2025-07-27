@@ -103,14 +103,14 @@
 
     const loggedInEmail = localStorage.getItem('loggedInUserEmail');
     if (!loggedInEmail) {
-      window.location.href = 'index.html';
+      window.location.href = '/index';
     }
 
     const users = JSON.parse(localStorage.getItem('usersDB')) || [];
     const currentUserIndex = users.findIndex(u => u.email === loggedInEmail);
     if (currentUserIndex === -1) {
       alert('User data not found.');
-      window.location.href = 'dashboard.html';
+      window.location.href = '/dashboard';
     }
     const user = users[currentUserIndex];
 
@@ -196,12 +196,12 @@
       localStorage.setItem('usersDB', JSON.stringify(users));
 
       alert('Profile updated successfully!');
-      window.location.href = 'user_dashboard.html'; // Adjust if needed
+      window.location.href = '/user_dashboard'; // Adjust if needed
     });
 
     document.getElementById('logoutBtn').addEventListener('click', () => {
       localStorage.removeItem('loggedInUserEmail');
-      window.location.href = 'index.html';
+      window.location.href = '/index';
     });
   </script>
 

@@ -1,0 +1,14 @@
+# Enable RewriteEngine
+RewriteEngine On
+
+# Ensure .html is required (no extension hiding)
+Options +Indexes
+AddType text/html .html
+
+# Prevent directory listing (optional - for security)
+Options -Indexes
+
+# Force displaying .html URLs
+# If users try to access /tusaale (without .html), redirect them to /tusaale.html
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^/]+)/?$ $1.html [R=301,L]

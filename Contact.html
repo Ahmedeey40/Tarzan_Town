@@ -4,70 +4,72 @@
   <meta charset="UTF-8" />
   <title>Contact - Tarzan Town</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <head>
-  <!-- ... meta tags, title, stylesheets, iwm ... -->
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ContactPage",
-    "mainEntity": {
-      "@type": "Organization",
-      "name": "Tarzan Town",
-      "url": "https://globamart.online/contact",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+252684029977",
-        "contactType": "customer service",
-        "email": "ahmedcrb1256@gmail.com",
-        "areaServed": "SO",
-        "availableLanguage": ["English", "Somali"]
-      }
-    }
-  }
+  
+  <!-- FontAwesome for icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: "class" };
   </script>
+  <link rel="stylesheet" href="style.css" />
 
+  <!-- Structured Data (ContactPage + FAQPage combined) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
+    "@graph": [
       {
-        "@type": "Question",
-        "name": "How soon will I get a response?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We typically respond within 24-48 hours on business days."
+        "@type": "ContactPage",
+        "mainEntity": {
+          "@type": "Organization",
+          "name": "Tarzan Town",
+          "url": "https://globamart.online/contact",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+252684029977",
+            "contactType": "Customer Service",
+            "email": "ahmedcrb1256@gmail.com",
+            "areaServed": "SO",
+            "availableLanguage": ["English", "Somali"]
+          }
         }
       },
       {
-        "@type": "Question",
-        "name": "Can I request custom services?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, please describe your requirements in the message form and we will get back to you."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Where is Tarzan Town located?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Our office is based in Mogadishu, Somalia, but we provide online services globally."
-        }
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How soon will I get a response?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We typically respond within 24-48 hours on business days."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I request custom services?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, please describe your requirements in the message form and we will get back to you."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where is Tarzan Town located?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our office is based in Mogadishu, Somalia, but we provide online services globally."
+            }
+          }
+        ]
       }
     ]
   }
   </script>
-
-</head>
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = { darkMode: 'class' };
-  </script>
-  <link rel="stylesheet" href="style.css" />
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-white">
 
@@ -78,102 +80,154 @@
       <button id="menu-btn" aria-label="Toggle menu" class="text-xl md:hidden">☰</button>
       <div class="nav-links hidden md:flex space-x-6">
         <a href="/index" class="hover:text-indigo-500">Home</a>
-        <a href="/Contact" class="hover:text-indigo-500 font-semibold">Contact</a>
-        <a href="/About" class="hover:text-indigo-500">About</a>
-        <a href="/Services" class="hover:text-indigo-500">Services</a>
+        <a href="/contact" class="hover:text-indigo-500 font-semibold">Contact</a>
+        <a href="/about" class="hover:text-indigo-500">About</a>
+        <a href="/services" class="hover:text-indigo-500">Services</a>
       </div>
     </div>
   </nav>
+  <br>
+<section class="max-w-lg mx-auto p-6 mb-12 rounded-lg bg-indigo-50 dark:bg-indigo-900 text-indigo-900 dark:text-indigo-100 font-sans">
+  <h2 class="text-center text-2xl font-semibold mb-6">How to Send a Message</h2>
+  <ol class="list-decimal list-inside space-y-3 text-base leading-relaxed">
+    <li><strong>Enter your full name</strong> — Please provide your complete name so we can address you properly.</li>
+    <li><strong>Enter your email address</strong> — This allows us to send you a reply.</li>
+    <li><strong>Write your message</strong> — Share your question, feedback, or request clearly.</li>
+    <li><strong>Click the "Send Message" button</strong> — To submit your message to us.</li>
+  </ol>
+  <p class="mt-6 text-center italic text-indigo-700 dark:text-indigo-300">Following these steps ensures your message reaches us successfully.</p>
+</section>
 
-  <main class="container max-w-4xl mx-auto p-6">
-    <h1 class="text-3xl font-bold mb-8 text-center">Contact Us</h1>
+<main class="container max-w-4xl mx-auto p-6">
+  <h1 class="text-3xl font-bold mb-8 text-center">Contact Us</h1>
 
-    <!-- Contact Form -->
-    <form action="https://formspree.io/f/xblkgvvr" method="POST" class="max-w-lg mx-auto space-y-6 bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md">
-      <h2 class="text-2xl font-semibold mb-4 text-center">Send us a message</h2>
+  <!-- Contact Form -->
+  <form
+    action="https://formspree.io/f/xblkgvvr"
+    method="POST"
+    class="max-w-lg mx-auto space-y-6 bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md"
+  >
+    <h2 class="text-2xl font-semibold mb-4 text-center">Send us a message</h2>
 
-      <div>
-        <label for="name" class="block mb-1 font-semibold">Name</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          required
-          class="w-full px-4 py-2 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
-        />
-      </div>
+    <div>
+      <label for="name" class="block mb-1 font-semibold">Name</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        class="w-full px-4 py-2 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        placeholder="Your name"
+      />
+    </div>
 
-      <div>
-        <label for="email" class="block mb-1 font-semibold">Email</label>
-        <input
-          type="email"
-          id="email"
-          name="_replyto"
-          required
-          class="w-full px-4 py-2 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
-        />
-      </div>
+    <div>
+      <label for="email" class="block mb-1 font-semibold">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="_replyto"
+        required
+        class="w-full px-4 py-2 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        placeholder="Your email"
+      />
+    </div>
 
-      <div>
-        <label for="message" class="block mb-1 font-semibold">Message</label>
-        <textarea
-          id="message"
-          name="message"
-          rows="4"
-          required
-          class="w-full px-4 py-2 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
-        ></textarea>
-      </div>
+    <div>
+      <label for="message" class="block mb-1 font-semibold">Message</label>
+      <textarea
+        id="message"
+        name="message"
+        rows="4"
+        required
+        class="w-full px-4 py-2 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        placeholder="Your message here"
+      ></textarea>
+    </div>
 
-      <button
-        type="submit"
-        class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded transition"
+    <button
+      type="submit"
+      class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded transition"
+    >
+      Send Message
+    </button>
+  </form>
+
+    <!-- Contact Info with icons -->
+    <div
+      class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 text-center mt-12 max-w-4xl mx-auto"
+    >
+      <div
+        class="border border-gray-300 dark:border-gray-600 rounded-lg p-6 transition-shadow duration-300 hover:shadow-lg hover:shadow-indigo-500/40 cursor-pointer flex flex-col items-center space-y-2"
       >
-        Send Message
-      </button>
-    </form>
-
-   
-    <!-- Contact Info -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 text-center mt-12">
-      <div class="border border-gray-300 dark:border-gray-600 rounded-lg p-6 transition-shadow duration-300 hover:shadow-lg hover:shadow-blue-500/40 cursor-pointer">
-        <h2 class="font-semibold text-lg mb-1">Location</h2>
+        <i class="fas fa-map-marker-alt text-indigo-600 text-3xl"></i>
+        <h2 class="font-semibold text-lg">Location</h2>
         <p>Mogadishu, Somalia</p>
       </div>
-      <div class="border border-gray-300 dark:border-gray-600 rounded-lg p-6 transition-shadow duration-300 hover:shadow-lg hover:shadow-blue-500/40 cursor-pointer">
-        <h2 class="font-semibold text-lg mb-1">Email</h2>
-        <p><a href="mailto:ahmedcrb1256@gmail.com" class="text-indigo-500 hover:underline">ahmedcrb1256@gmail.com</a></p>
+      <div
+        class="border border-gray-300 dark:border-gray-600 rounded-lg p-6 transition-shadow duration-300 hover:shadow-lg hover:shadow-indigo-500/40 cursor-pointer flex flex-col items-center space-y-2"
+      >
+        <i class="fas fa-envelope text-indigo-600 text-3xl"></i>
+        <h2 class="font-semibold text-lg">Email</h2>
+        <p>
+          <a
+            href="mailto:ahmedcrb1256@gmail.com"
+            class="text-indigo-500 hover:underline"
+            >ahmedcrb1256@gmail.com</a
+          >
+        </p>
       </div>
-      <div class="border border-gray-300 dark:border-gray-600 rounded-lg p-6 transition-shadow duration-300 hover:shadow-lg hover:shadow-blue-500/40 cursor-pointer">
-        <h2 class="font-semibold text-lg mb-1">Telegram</h2>
-        <p><a href="https://t.me/Tarzan_Town" target="_blank" rel="noopener noreferrer" class="text-indigo-500 hover:underline">@tarzantown</a></p>
+      <div
+        class="border border-gray-300 dark:border-gray-600 rounded-lg p-6 transition-shadow duration-300 hover:shadow-lg hover:shadow-indigo-500/40 cursor-pointer flex flex-col items-center space-y-2"
+      >
+        <i class="fab fa-telegram-plane text-indigo-600 text-3xl"></i>
+        <h2 class="font-semibold text-lg">Telegram</h2>
+        <p>
+          <a
+            href="https://t.me/Tarzan_Town"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-indigo-500 hover:underline"
+            >@tarzantown</a
+          >
+        </p>
       </div>
     </div>
 
-    <!-- Phone -->
-    <div class="border border-gray-300 dark:border-gray-600 rounded-lg p-6 mb-8 text-center transition-shadow duration-300 hover:shadow-lg hover:shadow-blue-500/40 cursor-pointer max-w-md mx-auto">
-      <h2 class="font-semibold text-lg mb-1">Phone</h2>
-      <p>+252684029977</p>
+    <!-- Phone with icon -->
+    <div
+      class="border border-gray-300 dark:border-gray-600 rounded-lg p-6 mb-8 text-center transition-shadow duration-300 hover:shadow-lg hover:shadow-indigo-500/40 cursor-pointer max-w-md mx-auto flex flex-col items-center space-y-2"
+    >
+      <i class="fas fa-phone-alt text-indigo-600 text-3xl"></i>
+      <h2 class="font-semibold text-lg">Phone</h2>
+      <p>+252 684 029 977</p>
     </div>
 
     <!-- Why Contact Section -->
-    <section class="max-w-lg mx-auto mb-10 p-6 bg-gray-50 dark:bg-gray-700 rounded">
+    <section
+      class="max-w-lg mx-auto mb-10 p-6 bg-gray-50 dark:bg-gray-700 rounded"
+    >
       <h2 class="text-2xl font-semibold mb-4">Why Contact Tarzan Town?</h2>
       <p class="mb-4">
-        At Tarzan Town, we are committed to providing exceptional services and support to all our visitors.
-        Whether you have questions, need assistance, or want to share your feedback, our team is here to help.
+        At Tarzan Town, we are committed to providing exceptional services and
+        support to all our visitors. Whether you have questions, need
+        assistance, or want to share your feedback, our team is here to help.
       </p>
       <p class="mb-4">
-        Please fill out the form above with your details and message, and we will respond within 24-48 hours.
-        Your inquiries help us improve our services and serve you better.
+        Please fill out the form above with your details and message, and we
+        will respond within 24-48 hours. Your inquiries help us improve our
+        services and serve you better.
       </p>
       <p>
-        You can also reach us through the contact information listed above or follow us on social media for updates and news.
+        You can also reach us through the contact information listed above or
+        follow us on social media for updates and news.
       </p>
     </section>
 
     <!-- FAQ Section -->
-    <section class="max-w-lg mx-auto mb-10 p-6 bg-gray-50 dark:bg-gray-700 rounded">
+    <section
+      class="max-w-lg mx-auto mb-10 p-6 bg-gray-50 dark:bg-gray-700 rounded"
+    >
       <h2 class="text-2xl font-semibold mb-4">Frequently Asked Questions</h2>
       <dl class="space-y-4">
         <div>
@@ -182,11 +236,17 @@
         </div>
         <div>
           <dt class="font-semibold">Can I request custom services?</dt>
-          <dd>Yes, please describe your requirements in the message form and we will get back to you.</dd>
+          <dd>
+            Yes, please describe your requirements in the message form and we
+            will get back to you.
+          </dd>
         </div>
         <div>
           <dt class="font-semibold">Where is Tarzan Town located?</dt>
-          <dd>Our office is based in Mogadishu, Somalia, but we provide online services globally.</dd>
+          <dd>
+            Our office is based in Mogadishu, Somalia, but we provide online
+            services globally.
+          </dd>
         </div>
       </dl>
     </section>
@@ -237,4 +297,5 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 

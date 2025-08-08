@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fullscreen Gallery with Copy</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="style.css" />
+  <style>
+
+    .modal-bg { background-color: rgba(0,0,0,0.85); }
+    .clickable-title:hover { text-decoration: underline; cursor: pointer; color: #4f46e5; }
+    button.copy-btn {
+      background: none; border: none; cursor: pointer; font-size: 1.1rem;
+      color: #4f46e5; padding: 0; display: inline-flex; align-items: center;
+    }
+    button.copy-btn:hover { color: #4338ca; }
+  </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white ">
+  
+
+  <!-- Navbar -->
+    <!-- Navbar -->
+  <nav id="navbar">
+    <div class="nav-content">
+      <div class="logo">Tarzan Town</div>
+      <button id="menu-btn" aria-label="Toggle menu">☰</button>
+      <div class="nav-links" id="nav-links">
+        <a href="/index">Home</a>
+        <a href="/Contact">Contact</a>
+        <a href="About.html">About</a>
+        <a href="/Services">Services</a>
+      </div>
+    </div>
+  </nav>
+  <br>
+
+  <h1 class="text-3xl font-bold mb-8 text-center">Gallery Fullscreen Modal</h1>
+
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+
+    <!-- Looped items -->
+    <script>
+      const galleryItems = [
+        { img: "image10.jpg", title: "Software Developer (Cyberpunk style)", desc: "Transform the uploaded image (keep face details properly) into a digitally captured scene featuring a young, bearded software developer deeply engrossed in coding at a sleek, transparent laptop set against a cyberpunk backdrop. Neon blue and purple lights permeate the environment, accentuating his focused expression, and the glowing, holographic interface displays colorful Python code along with an AI Assistant window, while floating code streams and a mechanical arm add to the futuristic ambiance." },
+        { img: "image11.jpg", title: "Professor in Smart Academic Office", desc: "Transform the uploaded image (keep face details properly) into a digitally captured scene featuring a wise professor seated in a modern, tech-enhanced academic office. Digital bookshelves surround him, filled with glowing archives. A smart blackboard displays evolving equations and philosophical notes in real-time. A virtual student appears in a floating screen as he lectures with calm intensity, surrounded by soft ambient lighting and hovering educational holograms." },
+        { img: "image9.jpg", title: "Futuristic Medical Doctor", desc: "Transform the uploaded image (keep face details properly) into a digitally captured scene featuring a futuristic doctor in a sterile, high-tech medical lab. Dressed in a sleek, AI-integrated white lab coat, he examines patient data projected from a holographic interface. Robotic arms assist in real-time diagnostics while anatomical models rotate beside him. The room glows with neon green and cool white lights as he analyzes a 3D organ scan with laser precision." },
+        { img: "image8.jpg", title: "Mechanical Engineer in Robotic Lab", desc: "Transform the uploaded image (keep face details properly) into a digitally captured scene showing a mechanical engineer inside a cutting-edge robotics lab. The atmosphere is infused with amber lighting and holographic machinery specs. He operates a robotic exoskeleton, adjusting its core processors, while drones hover and robotic limbs assemble parts around him. Digital schematics stream mid-air as he controls the system via AR gloves." },
+        { img: "image1.jpg", title: "Scientist in AI Research Center", desc: "Transform the uploaded image (keep face details properly) into a digitally rendered scene featuring a cutting-edge scientist in a deep AI research lab. Quantum computers line the background, and glowing panels of neural networks shift dynamically. The scientist is analyzing real-time AI evolution patterns with a holographic genome model floating beside him. His focused face reflects the ever-changing code streaming around the room." },
+        { img: "image2.jpg", title: "Pilot in Futuristic Aircraft Cockpit", desc: "Transform the uploaded image (keep face details properly) into a digitally captured scene showing a futuristic pilot inside a glowing cockpit. Transparent control panels respond to his touch, while AR maps and atmospheric data swirl before him. The city skyline glows in the distance through curved glass. Dressed in a sleek pilot suit with smart-helmet retracted, he prepares for hyper-speed navigation across a neon-lit world." },
+        { img: "image7.jpg", title: "Digital Artist with VR Gear", desc: "Transform the uploaded image (keep face details properly) into a digitally captured scene of a digital artist wearing VR gear immersed in creating holographic 3D sculptures. Neon pink and blue lights illuminate the room, and virtual brushes float around as she molds her creations mid-air. The space is futuristic yet cozy, filled with tech-infused art materials and floating color palettes." },
+        { img: "image3.jpg", title: "Cyber Security Analyst", desc: "Transform the uploaded image (keep face details properly) into a digitally captured scene featuring a cyber security analyst surrounded by multi-layered firewall holograms and code streams. Intense neon red and blue lights highlight the urgency. The analyst wears smart glasses and rapidly types on a holographic keyboard, deflecting virtual cyber-attacks with AI-assisted defenses in a futuristic control center." },
+        { img: "image5.jpg", title: "Smart City Planner with AR", desc: "Transform the uploaded image (keep face details properly) into a digitally captured scene showing a smart city planner working with augmented reality city maps floating in the air. Blueprints and real-time traffic data hover as he adjusts zoning with intuitive hand gestures. The room is filled with soft white light and panoramic city views with dynamic digital overlays." },
+        { img: "image6.jpg", title: "AI Ethics Consultant", desc: "Transform the uploaded image (keep face details properly) into a digitally captured scene featuring an AI ethics consultant mediating a debate in a futuristic conference room. Holographic screens display AI decision trees and moral algorithms. The consultant gestures calmly, surrounded by attendees engaged in a transparent discussion. Soft blue lighting emphasizes clarity and transparency." },
+        { img: "image4.jpg", title: "Dark Background", desc: "Samee sawir madow iyo caddaan ah oo muuqaal dhow (close-up) oo leh kala duwanaansho iftiin iyo mugdi (high contrast), oo: Muujinaya nuska midig ee wejiga wiilka sawirka ku jira (nuska midig si qoto dheer loo iftiimiyay; nuska kale hoos mugdi ah). Wajigu qayb ahaan biyaha ku jiro, isagoo leh dhibco biyo iyo xumbo yar yar oo ka muuqata maqaarka iyo timaha. Asalka (background) waa madow mugdi ah. Muujin faahfaahinta maqaarka, beard stubble (timo gaaban), iyo indhaha si fiiro gaar ah leh. U samee jawi cinematic ah oo niyad leh oo dareen gelinaya."}
+      ];
+    </script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const container = document.querySelector('.max-w-6xl');
+        galleryItems.forEach(item => {
+          const div = document.createElement('div');
+          div.className = "bg-white dark:bg-gray-800 rounded-lg shadow p-4";
+          div.innerHTML = `
+            <img src="${item.img}" alt="${item.title}" class="rounded w-full object-cover" />
+            <div class="mt-3">
+              <div class="clickable-title font-semibold text-lg flex items-center gap-2"
+                onclick="openModal('${item.img}', '${item.title}', '${item.desc.replace(/'/g, "\\'")}')">
+                ${item.title}
+              </div>
+            </div>
+          `;
+          container.appendChild(div);
+        });
+      });
+    </script>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="fixed inset-0 hidden items-center justify-center modal-bg z-50 p-4" role="dialog" aria-modal="true">
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg w-full h-full flex flex-col relative overflow-hidden">
+
+      <!-- Close button -->
+      <button aria-label="Close modal" class="absolute top-2 right-3 text-gray-200 hover:text-red-400 text-3xl font-bold z-50"
+        onclick="closeModal()">&times;</button>
+
+      <!-- Image fullscreen responsive -->
+      <div class="flex-grow flex items-center justify-center bg-black">
+        <img id="modalImage" src="" alt="" class="max-h-full max-w-full object-contain rounded" />
+      </div>
+
+      <!-- Text + copy -->
+      <div class="p-4 bg-gray-100 dark:bg-gray-900 border-t border-gray-300 dark:border-gray-700">
+        <div class="flex items-center justify-between">
+          <h2 id="modalTitle" class="text-xl font-semibold"></h2>
+          <button onclick="copyTextFromModal()" title="Copy full text" class="text-indigo-600 hover:text-indigo-800">
+            <i class="fa-regular fa-copy text-lg"></i>
+          </button>
+        </div>
+        <p id="modalDesc" class="text-gray-700 dark:text-gray-300 mt-2"></p>
+      </div>
+
+    </div>
+  </div>
+
+    <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 py-8">
+    <div
+      class="container mx-auto text-center space-y-3 max-w-4xl"
+    >
+      <div class="space-x-6 text-gray-400 text-lg">
+        <a
+          href="https://www.facebook.com/Tarzan.crb.10"
+          class="hover:text-indigo-400 transition"
+          ><i class="fab fa-facebook-f mr-1"></i> Facebook</a
+        >
+        <a
+          href="https://x.com/ahmedcrb125?t=aBmd3Y0iQPay3OYtxx29zA&s=09"
+          class="hover:text-indigo-400 transition"
+          ><i class="fab fa-twitter mr-1"></i> Twitter</a
+        >
+        <a
+          href="https://t.me/Tarzan_Town"
+          class="hover:text-indigo-400 transition"
+          ><i class="fab fa-telegram mr-1"></i> Telegram</a
+        >
+        <a
+          href="https://www.tiktok.com/@ahmett_crb?_t=ZM-8yIKFnwoHU0&_r=1"
+          class="hover:text-indigo-400 transition"
+          ><i class="fab fa-tiktok mr-1"></i> TikTok</a
+        >
+        <a
+          href="mailto:ahmedcrb1256@gmail.com"
+          class="hover:text-indigo-400 transition"
+          ><i class="fab fa-linkedin-in mr-1"></i> LinkedIn</a
+        >
+      </div>
+
+      <div class="mt-4 text-sm">
+        <p>Learn & Support | How Works Tarzan Town | Help Center | Community</p>
+        <p>
+          <a href="/terms" class="hover:text-indigo-400">Terms of Use</a> ·
+          <a href="/Privacy-Policy" class="hover:text-indigo-400"
+            >Privacy Policy</a
+          >
+        </p>
+      </div>
+    </div>
+    <p class="mt-4">&copy; 2025 Tarzan Town. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <script>
+    function openModal(imageUrl, title, description) {
+      document.getElementById('modalImage').src = imageUrl;
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalDesc').textContent = description;
+      const modal = document.getElementById('modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('modal');
+      modal.classList.remove('flex');
+      modal.classList.add('hidden');
+      document.getElementById('modalImage').src = '';
+    }
+
+    // Close modal if clicked on background
+    document.getElementById('modal').addEventListener('click', (e) => {
+      if (e.target.id === 'modal') {
+        closeModal();
+      }
+    });
+
+    // Copy full text (title + description)
+    function copyTextFromModal() {
+      const title = document.getElementById('modalTitle').textContent.trim();
+      const desc = document.getElementById('modalDesc').textContent.trim();
+      const fullText = `${title}\n${desc}`;
+      navigator.clipboard.writeText(fullText)
+        .then(() => alert('Full caption copied!'))
+        .catch(() => alert('Failed to copy.'));
+    }
+  </script>
+
+</body>
+</html>

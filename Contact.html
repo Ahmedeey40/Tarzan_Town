@@ -2,33 +2,32 @@
 <html lang="en" class="dark">
 <head>
   <meta charset="UTF-8" />
-  <title>Contact</title>
+  <title>Contact - Tarzan Town</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = { darkMode: 'class' };
   </script>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-white">
 
   <!-- Navbar -->
-  <nav id="navbar">
-    <div class="nav-content">
-      <div class="logo">Tarzan Town</div>
-      <button id="menu-btn" aria-label="Toggle menu">☰</button>
-      <div class="nav-links" id="nav-links">
-        <a href="/index">Home</a>
-        <a href="/Contact">Contact</a>
-        <a href="/About">About</a>
-        <a href="/Services">Services</a>
+  <nav id="navbar" class="bg-gray-100 dark:bg-gray-800 shadow-md">
+    <div class="nav-content max-w-7xl mx-auto flex items-center justify-between p-4">
+      <div class="logo font-bold text-xl text-indigo-600">Tarzan Town</div>
+      <button id="menu-btn" aria-label="Toggle menu" class="text-xl md:hidden">☰</button>
+      <div class="nav-links hidden md:flex space-x-6">
+        <a href="/index" class="hover:text-indigo-500">Home</a>
+        <a href="/Contact" class="hover:text-indigo-500 font-semibold">Contact</a>
+        <a href="/About" class="hover:text-indigo-500">About</a>
+        <a href="/Services" class="hover:text-indigo-500">Services</a>
       </div>
     </div>
   </nav>
 
-  <main class="container mx-auto p-6">
+  <main class="container max-w-4xl mx-auto p-6">
     <h1 class="text-3xl font-bold mb-8 text-center">Contact Us</h1>
 
     <!-- Contact Form -->
@@ -75,25 +74,25 @@
         Send Message
       </button>
     </form>
+
+    <!-- Google AdSense Ad -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2983718503803918"
      crossorigin="anonymous"></script>
-<!-- Homepage Banner -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-2983718503803918"
-     data-ad-slot="6389519574"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-    
+    <ins class="adsbygoogle my-8 block"
+         style="display:block"
+         data-ad-client="ca-pub-2983718503803918"
+         data-ad-slot="6389519574"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
 
     <!-- Contact Info -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 text-center mt-12">
       <div class="border border-gray-300 dark:border-gray-600 rounded-lg p-6 transition-shadow duration-300 hover:shadow-lg hover:shadow-blue-500/40 cursor-pointer">
         <h2 class="font-semibold text-lg mb-1">Location</h2>
-        <p><br />Mogadishu, Somalia</p>
+        <p>Mogadishu, Somalia</p>
       </div>
       <div class="border border-gray-300 dark:border-gray-600 rounded-lg p-6 transition-shadow duration-300 hover:shadow-lg hover:shadow-blue-500/40 cursor-pointer">
         <h2 class="font-semibold text-lg mb-1">Email</h2>
@@ -111,48 +110,45 @@
       <p>+252684029977</p>
     </div>
 
+    <!-- Why Contact Section -->
     <section class="max-w-lg mx-auto mb-10 p-6 bg-gray-50 dark:bg-gray-700 rounded">
-  <h2 class="text-2xl font-semibold mb-4">Why Contact Tarzan Town?</h2>
-  <p class="mb-4">
-    At Tarzan Town, we are committed to providing exceptional services and support to all our visitors.
-    Whether you have questions, need assistance, or want to share your feedback, our team is here to help.
-  </p>
-  <p class="mb-4">
-    Please fill out the form below with your details and message, and we will respond within 24-48 hours.
-    Your inquiries help us improve our services and serve you better.
-  </p>
-  <p>
-    You can also reach us through the contact information listed below or follow us on social media for updates and news.
-  </p>
-</section>
+      <h2 class="text-2xl font-semibold mb-4">Why Contact Tarzan Town?</h2>
+      <p class="mb-4">
+        At Tarzan Town, we are committed to providing exceptional services and support to all our visitors.
+        Whether you have questions, need assistance, or want to share your feedback, our team is here to help.
+      </p>
+      <p class="mb-4">
+        Please fill out the form above with your details and message, and we will respond within 24-48 hours.
+        Your inquiries help us improve our services and serve you better.
+      </p>
+      <p>
+        You can also reach us through the contact information listed above or follow us on social media for updates and news.
+      </p>
+    </section>
 
-<section class="max-w-lg mx-auto mb-10 p-6 bg-gray-50 dark:bg-gray-700 rounded">
-  <h2 class="text-2xl font-semibold mb-4">Frequently Asked Questions</h2>
-  <dl class="space-y-4">
-    <div>
-      <dt class="font-semibold">How soon will I get a response?</dt>
-      <dd>We typically respond within 24-48 hours on business days.</dd>
-    </div>
-    <div>
-      <dt class="font-semibold">Can I request custom services?</dt>
-      <dd>Yes, please describe your requirements in the message form and we will get back to you.</dd>
-    </div>
-    <div>
-      <dt class="font-semibold">Where is Tarzan Town located?</dt>
-      <dd>Our office is based in Mogadishu, Somalia, but we provide online services globally.</dd>
-    </div>
-  </dl>
-</section>
-
-
+    <!-- FAQ Section -->
+    <section class="max-w-lg mx-auto mb-10 p-6 bg-gray-50 dark:bg-gray-700 rounded">
+      <h2 class="text-2xl font-semibold mb-4">Frequently Asked Questions</h2>
+      <dl class="space-y-4">
+        <div>
+          <dt class="font-semibold">How soon will I get a response?</dt>
+          <dd>We typically respond within 24-48 hours on business days.</dd>
+        </div>
+        <div>
+          <dt class="font-semibold">Can I request custom services?</dt>
+          <dd>Yes, please describe your requirements in the message form and we will get back to you.</dd>
+        </div>
+        <div>
+          <dt class="font-semibold">Where is Tarzan Town located?</dt>
+          <dd>Our office is based in Mogadishu, Somalia, but we provide online services globally.</dd>
+        </div>
+      </dl>
+    </section>
   </main>
-  
+
   <!-- Footer -->
   <footer class="bg-gray-900 text-gray-300 py-8">
-    <div class="container mx-auto text-center space-y-3">
-
-
-
+    <div class="container mx-auto text-center space-y-3 max-w-4xl">
       <div class="space-x-6 text-gray-400 text-lg">
         <a href="https://www.facebook.com/Tarzan.crb.10" class="hover:text-indigo-400 transition">
           <i class="fab fa-facebook-f mr-1"></i> Facebook
@@ -160,32 +156,25 @@
         <a href="https://x.com/ahmedcrb125?t=aBmd3Y0iQPay3OYtxx29zA&s=09" class="hover:text-indigo-400 transition">
           <i class="fab fa-twitter mr-1"></i> Twitter
         </a>
-
         <a href="https://t.me/Tarzan_Town" class="hover:text-indigo-400 transition">
           <i class="fab fa-telegram mr-1"></i> Telegram
         </a>
-
         <a href="https://www.tiktok.com/@ahmett_crb?_t=ZM-8yIKFnwoHU0&_r=1" class="hover:text-indigo-400 transition">
-          <i class="fab fa-tiktok mr-1"></i> Tiktok
+          <i class="fab fa-tiktok mr-1"></i> TikTok
         </a>
         <a href="mailto:ahmedcrb1256@gmail.com" class="hover:text-indigo-400 transition">
-  <i class="fab fa-linkedin-in mr-1"></i> LinkedIn
-</a>
-
+          <i class="fab fa-linkedin-in mr-1"></i> LinkedIn
+        </a>
       </div>
 
       <div class="mt-4 text-sm">
         <p>Learn & Support | How Works Tarzan Town | Help Center | Community</p>
-        <p><a href="/terms" class="hover:text-indigo-400">Terms of Use</a> · <a href="/Privacy-Policy"
-            class="hover:text-indigo-400">Privacy Policy</a></p>
+        <p><a href="/terms" class="hover:text-indigo-400">Terms of Use</a> · <a href="/Privacy-Policy" class="hover:text-indigo-400">Privacy Policy</a></p>
       </div>
     </div>
-    <p>&copy; 2025 Tarzan Town. All rights reserved.</p>
-
+    <p class="mt-4">&copy; 2025 Tarzan Town. All rights reserved.</p>
   </footer>
 
   <script src="script.js"></script>
-
 </body>
 </html>
-

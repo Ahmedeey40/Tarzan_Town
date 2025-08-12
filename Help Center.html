@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Help Center</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #0f172a;
+      color: #e0e7ff;
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+    }
+  </style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-white">
+
+  <!-- Navbar -->
+    <!-- Navbar -->
+  <nav id="navbar">
+    <div class="nav-content">
+      <div class="logo">Tarzan Town</div>
+      <button id="menu-btn" aria-label="Toggle menu">☰</button>
+      <div class="nav-links" id="nav-links">
+        <a href="/index">Home</a>
+        <a href="/Contact">Contact</a>
+        <a href="About.html">About</a>
+        <a href="/Services">Services</a>
+        <a href="my_libary.html">My Libary</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-grow container mx-auto px-4 py-8 max-w-5xl">
+<h1 class="text-3xl font-bold text-white">Help Center</h1>
+    <!-- Search Bar -->
+    <div class="mb-10">
+      <input
+        type="search"
+        placeholder="Search help articles..."
+        class="w-full rounded-md px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-600"
+        id="searchInput"
+      />
+    </div>
+
+    <!-- Categories -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-6 border-b border-blue-600 pb-2">Categories</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div class="bg-[#1e293b] p-6 rounded-lg shadow-md hover:shadow-lg transition cursor-pointer">
+          <h3 class="text-xl font-semibold mb-2 text-white">Account & Profile</h3>
+          <p class="text-gray-400">Manage your account settings and profile information.</p>
+        </div>
+        <div class="bg-[#1e293b] p-6 rounded-lg shadow-md hover:shadow-lg transition cursor-pointer">
+          <h3 class="text-xl font-semibold mb-2 text-white">Payments & Billing</h3>
+          <p class="text-gray-400">Learn about payment methods and billing questions.</p>
+        </div>
+        <div class="bg-[#1e293b] p-6 rounded-lg shadow-md hover:shadow-lg transition cursor-pointer">
+          <h3 class="text-xl font-semibold mb-2 text-white">Technical Issues</h3>
+          <p class="text-gray-400">Get help with bugs, errors, and troubleshooting.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+<section>
+  <h2 class="text-2xl font-semibold mb-6 border-b border-blue-600 pb-2">Frequently Asked Questions</h2>
+  <div class="space-y-4 max-w-3xl">
+    <details class="bg-[#1e293b] p-4 rounded-lg shadow-md cursor-pointer">
+      <summary class="font-semibold text-white cursor-pointer">How do I reset my password?</summary>
+      <p class="mt-2 text-gray-300">
+        To reset your password, go to the login page and click on "Forgot Password". Follow the instructions sent to your email.
+      </p>
+    </details>
+    <details class="bg-[#1e293b] p-4 rounded-lg shadow-md cursor-pointer">
+      <summary class="font-semibold text-white cursor-pointer">How can I update my billing information?</summary>
+      <p class="mt-2 text-gray-300">
+        You can update your billing information under the Payments & Billing section in your account settings.
+      </p>
+    </details>
+    <details class="bg-[#1e293b] p-4 rounded-lg shadow-md cursor-pointer">
+      <summary class="font-semibold text-white cursor-pointer">Who can I contact for support?</summary>
+      <p class="mt-2 text-gray-300">
+        If you need direct assistance, please visit our Contact page or email <a href="mailto:ahmedcrb1256@gmail.com" class="text-blue-400 underline">ahmedcrb1256@gmail.com</a>.
+      </p>
+    </details>
+    <details class="bg-[#1e293b] p-4 rounded-lg shadow-md cursor-pointer">
+      <summary class="font-semibold text-white cursor-pointer">How can I get the most out of the site?</summary>
+      <p class="mt-2 text-gray-300">
+        Explore courses regularly, join discussions, and participate actively in the community to learn and grow your skills.
+      </p>
+    </details>
+    <details class="bg-[#1e293b] p-4 rounded-lg shadow-md cursor-pointer">
+      <summary class="font-semibold text-white cursor-pointer">How do I add or update my profile image?</summary>
+      <p class="mt-2 text-gray-300">
+        Go to your profile settings and upload a clear picture from your device. Make sure the image is square for best display.
+      </p>
+    </details>
+    <details class="bg-[#1e293b] p-4 rounded-lg shadow-md cursor-pointer">
+      <summary class="font-semibold text-white cursor-pointer">How can I contact support?</summary>
+      <p class="mt-2 text-gray-300">
+        You can contact support by emailing us at <a href="mailto:ahmedcrb1256@gmail.com" class="text-blue-400 underline">ahmedcrb1256@gmail.com</a> or through the Contact page on the site.
+      </p>
+    </details>
+    <details class="bg-[#1e293b] p-4 rounded-lg shadow-md cursor-pointer">
+      <summary class="font-semibold text-white cursor-pointer">How can we assist you?</summary>
+      <p class="mt-2 text-gray-300">
+        Feel free to reach out with any questions or feedback. We're here to help you make the most of your experience.
+      </p>
+    </details>
+  </div>
+</section>
+
+
+  </main>
+
+ 
+ <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 py-8">
+    <div
+      class="container mx-auto text-center space-y-3 max-w-4xl"
+    >
+      <div class="space-x-6 text-gray-400 text-lg">
+        <a
+          href="https://www.facebook.com/Tarzan.crb.10"
+          class="hover:text-indigo-400 transition"
+          ><i class="fab fa-facebook-f mr-1"></i> Facebook</a
+        >
+        <a
+          href="https://x.com/ahmedcrb125?t=aBmd3Y0iQPay3OYtxx29zA&s=09"
+          class="hover:text-indigo-400 transition"
+          ><i class="fab fa-twitter mr-1"></i> Twitter</a
+        >
+        <a
+          href="https://t.me/Tarzan_Town"
+          class="hover:text-indigo-400 transition"
+          ><i class="fab fa-telegram mr-1"></i> Telegram</a
+        >
+        <a
+          href="https://www.tiktok.com/@ahmett_crb?_t=ZM-8yIKFnwoHU0&_r=1"
+          class="hover:text-indigo-400 transition"
+          ><i class="fab fa-tiktok mr-1"></i> TikTok</a
+        >
+        <a
+          href="mailto:ahmedcrb1256@gmail.com"
+          class="hover:text-indigo-400 transition"
+          ><i class="fab fa-linkedin-in mr-1"></i> LinkedIn</a
+        >
+      </div>
+
+      <div class="mt-4 text-sm">
+        <p><a href="/learn"> Learn & Support</a> |<a href="/How_Works">How Works Tarzan Town</a> |<a href="/Help Center">Help Center</a> | <a href="/Community">Community</a></p>
+        <p>
+          <a href="/terms" class="hover:text-indigo-400">Terms of Use</a> ·
+          <a href="/Privacy-Policy" class="hover:text-indigo-400"
+            >Privacy Policy</a
+          >
+        </p>
+      </div>
+    </div>
+    <p class="mt-4">&copy; 2025 Tarzan Town. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <script>
+    // Optional: Simple filter for FAQ or search
+    const searchInput = document.getElementById('searchInput');
+    const faqItems = document.querySelectorAll('details');
+
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.toLowerCase();
+      faqItems.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        if (text.includes(query)) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

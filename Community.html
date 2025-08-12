@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Community - Your Platform</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+  <style>
+  
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #1e293b;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: #2563eb;
+      border-radius: 20px;
+      border: 2px solid #1e293b;
+    }
+  </style>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-white">
+
+  <!-- Navbar -->
+    <!-- Navbar -->
+  <nav id="navbar">
+    <div class="nav-content">
+      <div class="logo">Tarzan Town</div>
+      <button id="menu-btn" aria-label="Toggle menu">☰</button>
+      <div class="nav-links" id="nav-links">
+        <a href="/index">Home</a>
+        <a href="/Contact">Contact</a>
+        <a href="About.html">About</a>
+        <a href="/Services">Services</a>
+        <a href="my_libary.html">My Libary</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="flex-grow container mx-auto px-4 py-8 max-w-5xl">
+
+    <!-- About Section -->
+    <section class="mb-10">
+      <h2 class="text-2xl font-semibold mb-4 border-b border-blue-600 pb-2">About Community</h2>
+      <p class="text-gray-300 leading-relaxed max-w-prose">
+        Welcome to our vibrant community where learners and experts come together to share knowledge, ask questions, and support each other.
+        Join discussions, exchange ideas, and grow your skills with peers from around the world.
+      </p>
+    </section>
+
+    <!-- Members Section -->
+    <section class="mb-10">
+      <h2 class="text-2xl font-semibold mb-4 border-b border-blue-600 pb-2">Members</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <!-- Member Cards -->
+        <div class="bg-[#1e293b] rounded-lg p-4 flex flex-col items-center text-center shadow-md hover:shadow-lg transition">
+          <img src="image7.jpg" alt="Member 1" class="rounded-full mb-3 w-20 h-20 object-cover" />
+          <h3 class="font-semibold text-white">Ayaman Ahmed</h3>
+          <p class="text-gray-400 text-sm">Web Developer</p>
+        </div>
+        <div class="bg-[#1e293b] rounded-lg p-4 flex flex-col items-center text-center shadow-md hover:shadow-lg transition">
+          <img src="image5.jpg" alt="Member 2" class="rounded-full mb-3 w-20 h-20 object-cover" />
+          <h3 class="font-semibold text-white">Mohamed Ali</h3>
+          <p class="text-gray-400 text-sm">Crypto Trader</p>
+        </div>
+        <div class="bg-[#1e293b] rounded-lg p-4 flex flex-col items-center text-center shadow-md hover:shadow-lg transition">
+          <img src="image1.jpg" alt="Member 3" class="rounded-full mb-3 w-20 h-20 object-cover" />
+          <h3 class="font-semibold text-white">Xuseen Warsame</h3>
+          <p class="text-gray-400 text-sm">Forex Analyst</p>
+        </div>
+        <div class="bg-[#1e293b] rounded-lg p-4 flex flex-col items-center text-center shadow-md hover:shadow-lg transition">
+          <img src="image11.jpg" alt="Member 4" class="rounded-full mb-3 w-20 h-20 object-cover" />
+          <h3 class="font-semibold text-white">Jamal Hassan</h3>
+          <p class="text-gray-400 text-sm">Content Creator</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Discussions Section -->
+    <section class="mb-10">
+      <h2 class="text-2xl font-semibold mb-4 border-b border-blue-600 pb-2">Recent Discussions</h2>
+      <div class="space-y-6 max-w-3xl">
+        <article class="bg-[#1e293b] p-4 rounded-lg shadow-md hover:shadow-lg transition cursor-pointer">
+          <h3 class="text-lg font-semibold text-white mb-1">Best Strategies for Forex Trading</h3>
+          <p class="text-gray-400 text-sm">By Mohamed Ali • 2 hours ago</p>
+          <p class="text-gray-300 mt-2">
+            What are the best strategies for consistent profit in Forex? Share your tips!
+          </p>
+        </article>
+        <article class="bg-[#1e293b] p-4 rounded-lg shadow-md hover:shadow-lg transition cursor-pointer">
+          <h3 class="text-lg font-semibold text-white mb-1">Cryptocurrency Trends in 2025</h3>
+          <p class="text-gray-400 text-sm">By Ayaan Ahmed • 1 day ago</p>
+          <p class="text-gray-300 mt-2">
+            Let's discuss upcoming trends and what to watch for in crypto markets this year.
+          </p>
+        </article>
+        <article class="bg-[#1e293b] p-4 rounded-lg shadow-md hover:shadow-lg transition cursor-pointer">
+          <h3 class="text-lg font-semibold text-white mb-1">How to Create Engaging Content?</h3>
+          <p class="text-gray-400 text-sm">By Jamal Hassan • 3 days ago</p>
+          <p class="text-gray-300 mt-2">
+            Tips and tools for content creators to keep audience engaged and grow followers.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- New Message Form -->
+    <section class="mb-12 max-w-3xl">
+      <h2 class="text-2xl font-semibold mb-4 border-b border-blue-600 pb-2">Send a Message</h2>
+     <form id="messageForm" class="space-y-4" action="https://formspree.io/f/xblkgvvr" method="POST">
+  <div>
+    <label for="name" class="block mb-1 font-medium">Name</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      required
+      class="w-full rounded-md border border-gray-600 bg-[#1e293b] px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-600"
+    />
+  </div>
+  <div>
+    <label for="email" class="block mb-1 font-medium">Email</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      required
+      class="w-full rounded-md border border-gray-600 bg-[#1e293b] px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-600"
+    />
+  </div>
+  <div>
+    <label for="message" class="block mb-1 font-medium">Message</label>
+    <textarea
+      id="message"
+      name="message"
+      rows="4"
+      required
+      class="w-full rounded-md border border-gray-600 bg-[#1e293b] px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-600 resize-none"
+    ></textarea>
+  </div>
+  <button
+    type="submit"
+    class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md font-semibold transition"
+  >
+    Send Message
+  </button>
+</form>
+
+      <p id="formMessage" class="mt-3 text-green-400 hidden"></p>
+    </section>
+  </main>
+
+ <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 py-8">
+    <div
+      class="container mx-auto text-center space-y-3 max-w-4xl"
+    >
+      <div class="space-x-6 text-gray-400 text-lg">
+        <a
+          href="https://www.facebook.com/Tarzan.crb.10"
+          class="hover:text-indigo-400 transition"
+          ><i class="fab fa-facebook-f mr-1"></i> Facebook</a
+        >
+        <a
+          href="https://x.com/ahmedcrb125?t=aBmd3Y0iQPay3OYtxx29zA&s=09"
+          class="hover:text-indigo-400 transition"
+          ><i class="fab fa-twitter mr-1"></i> Twitter</a
+        >
+        <a
+          href="https://t.me/Tarzan_Town"
+          class="hover:text-indigo-400 transition"
+          ><i class="fab fa-telegram mr-1"></i> Telegram</a
+        >
+        <a
+          href="https://www.tiktok.com/@ahmett_crb?_t=ZM-8yIKFnwoHU0&_r=1"
+          class="hover:text-indigo-400 transition"
+          ><i class="fab fa-tiktok mr-1"></i> TikTok</a
+        >
+        <a
+          href="mailto:ahmedcrb1256@gmail.com"
+          class="hover:text-indigo-400 transition"
+          ><i class="fab fa-linkedin-in mr-1"></i> LinkedIn</a
+        >
+      </div>
+
+      <div class="mt-4 text-sm">
+        <p><a href="/learn"> Learn & Support</a> |<a href="/How_Works">How Works Tarzan Town</a> |<a href="/Help Center">Help Center</a> | <a href="/Community">Community</a></p>
+        <p>
+          <a href="/terms" class="hover:text-indigo-400">Terms of Use</a> ·
+          <a href="/Privacy-Policy" class="hover:text-indigo-400"
+            >Privacy Policy</a
+          >
+        </p>
+      </div>
+    </div>
+    <p class="mt-4">&copy; 2025 Tarzan Town. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+ <script>
+  const form = document.getElementById('messageForm');
+  const formMessage = document.getElementById('formMessage');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    formMessage.classList.remove('hidden');
+    formMessage.textContent = "Sending...";
+    formMessage.style.color = "#a5b4fc"; // light blue
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        },
+      });
+
+      if (response.ok) {
+        formMessage.textContent = "Thanks for your message! We will get back to you soon.";
+        formMessage.style.color = "#34d399"; // green
+        form.reset();
+      } else {
+        const data = await response.json();
+        if (data.errors) {
+          formMessage.textContent = data.errors.map(err => err.message).join(", ");
+        } else {
+          formMessage.textContent = "Oops! There was a problem submitting your form.";
+        }
+        formMessage.style.color = "#f87171"; // red
+      }
+    } catch (error) {
+      formMessage.textContent = "Oops! There was a problem submitting your form.";
+      formMessage.style.color = "#f87171";
+    }
+  });
+</script>
+
+
+
+</body>
+</html>

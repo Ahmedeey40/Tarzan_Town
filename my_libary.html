@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Video Library with Thumbnails + External YouTube Shorts Link</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <style>
+    .video-card {
+      background-color: #1e293b;
+      padding: 1rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+      margin-bottom: 2rem;
+      max-width: 600px;
+      position: relative;
+      cursor: pointer;
+    }
+    .thumbnail-container {
+      position: relative;
+      width: 100%;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      background: black;
+    }
+    .thumbnail-container img {
+      width: 100%;
+      display: block;
+      border-radius: 0.5rem;
+    }
+    .play-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 4rem;
+      color: rgba(255,255,255,0.8);
+      pointer-events: none;
+      text-shadow: 0 0 10px rgba(0,0,0,0.7);
+    }
+    .video-title {
+      margin-top: 0.75rem;
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+    .share-btn {
+      background-color: #2563eb;
+      color: white;
+      padding: 0.35rem 0.7rem;
+      border-radius: 0.375rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      user-select: none;
+      transition: background-color 0.3s ease;
+    }
+    .share-btn:hover {
+      background-color: #1e40af;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-white">
+
+  <!-- Navbar -->
+    <!-- Navbar -->
+  <nav id="navbar">
+    <div class="nav-content">
+      <div class="logo">Tarzan Town</div>
+      <button id="menu-btn" aria-label="Toggle menu">☰</button>
+      <div class="nav-links" id="nav-links">
+        <a href="/index">Home</a>
+        <a href="/Contact">Contact</a>
+        <a href="About.html">About</a>
+        <a href="/Services">Services</a>
+        <a href="my_libary.html">My Libary</a>
+      </div>
+    </div>
+  </nav>
+  <main id="mainContent" class="max-w-4xl mx-auto">
+
+  </main>
+
+  <script>
+    const videos = [
+      {
+        id: 'l8vYMBtlC4Y',
+        title: 'Short Video 1',
+      },
+      {
+        id: 'iWXtgiQSa9U',
+        title: 'Short Video 2',
+      },
+      {
+        id: 'Dm22tkc96is',
+        title: 'Short Video 3',
+      },
+      {
+        id: 'MjLNa4LH7_I',
+        title: 'Short Video 4',
+      },
+      {
+        id: 'k_mvcWDsk2g',
+        title: 'Short Video 5',
+      }
+    ];
+
+    function buildShortUrl(id) {
+      return `https://youtube.com/shorts/${id}`;
+    }
+
+    function buildThumbnailUrl(id) {
+      // YouTube standard thumbnail for shorts (works same as normal video)
+      return `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
+    }
+
+    function buildShareUrl(id) {
+      return `${window.location.origin}${window.location.pathname}?video=${id}`;
+    }
+
+    function renderVideoList() {
+      const main = document.getElementById('mainContent');
+      main.innerHTML = '<h1 class="text-3xl font-bold mb-8 text-center">My Shorts Library</h1>';
+
+      videos.forEach(video => {
+        const card = document.createElement('div');
+        card.className = 'video-card';
+
+        // Thumbnail + play icon + title + share button
+        card.innerHTML = `
+          <div class="thumbnail-container" title="Watch ${video.title}">
+            <img src="${buildThumbnailUrl(video.id)}" alt="Thumbnail for ${video.title}" />
+            <i class="fas fa-play-circle play-icon"></i>
+          </div>
+          <div class="video-title">${video.title}</div>
+          <button class="share-btn" aria-label="Share ${video.title}"> 
+            <i class="fas fa-share-alt"></i> Share
+          </button>
+        `;
+
+        // Click thumbnail to open YouTube Shorts in new tab
+        card.querySelector('.thumbnail-container').addEventListener('click', () => {
+          window.open(buildShortUrl(video.id), '_blank', 'noopener,noreferrer');
+        });
+
+        // Share button with dropdown menu (WhatsApp, Telegram, Twitter, Facebook)
+        const shareBtn = card.querySelector('.share-btn');
+
+        // Create dropdown manually
+        const dropdown = document.createElement('div');
+        dropdown.className = 'dropdown-menu hidden absolute bg-[#334155] rounded-md shadow-md p-2 mt-2 w-48 flex flex-col gap-2 z-20';
+        dropdown.style.top = '100%';
+        dropdown.style.right = '0';
+
+        dropdown.innerHTML = `
+          <div class="dropdown-item cursor-pointer flex items-center gap-3 text-white hover:bg-blue-600 p-2 rounded" data-platform="whatsapp">
+            <i class="fab fa-whatsapp text-green-400"></i> WhatsApp
+          </div>
+          <div class="dropdown-item cursor-pointer flex items-center gap-3 text-white hover:bg-blue-600 p-2 rounded" data-platform="telegram">
+            <i class="fab fa-telegram-plane text-blue-400"></i> Telegram
+          </div>
+          <div class="dropdown-item cursor-pointer flex items-center gap-3 text-white hover:bg-blue-600 p-2 rounded" data-platform="twitter">
+            <i class="fab fa-twitter text-sky-400"></i> Twitter
+          </div>
+          <div class="dropdown-item cursor-pointer flex items-center gap-3 text-white hover:bg-blue-600 p-2 rounded" data-platform="facebook">
+            <i class="fab fa-facebook-f text-blue-700"></i> Facebook
+          </div>
+        `;
+
+        card.style.position = 'relative';
+        card.appendChild(dropdown);
+
+        shareBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          dropdown.classList.toggle('hidden');
+        });
+
+        // Close dropdown on clicking outside
+        document.addEventListener('click', () => {
+          dropdown.classList.add('hidden');
+        });
+
+        // Handle dropdown item clicks
+        dropdown.querySelectorAll('.dropdown-item').forEach(item => {
+          item.addEventListener('click', () => {
+            const platform = item.getAttribute('data-platform');
+            const shareUrl = encodeURIComponent(buildShareUrl(video.id));
+            const title = encodeURIComponent(video.title);
+            let url = '';
+
+            switch(platform) {
+              case 'whatsapp':
+                url = `https://api.whatsapp.com/send?text=${title}%20${shareUrl}`;
+                break;
+              case 'telegram':
+                url = `https://t.me/share/url?url=${shareUrl}&text=${title}`;
+                break;
+              case 'twitter':
+                url = `https://twitter.com/intent/tweet?text=${title}&url=${shareUrl}`;
+                break;
+              case 'facebook':
+                url = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`;
+                break;
+            }
+
+            window.open(url, '_blank', 'noopener,noreferrer');
+            dropdown.classList.add('hidden');
+          });
+        });
+
+        main.appendChild(card);
+      });
+    }
+
+    renderVideoList();
+  </script>
+
+   <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 py-8">
+    <div
+      class="container mx-auto text-center space-y-3 max-w-4xl"
+    >
+      <div class="space-x-6 text-gray-400 text-lg">
+        <a
+          href="https://www.facebook.com/Tarzan.crb.10"
+          class="hover:text-indigo-400 transition"
+          ><i class="fab fa-facebook-f mr-1"></i> Facebook</a
+        >
+        <a
+          href="https://x.com/ahmedcrb125?t=aBmd3Y0iQPay3OYtxx29zA&s=09"
+          class="hover:text-indigo-400 transition"
+          ><i class="fab fa-twitter mr-1"></i> Twitter</a
+        >
+        <a
+          href="https://t.me/Tarzan_Town"
+          class="hover:text-indigo-400 transition"
+          ><i class="fab fa-telegram mr-1"></i> Telegram</a
+        >
+        <a
+          href="https://www.tiktok.com/@ahmett_crb?_t=ZM-8yIKFnwoHU0&_r=1"
+          class="hover:text-indigo-400 transition"
+          ><i class="fab fa-tiktok mr-1"></i> TikTok</a
+        >
+        <a
+          href="mailto:ahmedcrb1256@gmail.com"
+          class="hover:text-indigo-400 transition"
+          ><i class="fab fa-linkedin-in mr-1"></i> LinkedIn</a
+        >
+      </div>
+
+      <div class="mt-4 text-sm">
+        <p><a href="/learn"> Learn & Support</a> |<a href="/How_Works">How Works Tarzan Town</a> |<a href="/Help Center">Help Center</a> | <a href="/Community">Community</a></p>
+        <p>
+          <a href="/terms" class="hover:text-indigo-400">Terms of Use</a> ·
+          <a href="/Privacy-Policy" class="hover:text-indigo-400"
+            >Privacy Policy</a
+          >
+        </p>
+      </div>
+    </div>
+    <p class="mt-4">&copy; 2025 Tarzan Town. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

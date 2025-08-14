@@ -1,28 +1,63 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Fullscreen Gallery with Copy</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-    <link rel="stylesheet" href="style.css" />
-  <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery Share System</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<link rel="stylesheet" href="style.css">
+<style>
 
-    .modal-bg { background-color: rgba(0,0,0,0.85); }
-    .clickable-title:hover { text-decoration: underline; cursor: pointer; color: #4f46e5; }
-    button.copy-btn {
-      background: none; border: none; cursor: pointer; font-size: 1.1rem;
-      color: #4f46e5; padding: 0; display: inline-flex; align-items: center;
-    }
-    button.copy-btn:hover { color: #4338ca; }
-  </style>
+  .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; padding: 20px; }
+  .gallery img { width: 100%; cursor: pointer; border-radius: 10px; }
+  /* Modal */
+  .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); align-items: center; justify-content: center; z-index: 1000; overflow-y: auto; }
+  .modal-content-wrapper { text-align: center; max-width: 90%; }
+  .modal-content { max-width: 100%; max-height: 80%; border-radius: 10px; }
+  .modal-title { font-weight: bold; margin-top: 10px; font-size: 18px; }
+  .modal-desc { max-width: 800px; margin: 10px auto; font-size: 14px; line-height: 1.4; text-align: left; background: #222; padding: 10px; border-radius: 5px; }
+  .share-buttons { margin-top: 15px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+  .share-buttons button { padding: 8px 12px; border: none; border-radius: 5px; cursor: pointer; font-size: 14px; }
+  .whatsapp { background: #25D366; color: #fff; }
+  .telegram { background: #0088cc; color: #fff; }
+  .copylink { background: #555; color: #fff; }
+  .copydesc { background: #ff8800; color: #fff; }
+  .close-btn { position: absolute; top: 20px; right: 20px; font-size: 25px; cursor: pointer; }
+
+
+  .animated-title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+  animation: fadeInBounce 2s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+/* Hover effect */
+.animated-title:hover {
+  color: #00ffff;
+  text-shadow: 4px 4px 15px rgba(0,255,255,0.8), 0 0 10px #00ffff;
+  transform: scale(1.1) rotate(-2deg);
+}
+
+/* Keyframes for fade in + bounce */
+@keyframes fadeInBounce {
+  0% { opacity: 0; transform: translateY(-30px); }
+  50% { opacity: 1; transform: translateY(10px); }
+  70% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+</style>
+<script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white ">
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+
   
 
   <!-- Navbar -->
-    <!-- Navbar -->
   <nav id="navbar">
     <div class="nav-content">
       <div class="logo">Tarzan Town</div>
@@ -37,78 +72,25 @@
       </div>
     </div>
   </nav>
-  <br>
+<h1 class="animated-title">Prompt Image</h1>
+<div class="gallery" id="gallery"></div>
 
-  <h1 class="text-3xl font-bold mb-8 text-center">Gallery Fullscreen Modal</h1>
 
-  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-
-    <!-- Looped items -->
-    <script>
-      const galleryItems = [
-        { img: "image10.jpg", title: "Software Developer (Cyberpunk style)", desc: "Transform the uploaded image (keep face details properly) into a digitally captured scene featuring a young, bearded software developer deeply engrossed in coding at a sleek, transparent laptop set against a cyberpunk backdrop. Neon blue and purple lights permeate the environment, accentuating his focused expression, and the glowing, holographic interface displays colorful Python code along with an AI Assistant window, while floating code streams and a mechanical arm add to the futuristic ambiance." },
-        { img: "image11.jpg", title: "Professor in Smart Academic Office", desc: "Transform the uploaded image (keep face details properly) into a digitally captured scene featuring a wise professor seated in a modern, tech-enhanced academic office. Digital bookshelves surround him, filled with glowing archives. A smart blackboard displays evolving equations and philosophical notes in real-time. A virtual student appears in a floating screen as he lectures with calm intensity, surrounded by soft ambient lighting and hovering educational holograms." },
-        { img: "image9.jpg", title: "Futuristic Medical Doctor", desc: "Transform the uploaded image (keep face details properly) into a digitally captured scene featuring a futuristic doctor in a sterile, high-tech medical lab. Dressed in a sleek, AI-integrated white lab coat, he examines patient data projected from a holographic interface. Robotic arms assist in real-time diagnostics while anatomical models rotate beside him. The room glows with neon green and cool white lights as he analyzes a 3D organ scan with laser precision." },
-        { img: "image8.jpg", title: "Mechanical Engineer in Robotic Lab", desc: "Transform the uploaded image (keep face details properly) into a digitally captured scene showing a mechanical engineer inside a cutting-edge robotics lab. The atmosphere is infused with amber lighting and holographic machinery specs. He operates a robotic exoskeleton, adjusting its core processors, while drones hover and robotic limbs assemble parts around him. Digital schematics stream mid-air as he controls the system via AR gloves." },
-        { img: "image1.jpg", title: "Scientist in AI Research Center", desc: "Transform the uploaded image (keep face details properly) into a digitally rendered scene featuring a cutting-edge scientist in a deep AI research lab. Quantum computers line the background, and glowing panels of neural networks shift dynamically. The scientist is analyzing real-time AI evolution patterns with a holographic genome model floating beside him. His focused face reflects the ever-changing code streaming around the room." },
-        { img: "image2.jpg", title: "Pilot in Futuristic Aircraft Cockpit", desc: "Transform the uploaded image (keep face details properly) into a digitally captured scene showing a futuristic pilot inside a glowing cockpit. Transparent control panels respond to his touch, while AR maps and atmospheric data swirl before him. The city skyline glows in the distance through curved glass. Dressed in a sleek pilot suit with smart-helmet retracted, he prepares for hyper-speed navigation across a neon-lit world." },
-        { img: "image7.jpg", title: "Digital Artist with VR Gear", desc: "Transform the uploaded image (keep face details properly) into a digitally captured scene of a digital artist wearing VR gear immersed in creating holographic 3D sculptures. Neon pink and blue lights illuminate the room, and virtual brushes float around as she molds her creations mid-air. The space is futuristic yet cozy, filled with tech-infused art materials and floating color palettes." },
-        { img: "image3.jpg", title: "Cyber Security Analyst", desc: "Transform the uploaded image (keep face details properly) into a digitally captured scene featuring a cyber security analyst surrounded by multi-layered firewall holograms and code streams. Intense neon red and blue lights highlight the urgency. The analyst wears smart glasses and rapidly types on a holographic keyboard, deflecting virtual cyber-attacks with AI-assisted defenses in a futuristic control center." },
-        { img: "image5.jpg", title: "Smart City Planner with AR", desc: "Transform the uploaded image (keep face details properly) into a digitally captured scene showing a smart city planner working with augmented reality city maps floating in the air. Blueprints and real-time traffic data hover as he adjusts zoning with intuitive hand gestures. The room is filled with soft white light and panoramic city views with dynamic digital overlays." },
-        { img: "image6.jpg", title: "AI Ethics Consultant", desc: "Transform the uploaded image (keep face details properly) into a digitally captured scene featuring an AI ethics consultant mediating a debate in a futuristic conference room. Holographic screens display AI decision trees and moral algorithms. The consultant gestures calmly, surrounded by attendees engaged in a transparent discussion. Soft blue lighting emphasizes clarity and transparency." },
-        { img: "image4.jpg", title: "Dark Background", desc: "Samee sawir madow iyo caddaan ah oo muuqaal dhow (close-up) oo leh kala duwanaansho iftiin iyo mugdi (high contrast), oo: Muujinaya nuska midig ee wejiga wiilka sawirka ku jira (nuska midig si qoto dheer loo iftiimiyay; nuska kale hoos mugdi ah). Wajigu qayb ahaan biyaha ku jiro, isagoo leh dhibco biyo iyo xumbo yar yar oo ka muuqata maqaarka iyo timaha. Asalka (background) waa madow mugdi ah. Muujin faahfaahinta maqaarka, beard stubble (timo gaaban), iyo indhaha si fiiro gaar ah leh. U samee jawi cinematic ah oo niyad leh oo dareen gelinaya."}
-      ];
-    </script>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const container = document.querySelector('.max-w-6xl');
-        galleryItems.forEach(item => {
-          const div = document.createElement('div');
-          div.className = "bg-white dark:bg-gray-800 rounded-lg shadow p-4";
-          div.innerHTML = `
-            <img src="${item.img}" alt="${item.title}" class="rounded w-full object-cover" />
-            <div class="mt-3">
-              <div class="clickable-title font-semibold text-lg flex items-center gap-2"
-                onclick="openModal('${item.img}', '${item.title}', '${item.desc.replace(/'/g, "\\'")}')">
-                ${item.title}
-              </div>
-            </div>
-          `;
-          container.appendChild(div);
-        });
-      });
-    </script>
-  </div>
-
-  <!-- Modal -->
-  <div id="modal" class="fixed inset-0 hidden items-center justify-center modal-bg z-50 p-4" role="dialog" aria-modal="true">
-    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg w-full h-full flex flex-col relative overflow-hidden">
-
-      <!-- Close button -->
-      <button aria-label="Close modal" class="absolute top-2 right-3 text-gray-200 hover:text-red-400 text-3xl font-bold z-50"
-        onclick="closeModal()">&times;</button>
-
-      <!-- Image fullscreen responsive -->
-      <div class="flex-grow flex items-center justify-center bg-black">
-        <img id="modalImage" src="" alt="" class="max-h-full max-w-full object-contain rounded" />
-      </div>
-
-      <!-- Text + copy -->
-      <div class="p-4 bg-gray-100 dark:bg-gray-900 border-t border-gray-300 dark:border-gray-700">
-        <div class="flex items-center justify-between">
-          <h2 id="modalTitle" class="text-xl font-semibold"></h2>
-          <button onclick="copyTextFromModal()" title="Copy full text" class="text-indigo-600 hover:text-indigo-800">
-            <i class="fa-regular fa-copy text-lg"></i>
-          </button>
-        </div>
-        <p id="modalDesc" class="text-gray-700 dark:text-gray-300 mt-2"></p>
-      </div>
-
+<div class="modal" id="modal">
+  <span class="close-btn" onclick="closeModal()">&times;</span>
+  <div class="modal-content-wrapper">
+    <img id="modalImg" class="modal-content">
+    <div id="modalTitle" class="modal-title"></div>
+    <div id="modalDesc" class="modal-desc"></div>
+    <div class="share-buttons">
+      <button class="whatsapp" id="shareWhatsApp">WhatsApp</button>
+      <button class="telegram" id="shareTelegram">Telegram</button>
+      <button class="copylink" id="copyLink">Copy Link</button>
+      <button class="copydesc" id="copyDesc">Copy Prompt</button>
     </div>
   </div>
+</div>
 
-    <!-- Footer -->
    <!-- Footer -->
   <footer class="bg-gray-900 text-gray-300 py-8">
     <div
@@ -157,40 +139,86 @@
 
   <script src="script.js"></script>
 
-  <script>
-    function openModal(imageUrl, title, description) {
-      document.getElementById('modalImage').src = imageUrl;
-      document.getElementById('modalTitle').textContent = title;
-      document.getElementById('modalDesc').textContent = description;
-      const modal = document.getElementById('modal');
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-    }
 
-    function closeModal() {
-      const modal = document.getElementById('modal');
-      modal.classList.remove('flex');
-      modal.classList.add('hidden');
-      document.getElementById('modalImage').src = '';
-    }
+<script>
+const galleryItems = [
+   { img: "image10.jpg", title: "Software Developer (Cyberpunk style)", desc: "Transform the uploaded image (keep face details properly) into a digitally captured scene featuring a young, bearded software developer deeply engrossed in coding at a sleek, transparent laptop set against a cyberpunk backdrop. Neon blue and purple lights permeate the environment, accentuating his focused expression, and the glowing, holographic interface displays colorful Python code along with an AI Assistant window, while floating code streams and a mechanical arm add to the futuristic ambiance." },
+    { img: "image11.jpg", title: "Professor in Smart Academic Office", desc: "Transform the uploaded image (keep face details properly) into a digitally captured scene featuring a wise professor seated in a modern, tech-enhanced academic office. Digital bookshelves surround him, filled with glowing archives. A smart blackboard displays evolving equations and philosophical notes in real-time. A virtual student appears in a floating screen as he lectures with calm intensity, surrounded by soft ambient lighting and hovering educational holograms." },
+    { img: "image9.jpg", title: "Futuristic Medical Doctor", desc: "Transform the uploaded image (keep face details properly) into a digitally captured scene featuring a futuristic doctor in a sterile, high-tech medical lab. Dressed in a sleek, AI-integrated white lab coat, he examines patient data projected from a holographic interface. Robotic arms assist in real-time diagnostics while anatomical models rotate beside him. The room glows with neon green and cool white lights as he analyzes a 3D organ scan with laser precision." },
+    { img: "image8.jpg", title: "Mechanical Engineer in Robotic Lab", desc: "Transform the uploaded image (keep face details properly) into a digitally captured scene showing a mechanical engineer inside a cutting-edge robotics lab. The atmosphere is infused with amber lighting and holographic machinery specs. He operates a robotic exoskeleton, adjusting its core processors, while drones hover and robotic limbs assemble parts around him. Digital schematics stream mid-air as he controls the system via AR gloves." },
+    { img: "image1.jpg", title: "Scientist in AI Research Center", desc: "Transform the uploaded image (keep face details properly) into a digitally rendered scene featuring a cutting-edge scientist in a deep AI research lab. Quantum computers line the background, and glowing panels of neural networks shift dynamically. The scientist is analyzing real-time AI evolution patterns with a holographic genome model floating beside him. His focused face reflects the ever-changing code streaming around the room." },
+    { img: "image2.jpg", title: "Pilot in Futuristic Aircraft Cockpit", desc: "Transform the uploaded image (keep face details properly) into a digitally captured scene showing a futuristic pilot inside a glowing cockpit. Transparent control panels respond to his touch, while AR maps and atmospheric data swirl before him. The city skyline glows in the distance through curved glass. Dressed in a sleek pilot suit with smart-helmet retracted, he prepares for hyper-speed navigation across a neon-lit world." },
+    { img: "image7.jpg", title: "Digital Artist with VR Gear", desc: "Transform the uploaded image (keep face details properly) into a digitally captured scene of a digital artist wearing VR gear immersed in creating holographic 3D sculptures. Neon pink and blue lights illuminate the room, and virtual brushes float around as she molds her creations mid-air. The space is futuristic yet cozy, filled with tech-infused art materials and floating color palettes." },
+    { img: "image3.jpg", title: "Cyber Security Analyst", desc: "Transform the uploaded image (keep face details properly) into a digitally captured scene featuring a cyber security analyst surrounded by multi-layered firewall holograms and code streams. Intense neon red and blue lights highlight the urgency. The analyst wears smart glasses and rapidly types on a holographic keyboard, deflecting virtual cyber-attacks with AI-assisted defenses in a futuristic control center." },
+    { img: "image5.jpg", title: "Smart City Planner with AR", desc: "Transform the uploaded image (keep face details properly) into a digitally captured scene showing a smart city planner working with augmented reality city maps floating in the air. Blueprints and real-time traffic data hover as he adjusts zoning with intuitive hand gestures. The room is filled with soft white light and panoramic city views with dynamic digital overlays." },
+    { img: "image6.jpg", title: "AI Ethics Consultant", desc: "Transform the uploaded image (keep face details properly) into a digitally captured scene featuring an AI ethics consultant mediating a debate in a futuristic conference room. Holographic screens display AI decision trees and moral algorithms. The consultant gestures calmly, surrounded by attendees engaged in a transparent discussion. Soft blue lighting emphasizes clarity and transparency." },
+    { img: "image4.jpg", title: "Dark Background", desc: "Samee sawir madow iyo caddaan ah oo muuqaal dhow (close-up) oo leh kala duwanaansho iftiin iyo mugdi (high contrast), oo: Muujinaya nuska midig ee wejiga wiilka sawirka ku jira (nuska midig si qoto dheer loo iftiimiyay; nuska kale hoos mugdi ah). Wajigu qayb ahaan biyaha ku jiro, isagoo leh dhibco biyo iyo xumbo yar yar oo ka muuqata maqaarka iyo timaha. Asalka (background) waa madow mugdi ah. Muujin faahfaahinta maqaarka, beard stubble (timo gaaban), iyo indhaha si fiiro gaar ah leh. U samee jawi cinematic ah oo niyad leh oo dareen gelinaya." },
 
-    // Close modal if clicked on background
-    document.getElementById('modal').addEventListener('click', (e) => {
-      if (e.target.id === 'modal') {
-        closeModal();
-      }
-    });
+    // New 9 items
+    { img: "55 (1).jpg", title: "Dual-Tone Cinematic Portrait", desc: "A hyper-realistic 8K cinematic portrait of a young man with a buzz cut and sharp jawline, styled with a neatly trimmed short beard. He wears a tailored black blazer over a white crewneck T-shirt and a long, minimalist metal pendant necklace. The background is a bold dual-tone gradient split diagonally - deep blue on the left and vibrant red on the right - with dramatic lighting casting soft blue and red highlights across his face and body." },
+    { img: "55 (2).jpg", title: "Cosmic Dual-Exposure Portrait", desc: "A dual-exposure vertical portrait of a man staring forward, his face slowly dissolving into a swirling galaxy of stars and nebulae. Within his silhouette, a vast desert stretches toward the horizon, where a second version of him walks alone under a stormy sky. The image represents transformation and solitude. Ethereal atmosphere, dreamlike, layered textures, cosmic glow, 8K resolution." },
+    { img: "55 (3).jpg", title: "Aerial Porsche Street Scene", desc: "An aerial cinematic shot of me leaning against a white Porsche Cayenne on the street, wearing a hoodie under a red jacket. A blurry crowd of people runs around me. Gloomy lighting, 30mm film style, shallow depth of field, sharp focus on me. Aspect ratio 3:4." },
+    { img: "55 (4).jpg", title: "Noir Tuxedo Spotlight", desc: "A high-contrast, black-and-white portrait of a man standing in a dark, minimal studio, wearing a perfectly tailored velvet black tuxedo with a silk bowtie. He adjusts his cufflinks as a single spotlight from above carves angular shadows across his jawline. His eyes are barely visible beneath the brim of a wide-brim hat. The scene evokes the mystery of a 1940s noir film. High-fashion aesthetic, cinematic lighting, ultra-detailed textures, vertical 9:16, 8K resolution." },
+    { img: "55 (5).jpg", title: "Noir Suit with Diagonal Light", desc: "Portrait of a young man identical to the provided image, dressed in a sharp black suit, black shirt, and tie. He stands confidently in a minimal studio, slightly turned to the side. Dramatic studio lighting creates bold geometric shadows on his face and background, including a powerful diagonal beam of light piercing through darkness. Calm, introspective, cinematic noir style with fine facial details, soft bokeh, vertical 9:16, ultra-detailed 8K resolution." },
+    { img: "55 (6).jpg", title: "Rainy Hotel Arrival", desc: "A hyper-realistic cinematic portrait of a man in a dark tailored suit, stepping out of a luxury car under heavy rain in front of a grand hotel entrance. Golden light spills from the doorway as he removes black leather gloves. Neon reflections dance across the wet pavement. Vertical 9:16, ultra-detailed 8K." },
+    { img: "55 (7).jpg", title: "Penthouse Balcony in Rain", desc: "A man in a tailored three-piece suit leans against the balcony railing of a luxury penthouse. The rain falls behind him, and the neon skyline stretches endlessly into the night. A single glass of whisky rests on the railing. His posture is relaxed yet authoritative. Cinematic luxury aesthetic, ultra-detailed, vertical 9:16, 8K." },
+    { img: "55 (8).jpg", title: "White Dinner Jacket in Rain", desc: "A man in a tailored white dinner jacket stands under light rain in front of a grand hotel entrance. The building glows with gold and amber lights, while a luxury car waits nearby. He holds leather gloves in one hand and looks slightly to the side. The entire scene exudes power and understated luxury. Vertical 9:16, ultra-detailed 8K." },
+    { img: "55 (9).jpg", title: "Soaked Fashion Shoot", desc: "A stylish model standing in heavy rain, soaked and expressive, wearing a semi-wet white dress shirt with subtle transparency, artistically clinging to his form. He looks upward with a cinematic, emotional expression. Rain droplets suspended midair, dramatic lighting with cool blue tones, soft mist in the background, shallow depth of field. Editorial fashion shoot style, ultra-high resolution. Aspect ratio 3:4." }
+  ];
 
-    // Copy full text (title + description)
-    function copyTextFromModal() {
-      const title = document.getElementById('modalTitle').textContent.trim();
-      const desc = document.getElementById('modalDesc').textContent.trim();
-      const fullText = `${title}\n${desc}`;
-      navigator.clipboard.writeText(fullText)
-        .then(() => alert('Full caption copied!'))
-        .catch(() => alert('Failed to copy.'));
-    }
-  </script>
+function slugify(text) {
+  return text.toString().toLowerCase().trim().replace(/[^a-z0-9]+/g, '-');
+}
+
+function openModal(item) {
+  document.getElementById('modal').style.display = 'flex';
+  document.getElementById('modalImg').src = item.img;
+  document.getElementById('modalTitle').textContent = item.title;
+  document.getElementById('modalDesc').textContent = item.desc;
+
+  const url = `https://globamart.online/take?item=${slugify(item.title)}`;
+
+  document.getElementById('shareWhatsApp').onclick = () => {
+    window.open(`https://wa.me/?text=${encodeURIComponent(url)}`, '_blank');
+  };
+  document.getElementById('shareTelegram').onclick = () => {
+    window.open(`https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(item.title)}`, '_blank');
+  };
+  document.getElementById('copyLink').onclick = () => {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied!'));
+  };
+  document.getElementById('copyDesc').onclick = () => {
+    navigator.clipboard.writeText(item.desc).then(() => alert('Description copied!'));
+  };
+}
+
+function closeModal() {
+  document.getElementById('modal').style.display = 'none';
+}
+
+function renderGallery() {
+  const gallery = document.getElementById('gallery');
+  galleryItems.forEach(item => {
+    const img = document.createElement('img');
+    img.src = item.img;
+    img.alt = item.title;
+    img.onclick = () => openModal(item);
+    gallery.appendChild(img);
+  });
+}
+
+function openFromQuery() {
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get('item');
+  if (slug) {
+    const found = galleryItems.find(i => slugify(i.title) === slug);
+    if (found) openModal(found);
+  }
+}
+
+renderGallery();
+openFromQuery();
+</script>
 
 </body>
 </html>

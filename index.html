@@ -62,6 +62,26 @@
     "description": "GlobaMart is an online platform for developers and services."
   }
   </script>
+
+   
+<style>
+@keyframes fade-in-left {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.animate-fade-in-left {
+  animation: fade-in-left 1s ease-out forwards;
+}
+
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-slide-in-right {
+  animation: slide-in-right 1s ease-out forwards;
+}
+</style>
+
 </head>
 
 
@@ -88,18 +108,26 @@
   </nav>
 
   <!-- Profile Overview -->
-<section class="max-w-5xl mx-auto px-6 py-16 text-center">
-  <img 
-    src="profile.jpg" 
-    alt="Profile" 
-    class="mx-auto w-32 h-32 rounded-full border-4 border-indigo-500 mb-6 object-cover shadow-lg"
-    style="box-shadow: 0 4px 15px rgba(99, 102, 241, 0.6);" 
-  >
-  <h1 class="text-3xl font-bold text-indigo-600 dark:text-indigo-400">Ahmed Developer</h1>
-  <p class="text-gray-600 dark:text-gray-300 mt-2 text-lg">Full-stack Developer | UI/UX Designer | Freelancer</p>
-  <p class="text-gray-500 dark:text-gray-400 mt-4 max-w-2xl mx-auto">
-    Welcome To my Website Yar yarooti
-  </p>
+<!-- Profile Overview - Mobile Full-Width Image -->
+<section class="relative w-full min-h-screen flex flex-col-reverse md:flex-row items-center justify-center px-4 md:px-12 py-16 bg-gradient-to-br from-indigo-100 to-indigo-200 dark:from-gray-800 dark:to-gray-900 overflow-hidden">
+
+ 
+
+  <!-- Text Content -->
+  <div class="flex-1 text-center md:text-left max-w-lg space-y-4 md:space-y-8 animate-fade-in-left">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-indigo-600 dark:text-indigo-400">Ahmed Developer</h1>
+    <p class="text-lg sm:text-xl text-gray-700 dark:text-gray-300">Full-stack Developer | UI/UX Designer | Freelancer</p>
+    <p class="text-gray-500 dark:text-gray-400 mt-1 max-w-md mx-auto md:mx-0">
+      Welcome To my Website Yar yarooti
+    </p>
+  </div>
+  <br>
+
+   <!-- Profile Image -->
+  <div class="flex-shrink-0 mt-4 md:mt-0 animate-slide-in-right w-full md:w-auto flex justify-center">
+    <img src="ahmed.png" alt="Profile"
+         class="w-full sm:w-96 md:w-96 max-w-md md:max-w-none h-auto object-cover shadow-xl rounded-lg">
+  </div>
 </section>
 
 
@@ -402,6 +430,7 @@
 </body>
 
 </html>
+
 
 
 

@@ -33,29 +33,53 @@
   </nav>
 
   <main class="p-6 text-center">
-   <section class="max-w-4xl mx-auto py-16 px-6 bg-white dark:bg-gray-900 rounded-3xl shadow-lg">
-  <div class="flex flex-col md:flex-row items-center md:space-x-12">
-    <img 
-      src="profile.jpg" 
-      alt="Profile Picture"
-      class="w-48 h-48 rounded-full mb-6 md:mb-0 object-cover shadow-xl ring-4 ring-indigo-500"
-    />
-    <div class="text-center md:text-left">
-      <h2 class="text-4xl font-bold mb-4 text-indigo-600 dark:text-indigo-400">Ahmed "Tarzan"</h2>
-      <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-        Waxaan ahay naqshadeeye iyo horumariye websaydhyo casri ah oo leh xawaare sare iyo muuqaal soo jiidasho leh.
-        Waxaan ka caawiyaa macaamiisha inay helaan xalal dhameystiran oo ku habboon baahiyahooda gaarka ah.
-      </p>
-      <p class="text-gray-600 dark:text-gray-400 mb-6">
-        Waxaan la shaqeeyaa kooxo iyo shaqsiyaad kala duwan si aan u hirgeliyo fikradahooda, anigoo isticmaalaya
-        tiknoolajiyada casriga ah iyo hababka ugu fiican ee naqshadaynta webka.
+    <!-- About Section - Separated Layout -->
+<section class="relative w-full bg-gradient-to-br from-indigo-50 to-indigo-200 dark:from-gray-900 dark:to-gray-800 py-20">
+  
+  <!-- Top Section: Image + Text -->
+  <div class="max-w-6xl mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center lg:space-x-12 mb-16">
+    
+    <!-- Profile Image -->
+    <div class="flex-shrink-0 w-full lg:w-1/2 flex justify-center lg:justify-end mb-10 lg:mb-0">
+      <img src="ahmed.png" alt="Ahmed" 
+           class="w-72 md:w-96 h-auto rounded-2xl shadow-2xl object-contain" />
+    </div>
+
+    <!-- Text Content -->
+    <div class="flex-1 text-center lg:text-left space-y-6">
+      <h2 class="text-4xl md:text-5xl font-extrabold text-indigo-600 dark:text-indigo-400">Ahmed "Tarzan"</h2>
+      <p class="text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
+        Waxaan ahay naqshadeeye iyo horumariye websaydhyo casri ah. Waxaan ka caawiyaa macaamiisha inay helaan xalal dhameystiran oo ku habboon baahiyahooda gaarka ah.
       </p>
       <a href="https://t.me/Tarzan_Town/url?url=&text=Asalamu%20Aleykum" target="_blank"
-        class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition">
+         class="inline-block bg-indigo-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-indigo-700 transition">
         Contact Me
       </a>
     </div>
   </div>
+
+  <!-- Bottom Section: Feature Boxes -->
+  <div class="max-w-6xl mx-auto px-6 md:px-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg hover:shadow-xl transition">
+      <h3 class="text-xl font-bold text-indigo-600 mb-2">Fast Performance</h3>
+      <p class="text-gray-600 dark:text-gray-400">
+        Websaydhyo xawaare sare leh, si degdeg ah u shaqeeya oo u qalma macaamiishaada.
+      </p>
+    </div>
+    <div class="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg hover:shadow-xl transition">
+      <h3 class="text-xl font-bold text-indigo-600 mb-2">Responsive Design</h3>
+      <p class="text-gray-600 dark:text-gray-400">
+        Muuqaal qurux badan oo mobile, tablet, iyo desktop si la mid ah.
+      </p>
+    </div>
+    <div class="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg hover:shadow-xl transition">
+      <h3 class="text-xl font-bold text-indigo-600 mb-2">Creative UI/UX</h3>
+      <p class="text-gray-600 dark:text-gray-400">
+        Naqshad casri ah oo soo jiidasho leh oo isticmaale-saaxiibtinimo leh.
+      </p>
+    </div>
+  </div>
+
 </section>
 
 
@@ -123,5 +147,6 @@
 </body>
 
 </html>
+
 
 

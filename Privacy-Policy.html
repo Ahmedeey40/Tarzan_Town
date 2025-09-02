@@ -7,6 +7,9 @@
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
  <script src="https://cdn.tailwindcss.com"></script>
+ <style>
+    :root{--bg:#0f1226;--card:#14183a;--ink:#e9ebff;--muted:#b6baf7;--accent:#7b82ff;--accent-2:#23d3ff;--ok:#3ddc97;--warn:#ffd166;--danger:#ff6b6b;--ring: 0 0 0 3px rgba(123,130,255,.25);}*{box-sizing:border-box}html,body{margin:0;background:radial-gradient(1200px 800px at 20% -10%,rgba(35,211,255,.10),transparent 60%),radial-gradient(1000px 700px at 100% 0,rgba(123,130,255,.12),transparent 50%),var(--bg);color:var(--ink);font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans"; line-height:1.6}a{color:var(--accent)}.container{max-width:960px;margin:0 auto;padding:2rem 1rem 5rem}header{position:sticky;top:0;background:linear-gradient(180deg,rgba(15,18,38,.95),rgba(15,18,38,.75));backdrop-filter:saturate(1.2) blur(8px);z-index:50;border-bottom:1px solid rgba(255,255,255,.06)}.nav{display:flex;align-items:center;gap:1rem;max-width:960px;margin:0 auto;padding:0.75rem 1rem}.brand{display:flex;gap:.75rem;align-items:center}.logo{width:36px;height:36px;border-radius:12px;background:conic-gradient(from 0deg, var(--accent), var(--accent-2) 50%, var(--accent) 100%);box-shadow:0 10px 30px rgba(35,211,255,.25), inset 0 0 30px rgba(255,255,255,.08)}.brand h1{font-size:1.05rem;margin:0}.chip{margin-left:auto;font-size:.85rem;color:var(--muted);padding:.3rem .6rem;border:1px solid rgba(255,255,255,.12);border-radius:999px}.hero{padding:3.5rem 1rem 2rem;display:grid;gap:1rem}.hero h2{font-size:clamp(1.6rem, 2.6vw + 1rem, 2.6rem);line-height:1.15;margin:0}.hero p{color:var(--muted);margin:0}.toc{margin:1rem 0 2rem;padding:1rem;border:1px solid rgba(255,255,255,.12);border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));}.toc h3{margin:.2rem 0 .6rem;font-size:1rem;color:var(--muted)}.toc a{display:inline-block;margin:.25rem .5rem .25rem 0;padding:.45rem .7rem;border-radius:999px;border:1px solid rgba(255,255,255,.14);text-decoration:none}.toc a:hover{box-shadow:var(--ring)}section.card{background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));border:1px solid rgba(255,255,255,.10);border-radius:18px;padding:1.25rem 1.25rem;margin:1rem 0}section.card h3{margin-top:0}.kicker{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em}.badge{display:inline-block;font-size:.75rem;padding:.25rem .5rem;border-radius:8px;border:1px solid rgba(255,255,255,.15);margin-left:.4rem;color:var(--muted)}.grid{display:grid;grid-template-columns:1fr;gap:1rem}@media (min-width:800px){.grid{grid-template-columns:1fr 1fr}}.list{margin:0;padding-left:1.1rem}.list li{margin:.35rem 0}.callout{border-left:4px solid var(--ok);padding:1rem;border-radius:12px;background:rgba(61,220,151,.06)}.warn{border-left-color:var(--warn);background:rgba(255,209,102,.08)}footer{margin-top:2rem;padding:2rem 0;color:var(--muted);border-top:1px dashed rgba(255,255,255,.15)}@media print{header, .toc{display:none} body{background:#fff;color:#111} section.card{border-color:#ccc}}
+  </style>
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-white">
 
@@ -37,111 +40,146 @@
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-  <section style="padding: 3rem 1rem; background-color: #0d0d0d; color: #f4f4f4; line-height: 1.8; max-width: 1000px; margin: auto;">
-  <h1 style="color: #ff4c60; font-size: 2.5rem; margin-bottom: 1rem;">Privacy Policy</h1>
-  <p><strong>Last updated:</strong> July 24, 2025</p>
+  <main class="container" id="top">
+    <div class="hero">
+      <h2>Privacy Policy — Tarzan Town</h2>
+      <p>Effective: <strong>September 2, 2025</strong>. This policy explains what personal data we collect, how we use it, who we share it with, and the practical choices you have to control your information.</p>
+    </div>
 
-  <p>
-    At Jensen Omega, your privacy is of utmost importance to us. This Privacy Policy outlines how we collect, use, and protect your information when you interact with our website and services. By accessing our platform, you agree to the terms outlined in this policy.
-  </p>
+    <div class="toc" aria-labelledby="toc-title">
+      <h3 id="toc-title">Quick links</h3>
+      <a href="#overview">Overview</a>
+      <a href="#data-we-collect">Data We Collect</a>
+      <a href="#how-we-use">How We Use Data</a>
+      <a href="#cookies">Cookies</a>
+      <a href="#legal-bases">Legal Bases</a>
+      <a href="#sharing">Third-party Sharing</a>
+      <a href="#ai">AI & Models</a>
+      <a href="#retention">Retention</a>
+      <a href="#security">Security</a>
+      <a href="#rights">Your Rights</a>
+      <a href="#children">Children</a>
+      <a href="#contact">Contact</a>
+    </div>
 
-  <h2 style="color: #ff4c60;">1. Information We Collect</h2>
-  <p>We collect the following types of information:</p>
-  <ul>
-    <li><strong>Personal Information:</strong> Includes name, email, phone number, and any data submitted via contact forms or newsletter signups.</li>
-    <li><strong>Technical Data:</strong> IP address, browser type, device information, and operating system used to access our website.</li>
-    <li><strong>Usage Data:</strong> Details on your interaction with the site — pages visited, time spent, clicks, and links followed.</li>
-    <li><strong>Cookies:</strong> Small data files to remember your preferences, manage sessions, and enhance performance.</li>
-    <li><strong>Analytics:</strong> We use tools like Google Analytics to better understand user behavior and improve our service.</li>
-  </ul>
+    <section class="card" id="overview">
+      <span class="kicker">1</span>
+      <h3>Overview</h3>
+      <p>Tarzan Town ("we", "us", "the Service") operates web and mobile services designed for fast, lightweight interactions. We collect and process personal data to operate the Service, keep it secure, and continuously improve user experience. This policy summarizes our practices and the controls available to you. For company-specific contractual terms, those agreements will take precedence where applicable.</p>
+      <div class="callout">
+        <strong>Personal note:</strong> This policy is personalized for Ahmed — contact details below reflect the designated privacy contact for Tarzan Town.
+      </div>
+    </section>
 
-  <h2 style="color: #ff4c60;">2. How We Use Your Information</h2>
-  <p>Your data is used for the following purposes:</p>
-  <ul>
-    <li>To deliver the services you requested</li>
-    <li>To communicate updates, promotions, or support information</li>
-    <li>To analyze site traffic and user behavior</li>
-    <li>To prevent fraudulent activity and ensure website security</li>
-    <li>To customize content based on your preferences</li>
-  </ul>
+    <section class="card" id="data-we-collect">
+      <span class="kicker">2</span>
+      <h3>Data We Collect</h3>
+      <div class="grid">
+        <div>
+          <h4>Directly provided data</h4>
+          <ul class="list">
+            <li><strong>Account information:</strong> name, email address, and hashed passwords to authenticate you securely.</li>
+            <li><strong>Profile & content:</strong> files, messages, preferences, and any content you choose to upload.</li>
+            <li><strong>Payment & billing:</strong> we use PCI-compliant processors; we do not store full card numbers on our servers.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Automatically collected data</h4>
+          <ul class="list">
+            <li><strong>Device and connection:</strong> IP address, device identifiers, browser type, operating system, and basic diagnostics.</li>
+            <li><strong>Usage data:</strong> pages visited, feature interactions, timestamps, and crash reports to improve stability.</li>
+            <li><strong>Cookies/local storage:</strong> identifiers used for session management and preferences.</li>
+          </ul>
+        </div>
+      </div>
+      <h4>Third-party sources</h4>
+      <p>With your consent, we may obtain information from third-party services (e.g., social sign-in providers or analytics partners). We limit the scope of such imports and document what is shared at the time of connection.</p>
+    </section>
 
-  <h2 style="color: #ff4c60;">3. Legal Basis for Processing</h2>
-  <p>We process your personal data based on:</p>
-  <ul>
-    <li>Your consent, when you provide information willingly</li>
-    <li>Performance of a contract, when fulfilling a service or support request</li>
-    <li>Legal obligations, such as complying with applicable laws</li>
-    <li>Legitimate interests, such as analyzing usage to improve our services</li>
-  </ul>
+    <section class="card" id="how-we-use">
+      <span class="kicker">3</span>
+      <h3>How We Use Data</h3>
+      <p>We use personal data to operate and improve Tarzan Town. Typical uses include:</p>
+      <ul class="list">
+        <li>Delivering core features, processing transactions, and communicating account notices.</li>
+        <li>Personalizing content and settings so the Service feels tailored to you.</li>
+        <li>Security and fraud prevention, including abuse detection and account protection.</li>
+        <li>Product improvement through aggregated analytics and controlled A/B testing.</li>
+        <li>Marketing communications only when you have explicitly opted-in — you may opt out anytime.</li>
+      </ul>
+    </section>
 
-  <h2 style="color: #ff4c60;">4. Cookies and Tracking</h2>
-  <p>
-    Our website uses cookies for functionality and analytics. These include:
-  </p>
-  <ul>
-    <li>Session cookies for navigation</li>
-    <li>Persistent cookies to remember login and preferences</li>
-    <li>Third-party cookies (e.g., Google, Meta) for advertising and analytics</li>
-  </ul>
-  <p>
-    You can manage or disable cookies via your browser settings. However, disabling cookies may affect your browsing experience.
-  </p>
+    <section class="card" id="cookies">
+      <span class="kicker">4</span>
+      <h3>Cookies & Analytics</h3>
+      <p>We use cookies and similar technologies to make the Service work, measure performance, and—where permitted—deliver relevant promotions. You can manage cookie preferences through the consent banner or browser settings. Third-party analytics providers may process anonymized or pseudonymized data on our behalf.</p>
+    </section>
 
-  <h2 style="color: #ff4c60;">5. Third-Party Services</h2>
-  <p>
-    We may use third-party providers such as hosting companies, email platforms, or payment processors. These parties only have access to data needed to perform their duties and are required to uphold confidentiality and privacy standards.
-  </p>
+    <section class="card" id="legal-bases">
+      <span class="kicker">5</span>
+      <h3>Legal Bases (GDPR)</h3>
+      <p>Where GDPR applies, we process personal data on several legal bases:</p>
+      <ul class="list">
+        <li><strong>Contractual necessity:</strong> to provide services you requested.</li>
+        <li><strong>Legitimate interests:</strong> for security, product improvement, and fraud prevention (we balance interests against your privacy).</li>
+        <li><strong>Consent:</strong> for optional marketing and non-essential cookies.</li>
+        <li><strong>Legal obligations:</strong> when required by law or regulatory requests.</li>
+      </ul>
+    </section>
 
-  <h2 style="color: #ff4c60;">6. Data Security</h2>
-  <p>
-    We employ strict security practices including SSL encryption, secure servers, regular updates, and limited access controls. While we strive to protect your data, no method is 100% secure.
-  </p>
+    <section class="card" id="sharing">
+      <span class="kicker">6</span>
+      <h3>Third-Party Sharing</h3>
+      <p>We share data only as necessary with trusted partners:</p>
+      <ul class="list">
+        <li><strong>Service providers:</strong> hosting, payment processors, and email providers under contract and limited access.</li>
+        <li><strong>Legal and safety:</strong> to comply with lawful requests or to protect rights and safety.</li>
+        <li><strong>Business transfers:</strong> in the event of a merger or sale; we will notify impacted users when appropriate.</li>
+      </ul>
+      <div class="callout warn"><strong>We do not sell your personal data for marketing purposes.</strong></div>
+    </section>
 
-  <h2 style="color: #ff4c60;">7. Data Retention</h2>
-  <p>
-    We retain your information only for as long as necessary to fulfill our service obligations, comply with legal requirements, resolve disputes, or enforce agreements. After this period, your data is securely deleted or anonymized.
-  </p>
+    <section class="card" id="ai">
+      <span class="kicker">7</span>
+      <h3>AI & Model Use</h3>
+      <p>If you enable AI-powered features, inputs you provide may be processed by secure third-party AI APIs. We strive to remove direct identifiers before external processing and will not use sensitive personal data to train public models without explicit permission.</p>
+    </section>
 
-  <h2 style="color: #ff4c60;">8. Children’s Privacy</h2>
-  <p>
-    We do not knowingly collect data from children under 13. If you believe a child has provided us personal data, contact us and we will delete the information immediately.
-  </p>
+    <section class="card" id="retention">
+      <span class="kicker">8</span>
+      <h3>Data Retention</h3>
+      <p>We retain personal data only for as long as needed to fulfill the purposes described or to meet legal obligations. When you delete your account, we remove personal data within a defined window except where legal retention is required. Specific retention periods are available on request.</p>
+    </section>
 
-  <h2 style="color: #ff4c60;">9. International Users</h2>
-  <p>
-    If you are accessing this site from outside Somalia, be aware that your information may be transferred, stored, and processed in our servers located where our services are hosted. We take appropriate measures to protect your data in accordance with this Policy.
-  </p>
+    <section class="card" id="security">
+      <span class="kicker">9</span>
+      <h3>Security</h3>
+      <p>We protect data with industry-standard measures: TLS in transit, encrypted backups, hashed passwords, and role-based access controls. Regular audits and monitoring help us detect and respond to incidents. If a breach affects your data, we will notify you and authorities as required by law.</p>
+    </section>
 
-  <h2 style="color: #ff4c60;">10. Your Rights</h2>
-  <p>You have the right to:</p>
-  <ul>
-    <li>Access and review your personal data</li>
-    <li>Request correction or deletion of your information</li>
-    <li>Withdraw consent at any time</li>
-    <li>Request data portability</li>
-    <li>Object to processing based on legitimate interests</li>
-  </ul>
-  <p>
-    To exercise any of these rights, please contact us directly using the information below.
-  </p>
+    <section class="card" id="rights">
+      <span class="kicker">10</span>
+      <h3>Your Rights</h3>
+      <p>Depending on your jurisdiction, you may have rights to access, correct, delete, or port your personal data, and to object to certain processing. To exercise rights, contact us at the details below. We will verify requests to protect your privacy and respond within applicable timeframes.</p>
+    </section>
 
-  <h2 style="color: #ff4c60;">11. Policy Changes</h2>
-  <p>
-    This Privacy Policy may be updated occasionally. We will notify you via our website or email if significant changes occur. We recommend reviewing this page periodically for any updates.
-  </p>
+    <section class="card" id="children">
+      <span class="kicker">11</span>
+      <h3>Children</h3>
+      <p>The Service is not intended for children under 13 (or local minimum age). We do not knowingly collect information from children. If you believe a child provided personal data, contact us and we will promptly delete it.</p>
+    </section>
 
-  <h2 style="color: #ff4c60;">12. Contact Information</h2>
-  <p>If you have any questions or concerns regarding this Privacy Policy or how your data is handled, please contact us at:</p>
-  <ul>
-    <li>Email: <a href="mailto:ahmedcrb1256@gmail.com" style="color: #ffffff;">ahmedcrb1256@gmail.com</a></li>
-    <li>Phone: +252-68-6009239</li>
-    <li>Address: Mogadishu, Somalia</li>
-  </ul>
-
-  <p style="margin-top: 2rem;">Thank you for trusting <strong>Tarzan Town</strong> with your privacy.</p>
-</section>
-
-
+    <section class="card" id="contact">
+      <span class="kicker">12</span>
+      <h3>Contact</h3>
+      <p>For privacy questions or to exercise your rights, contact our privacy lead:</p>
+      <ul class="list">
+        <li><strong>Name:</strong> Ahmed</li>
+        <li><strong>Email:</strong> <a href="mailto:ahmedcrb1256@gmail.com">ahmedcrb1256@gmail.com</a></li>
+        <li><strong>Phone:</strong> <a href="tel:+252619577684">+252 61 957 7684</a></li>
+        <li><strong>Address:</strong> Tarzan Town, Dept. Privacy, 123 Example Ave</li>
+      </ul>
+    </section>
  
  <!-- Footer -->
   <footer class="bg-gray-900 text-gray-300 py-8">
@@ -188,10 +226,12 @@
     </div>
     <p class="mt-4">&copy; 2025 Tarzan Town. All rights reserved.</p>
   </footer>
+      <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
 

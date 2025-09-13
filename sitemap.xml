@@ -22,6 +22,21 @@
     <priority>0.7</priority>
   </url>
 
+
+    <url>
+    <loc>https://globamart.online/privacy-policy.html</loc>
+    <lastmod>2025-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://globamart.online/terms.html</loc>
+    <lastmod>2025-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <url>
     <loc>https://globamart.online/services.html</loc>
     <lastmod>2025-07-22</lastmod>

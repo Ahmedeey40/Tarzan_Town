@@ -29,17 +29,17 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 <style>
-/* General light mode default */
+/* General gradient background */
 body, section {
-  background-color: #f4f4f4; /* Light background */
-  color: #111; /* Dark text for readability */
+  background: linear-gradient(to right, #041c32, #064663); /* Gradient dark-blue background */
+  color: #f4f4f4; /* Light text for contrast */
   transition: all 0.3s ease-in-out;
 }
 
 section h2 {
   font-size: 2rem;
   margin-bottom: 2rem;
-  color: #0077ff; /* Light mode heading color */
+  color: #ff4c60; /* Heading color stands out on dark gradient */
   text-align: center;
 }
 
@@ -51,11 +51,11 @@ section h2 {
 }
 
 .box, .highlight-card {
-  background-color: #fff; /* Light card background */
+  background-color: rgba(0,0,0,0.6); /* Semi-transparent dark cards on gradient */
   padding: 1.5rem;
   border-radius: 10px;
   width: 300px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* Light shadow */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -65,26 +65,26 @@ section h2 {
 }
 
 .box p, .highlight-card p {
-  color: #555; /* Darker text for readability */
+  color: #ddd;
   line-height: 1.5;
 }
 
 .box:hover, .highlight-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(255,76,96,0.2);
+  box-shadow: 0 12px 30px rgba(255,76,96,0.5);
 }
 
 .highlight-section {
   padding: 4rem 1rem;
   text-align: center;
-  background-color: #e9e9e9; /* Light background for highlight section */
-  color: #111;
+  background: linear-gradient(to right, #041c32, #064663); /* same gradient */
+  color: #f4f4f4;
 }
 
 .highlight-section h2 {
   font-size: 2.5rem;
   margin-bottom: 3rem;
-  color: #0077ff;
+  color: #ff4c60;
 }
 
 .highlight-icon {
@@ -278,6 +278,7 @@ section h2 {
 
 </body>
 </html>
+
 
 
 

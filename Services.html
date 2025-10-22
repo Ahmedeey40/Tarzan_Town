@@ -29,17 +29,17 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 <style>
-/* General dark mode default */
+/* General light mode default */
 body, section {
-  background-color: #0d0d0d;
-  color: #f4f4f4;
+  background-color: #f4f4f4; /* Light background */
+  color: #111; /* Dark text for readability */
   transition: all 0.3s ease-in-out;
 }
 
 section h2 {
   font-size: 2rem;
   margin-bottom: 2rem;
-  color: #ff4c60;
+  color: #0077ff; /* Light mode heading color */
   text-align: center;
 }
 
@@ -51,11 +51,11 @@ section h2 {
 }
 
 .box, .highlight-card {
-  background-color: #1a1a1a;
+  background-color: #fff; /* Light card background */
   padding: 1.5rem;
   border-radius: 10px;
   width: 300px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* Light shadow */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -65,24 +65,26 @@ section h2 {
 }
 
 .box p, .highlight-card p {
-  color: #ddd;
+  color: #555; /* Darker text for readability */
   line-height: 1.5;
 }
 
 .box:hover, .highlight-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(255,76,96,0.5);
+  box-shadow: 0 12px 30px rgba(255,76,96,0.2);
 }
 
 .highlight-section {
   padding: 4rem 1rem;
   text-align: center;
+  background-color: #e9e9e9; /* Light background for highlight section */
+  color: #111;
 }
 
 .highlight-section h2 {
   font-size: 2.5rem;
   margin-bottom: 3rem;
-  color: #ff4c60;
+  color: #0077ff;
 }
 
 .highlight-icon {
@@ -102,9 +104,8 @@ section h2 {
     font-size: 2rem;
   }
 }
-
 </style>
-  
+
 </head>
 
 <body class="dark bg-gray-900 text-gray-100">
@@ -277,6 +278,7 @@ section h2 {
 
 </body>
 </html>
+
 
 
 

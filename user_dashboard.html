@@ -10,87 +10,107 @@
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    /* Smooth fade + zoom animation */
+    .fade-in {
+      animation: fadeIn 0.6s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.97); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
 </head>
-<body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-white font-sans min-h-screen flex flex-col">
 
-  <!-- Header -->
-<header class="text-center pt-24 pb-8 relative">
-  <div class="head bg-white dark:bg-gray-800 p-4 w-full fixed top-0 left-0 right-0 z-50">
-    <h1 id="headerName" class="text-4xl font-bold text-left">Loading...</h1>
-  </div>
+<body class="bg-gradient-to-br from-gray-950 via-blue-950 to-black text-white min-h-screen flex flex-col fade-in">
 
-  <div class="mt-4">
-    <img id="profileImage" src="default.jpg" alt="Profile Image" class="w-32 h-32 rounded-full mx-auto border-4 border-blue-500 shadow-lg object-cover" />
-  </div>
-</header>
-
-
-  <!-- Blue Boxes Section -->
-  <section class="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 mt-10 text-center">
-    <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-blue-400 dark:hover:shadow-blue-600 transition duration-300">
-      <h2 class="text-xl font-semibold mb-2" id="box1Title">Loading...</h2>
-      <p class="text-gray-700 dark:text-gray-300" id="box1Desc">Loading...</p>
+  <!-- HEADER -->
+  <header class="relative z-50 bg-gray-900/80 backdrop-blur-md border-b border-blue-800 shadow-lg fixed top-0 left-0 right-0">
+    <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
+      <h1 id="headerName" class="text-2xl sm:text-3xl font-extrabold text-blue-400 tracking-wide drop-shadow-lg">
+        Loading...
+      </h1>
+      <button id="logoutBtn" class="bg-red-600 hover:bg-red-500 px-4 py-2 rounded-xl font-semibold shadow-md transition duration-300">
+        🚪 Logout
+      </button>
     </div>
-    <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-blue-400 dark:hover:shadow-blue-600 transition duration-300">
-      <h2 class="text-xl font-semibold mb-2" id="box2Title">Loading...</h2>
-      <p class="text-gray-700 dark:text-gray-300" id="box2Desc">Loading...</p>
-    </div>
-    <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-blue-400 dark:hover:shadow-blue-600 transition duration-300">
-      <h2 class="text-xl font-semibold mb-2" id="box3Title">Loading...</h2>
-      <p class="text-gray-700 dark:text-gray-300" id="box3Desc">Loading...</p>
+  </header>
+
+  <!-- PROFILE SECTION -->
+  <section class="pt-28 text-center px-4">
+    <div class="relative inline-block">
+      <img id="profileImage" src="default.jpg" alt="Profile" class="w-36 h-36 rounded-full object-cover border-4 border-blue-600 shadow-2xl mx-auto fade-in" />
+      <div class="absolute inset-0 rounded-full bg-blue-500/10 blur-xl -z-10"></div>
     </div>
   </section>
 
-  <!-- Red Cards Section -->
-  <section class="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 mt-10 text-center">
-    <div class="bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-md hover:shadow-red-400 dark:hover:shadow-red-600 transition duration-300">
-      <img id="work1Image" src="default-work.jpg" alt="Work 1" class="w-full h-40 object-cover rounded mb-2" />
-      <p id="work1Text" class="text-gray-700 dark:text-gray-300">Loading...</p>
+  <!-- BLUE BOXES -->
+  <section class="max-w-6xl mx-auto mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6">
+    <div class="bg-blue-900/30 border border-blue-700 rounded-2xl p-6 text-center shadow-md hover:shadow-blue-600/60 hover:scale-105 transition duration-300">
+      <h2 class="text-xl font-semibold text-blue-300 mb-2" id="box1Title">Loading...</h2>
+      <p class="text-blue-100" id="box1Desc">Loading...</p>
     </div>
-    <div class="bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-md hover:shadow-red-400 dark:hover:shadow-red-600 transition duration-300">
-      <img id="work2Image" src="default-work.jpg" alt="Work 2" class="w-full h-40 object-cover rounded mb-2" />
-      <p id="work2Text" class="text-gray-700 dark:text-gray-300">Loading...</p>
+    <div class="bg-blue-900/30 border border-blue-700 rounded-2xl p-6 text-center shadow-md hover:shadow-blue-600/60 hover:scale-105 transition duration-300">
+      <h2 class="text-xl font-semibold text-blue-300 mb-2" id="box2Title">Loading...</h2>
+      <p class="text-blue-100" id="box2Desc">Loading...</p>
     </div>
-    <div class="bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-md hover:shadow-red-400 dark:hover:shadow-red-600 transition duration-300">
-      <img id="work3Image" src="default-work.jpg" alt="Work 3" class="w-full h-40 object-cover rounded mb-2" />
-      <p id="work3Text" class="text-gray-700 dark:text-gray-300">Loading...</p>
+    <div class="bg-blue-900/30 border border-blue-700 rounded-2xl p-6 text-center shadow-md hover:shadow-blue-600/60 hover:scale-105 transition duration-300">
+      <h2 class="text-xl font-semibold text-blue-300 mb-2" id="box3Title">Loading...</h2>
+      <p class="text-blue-100" id="box3Desc">Loading...</p>
     </div>
   </section>
 
-  <!-- Coding Icons Section -->
-  <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10 px-6 text-center">
-    <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-lg dark:hover:shadow-blue-600 transition duration-300">
-      <div class="text-4xl mb-3 text-blue-600 dark:text-blue-400">
-        <i class="fas fa-code"></i>
+  <!-- WORK / PROJECTS -->
+  <section class="max-w-6xl mx-auto mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6">
+    <div class="bg-gray-900/70 border border-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-red-600/50 hover:scale-[1.03] transition duration-300">
+      <img id="work1Image" src="default-work.jpg" alt="Work 1" class="w-full h-44 object-cover" />
+      <div class="p-4">
+        <p id="work1Text" class="text-gray-300 text-sm sm:text-base">Loading...</p>
       </div>
-      <p id="codeBox1" class="text-gray-700 dark:text-gray-300">Loading...</p>
     </div>
-    <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-lg dark:hover:shadow-blue-600 transition duration-300">
-      <div class="text-4xl mb-3 text-green-600 dark:text-green-400">
-        <i class="fas fa-cogs"></i>
+    <div class="bg-gray-900/70 border border-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-red-600/50 hover:scale-[1.03] transition duration-300">
+      <img id="work2Image" src="default-work.jpg" alt="Work 2" class="w-full h-44 object-cover" />
+      <div class="p-4">
+        <p id="work2Text" class="text-gray-300 text-sm sm:text-base">Loading...</p>
       </div>
-      <p id="codeBox2" class="text-gray-700 dark:text-gray-300">Loading...</p>
     </div>
-    <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-lg dark:hover:shadow-blue-600 transition duration-300">
-      <div class="text-4xl mb-3 text-red-600 dark:text-red-400">
-        <i class="fas fa-shield-alt"></i>
+    <div class="bg-gray-900/70 border border-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-red-600/50 hover:scale-[1.03] transition duration-300">
+      <img id="work3Image" src="default-work.jpg" alt="Work 3" class="w-full h-44 object-cover" />
+      <div class="p-4">
+        <p id="work3Text" class="text-gray-300 text-sm sm:text-base">Loading...</p>
       </div>
-      <p id="codeBox3" class="text-gray-700 dark:text-gray-300">Loading...</p>
     </div>
-  </section><br>
+  </section>
 
-  <!-- Footer -->
-  <footer class="bg-white dark:bg-gray-800 mt-12 p-6 text-center shadow-inner mt-auto">
+  <!-- CODING ICONS -->
+  <section class="max-w-6xl mx-auto mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6">
+    <div class="bg-gray-800/70 border border-gray-700 rounded-2xl p-6 text-center hover:shadow-blue-600/50 transition duration-300">
+      <i class="fas fa-code text-4xl mb-3 text-blue-400"></i>
+      <p id="codeBox1" class="text-gray-300">Loading...</p>
+    </div>
+    <div class="bg-gray-800/70 border border-gray-700 rounded-2xl p-6 text-center hover:shadow-green-600/50 transition duration-300">
+      <i class="fas fa-cogs text-4xl mb-3 text-green-400"></i>
+      <p id="codeBox2" class="text-gray-300">Loading...</p>
+    </div>
+    <div class="bg-gray-800/70 border border-gray-700 rounded-2xl p-6 text-center hover:shadow-red-600/50 transition duration-300">
+      <i class="fas fa-shield-alt text-4xl mb-3 text-red-400"></i>
+      <p id="codeBox3" class="text-gray-300">Loading...</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="mt-16 py-8 bg-gray-900/80 border-t border-gray-800 text-center backdrop-blur-md">
     <div class="flex justify-center gap-6 text-2xl mb-3">
-      <a id="facebookLink" href="#" class="text-blue-600 hover:text-blue-800" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-      <a id="twitterLink" href="#" class="text-blue-400 hover:text-blue-600" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-      <a id="telegramLink" href="#" class="text-blue-500 hover:text-blue-700" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram-plane"></i></a>
-      <a id="tiktokLink" href="#" class="text-black hover:text-gray-800 dark:text-white dark:hover:text-gray-400" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+      <a id="facebookLink" href="#" target="_blank" class="hover:text-blue-500 transition"><i class="fab fa-facebook-f"></i></a>
+      <a id="twitterLink" href="#" target="_blank" class="hover:text-blue-400 transition"><i class="fab fa-twitter"></i></a>
+      <a id="telegramLink" href="#" target="_blank" class="hover:text-sky-400 transition"><i class="fab fa-telegram-plane"></i></a>
+      <a id="tiktokLink" href="#" target="_blank" class="hover:text-pink-400 transition"><i class="fab fa-tiktok"></i></a>
     </div>
-    <p class="text-gray-500 dark:text-gray-400 text-sm">&copy; <span id="footerName">Loading...</span> All rights reserved.</p>
+    <p class="text-gray-400 text-sm">&copy; <span id="footerName">Loading...</span> All rights reserved.</p>
   </footer>
 
- 
+  <!-- SCRIPT -->
   <script>
     const loggedInEmail = localStorage.getItem('loggedInUserEmail');
     if (!loggedInEmail) {
@@ -100,57 +120,30 @@
       const user = users.find(u => u.email === loggedInEmail);
 
       if (user) {
-        // Header
         document.getElementById('headerName').textContent = user.username || 'User';
         document.getElementById('profileImage').src = user.profileImageBase64 || 'default.jpg';
-
-        // Blue Boxes (assuming you want to display work texts here)
         document.getElementById('box1Title').textContent = "Work 1";
         document.getElementById('box1Desc').textContent = user.work1Text || 'No description provided.';
         document.getElementById('box2Title').textContent = "Work 2";
         document.getElementById('box2Desc').textContent = user.work2Text || 'No description provided.';
         document.getElementById('box3Title').textContent = "Work 3";
         document.getElementById('box3Desc').textContent = user.work3Text || 'No description provided.';
-
-        // Red Cards Images + Text
         document.getElementById('work1Image').src = user.work1ImageBase64 || 'default-work.jpg';
         document.getElementById('work1Text').textContent = user.work1Text || 'No description provided.';
         document.getElementById('work2Image').src = user.work2ImageBase64 || 'default-work.jpg';
         document.getElementById('work2Text').textContent = user.work2Text || 'No description provided.';
         document.getElementById('work3Image').src = user.work3ImageBase64 || 'default-work.jpg';
         document.getElementById('work3Text').textContent = user.work3Text || 'No description provided.';
-
-        // Coding icons texts (if you want to add those from profile, or just keep static)
-        document.getElementById('codeBox1').textContent = "Coding skill 1"; // replace if you want dynamic
-        document.getElementById('codeBox2').textContent = "Coding skill 2";
-        document.getElementById('codeBox3').textContent = "Coding skill 3";
-
-        // Social Links
-        if(user.facebookURL) {
-          document.getElementById('facebookLink').href = user.facebookURL;
-        } else {
-          document.getElementById('facebookLink').style.display = 'none';
-        }
-        if(user.twitterURL) {
-          document.getElementById('twitterLink').href = user.twitterURL;
-        } else {
-          document.getElementById('twitterLink').style.display = 'none';
-        }
-        if(user.telegramURL) {
-          document.getElementById('telegramLink').href = user.telegramURL;
-        } else {
-          document.getElementById('telegramLink').style.display = 'none';
-        }
-        if(user.tiktokURL) {
-          document.getElementById('tiktokLink').href = user.tiktokURL;
-        } else {
-          document.getElementById('tiktokLink').style.display = 'none';
-        }
-
-        // Footer name
+        document.getElementById('codeBox1').textContent = "Full-Stack Developer";
+        document.getElementById('codeBox2').textContent = "Web & App Engineer";
+        document.getElementById('codeBox3').textContent = "Security & Systems";
+        if(user.facebookURL) document.getElementById('facebookLink').href = user.facebookURL; else document.getElementById('facebookLink').style.display = 'none';
+        if(user.twitterURL) document.getElementById('twitterLink').href = user.twitterURL; else document.getElementById('twitterLink').style.display = 'none';
+        if(user.telegramURL) document.getElementById('telegramLink').href = user.telegramURL; else document.getElementById('telegramLink').style.display = 'none';
+        if(user.tiktokURL) document.getElementById('tiktokLink').href = user.tiktokURL; else document.getElementById('tiktokLink').style.display = 'none';
         document.getElementById('footerName').textContent = user.footerName || user.username || "User";
       } else {
-        alert('User data not found. Redirecting to login.');
+        alert('User not found. Redirecting...');
         localStorage.removeItem('loggedInUserEmail');
         window.location.href = 'index.html';
       }
@@ -160,8 +153,6 @@
       localStorage.removeItem('loggedInUserEmail');
       window.location.href = 'index.html';
     });
- 
   </script>
-
 </body>
 </html>

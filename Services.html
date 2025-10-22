@@ -98,11 +98,88 @@
       color: #ddd;
     }
   }
+
+
+.highlight-section {
+  padding: 4rem 1rem;
+  text-align: center;
+  background-color: #0d0d0d;
+  color: #f4f4f4;
+  transition: all 0.3s ease;
+}
+
+.highlight-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #ff4c60;
+}
+
+/* Cards container */
+.highlight-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+/* Individual card */
+.highlight-card {
+  background-color: #1a1a1a;
+  border-radius: 15px;
+  width: 260px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.highlight-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(255,76,96,0.5);
+}
+
+.highlight-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.highlight-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+  color: #ff4c60;
+}
+
+.highlight-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+/* Dark/Light mode toggle */
+@media (prefers-color-scheme: light) {
+  .highlight-section {
+    background-color: #f4f4f4;
+    color: #111;
+  }
+  .highlight-section h2 {
+    color: #0077ff;
+  }
+  .highlight-card {
+    background-color: #fff;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+  .highlight-card h3 {
+    color: #ff4c60;
+  }
+  .highlight-card p {
+    color: #555;
+  }
+}
+
 </style>
   
 </head>
 
-<body>
+<body  class="bg-white dark:bg-gray-900 text-gray-800 dark:text-white">
 
   <!-- Navbar -->
   <nav id="navbar">
@@ -186,6 +263,36 @@
     </div>
   </div>
 </section>
+
+
+  <section class="highlight-section">
+  <h2>✨ Highlights of My Work</h2>
+  <div class="highlight-cards">
+    <div class="highlight-card">
+      <div class="highlight-icon">🚀</div>
+      <h3>Fast & Optimized</h3>
+      <p>All projects are optimized for speed and performance on any device.</p>
+    </div>
+    <div class="highlight-card">
+      <div class="highlight-icon">🎨</div>
+      <h3>Creative Design</h3>
+      <p>Modern and aesthetic designs that grab attention and engage users.</p>
+    </div>
+    <div class="highlight-card">
+      <div class="highlight-icon">🔒</div>
+      <h3>Secure & Reliable</h3>
+      <p>Security and reliability are my top priority in every project.</p>
+    </div>
+    <div class="highlight-card">
+      <div class="highlight-icon">💡</div>
+      <h3>Innovative Solutions</h3>
+      <p>Solutions tailored to your business needs and goals for maximum impact.</p>
+    </div>
+  </div>
+</section>
+
+
+
  <!-- Footer -->
   <footer class="bg-gray-900 text-gray-300 py-8">
     <div
@@ -243,6 +350,7 @@
 
 </body>
 </html>
+
 
 
 

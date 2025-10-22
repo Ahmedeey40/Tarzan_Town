@@ -28,6 +28,78 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<style>
+  /* Default Light Mode */
+  section {
+    padding: 3rem 1rem;
+    background-color: #f4f4f4;
+    color: #111;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+  }
+
+  section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #0077ff;
+  }
+
+  .service-boxes, .client-boxes, .why-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .box {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .box h3 {
+    color: #ff4c60;
+    margin-bottom: 0.5rem;
+  }
+
+  .box p {
+    line-height: 1.5;
+  }
+
+  .box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+
+  /* Dark Mode Detection */
+  @media (prefers-color-scheme: dark) {
+    section {
+      background-color: #0d0d0d;
+      color: #f4f4f4;
+    }
+
+    section h2 {
+      color: #1e90ff;
+    }
+
+    .box {
+      background-color: #1a1a1a;
+      box-shadow: 0 0 10px rgba(255,255,255,0.05);
+    }
+
+    .box h3 {
+      color: #ff4c60;
+    }
+
+    .box p {
+      color: #ddd;
+    }
+  }
+</style>
+  
 </head>
 
 <body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-white">
@@ -59,63 +131,61 @@
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-<section style="padding: 3rem 1rem; background-color: #0d0d0d; color: #f4f4f4; text-align: center;">
-  <h2 style="font-size: 2rem; margin-bottom: 2rem;">My Services</h2>
-  <div class="service-boxes" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
-    <div class="box" style="background-color: #1a1a1a; padding: 1.5rem; border-radius: 10px; width: 300px; box-shadow: 0 0 10px rgba(0,0,0,0.3);">
-      <h3 style="color: #ff4c60;">Website Development</h3>
+<section>
+  <h2>My Services</h2>
+  <div class="service-boxes">
+    <div class="box">
+      <h3>Website Development</h3>
       <p>Responsive and beautiful websites using HTML, CSS, JS & modern frameworks.</p>
     </div>
-    <div class="box" style="background-color: #1a1a1a; padding: 1.5rem; border-radius: 10px; width: 300px; box-shadow: 0 0 10px rgba(0,0,0,0.3);">
-      <h3 style="color: #ff4c60;">App Development</h3>
+    <div class="box">
+      <h3>App Development</h3>
       <p>Cross-platform mobile apps with Flutter, Firebase and smooth UI/UX.</p>
     </div>
-    <div class="box" style="background-color: #1a1a1a; padding: 1.5rem; border-radius: 10px; width: 300px; box-shadow: 0 0 10px rgba(0,0,0,0.3);">
-      <h3 style="color: #ff4c60;">Web Hosting</h3>
+    <div class="box">
+      <h3>Web Hosting</h3>
       <p>Deploying web apps with security, speed, and SEO optimization.</p>
     </div>
   </div>
 </section>
 
-<section style="padding: 3rem 1rem; background-color: #0d0d0d; color: #f4f4f4; text-align: center;">
-  <h2 style="font-size: 2rem; margin-bottom: 2rem;">What Clients Say</h2>
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
-    <div style="background-color: #1a1a1a; padding: 1.5rem; border-radius: 10px; width: 300px; box-shadow: 0 0 10px rgba(0,0,0,0.3);">
+<!-- What Clients Say -->
+<section>
+  <h2>What Clients Say</h2>
+  <div class="client-boxes">
+    <div class="box">
       <p style="font-style: italic;">“Jensen built us a fast, modern website. We're impressed by the results.”</p>
-      <p style="margin-top: 1rem; font-weight: bold; color: #ff4c60;">— Ayaan, CEO</p>
+      <p style="margin-top:1rem; font-weight:bold;">— Ayaan, CEO</p>
     </div>
-    <div style="background-color: #1a1a1a; padding: 1.5rem; border-radius: 10px; width: 300px; box-shadow: 0 0 10px rgba(0,0,0,0.3);">
+    <div class="box">
       <p style="font-style: italic;">“Amazing mobile app delivered before the deadline!”</p>
-      <p style="margin-top: 1rem; font-weight: bold; color: #ff4c60;">— Layla, Startup Founder</p>
+      <p style="margin-top:1rem; font-weight:bold;">— Layla, Startup Founder</p>
     </div>
-    <div style="background-color: #1a1a1a; padding: 1.5rem; border-radius: 10px; width: 300px; box-shadow: 0 0 10px rgba(0,0,0,0.3);">
+    <div class="box">
       <p style="font-style: italic;">“Professional, responsive, and talented. Highly recommended.”</p>
-      <p style="margin-top: 1rem; font-weight: bold; color: #ff4c60;">— Max, CTO</p>
+      <p style="margin-top:1rem; font-weight:bold;">— Max, CTO</p>
     </div>
   </div>
 </section>
 
-<section style="padding: 3rem 1rem; background-color: #0d0d0d; color: #f4f4f4; text-align: center;">
-  <h2 style="font-size: 2rem; margin-bottom: 2rem;">Why Choose Me</h2>
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
-    <div style="background-color: #1a1a1a; padding: 1.5rem; border-radius: 10px; width: 300px; box-shadow: 0 0 10px rgba(0,0,0,0.3);">
-      <h3 style="color: #ff4c60;">Quality Code</h3>
-      <p style="line-height: 1.5;">I write clean, efficient, and maintainable code that meets modern standards.</p>
+<!-- Why Choose Me -->
+<section>
+  <h2>Why Choose Me</h2>
+  <div class="why-boxes">
+    <div class="box">
+      <h3>Quality Code</h3>
+      <p>I write clean, efficient, and maintainable code that meets modern standards.</p>
     </div>
-    <div style="background-color: #1a1a1a; padding: 1.5rem; border-radius: 10px; width: 300px; box-shadow: 0 0 10px rgba(0,0,0,0.3);">
-      <h3 style="color: #ff4c60;">On-Time Delivery</h3>
-      <p style="line-height: 1.5;">Every project is delivered on or before deadline with clear communication.</p>
+    <div class="box">
+      <h3>On-Time Delivery</h3>
+      <p>Every project is delivered on or before deadline with clear communication.</p>
     </div>
-    <div style="background-color: #1a1a1a; padding: 1.5rem; border-radius: 10px; width: 300px; box-shadow: 0 0 10px rgba(0,0,0,0.3);">
-      <h3 style="color: #ff4c60;">Client Satisfaction</h3>
-      <p style="line-height: 1.5;">My focus is on building long-term relationships through happy clients.</p>
+    <div class="box">
+      <h3>Client Satisfaction</h3>
+      <p>My focus is on building long-term relationships through happy clients.</p>
     </div>
   </div>
 </section>
-
-
-
-
  <!-- Footer -->
   <footer class="bg-gray-900 text-gray-300 py-8">
     <div
@@ -173,6 +243,7 @@
 
 </body>
 </html>
+
 
 
 

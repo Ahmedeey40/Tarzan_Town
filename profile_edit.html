@@ -2,302 +2,202 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Edit Profile</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .fade-in { animation: fadeIn 0.5s ease-in-out; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
 </head>
-<body class="bg-blue-900 p-6 min-h-screen text-white">
 
- <div class="max-w-3xl mx-auto my-10 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 shadow-2xl p-8 rounded-2xl border border-blue-600">
-  <h2 class="text-3xl md:text-4xl font-extrabold mb-8 text-white text-center drop-shadow-md">Edit Your Profile</h2>
+<body class="min-h-screen bg-gradient-to-br from-gray-950 via-blue-950 to-black flex items-center justify-center p-4">
 
-  <form id="profileForm" class="space-y-6">
-    <!-- Name -->
-    <div>
-      <label class="block mb-2 text-blue-200 font-semibold">Name</label>
-      <input
-        type="text"
-        id="editName"
-        class="w-full border border-blue-600 bg-blue-950/60 p-3 rounded-lg text-white placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
-        placeholder="Enter your name"
-      />
-    </div>
+  <div class="w-full max-w-3xl bg-gray-900/80 border border-blue-800 shadow-2xl rounded-2xl p-6 sm:p-10 backdrop-blur-xl relative overflow-hidden">
+    <div class="absolute -inset-1 bg-gradient-to-r from-blue-700 via-blue-500 to-blue-700 opacity-20 blur-3xl rounded-3xl"></div>
 
-    <!-- Profile Image -->
-    <div class="text-center">
-      <label class="block mb-2 text-blue-200 font-semibold text-left">Profile Image</label>
-      <input type="file" id="profileImageFile" accept="image/*" class="text-blue-100 mb-3" />
-      <img
-        id="profileImagePreview"
-        src=""
-        alt="Profile Preview"
-        class="w-32 h-32 rounded-full object-cover border-4 border-blue-400 mx-auto shadow-lg"
-      />
-    </div>
+    <h2 class="relative text-3xl sm:text-4xl font-extrabold mb-10 text-blue-100 text-center drop-shadow-lg tracking-wide">
+      ✨ Edit Your Profile
+    </h2>
 
-    <!-- Footer Name -->
-    <div>
-      <label class="block mb-2 text-blue-200 font-semibold">Footer Name</label>
-      <input
-        type="text"
-        id="footerNameInput"
-        class="w-full border border-blue-600 bg-blue-950/60 p-3 rounded-lg text-white placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
-        placeholder="Enter footer name"
-      />
-    </div>
+    <form id="profileForm" class="relative space-y-8">
 
-    <!-- Social Links -->
-    <div class="grid md:grid-cols-2 gap-6">
+      <!-- Name -->
       <div>
-        <label class="block mb-2 text-blue-200 font-semibold">Facebook URL</label>
-        <input
-          type="text"
-          id="facebookURL"
-          class="w-full border border-blue-600 bg-blue-950/60 p-3 rounded-lg text-white placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
-          placeholder="Facebook link"
-        />
+        <label class="block mb-2 text-blue-300 font-semibold">Full Name</label>
+        <input type="text" id="editName" class="w-full border border-blue-800 bg-blue-950/60 p-3 rounded-xl text-white placeholder-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="Enter your full name" />
       </div>
 
-      <div>
-        <label class="block mb-2 text-blue-200 font-semibold">Twitter URL</label>
-        <input
-          type="text"
-          id="twitterURL"
-          class="w-full border border-blue-600 bg-blue-950/60 p-3 rounded-lg text-white placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
-          placeholder="Twitter link"
-        />
+      <!-- Profile Image -->
+      <div class="text-center">
+        <label class="block mb-2 text-blue-300 font-semibold text-left">Profile Picture</label>
+        <input type="file" id="profileImageFile" accept="image/*" class="text-blue-200 mb-3 cursor-pointer" />
+        <img id="profileImagePreview" src="" alt="Profile Preview" class="hidden w-32 h-32 rounded-full object-cover border-4 border-blue-600 mx-auto shadow-xl fade-in" />
       </div>
 
+      <!-- Footer Name -->
       <div>
-        <label class="block mb-2 text-blue-200 font-semibold">Telegram URL</label>
-        <input
-          type="text"
-          id="telegramURL"
-          class="w-full border border-blue-600 bg-blue-950/60 p-3 rounded-lg text-white placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
-          placeholder="Telegram link"
-        />
+        <label class="block mb-2 text-blue-300 font-semibold">Footer Name</label>
+        <input type="text" id="footerNameInput" class="w-full border border-blue-800 bg-blue-950/60 p-3 rounded-xl text-white placeholder-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="Enter footer name" />
       </div>
 
-      <div>
-        <label class="block mb-2 text-blue-200 font-semibold">TikTok URL</label>
-        <input
-          type="text"
-          id="tiktokURL"
-          class="w-full border border-blue-600 bg-blue-950/60 p-3 rounded-lg text-white placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
-          placeholder="TikTok link"
-        />
-      </div>
-    </div>
-
-    <hr class="my-8 border-blue-600 opacity-40" />
-
-    <h3 class="text-2xl md:text-3xl font-semibold mb-6 text-white text-center">Work Section (Images + Text)</h3>
-
-    <!-- Work Sections -->
-    <div class="space-y-10">
-      <!-- Work Item Template -->
-      <div>
-        <label class="block mb-2 text-blue-200 font-semibold">Work 1 Image</label>
-        <input type="file" id="work1ImageFile" accept="image/*" class="text-blue-100 mb-3" />
-        <img
-          id="work1ImagePreview"
-          src=""
-          alt="Work 1 Preview"
-          class="w-full h-44 object-cover rounded-lg mb-4 border-4 border-blue-400 shadow-md"
-        />
-        <input
-          type="text"
-          id="work1Text"
-          class="w-full border border-blue-600 bg-blue-950/60 p-3 rounded-lg text-white placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
-          placeholder="Work 1 description"
-        />
+      <!-- Social Links -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div>
+          <label class="block mb-2 text-blue-300 font-semibold">Facebook URL</label>
+          <input type="text" id="facebookURL" class="w-full border border-blue-800 bg-blue-950/60 p-3 rounded-xl text-white placeholder-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="Facebook link" />
+        </div>
+        <div>
+          <label class="block mb-2 text-blue-300 font-semibold">Twitter URL</label>
+          <input type="text" id="twitterURL" class="w-full border border-blue-800 bg-blue-950/60 p-3 rounded-xl text-white placeholder-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="Twitter link" />
+        </div>
+        <div>
+          <label class="block mb-2 text-blue-300 font-semibold">Telegram URL</label>
+          <input type="text" id="telegramURL" class="w-full border border-blue-800 bg-blue-950/60 p-3 rounded-xl text-white placeholder-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="Telegram link" />
+        </div>
+        <div>
+          <label class="block mb-2 text-blue-300 font-semibold">TikTok URL</label>
+          <input type="text" id="tiktokURL" class="w-full border border-blue-800 bg-blue-950/60 p-3 rounded-xl text-white placeholder-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="TikTok link" />
+        </div>
       </div>
 
-      <div>
-        <label class="block mb-2 text-blue-200 font-semibold">Work 2 Image</label>
-        <input type="file" id="work2ImageFile" accept="image/*" class="text-blue-100 mb-3" />
-        <img
-          id="work2ImagePreview"
-          src=""
-          alt="Work 2 Preview"
-          class="w-full h-44 object-cover rounded-lg mb-4 border-4 border-blue-400 shadow-md"
-        />
-        <input
-          type="text"
-          id="work2Text"
-          class="w-full border border-blue-600 bg-blue-950/60 p-3 rounded-lg text-white placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
-          placeholder="Work 2 description"
-        />
+      <hr class="my-10 border-blue-800 opacity-50" />
+
+      <h3 class="text-2xl sm:text-3xl font-semibold mb-6 text-blue-100 text-center">Work Section (Images + Text)</h3>
+
+      <!-- Work Sections -->
+      <div class="space-y-10">
+        <div>
+          <label class="block mb-2 text-blue-300 font-semibold">Work 1 Image</label>
+          <input type="file" id="work1ImageFile" accept="image/*" class="text-blue-200 mb-3 cursor-pointer" />
+          <img id="work1ImagePreview" src="" alt="Work 1 Preview" class="hidden w-full h-44 object-cover rounded-xl mb-4 border-4 border-blue-600 shadow-md fade-in" />
+          <input type="text" id="work1Text" class="w-full border border-blue-800 bg-blue-950/60 p-3 rounded-xl text-white placeholder-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="Work 1 description" />
+        </div>
+
+        <div>
+          <label class="block mb-2 text-blue-300 font-semibold">Work 2 Image</label>
+          <input type="file" id="work2ImageFile" accept="image/*" class="text-blue-200 mb-3 cursor-pointer" />
+          <img id="work2ImagePreview" src="" alt="Work 2 Preview" class="hidden w-full h-44 object-cover rounded-xl mb-4 border-4 border-blue-600 shadow-md fade-in" />
+          <input type="text" id="work2Text" class="w-full border border-blue-800 bg-blue-950/60 p-3 rounded-xl text-white placeholder-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="Work 2 description" />
+        </div>
+
+        <div>
+          <label class="block mb-2 text-blue-300 font-semibold">Work 3 Image</label>
+          <input type="file" id="work3ImageFile" accept="image/*" class="text-blue-200 mb-3 cursor-pointer" />
+          <img id="work3ImagePreview" src="" alt="Work 3 Preview" class="hidden w-full h-44 object-cover rounded-xl mb-4 border-4 border-blue-600 shadow-md fade-in" />
+          <input type="text" id="work3Text" class="w-full border border-blue-800 bg-blue-950/60 p-3 rounded-xl text-white placeholder-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="Work 3 description" />
+        </div>
       </div>
 
-      <div>
-        <label class="block mb-2 text-blue-200 font-semibold">Work 3 Image</label>
-        <input type="file" id="work3ImageFile" accept="image/*" class="text-blue-100 mb-3" />
-        <img
-          id="work3ImagePreview"
-          src=""
-          alt="Work 3 Preview"
-          class="w-full h-44 object-cover rounded-lg mb-4 border-4 border-blue-400 shadow-md"
-        />
-        <input
-          type="text"
-          id="work3Text"
-          class="w-full border border-blue-600 bg-blue-950/60 p-3 rounded-lg text-white placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
-          placeholder="Work 3 description"
-        />
-      </div>
-    </div>
+      <!-- Buttons -->
+      <button type="submit" class="w-full bg-blue-700 hover:bg-blue-600 text-white font-semibold py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-blue-700/50">
+        💾 Save Changes
+      </button>
+    </form>
 
-    <!-- Buttons -->
-    <button
-      type="submit"
-      class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
-    >
-      Save Changes
+    <button id="logoutBtn" class="w-full mt-4 bg-red-700 hover:bg-red-600 text-white font-semibold py-3 rounded-xl transition-all duration-300 shadow-md hover:shadow-red-600/50">
+      🚪 Logout
     </button>
-  </form>
+  </div>
 
-  <button
-    id="logoutBtn"
-    class="w-full mt-4 bg-red-600 hover:bg-red-700 text-white font-semibold py-3 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
-  >
-    Logout
-  </button>
-</div>
-
+  <!-- SCRIPT SECTION -->
   <script>
-    // Helper to convert image file to Base64 string
+    // Convert file to Base64
     function fileToBase64(file) {
       return new Promise((resolve, reject) => {
         const reader = new FileReader();
         reader.onload = () => resolve(reader.result);
-        reader.onerror = error => reject(error);
+        reader.onerror = reject;
         reader.readAsDataURL(file);
       });
     }
 
-    // Show preview image from file input
+    // Setup image preview
     function setupImagePreview(fileInputId, imgPreviewId) {
-      const fileInput = document.getElementById(fileInputId);
-      const imgPreview = document.getElementById(imgPreviewId);
-
-      fileInput.addEventListener('change', async () => {
-        if (fileInput.files && fileInput.files[0]) {
-          const base64 = await fileToBase64(fileInput.files[0]);
-          imgPreview.src = base64;
+      const input = document.getElementById(fileInputId);
+      const preview = document.getElementById(imgPreviewId);
+      input.addEventListener("change", async () => {
+        if (input.files && input.files[0]) {
+          const base64 = await fileToBase64(input.files[0]);
+          preview.src = base64;
+          preview.classList.remove("hidden");
         }
       });
     }
 
-    // Setup previews for all images
-    setupImagePreview('profileImageFile', 'profileImagePreview');
-    setupImagePreview('work1ImageFile', 'work1ImagePreview');
-    setupImagePreview('work2ImageFile', 'work2ImagePreview');
-    setupImagePreview('work3ImageFile', 'work3ImagePreview');
+    // Initialize previews
+    ["profile", "work1", "work2", "work3"].forEach(id => {
+      setupImagePreview(id + "ImageFile", id + "ImagePreview");
+    });
 
-    const loggedInEmail = localStorage.getItem('loggedInUserEmail');
-    if (!loggedInEmail) {
-      window.location.href = '/index';
-    }
+    // Authentication
+    const loggedInEmail = localStorage.getItem("loggedInUserEmail");
+    if (!loggedInEmail) window.location.href = "/index";
 
-    const users = JSON.parse(localStorage.getItem('usersDB')) || [];
+    const users = JSON.parse(localStorage.getItem("usersDB")) || [];
     const currentUserIndex = users.findIndex(u => u.email === loggedInEmail);
     if (currentUserIndex === -1) {
-      alert('User data not found.');
-      window.location.href = '/dashboard';
+      alert("User not found!");
+      window.location.href = "/dashboard";
     }
     const user = users[currentUserIndex];
 
-    // Fill form inputs with existing data
-    document.getElementById('editName').value = user.username || '';
-    document.getElementById('footerNameInput').value = user.footerName || '';
-    document.getElementById('facebookURL').value = user.facebookURL || '';
-    document.getElementById('twitterURL').value = user.twitterURL || '';
-    document.getElementById('telegramURL').value = user.telegramURL || '';
-    document.getElementById('tiktokURL').value = user.tiktokURL || '';
+    // Fill data
+    const fields = ["editName", "footerNameInput", "facebookURL", "twitterURL", "telegramURL", "tiktokURL", "work1Text", "work2Text", "work3Text"];
+    fields.forEach(id => document.getElementById(id).value = user[id.replace("Input", "")] || "");
 
-    // Show images previews if saved as Base64 strings
-    if (user.profileImageBase64) {
-      document.getElementById('profileImagePreview').src = user.profileImageBase64;
-    }
-    if (user.work1ImageBase64) {
-      document.getElementById('work1ImagePreview').src = user.work1ImageBase64;
-    }
-    if (user.work2ImageBase64) {
-      document.getElementById('work2ImagePreview').src = user.work2ImageBase64;
-    }
-    if (user.work3ImageBase64) {
-      document.getElementById('work3ImagePreview').src = user.work3ImageBase64;
-    }
+    // Load images
+    ["profile", "work1", "work2", "work3"].forEach(id => {
+      const preview = document.getElementById(id + "ImagePreview");
+      const imgBase64 = user[id + "ImageBase64"];
+      if (imgBase64) {
+        preview.src = imgBase64;
+        preview.classList.remove("hidden");
+      }
+    });
 
-    // Fill work texts
-    document.getElementById('work1Text').value = user.work1Text || '';
-    document.getElementById('work2Text').value = user.work2Text || '';
-    document.getElementById('work3Text').value = user.work3Text || '';
-
-    document.getElementById('profileForm').addEventListener('submit', async (e) => {
+    // Save form
+    document.getElementById("profileForm").addEventListener("submit", async e => {
       e.preventDefault();
 
-      // Get values from inputs
-      const username = document.getElementById('editName').value.trim();
-      if (!username) {
-        alert('Name is required');
-        return;
-      }
+      const username = document.getElementById("editName").value.trim();
+      if (!username) return alert("Name is required");
 
-      const footerName = document.getElementById('footerNameInput').value.trim();
-      const facebookURL = document.getElementById('facebookURL').value.trim();
-      const twitterURL = document.getElementById('twitterURL').value.trim();
-      const telegramURL = document.getElementById('telegramURL').value.trim();
-      const tiktokURL = document.getElementById('tiktokURL').value.trim();
-
-      const work1Text = document.getElementById('work1Text').value.trim();
-      const work2Text = document.getElementById('work2Text').value.trim();
-      const work3Text = document.getElementById('work3Text').value.trim();
-
-      // For images: check if new image selected, if yes, convert to Base64, else keep old one
       async function getImageBase64OrOld(fileInputId, oldBase64) {
-        const fileInput = document.getElementById(fileInputId);
-        if (fileInput.files && fileInput.files[0]) {
-          return await fileToBase64(fileInput.files[0]);
-        }
-        return oldBase64 || '';
+        const file = document.getElementById(fileInputId).files[0];
+        return file ? await fileToBase64(file) : oldBase64 || "";
       }
 
-      const profileImageBase64 = await getImageBase64OrOld('profileImageFile', user.profileImageBase64);
-      const work1ImageBase64 = await getImageBase64OrOld('work1ImageFile', user.work1ImageBase64);
-      const work2ImageBase64 = await getImageBase64OrOld('work2ImageFile', user.work2ImageBase64);
-      const work3ImageBase64 = await getImageBase64OrOld('work3ImageFile', user.work3ImageBase64);
-
-      // Update user data in usersDB
       users[currentUserIndex] = {
         ...users[currentUserIndex],
         username,
-        footerName,
-        facebookURL,
-        twitterURL,
-        telegramURL,
-        tiktokURL,
-        profileImageBase64,
-        work1ImageBase64,
-        work2ImageBase64,
-        work3ImageBase64,
-        work1Text,
-        work2Text,
-        work3Text,
+        footerName: document.getElementById("footerNameInput").value.trim(),
+        facebookURL: document.getElementById("facebookURL").value.trim(),
+        twitterURL: document.getElementById("twitterURL").value.trim(),
+        telegramURL: document.getElementById("telegramURL").value.trim(),
+        tiktokURL: document.getElementById("tiktokURL").value.trim(),
+        work1Text: document.getElementById("work1Text").value.trim(),
+        work2Text: document.getElementById("work2Text").value.trim(),
+        work3Text: document.getElementById("work3Text").value.trim(),
+        profileImageBase64: await getImageBase64OrOld("profileImageFile", user.profileImageBase64),
+        work1ImageBase64: await getImageBase64OrOld("work1ImageFile", user.work1ImageBase64),
+        work2ImageBase64: await getImageBase64OrOld("work2ImageFile", user.work2ImageBase64),
+        work3ImageBase64: await getImageBase64OrOld("work3ImageFile", user.work3ImageBase64),
       };
 
-      localStorage.setItem('usersDB', JSON.stringify(users));
-
-      alert('Profile updated successfully!');
-      window.location.href = '/user_dashboard'; // Adjust if needed
+      localStorage.setItem("usersDB", JSON.stringify(users));
+      alert("✅ Profile updated successfully!");
+      window.location.href = "/user_dashboard";
     });
 
-    document.getElementById('logoutBtn').addEventListener('click', () => {
-      localStorage.removeItem('loggedInUserEmail');
-      window.location.href = '/index';
+    // Logout
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      localStorage.removeItem("loggedInUserEmail");
+      window.location.href = "/index";
     });
   </script>
-
 </body>
 </html>
-

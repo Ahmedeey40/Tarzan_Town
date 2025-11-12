@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Processing</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+    }
+    #preloader {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      background-color: white; /* Dark mode: dark:bg-gray-900 */
+      flex-direction: column;
+    }
+    .spinner {
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #6366f1; /* Indigo */
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg);}
+      100% { transform: rotate(360deg);}
+    }
+  </style>
+</head>
+<body class="bg-white dark:bg-gray-900">
+
+  <!-- Processing Message -->
+  <div id="preloader">
+    <div class="spinner"></div>
+    <p class="text-indigo-600 dark:text-indigo-400 text-2xl font-semibold">Processing...</p>
+  </div>
+
+  <!-- JavaScript: Auto reload of the same file -->
+  <script>
+    // Auto-reload the same file after 3 seconds
+    setTimeout(() => {
+      location.href = location.href; // Reload the same file
+    }, 3000); // 3 seconds
+  </script>
+
+</body>
+</html>

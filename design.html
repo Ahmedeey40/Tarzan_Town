@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Processing</title>
+  <title>Tempalets files</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body, html {
@@ -41,12 +41,12 @@
     <p class="text-indigo-600 dark:text-indigo-400 text-2xl font-semibold">Processing...</p>
   </div>
 
-  <!-- JavaScript: Auto reload of the same file -->
+  <!-- JavaScript: Redirect to index.html -->
   <script>
-    // Auto-reload the same file after 3 seconds
+    // Redirect automatically after 3 seconds
     setTimeout(() => {
-      location.href = location.href; // Reload the same file
-    }, 3000); // 3 seconds
+      window.location.href = "index.html"; // go back to index.html
+    }, 3000); // 3000ms = 3 seconds
   </script>
 
 </body>

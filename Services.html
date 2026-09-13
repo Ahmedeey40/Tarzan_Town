@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Services – Tarzan Town</title>
 
@@ -24,269 +25,309 @@
   <meta name="twitter:description" content="Explore Tarzan's services on Globamart.online, including website and app building tools, templates, prompts, subdomains, and temporary profiles for easy digital creation.">
   <meta name="twitter:image" content="https://globamart.online/logo.png">
 
-  <!-- Tailwind CSS -->
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-<style>
-/* General gradient background */
-body, section {
-  background: linear-gradient(to right, #041c32, #064663); /* Gradient dark-blue background */
-  color: #f4f4f4; /* Light text for contrast */
-  transition: all 0.3s ease-in-out;
-}
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            ink: '#070707',
+            surface: '#0b0b0f',
+            card: '#111318',
+            line: 'rgba(255,255,255,0.08)',
+            muted: '#9ca3af',
+            primary: { 300:'#a5b4fc', 400:'#818cf8', 500:'#6366f1', 600:'#4f46e5', 700:'#4338ca' },
+            accent2: '#22d3ee'
+          },
+          fontFamily: {
+            sora: ['Sora', 'sans-serif'],
+            sans: ['Inter', 'sans-serif']
+          },
+          boxShadow: {
+            glow: '0 0 40px -8px rgba(99,102,241,0.45)',
+            glowCyan: '0 0 40px -10px rgba(34,211,238,0.30)',
+            card: '0 20px 45px -25px rgba(0,0,0,0.7)'
+          }
+        }
+      }
+    }
+  </script>
 
-section h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  color: #ff4c60; /* Heading color stands out on dark gradient */
-  text-align: center;
-}
+  <style>
+    :root{ --line: rgba(255,255,255,0.08); }
+    html{ scroll-behavior:smooth; }
+    body{ font-family:'Inter', system-ui, sans-serif; background:#070707; }
+    h1,h2,h3,.font-sora{ font-family:'Sora', system-ui, sans-serif; }
 
-.service-boxes, .client-boxes, .why-boxes, .highlight-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-}
+    @keyframes fade-up { from{opacity:0; transform:translateY(22px);} to{opacity:1; transform:translateY(0);} }
+    .reveal{ opacity:0; }
+    .reveal.in{ animation: fade-up .7s ease-out both; }
+    .reveal-stagger.in > *{ opacity:0; animation: fade-up .6s ease-out both; }
+    .reveal-stagger.in > *:nth-child(1){ animation-delay:.03s; }
+    .reveal-stagger.in > *:nth-child(2){ animation-delay:.1s; }
+    .reveal-stagger.in > *:nth-child(3){ animation-delay:.17s; }
+    .reveal-stagger.in > *:nth-child(4){ animation-delay:.24s; }
 
-.box, .highlight-card {
-  background-color: rgba(0,0,0,0.6); /* Semi-transparent dark cards on gradient */
-  padding: 1.5rem;
-  border-radius: 10px;
-  width: 300px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    @media (prefers-reduced-motion: reduce){
+      *{ animation-duration:.01ms !important; animation-iteration-count:1 !important; }
+    }
 
-.box h3, .highlight-card h3 {
-  color: #ff4c60;
-  margin-bottom: 0.5rem;
-}
+    .nav-link{ position:relative; color:#9ca3af; font-size:.9rem; font-weight:500; padding:6px 0; transition:color .2s ease; }
+    .nav-link::after{ content:""; position:absolute; left:0; bottom:0; width:0; height:1px; background:#818cf8; transition:width .25s ease; }
+    .nav-link:hover{ color:#f5f5f5; }
+    .nav-link.active{ color:#a5b4fc; }
+    .nav-link.active::after{ width:100%; }
 
-.box p, .highlight-card p {
-  color: #ddd;
-  line-height: 1.5;
-}
+    .orb{ position:absolute; border-radius:9999px; filter:blur(70px); pointer-events:none; }
 
-.box:hover, .highlight-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(255,76,96,0.5);
-}
+    .card{
+      border:1px solid var(--line); border-radius:1rem;
+      background: rgba(17,19,24,0.6); transition: box-shadow .25s ease, border-color .25s ease, transform .25s ease;
+    }
+    .card:hover{ box-shadow: 0 0 40px -12px rgba(99,102,241,0.35); border-color: rgba(99,102,241,0.4); transform: translateY(-4px); }
 
-.highlight-section {
-  padding: 4rem 1rem;
-  text-align: center;
-  background: linear-gradient(to right, #041c32, #064663); /* same gradient */
-  color: #f4f4f4;
-}
-
-.highlight-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  color: #ff4c60;
-}
-
-.highlight-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-/* Mobile responsive */
-@media (max-width: 768px) {
-  .box, .highlight-card {
-    width: 90%;
-  }
-  section h2 {
-    font-size: 1.8rem;
-  }
-  .highlight-section h2 {
-    font-size: 2rem;
-  }
-}
-</style>
-
+    .stars{ color:#facc15; font-size:.8rem; letter-spacing:2px; }
+  </style>
 </head>
 
-<body class="dark bg-gray-900 text-gray-100">
-
+<body class="bg-ink text-gray-100 antialiased">
 
   <!-- Navbar -->
-  <nav id="navbar">
-    <div class="nav-content">
-      <div class="logo">Tarzan Town</div>
-      <button id="menu-btn" aria-label="Toggle menu">☰</button>
-      <div class="nav-links" id="nav-links">
-        <a href="/index">Home</a>
-        <a href="/Contact">Contact</a>
-        <a href="/About">About Us</a>
-        <a href="/Services">Services</a>
-        <a href="/take">Takes</a>
-        <a href="/my_libary">My Libary</a>
+  <nav id="navbar" class="fixed top-4 inset-x-0 z-50 px-4">
+    <div class="nav-content max-w-5xl mx-auto flex items-center justify-between gap-4 px-5 py-3 rounded-full bg-surface/70 backdrop-blur-xl border border-line shadow-card">
+      <div class="logo font-sora font-bold text-[1.05rem] tracking-tight">
+        Ahmed <span class="text-primary-400">Developer</span>
+      </div>
+      <button id="menu-btn" class="md:hidden text-xl text-gray-200" aria-label="Toggle menu">☰</button>
+      <div class="nav-links hidden md:flex items-center gap-8 md:static absolute top-full inset-x-4 mt-3 md:mt-0 flex-col md:flex-row bg-surface/95 md:bg-transparent border md:border-0 border-line rounded-2xl md:rounded-none p-5 md:p-0 backdrop-blur-xl" id="nav-links">
+        <a href="/index" class="nav-link">Home</a>
+        <a href="/Contact" class="nav-link">Contact</a>
+        <a href="/About" class="nav-link">About Us</a>
+        <a href="/Services" class="nav-link active">Services</a>
+        <a href="/take" class="nav-link">Takes</a>
+        <a href="/my_libary" class="nav-link">My Library</a>
       </div>
     </div>
   </nav>
+
+  <!-- Header -->
+  <section class="relative overflow-hidden pt-40 md:pt-48 pb-16 px-5 md:px-8">
+    <div class="orb w-[380px] h-[380px] bg-primary-500/20 -top-32 -right-16"></div>
+    <div class="orb w-[300px] h-[300px] bg-accent2/10 top-32 -left-20"></div>
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image:linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size:44px 44px; mask-image:radial-gradient(700px 500px at 30% 0%, black, transparent 75%);"></div>
+
+    <div class="max-w-3xl mx-auto text-center relative z-10 reveal in">
+      <span class="inline-flex items-center gap-2 text-xs font-sora font-semibold tracking-wide text-primary-300 bg-primary-500/10 border border-primary-500/30 rounded-full px-4 py-1.5 mb-6">
+        <span class="w-1.5 h-1.5 rounded-full bg-accent2 animate-pulse"></span> WHAT I OFFER
+      </span>
+      <h1 class="text-4xl sm:text-5xl font-bold leading-[1.15] mb-5 text-white">
+        My <span class="bg-gradient-to-r from-primary-400 to-accent2 bg-clip-text text-transparent">Services</span>
+      </h1>
+      <p class="text-muted text-lg leading-relaxed">
+        Websites, apps, and hosting — built end to end with speed, security, and design in mind.
+      </p>
+    </div>
+  </section>
+
+  <ins class="adsbygoogle my-4 block max-w-4xl mx-auto px-5"
+       style="display:block"
+       data-ad-client="ca-pub-2983718503803918"
+       data-ad-slot="6389519574"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2983718503803918"
      crossorigin="anonymous"></script>
-<!-- Homepage Banner -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-2983718503803918"
-     data-ad-slot="6389519574"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-  <section>
-    <h2>My Services</h2>
-    <div class="service-boxes">
-      <div class="box">
-        <h3>Website Development</h3>
-        <p>Responsive and beautiful websites using HTML, CSS, JS & modern frameworks.</p>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+
+  <!-- My Services -->
+  <section class="reveal fu max-w-6xl mx-auto px-5 md:px-8 py-16">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-3">My Services</h2>
+      <p class="text-muted">The core work I take on for clients.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-5 reveal-stagger in">
+      <div class="card p-7">
+        <i class="fas fa-code text-primary-400 text-2xl mb-4"></i>
+        <h3 class="font-sora font-semibold text-white mb-2">Website Development</h3>
+        <p class="text-muted text-sm">Responsive and beautiful websites using HTML, CSS, JS &amp; modern frameworks.</p>
       </div>
-      <div class="box">
-        <h3>App Development</h3>
-        <p>Cross-platform mobile apps with Flutter, Firebase and smooth UI/UX.</p>
+      <div class="card p-7">
+        <i class="fas fa-mobile-screen-button text-primary-400 text-2xl mb-4"></i>
+        <h3 class="font-sora font-semibold text-white mb-2">App Development</h3>
+        <p class="text-muted text-sm">Cross-platform mobile apps with Flutter, Firebase and smooth UI/UX.</p>
       </div>
-      <div class="box">
-        <h3>Web Hosting</h3>
-        <p>Deploying web apps with security, speed, and SEO optimization.</p>
+      <div class="card p-7">
+        <i class="fas fa-server text-primary-400 text-2xl mb-4"></i>
+        <h3 class="font-sora font-semibold text-white mb-2">Web Hosting</h3>
+        <p class="text-muted text-sm">Deploying web apps with security, speed, and SEO optimization.</p>
       </div>
     </div>
   </section>
 
   <!-- What Clients Say -->
-  <section>
-    <h2>What Clients Say</h2>
-    <div class="client-boxes">
-      <div class="box">
-        <p style="font-style: italic;">“Jensen built us a fast, modern website. We're impressed by the results.”</p>
-        <p style="margin-top:1rem; font-weight:bold;">— Ayaan, CEO</p>
+  <section class="reveal fu max-w-6xl mx-auto px-5 md:px-8 py-16">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-3">What Clients Say</h2>
+      <p class="text-muted">Feedback from people I've worked with.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-5 reveal-stagger in">
+      <div class="card p-6">
+        <div class="stars mb-3">★★★★★</div>
+        <p class="text-muted text-sm italic mb-4">"Jensen built us a fast, modern website. We're impressed by the results."</p>
+        <p class="text-white text-sm font-semibold">— Ayaan, CEO</p>
       </div>
-      <div class="box">
-        <p style="font-style: italic;">“Amazing mobile app delivered before the deadline!”</p>
-        <p style="margin-top:1rem; font-weight:bold;">— Layla, Startup Founder</p>
+      <div class="card p-6">
+        <div class="stars mb-3">★★★★★</div>
+        <p class="text-muted text-sm italic mb-4">"Amazing mobile app delivered before the deadline!"</p>
+        <p class="text-white text-sm font-semibold">— Layla, Startup Founder</p>
       </div>
-      <div class="box">
-        <p style="font-style: italic;">“Professional, responsive, and talented. Highly recommended.”</p>
-        <p style="margin-top:1rem; font-weight:bold;">— Max, CTO</p>
+      <div class="card p-6">
+        <div class="stars mb-3">★★★★★</div>
+        <p class="text-muted text-sm italic mb-4">"Professional, responsive, and talented. Highly recommended."</p>
+        <p class="text-white text-sm font-semibold">— Max, CTO</p>
       </div>
     </div>
   </section>
 
   <!-- Why Choose Me -->
-  <section>
-    <h2>Why Choose Me</h2>
-    <div class="why-boxes">
-      <div class="box">
-        <h3>Quality Code</h3>
-        <p>I write clean, efficient, and maintainable code that meets modern standards.</p>
+  <section class="reveal fu max-w-6xl mx-auto px-5 md:px-8 py-16">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-3">Why Choose Me</h2>
+      <p class="text-muted">What working with me actually looks like.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-5 reveal-stagger in">
+      <div class="card p-7">
+        <i class="fas fa-code-branch text-primary-400 text-2xl mb-4"></i>
+        <h3 class="font-sora font-semibold text-white mb-2">Quality Code</h3>
+        <p class="text-muted text-sm">I write clean, efficient, and maintainable code that meets modern standards.</p>
       </div>
-      <div class="box">
-        <h3>On-Time Delivery</h3>
-        <p>Every project is delivered on or before deadline with clear communication.</p>
+      <div class="card p-7">
+        <i class="fas fa-clock text-primary-400 text-2xl mb-4"></i>
+        <h3 class="font-sora font-semibold text-white mb-2">On-Time Delivery</h3>
+        <p class="text-muted text-sm">Every project is delivered on or before deadline with clear communication.</p>
       </div>
-      <div class="box">
-        <h3>Client Satisfaction</h3>
-        <p>My focus is on building long-term relationships through happy clients.</p>
+      <div class="card p-7">
+        <i class="fas fa-heart text-primary-400 text-2xl mb-4"></i>
+        <h3 class="font-sora font-semibold text-white mb-2">Client Satisfaction</h3>
+        <p class="text-muted text-sm">My focus is on building long-term relationships through happy clients.</p>
       </div>
     </div>
   </section>
 
-  <section class="highlight-section">
-    <h2>✨ Highlights of My Work</h2>
-    <div class="highlight-cards">
-      <div class="highlight-card">
-        <div class="highlight-icon">🚀</div>
-        <h3>Fast & Optimized</h3>
-        <p>All projects are optimized for speed and performance on any device.</p>
+  <!-- Highlights -->
+  <section class="reveal fu max-w-6xl mx-auto px-5 md:px-8 py-16">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-3">✨ Highlights of My Work</h2>
+      <p class="text-muted">A quick look at what every project gets by default.</p>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-5 reveal-stagger in">
+      <div class="card p-6 text-center">
+        <div class="text-3xl mb-3">🚀</div>
+        <h3 class="font-sora font-semibold text-white mb-2 text-sm">Fast &amp; Optimized</h3>
+        <p class="text-muted text-xs">All projects are optimized for speed and performance on any device.</p>
       </div>
-      <div class="highlight-card">
-        <div class="highlight-icon">🎨</div>
-        <h3>Creative Design</h3>
-        <p>Modern and aesthetic designs that grab attention and engage users.</p>
+      <div class="card p-6 text-center">
+        <div class="text-3xl mb-3">🎨</div>
+        <h3 class="font-sora font-semibold text-white mb-2 text-sm">Creative Design</h3>
+        <p class="text-muted text-xs">Modern and aesthetic designs that grab attention and engage users.</p>
       </div>
-      <div class="highlight-card">
-        <div class="highlight-icon">🔒</div>
-        <h3>Secure & Reliable</h3>
-        <p>Security and reliability are my top priority in every project.</p>
+      <div class="card p-6 text-center">
+        <div class="text-3xl mb-3">🔒</div>
+        <h3 class="font-sora font-semibold text-white mb-2 text-sm">Secure &amp; Reliable</h3>
+        <p class="text-muted text-xs">Security and reliability are my top priority in every project.</p>
       </div>
-      <div class="highlight-card">
-        <div class="highlight-icon">💡</div>
-        <h3>Innovative Solutions</h3>
-        <p>Solutions tailored to your business needs and goals for maximum impact.</p>
+      <div class="card p-6 text-center">
+        <div class="text-3xl mb-3">💡</div>
+        <h3 class="font-sora font-semibold text-white mb-2 text-sm">Innovative Solutions</h3>
+        <p class="text-muted text-xs">Solutions tailored to your business needs and goals for maximum impact.</p>
       </div>
     </div>
   </section>
 
-
- <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-300 py-8">
-    <div
-      class="container mx-auto text-center space-y-3 max-w-4xl"
-    >
-      <div class="space-x-6 text-gray-400 text-lg">
-        <a
-          href="https://www.facebook.com/Tarzan.crb.10"
-          class="hover:text-indigo-400 transition"
-          ><i class="fab fa-facebook-f mr-1"></i> Facebook</a
-        >
-        <a
-          href="https://x.com/ahmedcrb125?t=aBmd3Y0iQPay3OYtxx29zA&s=09"
-          class="hover:text-indigo-400 transition"
-          ><i class="fab fa-twitter mr-1"></i> Twitter</a
-        >
-        <a
-          href="https://t.me/Tarzan_Town"
-          class="hover:text-indigo-400 transition"
-          ><i class="fab fa-telegram mr-1"></i> Telegram</a
-        >
-        <a
-          href="https://www.tiktok.com/@ahmett_crb?_t=ZM-8yIKFnwoHU0&_r=1"
-          class="hover:text-indigo-400 transition"
-          ><i class="fab fa-tiktok mr-1"></i> TikTok</a
-        >
-        <a
-          href="mailto:ahmedcrb1256@gmail.com"
-          class="hover:text-indigo-400 transition"
-          ><i class="fab fa-linkedin-in mr-1"></i> LinkedIn</a
-        >
+  <!-- Footer -->
+  <footer class="border-t border-line bg-surface/60 pt-16 pb-8 px-5 md:px-8">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-10 mb-12">
+      <div>
+        <div class="font-sora font-bold text-white text-lg mb-3">Ahmed <span class="text-primary-400">Developer</span></div>
+        <p class="text-muted text-sm max-w-xs">Full-Stack Developer & UI/UX Designer building modern, scalable digital products under the Tarzan Town brand.</p>
+        <div class="flex gap-4 mt-5 text-gray-400">
+          <a href="https://www.facebook.com/Tarzan.crb.10" class="hover:text-primary-400 transition-colors"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://x.com/ahmedcrb125?t=aBmd3Y0iQPay3OYtxx29zA&s=09" class="hover:text-primary-400 transition-colors"><i class="fab fa-twitter"></i></a>
+          <a href="https://t.me/Tarzan_Town" class="hover:text-primary-400 transition-colors"><i class="fab fa-telegram"></i></a>
+          <a href="https://www.tiktok.com/@ahmett_crb?_t=ZM-8yIKFnwoHU0&_r=1" class="hover:text-primary-400 transition-colors"><i class="fab fa-tiktok"></i></a>
+          <a href="mailto:ahmedcrb1256@gmail.com" class="hover:text-primary-400 transition-colors"><i class="fab fa-linkedin-in"></i></a>
+        </div>
       </div>
-
-      <div class="mt-4 text-sm">
-        <p><a href="/learn"> Learn & Support</a> |<a href="/How_Works">How Works Tarzan Town</a> |<a href="/Help Center">Help Center</a> | <a href="/Community">Community</a></p>
-        <p>
-          <a href="/terms" class="hover:text-indigo-400">Terms & Conditions</a> ·
-          <a href="/Privacy-Policy" class="hover:text-indigo-400"
-            >Privacy Policy</a
-          >
-        </p>
+      <div>
+        <h4 class="text-gray-400 text-xs font-semibold uppercase tracking-wide mb-4">Navigate</h4>
+        <div class="flex flex-col gap-2.5 text-sm text-muted">
+          <a href="/index" class="hover:text-primary-300 transition-colors">Home</a>
+          <a href="/Contact" class="hover:text-primary-300 transition-colors">Contact</a>
+          <a href="/About" class="hover:text-primary-300 transition-colors">About Us</a>
+          <a href="/take" class="hover:text-primary-300 transition-colors">Takes</a>
+          <a href="/my_libary" class="hover:text-primary-300 transition-colors">My Library</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-gray-400 text-xs font-semibold uppercase tracking-wide mb-4">Learn &amp; Support</h4>
+        <div class="flex flex-col gap-2.5 text-sm text-muted">
+          <a href="/learn" class="hover:text-primary-300 transition-colors">Learn &amp; Support</a>
+          <a href="/How_Works" class="hover:text-primary-300 transition-colors">How Works Tarzan Town</a>
+          <a href="/Help Center" class="hover:text-primary-300 transition-colors">Help Center</a>
+          <a href="/Community" class="hover:text-primary-300 transition-colors">Community</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-gray-400 text-xs font-semibold uppercase tracking-wide mb-4">Contact</h4>
+        <div class="flex flex-col gap-2.5 text-sm text-muted">
+          <a href="mailto:ahmedcrb1256@gmail.com" class="hover:text-primary-300 transition-colors">ahmedcrb1256@gmail.com</a>
+          <a href="/Contact" class="hover:text-primary-300 transition-colors">Contact Form</a>
+        </div>
       </div>
     </div>
-    <p class="mt-4">&copy; 2025 Tarzan Town. All rights reserved.</p>
+
+    <div class="max-w-6xl mx-auto border-t border-line pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-gray-500">
+      <p>&copy; 2025 Tarzan Town. All rights reserved.</p>
+      <p class="flex gap-4">
+        <a href="/terms" class="hover:text-primary-300 transition-colors">Terms &amp; Conditions</a>
+        <a href="/Privacy-Policy" class="hover:text-primary-300 transition-colors">Privacy Policy</a>
+      </p>
+    </div>
   </footer>
 
-
-
-<!-- Font Awesome CDN (Required for icons) -->
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
-  
   <script src="script.js"></script>
+  <script>
+    // Mobile nav toggle (defensive — matches index.html's markup: 'hidden' utility class)
+    (function(){
+      const menuBtn = document.getElementById('menu-btn');
+      const navLinks = document.getElementById('nav-links');
+      if (menuBtn && navLinks) {
+        menuBtn.addEventListener('click', () => navLinks.classList.toggle('hidden'));
+      }
+    })();
 
-
+    // Scroll reveal
+    (function(){
+      const targets = document.querySelectorAll('.reveal');
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduced) { targets.forEach(t => t.classList.add('in')); return; }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      targets.forEach(t => io.observe(t));
+    })();
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-

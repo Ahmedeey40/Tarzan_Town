@@ -1,490 +1,624 @@
 <!DOCTYPE html>
-<html lang="so" class="dark">
-
-
+<html lang="so">
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tarzan Town — Ahmed Developer</title>
 
-  <title>Tarzan Town</title>
+<meta name="description" content="Tarzan Town — bogga shaqada ee Ahmed, Full-stack Developer iyo UI/UX Designer." />
+<meta name="keywords" content="GlobaMart, Ahmed, Tarzan Town, developer, online marketplace, Somali devs" />
+<meta name="author" content="Ahmed aka Tarzan Town" />
+<meta property="og:title" content="Tarzan Town — Ahmed Developer" />
+<meta property="og:description" content="Full-stack Developer & UI/UX Designer oo ka shaqeeya Soomaaliya." />
+<meta property="og:url" content="https://globamart.online" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://globamart.online/login.jpg" />
+<meta name="p:domain_verify" content="30942fcab275ac30c94f4ef0e13b2693"/>
 
-  <!-- SEO & Social -->
-  <meta name="description" content="GlobaMart - Your reliable online developer marketplace" />
-  <meta name="keywords" content="GlobaMart, Ahmed, Tarzan Town, developer, online marketplace, Somali devs" />
-  <meta name="author" content="Ahmed aka Tarzan Town" />
-  <meta property="og:title" content="GlobaMart - Tarzan Town" />
-  <meta property="og:description" content="Your trusted online developer hub." />
-  <meta property="og:url" content="https://globamart.online" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://globamart.online/login.jpg" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
 
-  <!-- Pinterest Verification -->
-  <meta name="p:domain_verify" content="30942fcab275ac30c94f4ef0e13b2693"/>
+<meta name="google-adsense-account" content="ca-pub-2983718503803918">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2983718503803918" crossorigin="anonymous"></script>
 
-  <!-- Favicon -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-  <!-- Google AdSense -->
-  <meta name="google-adsense-account" content="ca-pub-2983718503803918">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2983718503803918"
-     crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Tarzan-Town",
+  "url": "https://globamart.online",
+  "logo": "https://globamart.online/login.jpg",
+  "sameAs": ["https://twitter.com/globamart", "https://www.facebook.com/globamart"],
+  "founder": { "@type": "Person", "name": "Ahmed", "alternateName": "Tarzan Town" },
+  "description": "Tarzan Town is a developer's personal marketplace and portfolio."
+}
+</script>
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = { darkMode: 'class' };
-  </script>
-
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Tarzan-Town",
-    "url": "https://globamart.online",
-    "logo": "https://globamart.online/login.jpg",
-    "sameAs": [
-      "https://twitter.com/globamart",
-      "https://www.facebook.com/globamart"
-    ],
-    "founder": {
-      "@type": "Person",
-      "name": "Ahmed",
-      "alternateName": "Tarzan Town"
-    },
-    "description": "GlobaMart is an online platform for developers and services."
-  }
-  </script>
-
-   
 <style>
-@keyframes fade-in-left {
-  from { opacity: 0; transform: translateX(-20px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-.animate-fade-in-left {
-  animation: fade-in-left 1s ease-out forwards;
-}
+  :root{
+    --bg:        #0B1220;
+    --bg-soft:   #0E1626;
+    --surface:   #121B2E;
+    --surface-2: #16223A;
+    --border:    #223252;
+    --text:      #E7ECF3;
+    --text-dim:  #92A2BE;
+    --accent:    #F2A341;
+    --accent-dim:#B9803B;
+    --teal:      #57C7B8;
+    --radius-lg: 18px;
+    --radius-sm: 8px;
+    --maxw: 1120px;
+  }
 
-@keyframes slide-in-right {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.animate-slide-in-right {
-  animation: slide-in-right 1s ease-out forwards;
-}
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'IBM Plex Sans', system-ui, sans-serif;
+    line-height:1.6;
+  }
+  h1,h2,h3{
+    font-family:'Sora', system-ui, sans-serif;
+    color:var(--text);
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  .mono{ font-family:'IBM Plex Mono', monospace; }
+  a{ color:inherit; }
+  img{ max-width:100%; display:block; }
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 24px; }
+
+  :focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
+  }
+
+  /* ---------- Nav ---------- */
+  #navbar{
+    position:sticky; top:0; z-index:50;
+    background:rgba(11,18,32,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-content{
+    max-width:var(--maxw); margin:0 auto; padding:14px 24px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .logo{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.98rem;
+    color:var(--text);
+  }
+  .logo .prompt{ color:var(--accent); }
+  .nav-links{ display:flex; gap:28px; align-items:center; }
+  .nav-links a{
+    text-decoration:none; color:var(--text-dim);
+    font-size:0.95rem; font-weight:500;
+    transition:color .2s ease;
+  }
+  .nav-links a:hover{ color:var(--accent); }
+  #menu-btn{
+    display:none; background:none; border:1px solid var(--border);
+    color:var(--text); font-size:1.3rem; border-radius:var(--radius-sm);
+    padding:4px 10px; cursor:pointer;
+  }
+  @media (max-width:860px){
+    .nav-links{
+      display:none; position:absolute; left:0; right:0; top:100%;
+      background:var(--bg-soft); border-bottom:1px solid var(--border);
+      flex-direction:column; gap:0; padding:8px 24px;
+    }
+    .nav-links.show{ display:flex; }
+    .nav-links a{ padding:12px 0; border-bottom:1px solid var(--border); }
+    .nav-links a:last-child{ border-bottom:none; }
+    #menu-btn{ display:block; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    max-width:var(--maxw); margin:0 auto;
+    padding:72px 24px 56px;
+    display:grid; grid-template-columns:1.05fr 1fr; gap:56px; align-items:center;
+  }
+  .eyebrow-line{
+    display:flex; align-items:center; gap:10px;
+    color:var(--text-dim); font-size:0.9rem; margin-bottom:18px;
+  }
+  .eyebrow-line .dot{
+    width:8px; height:8px; border-radius:50%; background:var(--accent);
+    box-shadow:0 0 0 4px rgba(242,163,65,0.15);
+  }
+  .hero h1{
+    font-size:clamp(2rem, 4vw, 2.9rem);
+    font-weight:700; line-height:1.15;
+    max-width:16ch;
+  }
+  .hero .role{
+    margin-top:18px; font-size:1.15rem; color:var(--text-dim); font-weight:500;
+  }
+  .hero p.lede{
+    margin-top:14px; max-width:44ch; color:var(--text-dim); font-size:1rem;
+  }
+  .hero-cta{ margin-top:30px; display:flex; gap:14px; flex-wrap:wrap; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:12px 22px; border-radius:var(--radius-sm);
+    font-weight:600; font-size:0.95rem; text-decoration:none;
+    border:1px solid transparent; cursor:pointer;
+    transition:transform .15s ease, background .2s ease, border-color .2s ease;
+  }
+  .btn:hover{ transform:translateY(-1px); }
+  .btn-primary{ background:var(--accent); color:#1A1206; }
+  .btn-primary:hover{ background:#ffb75c; }
+  .btn-ghost{ border-color:var(--border); color:var(--text); background:transparent; }
+  .btn-ghost:hover{ border-color:var(--accent); color:var(--accent); }
+
+  /* terminal mockup */
+  .terminal{
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:var(--radius-lg); overflow:hidden;
+    box-shadow:0 24px 60px -30px rgba(0,0,0,0.6);
+  }
+  .terminal .bar{
+    display:flex; align-items:center; gap:8px;
+    padding:12px 16px; border-bottom:1px solid var(--border);
+    background:var(--surface-2);
+  }
+  .terminal .bar span{ width:10px; height:10px; border-radius:50%; }
+  .terminal .bar span:nth-child(1){ background:#ff5f56; }
+  .terminal .bar span:nth-child(2){ background:#ffbd2e; }
+  .terminal .bar span:nth-child(3){ background:#27c93f; }
+  .terminal .bar .path{ margin-left:8px; color:var(--text-dim); font-size:0.8rem; }
+  .terminal .body{
+    padding:20px 22px 26px; font-size:0.92rem; min-height:210px;
+  }
+  .terminal .line{ margin:0 0 10px; white-space:pre-wrap; opacity:0; }
+  .terminal .line.prompt::before{ content:"$ "; color:var(--accent); }
+  .terminal .line.out{ color:var(--text-dim); }
+  .terminal .line.ok{ color:var(--teal); }
+  .cursor{
+    display:inline-block; width:8px; height:1.1em; background:var(--accent);
+    vertical-align:text-bottom; animation:blink 1s steps(1) infinite;
+  }
+  @keyframes blink{ 50%{ opacity:0; } }
+  .terminal .line.revealed{ opacity:1; }
+
+  @media (max-width:900px){
+    .hero{ grid-template-columns:1fr; padding-top:44px; }
+  }
+
+  /* ---------- Section shell ---------- */
+  section.block{ max-width:var(--maxw); margin:0 auto; padding:64px 24px; }
+  .section-head{ margin-bottom:38px; max-width:52ch; }
+  .section-head h2{ font-size:clamp(1.5rem,3vw,2rem); }
+  .section-head p{ color:var(--text-dim); margin-top:10px; }
+
+  /* ---------- Skills (editor gutter) ---------- */
+  .gutter-list{
+    border:1px solid var(--border); border-radius:var(--radius-lg);
+    overflow:hidden; background:var(--surface);
+  }
+  .gutter-row{
+    display:grid; grid-template-columns:56px 1fr; border-bottom:1px solid var(--border);
+  }
+  .gutter-row:last-child{ border-bottom:none; }
+  .gutter-num{
+    font-family:'IBM Plex Mono', monospace; color:var(--text-dim);
+    background:var(--surface-2); text-align:center; padding:20px 0;
+    font-size:0.85rem; border-right:1px solid var(--border);
+  }
+  .gutter-content{ padding:20px 24px; }
+  .gutter-content h3{ font-size:1.05rem; font-weight:600; margin-bottom:6px; }
+  .gutter-content p{ color:var(--text-dim); font-size:0.92rem; margin:0; }
+  .gutter-content .tags{ margin-top:10px; display:flex; gap:8px; flex-wrap:wrap; }
+  .tag{
+    font-family:'IBM Plex Mono', monospace; font-size:0.76rem;
+    color:var(--accent); border:1px solid var(--accent-dim);
+    padding:3px 9px; border-radius:100px; background:rgba(242,163,65,0.06);
+  }
+
+  /* ---------- Projects ---------- */
+  .grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+  @media (max-width:900px){ .grid-3{ grid-template-columns:1fr; } }
+  .win-card{
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:var(--radius-lg); overflow:hidden;
+    transition:border-color .2s ease;
+  }
+  .win-card:hover{ border-color:var(--accent-dim); }
+  .win-card .bar{
+    display:flex; gap:6px; padding:10px 14px; border-bottom:1px solid var(--border);
+  }
+  .win-card .bar span{ width:8px; height:8px; border-radius:50%; background:var(--border); }
+  .win-card img{ width:100%; height:180px; object-fit:cover; }
+  .win-card .info{ padding:16px 18px 20px; }
+  .win-card h3{ font-size:1.02rem; font-weight:600; margin-bottom:8px; }
+  .win-card .tags{ display:flex; gap:6px; flex-wrap:wrap; }
+
+  /* ---------- Services (command blocks) ---------- */
+  .cmd-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  @media (max-width:900px){ .cmd-grid{ grid-template-columns:1fr; } }
+  .cmd-block{
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:var(--radius-lg); padding:22px;
+  }
+  .cmd-block .cmd{
+    font-family:'IBM Plex Mono', monospace; color:var(--accent);
+    font-size:0.9rem; margin-bottom:12px;
+  }
+  .cmd-block .cmd::before{ content:"$ "; color:var(--text-dim); }
+  .cmd-block p{ color:var(--text-dim); font-size:0.94rem; margin:0; }
+
+  /* ---------- Designs gallery ---------- */
+  .design-card{
+    position:relative; border-radius:var(--radius-lg); overflow:hidden;
+    border:1px solid var(--border); cursor:pointer;
+  }
+  .design-card img{ width:100%; height:230px; object-fit:cover; transition:transform .4s ease; }
+  .design-card:hover img{ transform:scale(1.04); }
+  .design-card .overlay{
+    position:absolute; inset:0;
+    background:linear-gradient(to top, rgba(11,18,32,0.92), transparent 60%);
+    display:flex; align-items:flex-end; padding:18px;
+  }
+  .design-card h3{ font-size:1rem; font-weight:600; margin-bottom:4px; }
+  .design-card p{ font-size:0.85rem; color:var(--text-dim); margin:0; }
+  .view-more{ text-align:center; margin-top:34px; }
+
+  /* ---------- Comments (terminal log) ---------- */
+  #comments-list{ display:flex; flex-direction:column; gap:14px; margin-bottom:32px; }
+  .log-entry{
+    background:var(--surface); border:1px solid var(--border);
+    border-left:3px solid var(--accent-dim);
+    border-radius:var(--radius-sm); padding:14px 18px;
+    font-size:0.94rem;
+  }
+  .log-entry .who{
+    font-family:'IBM Plex Mono', monospace; color:var(--teal); font-size:0.85rem;
+    margin-bottom:4px;
+  }
+  #comment-form{
+    max-width:560px; margin:0 auto; background:var(--surface);
+    border:1px solid var(--border); border-radius:var(--radius-lg); padding:26px;
+  }
+  #comment-form input, #comment-form textarea{
+    width:100%; padding:12px 14px; margin-bottom:14px;
+    background:var(--bg-soft); border:1px solid var(--border); color:var(--text);
+    border-radius:var(--radius-sm); font-family:inherit; font-size:0.95rem; resize:none;
+  }
+  #comment-form input:focus, #comment-form textarea:focus{ border-color:var(--accent); }
+  #comment-form button{
+    width:100%; padding:13px; background:var(--accent); color:#1A1206;
+    border:none; border-radius:var(--radius-sm); font-weight:600; cursor:pointer;
+    font-size:0.95rem; transition:background .2s ease;
+  }
+  #comment-form button:hover{ background:#ffb75c; }
+
+  /* ---------- CTA ---------- */
+  .cta-panel{
+    max-width:640px; margin:0 auto; text-align:center;
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:var(--radius-lg); padding:40px 28px;
+  }
+  .cta-panel h2{ font-size:1.4rem; margin-bottom:22px; }
+
+  /* ---------- Footer ---------- */
+  footer{ border-top:1px solid var(--border); padding:36px 24px; margin-top:20px; }
+  footer .wrap{ text-align:center; }
+  .social-icons{ display:flex; justify-content:center; gap:22px; flex-wrap:wrap; margin-bottom:16px; }
+  .social-icons a{ color:var(--text-dim); text-decoration:none; font-size:0.95rem; }
+  .social-icons a:hover{ color:var(--accent); }
+  .foot-links{ font-size:0.85rem; color:var(--text-dim); }
+  .foot-links a{ text-decoration:none; color:var(--text-dim); }
+  .foot-links a:hover{ color:var(--accent); }
+  .copyright{ margin-top:16px; font-size:0.8rem; color:#5A6A87; font-family:'IBM Plex Mono', monospace; }
 </style>
-
 </head>
 
+<body>
 
-
-
-<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition duration-500 ease-in-out">
-  <!-- Navbar -->
-
-
-  <!-- Navbar -->
   <nav id="navbar">
     <div class="nav-content">
-      <div class="logo">Tarzan Town</div>
+      <div class="logo"><span class="prompt">~/</span>tarzan-town</div>
       <button id="menu-btn" aria-label="Toggle menu">☰</button>
       <div class="nav-links" id="nav-links">
         <a href="/index">Home</a>
-        <a href="/Contact">Contact</a>
-        <a href="/About">About Us</a>
-        <a href="/Services">Services</a>
+        <a href="/Contact">La Xiriir</a>
+        <a href="/About">Ku Saabsan</a>
+        <a href="/Services">Adeegyada</a>
         <a href="/take">Takes</a>
         <a href="/my_libary">My Libary</a>
       </div>
     </div>
   </nav>
 
-  <!-- Profile Overview -->
-<!-- Profile Overview - Mobile Full-Width Image -->
-<section class="relative w-full min-h-screen flex flex-col-reverse md:flex-row items-center justify-center px-4 md:px-12 py-16 bg-gradient-to-br from-indigo-100 to-indigo-200 dark:from-gray-800 dark:to-gray-900 overflow-hidden">
-
- 
-
-  <!-- Text Content -->
-  <div class="flex-1 text-center md:text-left max-w-lg space-y-4 md:space-y-8 animate-fade-in-left">
-    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-indigo-600 dark:text-indigo-400">Ahmed Developer</h1>
-    <p class="text-lg sm:text-xl text-gray-700 dark:text-gray-300">Full-stack Developer | UI/UX Designer | Freelancer</p>
-    <p class="text-gray-500 dark:text-gray-400 mt-1 max-w-md mx-auto md:mx-0">
-      Welcome To my Website Yar yarooti
-    </p>
-  </div>
-  <br>
-
-   <!-- Profile Image -->
-  <div class="flex-shrink-0 mt-4 md:mt-0 animate-slide-in-right w-full md:w-auto flex justify-center">
-    <img src="ahmed.png" alt="Profile"
-         class="w-full sm:w-96 md:w-96 max-w-md md:max-w-none h-auto object-cover shadow-xl rounded-lg">
-  </div>
-</section>
-
-
-<!-- Skills / Features -->
-<section class="py-16 px-6 bg-white dark:bg-gray-900 max-w-6xl mx-auto rounded-3xl shadow-lg">
-  <h2 class="text-2xl font-bold mb-12 text-center text-indigo-600 dark:text-indigo-400">Xirfadaha Aasaasiga ah</h2>
-  <div class="grid gap-10 md:grid-cols-3 text-center">
-    
-    <div class="p-6 border rounded-xl bg-gray-50 dark:bg-gray-800 shadow transition hover:shadow-xl hover:shadow-yellow-500/50 hover:-translate-y-1 duration-300">
-      <h3 class="text-xl font-semibold text-indigo-500 dark:text-indigo-400 mb-2">Frontend Dev</h3>
-      <p class="text-gray-600 dark:text-gray-300">React, Tailwind, Vue, HTML/CSS</p>
-    </div>
-    
-    <div class="p-6 border rounded-xl bg-gray-50 dark:bg-gray-800 shadow transition hover:shadow-xl hover:shadow-yellow-500/50 hover:-translate-y-1 duration-300">
-      <h3 class="text-xl font-semibold text-indigo-500 dark:text-indigo-400 mb-2">Backend Dev</h3>
-      <p class="text-gray-600 dark:text-gray-300">Node.js, PHP, MySQL, MongoDB</p>
-    </div>
-    
-    <div class="p-6 border rounded-xl bg-gray-50 dark:bg-gray-800 shadow transition hover:shadow-xl hover:shadow-yellow-500/50 hover:-translate-y-1 duration-300">
-      <h3 class="text-xl font-semibold text-indigo-500 dark:text-indigo-400 mb-2">UI/UX Design</h3>
-      <p class="text-gray-600 dark:text-gray-300">Figma, Prototyping, Responsive Design</p>
-    </div>
-    
-  </div>
-</section>
-
-
-
-<section class="max-w-6xl mx-auto py-16 px-6">
-  <h2 class="text-3xl font-bold mb-10 text-center text-indigo-600 dark:text-indigo-400">
-    Mashruucyadii Ugu Dambeeyay
-  </h2>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-    
-    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:shadow-2xl hover:-translate-y-1 hover:bg-indigo-100 dark:hover:bg-indigo-900">
-      <img class="w-full h-48 object-cover"
-           src="Computer.jpeg"
-           alt="Project 1">
-      <div class="p-4">
-        <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Ecommerce Website</h3>
+  <!-- Hero -->
+  <section class="hero">
+    <div>
+      <div class="eyebrow-line"><span class="dot"></span> Diyaar u ah mashruuc cusub</div>
+      <h1>Ahmed wuxuu naqshadeeyaa oo dhisaa software adag.</h1>
+      <div class="role">Full-stack Developer &nbsp;·&nbsp; UI/UX Designer &nbsp;·&nbsp; Freelancer</div>
+      <p class="lede">Ku soo dhawoow bogga Tarzan Town — halkan waxaad ka arki doontaa shaqooyinkayga, naqshadaha, iyo adeegyada aan bixiyo.</p>
+      <div class="hero-cta">
+        <a href="/Contact" class="btn btn-primary">La Xiriir</a>
+        <a href="#projects" class="btn btn-ghost">Eeg Shaqooyinka</a>
       </div>
     </div>
 
-    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:shadow-2xl hover:-translate-y-1 hover:bg-indigo-100 dark:hover:bg-indigo-900">
-      <img class="w-full h-48 object-cover"
-           src="Code.jpeg"
-           alt="Project 2">
-      <div class="p-4">
-        <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Mobile App Design</h3>
+    <div class="terminal" aria-hidden="false">
+      <div class="bar">
+        <span></span><span></span><span></span>
+        <span class="path mono">ahmed@tarzantown: ~</span>
+      </div>
+      <div class="body mono" id="term-body">
+        <p class="line prompt">whoami</p>
+        <p class="line out">Ahmed — Full-stack Developer</p>
+        <p class="line prompt">ls xirfadaha/</p>
+        <p class="line out">frontend&nbsp;&nbsp;backend&nbsp;&nbsp;design</p>
+        <p class="line prompt">status</p>
+        <p class="line ok">Diyaar ✓ — booqo shaqooyinka hoose</p>
       </div>
     </div>
+  </section>
 
-    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:shadow-2xl hover:-translate-y-1 hover:bg-indigo-100 dark:hover:bg-indigo-900">
-      <img class="w-full h-48 object-cover"
-           src="Programming.jpeg"
-           alt="Project 3">
-      <div class="p-4">
-        <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Web Dev Dashboard</h3>
+  <!-- Skills -->
+  <section class="block" id="skills">
+    <div class="section-head">
+      <h2>Xirfadaha Aasaasiga ah</h2>
+      <p>Saddexda qaybood ee aan ku shaqeeyo mashruuc kasta, sida faylasha mashruuc.</p>
+    </div>
+    <div class="gutter-list">
+      <div class="gutter-row">
+        <div class="gutter-num">01</div>
+        <div class="gutter-content">
+          <h3>Frontend Dev</h3>
+          <p>Naqshadaynta interface-yada isticmaalaha oo casri ah, si fiican ugu shaqeeya jaantusyada kala duwan.</p>
+          <div class="tags"><span class="tag">React</span><span class="tag">Tailwind</span><span class="tag">Vue</span><span class="tag">HTML/CSS</span></div>
+        </div>
+      </div>
+      <div class="gutter-row">
+        <div class="gutter-num">02</div>
+        <div class="gutter-content">
+          <h3>Backend Dev</h3>
+          <p>Dhisidda server-yada iyo database-yada ku dhisan baahida mashruuca, oo ammaan ah.</p>
+          <div class="tags"><span class="tag">Node.js</span><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">MongoDB</span></div>
+        </div>
+      </div>
+      <div class="gutter-row">
+        <div class="gutter-num">03</div>
+        <div class="gutter-content">
+          <h3>UI/UX Design</h3>
+          <p>Naqshadaynta khibrad isticmaale oo fudud oo la fahmi karo, laga bilaabo qorista fikradda ilaa prototype.</p>
+          <div class="tags"><span class="tag">Figma</span><span class="tag">Prototyping</span><span class="tag">Responsive</span></div>
+        </div>
       </div>
     </div>
+  </section>
 
-  </div>
-</section>
-
-
-<!-- Features Section with Coding Icons -->
- <!-- Features Section with Coding Icons -->
-<section class="max-w-6xl mx-auto px-6 py-16 bg-gray-50 dark:bg-gray-900 rounded-3xl shadow-lg">
-  <h2 class="text-3xl font-bold text-center mb-12 text-indigo-600 dark:text-indigo-400">Tarzan Works?</h2>
-  
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
-    
-    <!-- Box 1 -->
-    <div class="p-8 bg-white dark:bg-gray-800 rounded-2xl shadow transition hover:shadow-xl hover:shadow-blue-500/50 hover:-translate-y-1 duration-300">
-      <div class="text-indigo-600 dark:text-indigo-400 mb-6 text-5xl">
-        <i class="fas fa-code"></i>
-      </div>
-      <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-gray-100">Barnaamijyada Xirfadeed</h3>
-      <p class="text-gray-700 dark:text-gray-300">
-        Waxaan abuurnaa software tayo sare leh oo la jaan qaadaya baahiyahaaga ganacsi.
-      </p>
+  <!-- Projects -->
+  <section class="block" id="projects">
+    <div class="section-head">
+      <h2>Mashruucyadii Ugu Dambeeyay</h2>
+      <p>Muunado ka mid ah shaqooyinkii aan dhawaan dhammeeyay.</p>
     </div>
-
-    <!-- Box 2 -->
-    <div class="p-8 bg-white dark:bg-gray-800 rounded-2xl shadow transition hover:shadow-xl hover:shadow-blue-500/50 hover:-translate-y-1 duration-300">
-      <div class="text-indigo-600 dark:text-indigo-400 mb-6 text-5xl">
-        <i class="fas fa-laptop-code"></i>
+    <div class="grid-3">
+      <div class="win-card">
+        <div class="bar"><span></span><span></span><span></span></div>
+        <img src="Computer.jpeg" alt="Ecommerce Website">
+        <div class="info">
+          <h3>Ecommerce Website</h3>
+          <div class="tags"><span class="tag">React</span><span class="tag">Node</span></div>
+        </div>
       </div>
-      <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-gray-100">Naqshadaynta Webka</h3>
-      <p class="text-gray-700 dark:text-gray-300">
-        Waxaan samaynaa websaydhyo casri ah oo responsive ah, ku habboon mobile iyo desktop.
-      </p>
-    </div>
-
-    <!-- Box 3 -->
-    <div class="p-8 bg-white dark:bg-gray-800 rounded-2xl shadow transition hover:shadow-xl hover:shadow-blue-500/50 hover:-translate-y-1 duration-300">
-      <div class="text-indigo-600 dark:text-indigo-400 mb-6 text-5xl">
-        <i class="fas fa-shield-alt"></i>
+      <div class="win-card">
+        <div class="bar"><span></span><span></span><span></span></div>
+        <img src="Code.jpeg" alt="Mobile App Design">
+        <div class="info">
+          <h3>Mobile App Design</h3>
+          <div class="tags"><span class="tag">Figma</span><span class="tag">Prototype</span></div>
+        </div>
       </div>
-      <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-gray-100">Amniga & Xawaaraha</h3>
-      <p class="text-gray-700 dark:text-gray-300">
-        Waxaan diiradda saarnaa ilaalinta xogtaada iyo xawaare sare ee adeegyada.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-
-  <section class="max-w-6xl mx-auto px-6 py-16 bg-white dark:bg-gray-900 rounded-3xl shadow-lg">
-  <!-- Section Title -->
-  <h2 class="text-4xl font-extrabold text-center mb-12 text-indigo-600 dark:text-indigo-400">
-    Our Designs
-  </h2>
-
-  <!-- Design Grid -->
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-    <!-- Design Card 1 -->
-    <div class="relative cursor-pointer group rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300">
-      <img src="Modern Landing Page.png" alt="Modern Landing Page" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
-      <div class="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition duration-300"></div>
-      <div class="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/60 to-transparent text-white">
-        <h3 class="text-xl font-semibold mb-1">Modern Landing Page</h3>
-        <p class="text-sm">A clean, elegant homepage layout with modern design principles.</p>
+      <div class="win-card">
+        <div class="bar"><span></span><span></span><span></span></div>
+        <img src="Programming.jpeg" alt="Web Dev Dashboard">
+        <div class="info">
+          <h3>Web Dev Dashboard</h3>
+          <div class="tags"><span class="tag">Vue</span><span class="tag">MySQL</span></div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <!-- Design Card 2 -->
-    <div class="relative cursor-pointer group rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300">
-      <img src="portifal.png" alt="Portfolio Template" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
-      <div class="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition duration-300"></div>
-      <div class="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/60 to-transparent text-white">
-        <h3 class="text-xl font-semibold mb-1">Portfolio Template</h3>
-        <p class="text-sm">A creative portfolio design showcasing projects in a sleek grid layout.</p>
+  <!-- Services -->
+  <section class="block" id="services">
+    <div class="section-head">
+      <h2>Sidee Tarzan Town u Shaqeeyaa?</h2>
+      <p>Saddex tallaabo oo fudud, laga bilaabo fikradda ilaa mashruuc dhammaystiran.</p>
+    </div>
+    <div class="cmd-grid">
+      <div class="cmd-block">
+        <div class="cmd">build --custom</div>
+        <p>Waxaan dhisnaa barnaamijyo xirfadeed oo loo sameeyay baahida ganacsigaaga gaarka ah.</p>
+      </div>
+      <div class="cmd-block">
+        <div class="cmd">design --responsive</div>
+        <p>Websaydhyo casri ah oo si fiican ugu shaqeeya mobile iyo desktop labadaba.</p>
+      </div>
+      <div class="cmd-block">
+        <div class="cmd">secure --optimize</div>
+        <p>Xog ilaalin adag iyo xawaare sare oo lagu kalsoonaan karo mar kasta.</p>
       </div>
     </div>
+  </section>
 
-    <!-- Design Card 3 -->
-    <div class="relative cursor-pointer group rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300">
-      <img src="E-commerce.png" alt="E-commerce UI" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
-      <div class="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition duration-300"></div>
-      <div class="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/60 to-transparent text-white">
-        <h3 class="text-xl font-semibold mb-1">E-commerce UI</h3>
-        <p class="text-sm">An intuitive e-commerce interface focused on user experience and clarity.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- View More Button -->
-  <div class="text-center mt-12">
-    <a href="design.html" 
-       class="inline-block px-8 py-3 bg-indigo-600 text-white font-semibold rounded-full shadow-md hover:bg-indigo-700 transition duration-300">
-      View More Designs
-    </a>
-  </div>
-</section>
-
-  
-  
-  <!-- Google AdSense Banner -->
   <ins class="adsbygoogle"
        style="display:block"
        data-ad-client="ca-pub-2983718503803918"
        data-ad-slot="6389519574"
        data-ad-format="auto"
        data-full-width-responsive="true"></ins>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
+  <!-- Designs -->
+  <section class="block" id="designs">
+    <div class="section-head">
+      <h2>Naqshadaha Aan Sameeyay</h2>
+      <p>Muunado naqshadeed oo aan u sameeyay macaamiisha hore.</p>
+    </div>
+    <div class="grid-3">
+      <div class="design-card">
+        <img src="Modern Landing Page.png" alt="Modern Landing Page">
+        <div class="overlay">
+          <div>
+            <h3>Modern Landing Page</h3>
+            <p>Bog hore oo nadiif ah, oo ku dhisan mabaadi'da naqshadaynta casriga ah.</p>
+          </div>
+        </div>
+      </div>
+      <div class="design-card">
+        <img src="portifal.png" alt="Portfolio Template">
+        <div class="overlay">
+          <div>
+            <h3>Portfolio Template</h3>
+            <p>Naqshad hal-abuur leh oo lagu soo bandhigo mashruucyada si grid ah.</p>
+          </div>
+        </div>
+      </div>
+      <div class="design-card">
+        <img src="E-commerce.png" alt="E-commerce UI">
+        <div class="overlay">
+          <div>
+            <h3>E-commerce UI</h3>
+            <p>Interface iib oo diiradda saarta khibradda isticmaalaha iyo fahamka fudud.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="view-more">
+      <a href="design.html" class="btn btn-ghost">Arag Naqshado Dheeraad ah</a>
+    </div>
+  </section>
 
+  <!-- Comments -->
+  <section class="block" id="comments-section">
+    <div class="section-head">
+      <h2>Faallooyinka Macaamiisha</h2>
+      <p>Wixii aad ka fikirtay shaqadeena, halkan ku qor.</p>
+    </div>
 
+    <div id="comments-list"></div>
 
-
-
-
-  <!-- Comments Section -->
-  <section id="comments-section" class="max-w-6xl mx-auto px-6 py-16">
-    <h2 class="text-3xl font-bold text-center mb-12 text-indigo-600 dark:text-indigo-400">
-      Faallooyinka Macaamiisha
-    </h2>
-
-    <!-- Comments List -->
-    <div id="comments-list" class="space-y-8 mb-12"></div>
-
-    <!-- Comment Form -->
-    <form id="comment-form" class="max-w-xl mx-auto bg-gray-100 dark:bg-gray-800 p-6 rounded-xl shadow-md">
-      <input
-        id="name"
-        type="text"
-        placeholder="Magacaaga"
-        required
-        class="border border-gray-300 dark:border-gray-600 p-3 w-full mb-4 rounded bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-200"
-      />
-      <textarea
-        id="comment"
-        placeholder="Faallo ku qor halkan..."
-        required
-        rows="4"
-        class="border border-gray-300 dark:border-gray-600 p-3 w-full mb-4 rounded bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-200 resize-none"
-      ></textarea>
-      <button
-        type="submit"
-        class="bg-indigo-600 hover:bg-indigo-700 transition-colors duration-300 text-white font-semibold px-6 py-3 rounded w-full"
-      >
-        Dir Faallo
-      </button>
+    <form id="comment-form">
+      <input id="name" type="text" placeholder="Magacaaga" required />
+      <textarea id="comment" placeholder="Faallo ku qor halkan..." required rows="4"></textarea>
+      <button type="submit">Dir Faallo</button>
     </form>
   </section>
 
-
-
-    <div class="get text-center bg-gray-800 p-8 rounded-lg shadow-md max-w-md mx-auto mt-12 text-gray-200">
-    <h2 class="text-xl font-semibold mb-6">
-      Hadaad rabto mid la mid ah, samee account cusub
-    </h2>
-
-    <a href="/login" class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg text-lg font-medium 
-            hover:bg-indigo-700 hover:shadow-[0_4px_15px_rgba(99,102,241,0.6)] transition duration-300">
-      Get Started
-    </a>
-  </div>
-
-
-
-
-
-
-
-
- <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-300 py-8">
-    <div
-      class="container mx-auto text-center space-y-3 max-w-4xl"
-    >
-      <div class="space-x-6 text-gray-400 text-lg">
-        <a
-          href="https://www.facebook.com/Tarzan.crb.10"
-          class="hover:text-indigo-400 transition"
-          ><i class="fab fa-facebook-f mr-1"></i> Facebook</a
-        >
-        <a
-          href="https://x.com/ahmedcrb125?t=aBmd3Y0iQPay3OYtxx29zA&s=09"
-          class="hover:text-indigo-400 transition"
-          ><i class="fab fa-twitter mr-1"></i> Twitter</a
-        >
-        <a
-          href="https://t.me/Tarzan_Town"
-          class="hover:text-indigo-400 transition"
-          ><i class="fab fa-telegram mr-1"></i> Telegram</a
-        >
-        <a
-          href="https://www.tiktok.com/@ahmett_crb?_t=ZM-8yIKFnwoHU0&_r=1"
-          class="hover:text-indigo-400 transition"
-          ><i class="fab fa-tiktok mr-1"></i> TikTok</a
-        >
-        <a
-          href="mailto:ahmedcrb1256@gmail.com"
-          class="hover:text-indigo-400 transition"
-          ><i class="fab fa-linkedin-in mr-1"></i> LinkedIn</a
-        >
-      </div>
-
-      <div class="mt-4 text-sm">
-        <p><a href="/learn"> Learn & Support</a> |<a href="/How_Works">How Works Tarzan Town</a> |<a href="/Help Center">Help Center</a> | <a href="/Community">Community</a></p>
-        <p>
-          <a href="/terms" class="hover:text-indigo-400">Terms & Conditions</a> ·
-          <a href="/Privacy-Policy" class="hover:text-indigo-400"
-            >Privacy Policy</a
-          >
-        </p>
-      </div>
+  <!-- CTA -->
+  <section class="block">
+    <div class="cta-panel">
+      <h2>Ma rabtaa bog la mid ah? Samee account cusub.</h2>
+      <a href="/login" class="btn btn-primary">Bilow Hadda</a>
     </div>
-    <p class="mt-4">&copy; 2025 Tarzan Town. All rights reserved.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="wrap">
+      <div class="social-icons">
+        <a href="https://www.facebook.com/Tarzan.crb.10"><i class="fab fa-facebook-f"></i> Facebook</a>
+        <a href="https://x.com/ahmedcrb125?t=aBmd3Y0iQPay3OYtxx29zA&s=09"><i class="fab fa-twitter"></i> Twitter</a>
+        <a href="https://t.me/Tarzan_Town"><i class="fab fa-telegram"></i> Telegram</a>
+        <a href="https://www.tiktok.com/@ahmett_crb?_t=ZM-8yIKFnwoHU0&_r=1"><i class="fab fa-tiktok"></i> TikTok</a>
+        <a href="mailto:ahmedcrb1256@gmail.com"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+      </div>
+      <div class="foot-links">
+        <p><a href="/learn">Learn &amp; Support</a> | <a href="/How_Works">How Works Tarzan Town</a> | <a href="/Help Center">Help Center</a> | <a href="/Community">Community</a></p>
+        <p><a href="/terms">Terms &amp; Conditions</a> · <a href="/Privacy-Policy">Privacy Policy</a></p>
+      </div>
+      <p class="copyright">&copy; 2025 Tarzan Town. All rights reserved.</p>
+    </div>
   </footer>
 
-  <script src="script.js"></script>
-
-
-
-  
   <script>
+    // Mobile nav toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const navLinks = document.getElementById('nav-links');
+    menuBtn.addEventListener('click', () => navLinks.classList.toggle('show'));
+
+    // One orchestrated hero moment: typewriter reveal of the terminal lines
+    (function typeTerminal(){
+      const lines = document.querySelectorAll('#term-body .line');
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduced) { lines.forEach(l => l.classList.add('revealed')); return; }
+
+      let i = 0;
+      function revealNext(){
+        if (i >= lines.length) return;
+        lines[i].classList.add('revealed');
+        i++;
+        setTimeout(revealNext, 260);
+      }
+      setTimeout(revealNext, 300);
+    })();
+
+    // Comments
     const commentsList = document.getElementById('comments-list');
     const commentForm = document.getElementById('comment-form');
     const nameInput = document.getElementById('name');
     const commentInput = document.getElementById('comment');
 
-    // Placeholder initial comments
     let comments = [
       { id: 1, name: "Ahmed", comment: "Mashruucayga si xirfad leh ayuu u dhammeeyay. Aad ayaan u qancay!" },
       { id: 2, name: "Fatima", comment: "La-tashi fiican, naqshad casri ah, waqtigana waa si fiican loo ilaaliyay." },
       { id: 3, name: "Yusuf", comment: "Xirfad sare iyo isgaarsiin fiican. Aad baan ugu celin lahaa!" }
     ];
 
-    // Function to render comments list
+    function escapeHTML(str) {
+      return str.replace(/[&<>"']/g, m => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[m]));
+    }
+
     function renderComments() {
-      if(comments.length === 0){
-        commentsList.innerHTML = '<p class="text-center text-gray-500 dark:text-gray-400">Wali faallo ma jiraan.</p>';
+      if (comments.length === 0) {
+        commentsList.innerHTML = '<p class="mono" style="color:var(--text-dim)">Wali faallo ma jiraan.</p>';
         return;
       }
-
       commentsList.innerHTML = comments.map(c => `
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
-          <h4 class="font-semibold text-indigo-600 dark:text-indigo-400 mb-2">${escapeHTML(c.name)}</h4>
-          <p class="text-gray-700 dark:text-gray-300">${escapeHTML(c.comment)}</p>
+        <div class="log-entry">
+          <div class="who">&gt; ${escapeHTML(c.name)}</div>
+          <p style="margin:0">${escapeHTML(c.comment)}</p>
         </div>
       `).join('');
     }
 
-    // Escape HTML to prevent injection
-    function escapeHTML(str) {
-      return str.replace(/[&<>"']/g, function(m) {
-        return {
-          '&': '&amp;',
-          '<': '&lt;',
-          '>': '&gt;',
-          '"': '&quot;',
-          "'": '&#39;'
-        }[m];
-      });
-    }
-
-    // Handle form submission
     commentForm.addEventListener('submit', (e) => {
       e.preventDefault();
-
       const name = nameInput.value.trim();
       const comment = commentInput.value.trim();
-
-      if(!name || !comment) return;
-
-      comments.push({
-        id: Date.now(),
-        name,
-        comment
-      });
-
+      if (!name || !comment) return;
+      comments.push({ id: Date.now(), name, comment });
       renderComments();
-
       commentForm.reset();
     });
 
-    // Initial render
     renderComments();
   </script>
 
-  
-
-
 </body>
-
 </html>
-
-
-
-
-
-
-
-

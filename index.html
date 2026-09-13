@@ -1,465 +1,407 @@
 <!DOCTYPE html>
-<html lang="so">
+<html lang="so" class="dark">
+
 <head>
-<meta charset="UTF-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Tarzan Town — Ahmed Developer</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<meta name="description" content="Tarzan Town — bogga shaqada ee Ahmed, Full-stack Developer iyo UI/UX Designer." />
-<meta name="keywords" content="GlobaMart, Ahmed, Tarzan Town, developer, online marketplace, Somali devs" />
-<meta name="author" content="Ahmed aka Tarzan Town" />
-<meta property="og:title" content="Tarzan Town — Ahmed Developer" />
-<meta property="og:description" content="Full-stack Developer & UI/UX Designer oo ka shaqeeya Soomaaliya." />
-<meta property="og:url" content="https://globamart.online" />
-<meta property="og:type" content="website" />
-<meta property="og:image" content="https://globamart.online/login.jpg" />
-<meta name="p:domain_verify" content="30942fcab275ac30c94f4ef0e13b2693"/>
+  <title>Ahmed Developer — Tarzan Town</title>
 
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <!-- SEO & Social -->
+  <meta name="description" content="Ahmed Developer — Full-Stack Developer & UI/UX Designer building modern, scalable digital products. Tarzan Town portfolio & developer marketplace." />
+  <meta name="keywords" content="GlobaMart, Ahmed, Ahmed Developer, Tarzan Town, developer, online marketplace, Somali devs, full-stack, UI/UX" />
+  <meta name="author" content="Ahmed aka Tarzan Town" />
+  <meta property="og:title" content="Ahmed Developer — Tarzan Town" />
+  <meta property="og:description" content="Full-Stack Developer & UI/UX Designer. I build digital experiences that make an impact." />
+  <meta property="og:url" content="https://globamart.online" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://globamart.online/login.jpg" />
 
-<meta name="google-adsense-account" content="ca-pub-2983718503803918">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2983718503803918" crossorigin="anonymous"></script>
+  <!-- Pinterest Verification -->
+  <meta name="p:domain_verify" content="30942fcab275ac30c94f4ef0e13b2693"/>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Tarzan-Town",
-  "url": "https://globamart.online",
-  "logo": "https://globamart.online/login.jpg",
-  "sameAs": ["https://twitter.com/globamart", "https://www.facebook.com/globamart"],
-  "founder": { "@type": "Person", "name": "Ahmed", "alternateName": "Tarzan Town" },
-  "description": "Tarzan Town is a developer's personal marketplace and portfolio."
-}
-</script>
+  <!-- Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-2983718503803918">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2983718503803918"
+     crossorigin="anonymous"></script>
 
-<style>
-  :root{
-    --bg:        #0B1220;
-    --bg-soft:   #0E1626;
-    --surface:   #121B2E;
-    --surface-2: #16223A;
-    --border:    #223252;
-    --text:      #E7ECF3;
-    --text-dim:  #92A2BE;
-    --accent:    #F2A341;
-    --accent-dim:#B9803B;
-    --teal:      #57C7B8;
-    --radius-lg: 18px;
-    --radius-sm: 8px;
-    --maxw: 1120px;
-  }
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-  *{ box-sizing:border-box; }
-  html{ scroll-behavior:smooth; }
-  body{
-    margin:0;
-    background:var(--bg);
-    color:var(--text);
-    font-family:'IBM Plex Sans', system-ui, sans-serif;
-    line-height:1.6;
-  }
-  h1,h2,h3{
-    font-family:'Sora', system-ui, sans-serif;
-    color:var(--text);
-    margin:0;
-    letter-spacing:-0.01em;
-  }
-  .mono{ font-family:'IBM Plex Mono', monospace; }
-  a{ color:inherit; }
-  img{ max-width:100%; display:block; }
-  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 24px; }
-
-  :focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
-
-  @media (prefers-reduced-motion: reduce){
-    *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
-  }
-
-  /* ---------- Nav ---------- */
-  #navbar{
-    position:sticky; top:0; z-index:50;
-    background:rgba(11,18,32,0.88);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--border);
-  }
-  .nav-content{
-    max-width:var(--maxw); margin:0 auto; padding:14px 24px;
-    display:flex; align-items:center; justify-content:space-between;
-  }
-  .logo{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.98rem;
-    color:var(--text);
-  }
-  .logo .prompt{ color:var(--accent); }
-  .nav-links{ display:flex; gap:28px; align-items:center; }
-  .nav-links a{
-    text-decoration:none; color:var(--text-dim);
-    font-size:0.95rem; font-weight:500;
-    transition:color .2s ease;
-  }
-  .nav-links a:hover{ color:var(--accent); }
-  #menu-btn{
-    display:none; background:none; border:1px solid var(--border);
-    color:var(--text); font-size:1.3rem; border-radius:var(--radius-sm);
-    padding:4px 10px; cursor:pointer;
-  }
-  @media (max-width:860px){
-    .nav-links{
-      display:none; position:absolute; left:0; right:0; top:100%;
-      background:var(--bg-soft); border-bottom:1px solid var(--border);
-      flex-direction:column; gap:0; padding:8px 24px;
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            ink: '#070707',
+            surface: '#0b0b0f',
+            card: '#111318',
+            line: 'rgba(255,255,255,0.08)',
+            muted: '#9ca3af',
+            primary: { 300:'#a5b4fc', 400:'#818cf8', 500:'#6366f1', 600:'#4f46e5', 700:'#4338ca' },
+            accent2: '#22d3ee'
+          },
+          fontFamily: {
+            sora: ['Sora', 'sans-serif'],
+            sans: ['Inter', 'sans-serif']
+          },
+          boxShadow: {
+            glow: '0 0 40px -8px rgba(99,102,241,0.45)',
+            glowCyan: '0 0 40px -10px rgba(34,211,238,0.30)',
+            card: '0 20px 45px -25px rgba(0,0,0,0.7)'
+          },
+          keyframes: {
+            floaty: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } }
+          },
+          animation: { floaty: 'floaty 4.5s ease-in-out infinite' }
+        }
+      }
     }
-    .nav-links.show{ display:flex; }
-    .nav-links a{ padding:12px 0; border-bottom:1px solid var(--border); }
-    .nav-links a:last-child{ border-bottom:none; }
-    #menu-btn{ display:block; }
-  }
+  </script>
 
-  /* ---------- Hero ---------- */
-  .hero{
-    max-width:var(--maxw); margin:0 auto;
-    padding:72px 24px 56px;
-    display:grid; grid-template-columns:1.05fr 1fr; gap:56px; align-items:center;
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Tarzan-Town",
+    "url": "https://globamart.online",
+    "logo": "https://globamart.online/login.jpg",
+    "sameAs": [
+      "https://twitter.com/globamart",
+      "https://www.facebook.com/globamart"
+    ],
+    "founder": {
+      "@type": "Person",
+      "name": "Ahmed",
+      "alternateName": "Tarzan Town"
+    },
+    "description": "Ahmed Developer / Tarzan Town — a full-stack developer's professional portfolio and developer marketplace."
   }
-  .eyebrow-line{
-    display:flex; align-items:center; gap:10px;
-    color:var(--text-dim); font-size:0.9rem; margin-bottom:18px;
-  }
-  .eyebrow-line .dot{
-    width:8px; height:8px; border-radius:50%; background:var(--accent);
-    box-shadow:0 0 0 4px rgba(242,163,65,0.15);
-  }
-  .hero h1{
-    font-size:clamp(2rem, 4vw, 2.9rem);
-    font-weight:700; line-height:1.15;
-    max-width:16ch;
-  }
-  .hero .role{
-    margin-top:18px; font-size:1.15rem; color:var(--text-dim); font-weight:500;
-  }
-  .hero p.lede{
-    margin-top:14px; max-width:44ch; color:var(--text-dim); font-size:1rem;
-  }
-  .hero-cta{ margin-top:30px; display:flex; gap:14px; flex-wrap:wrap; }
-  .btn{
-    display:inline-flex; align-items:center; gap:8px;
-    padding:12px 22px; border-radius:var(--radius-sm);
-    font-weight:600; font-size:0.95rem; text-decoration:none;
-    border:1px solid transparent; cursor:pointer;
-    transition:transform .15s ease, background .2s ease, border-color .2s ease;
-  }
-  .btn:hover{ transform:translateY(-1px); }
-  .btn-primary{ background:var(--accent); color:#1A1206; }
-  .btn-primary:hover{ background:#ffb75c; }
-  .btn-ghost{ border-color:var(--border); color:var(--text); background:transparent; }
-  .btn-ghost:hover{ border-color:var(--accent); color:var(--accent); }
+  </script>
 
-  /* terminal mockup */
-  .terminal{
-    background:var(--surface); border:1px solid var(--border);
-    border-radius:var(--radius-lg); overflow:hidden;
-    box-shadow:0 24px 60px -30px rgba(0,0,0,0.6);
-  }
-  .terminal .bar{
-    display:flex; align-items:center; gap:8px;
-    padding:12px 16px; border-bottom:1px solid var(--border);
-    background:var(--surface-2);
-  }
-  .terminal .bar span{ width:10px; height:10px; border-radius:50%; }
-  .terminal .bar span:nth-child(1){ background:#ff5f56; }
-  .terminal .bar span:nth-child(2){ background:#ffbd2e; }
-  .terminal .bar span:nth-child(3){ background:#27c93f; }
-  .terminal .bar .path{ margin-left:8px; color:var(--text-dim); font-size:0.8rem; }
-  .terminal .body{
-    padding:20px 22px 26px; font-size:0.92rem; min-height:210px;
-  }
-  .terminal .line{ margin:0 0 10px; white-space:pre-wrap; opacity:0; }
-  .terminal .line.prompt::before{ content:"$ "; color:var(--accent); }
-  .terminal .line.out{ color:var(--text-dim); }
-  .terminal .line.ok{ color:var(--teal); }
-  .cursor{
-    display:inline-block; width:8px; height:1.1em; background:var(--accent);
-    vertical-align:text-bottom; animation:blink 1s steps(1) infinite;
-  }
-  @keyframes blink{ 50%{ opacity:0; } }
-  .terminal .line.revealed{ opacity:1; }
+  <style>
+    :root{
+      --line: rgba(255,255,255,0.08);
+    }
+    html{ scroll-behavior:smooth; }
+    body{ font-family:'Inter', system-ui, sans-serif; background:#070707; }
+    h1,h2,h3,.font-sora{ font-family:'Sora', system-ui, sans-serif; }
 
-  @media (max-width:900px){
-    .hero{ grid-template-columns:1fr; padding-top:44px; }
-  }
+    @keyframes fade-in-left { from{opacity:0; transform:translateX(-24px);} to{opacity:1; transform:translateX(0);} }
+    .animate-fade-in-left{ animation: fade-in-left 0.9s ease-out both; }
 
-  /* ---------- Section shell ---------- */
-  section.block{ max-width:var(--maxw); margin:0 auto; padding:64px 24px; }
-  .section-head{ margin-bottom:38px; max-width:52ch; }
-  .section-head h2{ font-size:clamp(1.5rem,3vw,2rem); }
-  .section-head p{ color:var(--text-dim); margin-top:10px; }
+    @keyframes slide-in-right { from{opacity:0; transform:translateY(16px) scale(.98);} to{opacity:1; transform:translateY(0) scale(1);} }
+    .animate-slide-in-right{ animation: slide-in-right 0.9s ease-out both; }
 
-  /* ---------- Skills (editor gutter) ---------- */
-  .gutter-list{
-    border:1px solid var(--border); border-radius:var(--radius-lg);
-    overflow:hidden; background:var(--surface);
-  }
-  .gutter-row{
-    display:grid; grid-template-columns:56px 1fr; border-bottom:1px solid var(--border);
-  }
-  .gutter-row:last-child{ border-bottom:none; }
-  .gutter-num{
-    font-family:'IBM Plex Mono', monospace; color:var(--text-dim);
-    background:var(--surface-2); text-align:center; padding:20px 0;
-    font-size:0.85rem; border-right:1px solid var(--border);
-  }
-  .gutter-content{ padding:20px 24px; }
-  .gutter-content h3{ font-size:1.05rem; font-weight:600; margin-bottom:6px; }
-  .gutter-content p{ color:var(--text-dim); font-size:0.92rem; margin:0; }
-  .gutter-content .tags{ margin-top:10px; display:flex; gap:8px; flex-wrap:wrap; }
-  .tag{
-    font-family:'IBM Plex Mono', monospace; font-size:0.76rem;
-    color:var(--accent); border:1px solid var(--accent-dim);
-    padding:3px 9px; border-radius:100px; background:rgba(242,163,65,0.06);
-  }
+    @keyframes fade-up { from{opacity:0; transform:translateY(22px);} to{opacity:1; transform:translateY(0);} }
+    @keyframes fade-left { from{opacity:0; transform:translateX(-22px);} to{opacity:1; transform:translateX(0);} }
+    @keyframes fade-right { from{opacity:0; transform:translateX(22px);} to{opacity:1; transform:translateX(0);} }
 
-  /* ---------- Projects ---------- */
-  .grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
-  @media (max-width:900px){ .grid-3{ grid-template-columns:1fr; } }
-  .win-card{
-    background:var(--surface); border:1px solid var(--border);
-    border-radius:var(--radius-lg); overflow:hidden;
-    transition:border-color .2s ease;
-  }
-  .win-card:hover{ border-color:var(--accent-dim); }
-  .win-card .bar{
-    display:flex; gap:6px; padding:10px 14px; border-bottom:1px solid var(--border);
-  }
-  .win-card .bar span{ width:8px; height:8px; border-radius:50%; background:var(--border); }
-  .win-card img{ width:100%; height:180px; object-fit:cover; }
-  .win-card .info{ padding:16px 18px 20px; }
-  .win-card h3{ font-size:1.02rem; font-weight:600; margin-bottom:8px; }
-  .win-card .tags{ display:flex; gap:6px; flex-wrap:wrap; }
+    .reveal{ opacity:0; }
+    .reveal.in.fu{ animation: fade-up .7s ease-out both; }
+    .reveal.in.fl{ animation: fade-left .7s ease-out both; }
+    .reveal.in.fr{ animation: fade-right .7s ease-out both; }
+    .reveal-stagger.in > *{ opacity:0; animation: fade-up .6s ease-out both; }
+    .reveal-stagger.in > *:nth-child(1){ animation-delay:.03s; }
+    .reveal-stagger.in > *:nth-child(2){ animation-delay:.1s; }
+    .reveal-stagger.in > *:nth-child(3){ animation-delay:.17s; }
+    .reveal-stagger.in > *:nth-child(4){ animation-delay:.24s; }
+    .reveal-stagger.in > *:nth-child(5){ animation-delay:.31s; }
+    .reveal-stagger.in > *:nth-child(6){ animation-delay:.38s; }
 
-  /* ---------- Services (command blocks) ---------- */
-  .cmd-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-  @media (max-width:900px){ .cmd-grid{ grid-template-columns:1fr; } }
-  .cmd-block{
-    background:var(--surface); border:1px solid var(--border);
-    border-radius:var(--radius-lg); padding:22px;
-  }
-  .cmd-block .cmd{
-    font-family:'IBM Plex Mono', monospace; color:var(--accent);
-    font-size:0.9rem; margin-bottom:12px;
-  }
-  .cmd-block .cmd::before{ content:"$ "; color:var(--text-dim); }
-  .cmd-block p{ color:var(--text-dim); font-size:0.94rem; margin:0; }
+    @media (prefers-reduced-motion: reduce){
+      *{ animation-duration:.01ms !important; animation-iteration-count:1 !important; }
+    }
 
-  /* ---------- Designs gallery ---------- */
-  .design-card{
-    position:relative; border-radius:var(--radius-lg); overflow:hidden;
-    border:1px solid var(--border); cursor:pointer;
-  }
-  .design-card img{ width:100%; height:230px; object-fit:cover; transition:transform .4s ease; }
-  .design-card:hover img{ transform:scale(1.04); }
-  .design-card .overlay{
-    position:absolute; inset:0;
-    background:linear-gradient(to top, rgba(11,18,32,0.92), transparent 60%);
-    display:flex; align-items:flex-end; padding:18px;
-  }
-  .design-card h3{ font-size:1rem; font-weight:600; margin-bottom:4px; }
-  .design-card p{ font-size:0.85rem; color:var(--text-dim); margin:0; }
-  .view-more{ text-align:center; margin-top:34px; }
+    .nav-link{ position:relative; color:#9ca3af; font-size:.9rem; font-weight:500; padding:6px 0; transition:color .2s ease; }
+    .nav-link::after{ content:""; position:absolute; left:0; bottom:0; width:0; height:1px; background:#818cf8; transition:width .25s ease; }
+    .nav-link:hover{ color:#f5f5f5; }
+    .nav-link.active{ color:#a5b4fc; }
+    .nav-link.active::after{ width:100%; }
 
-  /* ---------- Comments (terminal log) ---------- */
-  #comments-list{ display:flex; flex-direction:column; gap:14px; margin-bottom:32px; }
-  .log-entry{
-    background:var(--surface); border:1px solid var(--border);
-    border-left:3px solid var(--accent-dim);
-    border-radius:var(--radius-sm); padding:14px 18px;
-    font-size:0.94rem;
-  }
-  .log-entry .who{
-    font-family:'IBM Plex Mono', monospace; color:var(--teal); font-size:0.85rem;
-    margin-bottom:4px;
-  }
-  #comment-form{
-    max-width:560px; margin:0 auto; background:var(--surface);
-    border:1px solid var(--border); border-radius:var(--radius-lg); padding:26px;
-  }
-  #comment-form input, #comment-form textarea{
-    width:100%; padding:12px 14px; margin-bottom:14px;
-    background:var(--bg-soft); border:1px solid var(--border); color:var(--text);
-    border-radius:var(--radius-sm); font-family:inherit; font-size:0.95rem; resize:none;
-  }
-  #comment-form input:focus, #comment-form textarea:focus{ border-color:var(--accent); }
-  #comment-form button{
-    width:100%; padding:13px; background:var(--accent); color:#1A1206;
-    border:none; border-radius:var(--radius-sm); font-weight:600; cursor:pointer;
-    font-size:0.95rem; transition:background .2s ease;
-  }
-  #comment-form button:hover{ background:#ffb75c; }
+    .orb{ position:absolute; border-radius:9999px; filter:blur(70px); pointer-events:none; }
 
-  /* ---------- CTA ---------- */
-  .cta-panel{
-    max-width:640px; margin:0 auto; text-align:center;
-    background:var(--surface); border:1px solid var(--border);
-    border-radius:var(--radius-lg); padding:40px 28px;
-  }
-  .cta-panel h2{ font-size:1.4rem; margin-bottom:22px; }
+    .chip{
+      font-size:.78rem; font-weight:500; color:#c7c9d9; background:rgba(255,255,255,0.04);
+      border:1px solid var(--line); padding:6px 12px; border-radius:9999px;
+      display:inline-flex; align-items:center; gap:6px; transition:border-color .2s ease, color .2s ease, transform .2s ease;
+    }
+    .chip:hover{ border-color:rgba(99,102,241,0.5); color:#fff; transform:translateY(-2px); }
 
-  /* ---------- Footer ---------- */
-  footer{ border-top:1px solid var(--border); padding:36px 24px; margin-top:20px; }
-  footer .wrap{ text-align:center; }
-  .social-icons{ display:flex; justify-content:center; gap:22px; flex-wrap:wrap; margin-bottom:16px; }
-  .social-icons a{ color:var(--text-dim); text-decoration:none; font-size:0.95rem; }
-  .social-icons a:hover{ color:var(--accent); }
-  .foot-links{ font-size:0.85rem; color:var(--text-dim); }
-  .foot-links a{ text-decoration:none; color:var(--text-dim); }
-  .foot-links a:hover{ color:var(--accent); }
-  .copyright{ margin-top:16px; font-size:0.8rem; color:#5A6A87; font-family:'IBM Plex Mono', monospace; }
-</style>
+    .stars{ color:#facc15; font-size:.8rem; letter-spacing:2px; }
+  </style>
 </head>
 
-<body>
+<body class="bg-ink text-gray-100 antialiased">
 
-  <nav id="navbar">
-    <div class="nav-content">
-      <div class="logo"><span class="prompt">~/</span>tarzan-town</div>
-      <button id="menu-btn" aria-label="Toggle menu">☰</button>
-      <div class="nav-links" id="nav-links">
-        <a href="/index">Home</a>
-        <a href="/Contact">La Xiriir</a>
-        <a href="/About">Ku Saabsan</a>
-        <a href="/Services">Adeegyada</a>
-        <a href="/take">Takes</a>
-        <a href="/my_libary">My Libary</a>
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-4 inset-x-0 z-50 px-4">
+    <div class="nav-content max-w-5xl mx-auto flex items-center justify-between gap-4 px-5 py-3 rounded-full bg-surface/70 backdrop-blur-xl border border-line shadow-card">
+      <div class="logo font-sora font-bold text-[1.05rem] tracking-tight">
+        Ahmed <span class="text-primary-400">Developer</span>
+      </div>
+      <button id="menu-btn" class="md:hidden text-xl text-gray-200" aria-label="Toggle menu">☰</button>
+      <div class="nav-links hidden md:flex items-center gap-8 md:static absolute top-full inset-x-4 mt-3 md:mt-0 flex-col md:flex-row bg-surface/95 md:bg-transparent border md:border-0 border-line rounded-2xl md:rounded-none p-5 md:p-0 backdrop-blur-xl" id="nav-links">
+        <a href="/index" class="nav-link active">Home</a>
+        <a href="/Contact" class="nav-link">Contact</a>
+        <a href="/About" class="nav-link">About Us</a>
+        <a href="/Services" class="nav-link">Services</a>
+        <a href="/take" class="nav-link">Takes</a>
+        <a href="/my_libary" class="nav-link">My Library</a>
       </div>
     </div>
   </nav>
 
   <!-- Hero -->
-  <section class="hero">
-    <div>
-      <div class="eyebrow-line"><span class="dot"></span> Diyaar u ah mashruuc cusub</div>
-      <h1>Ahmed wuxuu naqshadeeyaa oo dhisaa software adag.</h1>
-      <div class="role">Full-stack Developer &nbsp;·&nbsp; UI/UX Designer &nbsp;·&nbsp; Freelancer</div>
-      <p class="lede">Ku soo dhawoow bogga Tarzan Town — halkan waxaad ka arki doontaa shaqooyinkayga, naqshadaha, iyo adeegyada aan bixiyo.</p>
-      <div class="hero-cta">
-        <a href="/Contact" class="btn btn-primary">La Xiriir</a>
-        <a href="#projects" class="btn btn-ghost">Eeg Shaqooyinka</a>
+  <section class="relative overflow-hidden pt-40 md:pt-48 pb-24 px-5 md:px-8">
+    <div class="orb w-[420px] h-[420px] bg-primary-500/20 -top-32 -right-20"></div>
+    <div class="orb w-[340px] h-[340px] bg-accent2/10 top-40 -left-24"></div>
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image:linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size:44px 44px; mask-image:radial-gradient(700px 500px at 30% 0%, black, transparent 75%);"></div>
+
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center relative z-10">
+      <div class="animate-fade-in-left">
+        <span class="inline-flex items-center gap-2 text-xs font-sora font-semibold tracking-wide text-primary-300 bg-primary-500/10 border border-primary-500/30 rounded-full px-4 py-1.5 mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-accent2 animate-pulse"></span> FULL-STACK DEVELOPER
+        </span>
+        <h1 class="text-4xl sm:text-5xl md:text-[3.4rem] font-bold leading-[1.12] mb-6 text-white">
+          I Build <span class="bg-gradient-to-r from-primary-400 to-accent2 bg-clip-text text-transparent">Digital Experiences</span> That Make an Impact.
+        </h1>
+        <p class="text-muted text-lg leading-relaxed max-w-xl mb-9">
+          I'm Ahmed, a Full-Stack Developer, UI/UX Designer and technology enthusiast focused on building modern, scalable and user-friendly digital products.
+        </p>
+        <div class="flex flex-wrap gap-4 mb-9">
+          <a href="#projects" class="inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-400 transition-colors shadow-glow text-white font-semibold px-7 py-3.5 rounded-xl">
+            View My Work
+          </a>
+          <a href="/Contact" class="inline-flex items-center gap-2 border border-line hover:border-primary-400 text-gray-200 hover:text-primary-300 transition-colors font-semibold px-7 py-3.5 rounded-xl">
+            Contact Me
+          </a>
+        </div>
+        <div class="flex items-center gap-5 text-gray-400">
+          <a href="https://www.facebook.com/Tarzan.crb.10" class="hover:text-primary-400 transition-colors" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://x.com/ahmedcrb125?t=aBmd3Y0iQPay3OYtxx29zA&s=09" class="hover:text-primary-400 transition-colors" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://t.me/Tarzan_Town" class="hover:text-primary-400 transition-colors" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+          <a href="https://www.tiktok.com/@ahmett_crb?_t=ZM-8yIKFnwoHU0&_r=1" class="hover:text-primary-400 transition-colors" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="mailto:ahmedcrb1256@gmail.com" class="hover:text-primary-400 transition-colors" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+
+      <div class="relative flex justify-center animate-slide-in-right">
+        <div class="absolute w-[320px] h-[320px] bg-primary-500/25 rounded-full blur-[90px]"></div>
+
+        <div class="relative w-full max-w-sm">
+          <div class="rounded-[28px] border border-line bg-card/60 backdrop-blur p-2.5 shadow-card">
+            <img src="ahmed.png" alt="Ahmed — Full-Stack Developer"
+                 class="w-full h-full object-cover rounded-[20px] aspect-[4/5]">
+          </div>
+
+          <div class="absolute -left-8 top-10 hidden sm:flex items-center gap-2 bg-card/90 border border-line backdrop-blur px-3.5 py-2 rounded-xl shadow-card animate-floaty">
+            <i class="fab fa-react text-primary-300"></i>
+            <span class="text-xs font-semibold text-gray-200">React</span>
+          </div>
+          <div class="absolute -right-6 top-1/3 hidden sm:flex items-center gap-2 bg-card/90 border border-line backdrop-blur px-3.5 py-2 rounded-xl shadow-card animate-floaty" style="animation-delay:.6s">
+            <i class="fab fa-node-js text-emerald-400"></i>
+            <span class="text-xs font-semibold text-gray-200">Node.js</span>
+          </div>
+          <div class="absolute -left-6 bottom-8 hidden sm:flex items-center gap-2 bg-card/90 border border-line backdrop-blur px-3.5 py-2 rounded-xl shadow-card animate-floaty" style="animation-delay:1.2s">
+            <i class="fas fa-database text-accent2"></i>
+            <span class="text-xs font-semibold text-gray-200">PostgreSQL</span>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="terminal" aria-hidden="false">
-      <div class="bar">
-        <span></span><span></span><span></span>
-        <span class="path mono">ahmed@tarzantown: ~</span>
+  <!-- Turning Ideas Into Digital Products -->
+  <section class="reveal fu max-w-6xl mx-auto px-5 md:px-8 py-16">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-3">Turning Ideas Into Digital Products</h2>
+      <p class="text-muted">From concept to launch, I work across the full stack to ship products that hold up in the real world.</p>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 reveal-stagger in">
+      <div class="bg-card/60 border border-line rounded-2xl p-5 text-center hover:border-primary-500/40 transition-colors">
+        <i class="fas fa-globe text-primary-400 text-xl mb-3"></i>
+        <p class="text-sm font-medium text-gray-200">Web Apps</p>
       </div>
-      <div class="body mono" id="term-body">
-        <p class="line prompt">whoami</p>
-        <p class="line out">Ahmed — Full-stack Developer</p>
-        <p class="line prompt">ls xirfadaha/</p>
-        <p class="line out">frontend&nbsp;&nbsp;backend&nbsp;&nbsp;design</p>
-        <p class="line prompt">status</p>
-        <p class="line ok">Diyaar ✓ — booqo shaqooyinka hoose</p>
+      <div class="bg-card/60 border border-line rounded-2xl p-5 text-center hover:border-primary-500/40 transition-colors">
+        <i class="fas fa-layer-group text-primary-400 text-xl mb-3"></i>
+        <p class="text-sm font-medium text-gray-200">SaaS Platforms</p>
+      </div>
+      <div class="bg-card/60 border border-line rounded-2xl p-5 text-center hover:border-primary-500/40 transition-colors">
+        <i class="fas fa-cart-shopping text-primary-400 text-xl mb-3"></i>
+        <p class="text-sm font-medium text-gray-200">E-commerce</p>
+      </div>
+      <div class="bg-card/60 border border-line rounded-2xl p-5 text-center hover:border-primary-500/40 transition-colors">
+        <i class="fas fa-chart-line text-primary-400 text-xl mb-3"></i>
+        <p class="text-sm font-medium text-gray-200">Trading Platforms</p>
+      </div>
+      <div class="bg-card/60 border border-line rounded-2xl p-5 text-center hover:border-primary-500/40 transition-colors">
+        <i class="fas fa-plug text-primary-400 text-xl mb-3"></i>
+        <p class="text-sm font-medium text-gray-200">APIs</p>
+      </div>
+      <div class="bg-card/60 border border-line rounded-2xl p-5 text-center hover:border-primary-500/40 transition-colors">
+        <i class="fas fa-palette text-primary-400 text-xl mb-3"></i>
+        <p class="text-sm font-medium text-gray-200">UI/UX Design</p>
+      </div>
+      <div class="bg-card/60 border border-line rounded-2xl p-5 text-center hover:border-primary-500/40 transition-colors col-span-2 md:col-span-1">
+        <i class="fas fa-cubes text-primary-400 text-xl mb-3"></i>
+        <p class="text-sm font-medium text-gray-200">Custom Software</p>
       </div>
     </div>
   </section>
 
   <!-- Skills -->
-  <section class="block" id="skills">
-    <div class="section-head">
-      <h2>Xirfadaha Aasaasiga ah</h2>
-      <p>Saddexda qaybood ee aan ku shaqeeyo mashruuc kasta, sida faylasha mashruuc.</p>
+  <section class="reveal fu max-w-6xl mx-auto px-5 md:px-8 py-16">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-3">Xirfadaha Aasaasiga ah</h2>
+      <p class="text-muted">The languages, frameworks and systems I use to build products end to end.</p>
     </div>
-    <div class="gutter-list">
-      <div class="gutter-row">
-        <div class="gutter-num">01</div>
-        <div class="gutter-content">
-          <h3>Frontend Dev</h3>
-          <p>Naqshadaynta interface-yada isticmaalaha oo casri ah, si fiican ugu shaqeeya jaantusyada kala duwan.</p>
-          <div class="tags"><span class="tag">React</span><span class="tag">Tailwind</span><span class="tag">Vue</span><span class="tag">HTML/CSS</span></div>
+    <div class="grid md:grid-cols-2 gap-5 reveal-stagger in">
+      <div class="bg-card/60 border border-line rounded-2xl p-7">
+        <h3 class="font-sora font-semibold text-white mb-4">Frontend</h3>
+        <div class="flex flex-wrap gap-2.5">
+          <span class="chip"><i class="fab fa-react"></i> React</span>
+          <span class="chip"><i class="fas fa-n"></i> Next.js</span>
+          <span class="chip"><i class="fas fa-wind"></i> Tailwind CSS</span>
+          <span class="chip"><i class="fab fa-html5"></i> HTML</span>
+          <span class="chip"><i class="fab fa-css3-alt"></i> CSS</span>
+          <span class="chip"><i class="fab fa-js"></i> JavaScript</span>
+          <span class="chip"><i class="fas fa-code"></i> TypeScript</span>
         </div>
       </div>
-      <div class="gutter-row">
-        <div class="gutter-num">02</div>
-        <div class="gutter-content">
-          <h3>Backend Dev</h3>
-          <p>Dhisidda server-yada iyo database-yada ku dhisan baahida mashruuca, oo ammaan ah.</p>
-          <div class="tags"><span class="tag">Node.js</span><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">MongoDB</span></div>
+      <div class="bg-card/60 border border-line rounded-2xl p-7">
+        <h3 class="font-sora font-semibold text-white mb-4">Backend</h3>
+        <div class="flex flex-wrap gap-2.5">
+          <span class="chip"><i class="fab fa-laravel"></i> Laravel</span>
+          <span class="chip"><i class="fab fa-php"></i> PHP</span>
+          <span class="chip"><i class="fab fa-node-js"></i> Node.js</span>
+          <span class="chip"><i class="fas fa-plug"></i> REST API</span>
         </div>
       </div>
-      <div class="gutter-row">
-        <div class="gutter-num">03</div>
-        <div class="gutter-content">
-          <h3>UI/UX Design</h3>
-          <p>Naqshadaynta khibrad isticmaale oo fudud oo la fahmi karo, laga bilaabo qorista fikradda ilaa prototype.</p>
-          <div class="tags"><span class="tag">Figma</span><span class="tag">Prototyping</span><span class="tag">Responsive</span></div>
+      <div class="bg-card/60 border border-line rounded-2xl p-7">
+        <h3 class="font-sora font-semibold text-white mb-4">Database</h3>
+        <div class="flex flex-wrap gap-2.5">
+          <span class="chip"><i class="fas fa-database"></i> PostgreSQL</span>
+          <span class="chip"><i class="fas fa-database"></i> MySQL</span>
+          <span class="chip"><i class="fas fa-leaf"></i> MongoDB</span>
+        </div>
+      </div>
+      <div class="bg-card/60 border border-line rounded-2xl p-7">
+        <h3 class="font-sora font-semibold text-white mb-4">Systems</h3>
+        <div class="flex flex-wrap gap-2.5">
+          <span class="chip"><i class="fas fa-microchip"></i> C++</span>
+          <span class="chip"><i class="fas fa-bolt"></i> WebSocket</span>
+          <span class="chip"><i class="fas fa-sitemap"></i> System Architecture</span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Projects -->
-  <section class="block" id="projects">
-    <div class="section-head">
-      <h2>Mashruucyadii Ugu Dambeeyay</h2>
-      <p>Muunado ka mid ah shaqooyinkii aan dhawaan dhammeeyay.</p>
+  <section id="projects" class="reveal fu max-w-6xl mx-auto px-5 md:px-8 py-16">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-3">Mashruucyadii Ugu Dambeeyay</h2>
+      <p class="text-muted">A selection of recent work — from idea to shipped product.</p>
     </div>
-    <div class="grid-3">
-      <div class="win-card">
-        <div class="bar"><span></span><span></span><span></span></div>
-        <img src="Computer.jpeg" alt="Ecommerce Website">
-        <div class="info">
-          <h3>Ecommerce Website</h3>
-          <div class="tags"><span class="tag">React</span><span class="tag">Node</span></div>
+    <div class="grid md:grid-cols-3 gap-6 reveal-stagger in">
+      <div class="group bg-card/60 border border-line rounded-2xl overflow-hidden hover:border-primary-500/40 transition-colors">
+        <div class="relative h-52 overflow-hidden">
+          <img src="Computer.jpeg" alt="Ecommerce Website" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent"></div>
+        </div>
+        <div class="p-6">
+          <h3 class="font-sora font-semibold text-white text-lg mb-2">Ecommerce Website</h3>
+          <p class="text-muted text-sm mb-4">A modern storefront with a fast checkout flow, built for scale and everyday reliability.</p>
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="chip">React</span><span class="chip">Node.js</span>
+          </div>
+          <a href="#" class="text-primary-300 hover:text-primary-200 text-sm font-semibold inline-flex items-center gap-2">View Project <i class="fas fa-arrow-right text-xs"></i></a>
         </div>
       </div>
-      <div class="win-card">
-        <div class="bar"><span></span><span></span><span></span></div>
-        <img src="Code.jpeg" alt="Mobile App Design">
-        <div class="info">
-          <h3>Mobile App Design</h3>
-          <div class="tags"><span class="tag">Figma</span><span class="tag">Prototype</span></div>
+
+      <div class="group bg-card/60 border border-line rounded-2xl overflow-hidden hover:border-primary-500/40 transition-colors">
+        <div class="relative h-52 overflow-hidden">
+          <img src="Code.jpeg" alt="Mobile App Design" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent"></div>
+        </div>
+        <div class="p-6">
+          <h3 class="font-sora font-semibold text-white text-lg mb-2">Mobile App Design</h3>
+          <p class="text-muted text-sm mb-4">A clean, responsive UI/UX case study — from wireframes to a polished prototype.</p>
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="chip">Figma</span><span class="chip">Prototype</span>
+          </div>
+          <a href="#" class="text-primary-300 hover:text-primary-200 text-sm font-semibold inline-flex items-center gap-2">View Project <i class="fas fa-arrow-right text-xs"></i></a>
         </div>
       </div>
-      <div class="win-card">
-        <div class="bar"><span></span><span></span><span></span></div>
-        <img src="Programming.jpeg" alt="Web Dev Dashboard">
-        <div class="info">
-          <h3>Web Dev Dashboard</h3>
-          <div class="tags"><span class="tag">Vue</span><span class="tag">MySQL</span></div>
+
+      <div class="group bg-card/60 border border-line rounded-2xl overflow-hidden hover:border-primary-500/40 transition-colors">
+        <div class="relative h-52 overflow-hidden">
+          <img src="Programming.jpeg" alt="Web Dev Dashboard" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent"></div>
+        </div>
+        <div class="p-6">
+          <h3 class="font-sora font-semibold text-white text-lg mb-2">Web Dev Dashboard</h3>
+          <p class="text-muted text-sm mb-4">An internal dashboard for tracking metrics in real time, built with a focus on clarity.</p>
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="chip">Vue</span><span class="chip">MySQL</span>
+          </div>
+          <a href="#" class="text-primary-300 hover:text-primary-200 text-sm font-semibold inline-flex items-center gap-2">View Project <i class="fas fa-arrow-right text-xs"></i></a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Services -->
-  <section class="block" id="services">
-    <div class="section-head">
-      <h2>Sidee Tarzan Town u Shaqeeyaa?</h2>
-      <p>Saddex tallaabo oo fudud, laga bilaabo fikradda ilaa mashruuc dhammaystiran.</p>
+  <section class="reveal fu max-w-6xl mx-auto px-5 md:px-8 py-16">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-3">Services</h2>
+      <p class="text-muted">What I can help you build, end to end.</p>
     </div>
-    <div class="cmd-grid">
-      <div class="cmd-block">
-        <div class="cmd">build --custom</div>
-        <p>Waxaan dhisnaa barnaamijyo xirfadeed oo loo sameeyay baahida ganacsigaaga gaarka ah.</p>
+    <div class="grid md:grid-cols-3 gap-5 reveal-stagger in">
+      <div class="bg-card/60 border border-line rounded-2xl p-7 hover:border-primary-500/40 transition-colors">
+        <i class="fas fa-code text-primary-400 text-2xl mb-4"></i>
+        <h3 class="font-sora font-semibold text-white mb-2">Full-Stack Web Development</h3>
+        <p class="text-muted text-sm">End-to-end web platforms, from database to interface.</p>
       </div>
-      <div class="cmd-block">
-        <div class="cmd">design --responsive</div>
-        <p>Websaydhyo casri ah oo si fiican ugu shaqeeya mobile iyo desktop labadaba.</p>
+      <div class="bg-card/60 border border-line rounded-2xl p-7 hover:border-primary-500/40 transition-colors">
+        <i class="fas fa-pen-ruler text-primary-400 text-2xl mb-4"></i>
+        <h3 class="font-sora font-semibold text-white mb-2">UI/UX Design</h3>
+        <p class="text-muted text-sm">Interfaces that are clear, fast, and a pleasure to use.</p>
       </div>
-      <div class="cmd-block">
-        <div class="cmd">secure --optimize</div>
-        <p>Xog ilaalin adag iyo xawaare sare oo lagu kalsoonaan karo mar kasta.</p>
+      <div class="bg-card/60 border border-line rounded-2xl p-7 hover:border-primary-500/40 transition-colors">
+        <i class="fas fa-laptop-code text-primary-400 text-2xl mb-4"></i>
+        <h3 class="font-sora font-semibold text-white mb-2">Custom Software Development</h3>
+        <p class="text-muted text-sm">Software built around how your business actually works.</p>
+      </div>
+      <div class="bg-card/60 border border-line rounded-2xl p-7 hover:border-primary-500/40 transition-colors">
+        <i class="fas fa-plug text-primary-400 text-2xl mb-4"></i>
+        <h3 class="font-sora font-semibold text-white mb-2">API Development</h3>
+        <p class="text-muted text-sm">Reliable, well-documented APIs that other systems can build on.</p>
+      </div>
+      <div class="bg-card/60 border border-line rounded-2xl p-7 hover:border-primary-500/40 transition-colors">
+        <i class="fas fa-cart-shopping text-primary-400 text-2xl mb-4"></i>
+        <h3 class="font-sora font-semibold text-white mb-2">E-commerce Development</h3>
+        <p class="text-muted text-sm">Storefronts and checkout flows built for conversion and speed.</p>
+      </div>
+      <div class="bg-card/60 border border-line rounded-2xl p-7 hover:border-primary-500/40 transition-colors">
+        <i class="fas fa-chart-line text-primary-400 text-2xl mb-4"></i>
+        <h3 class="font-sora font-semibold text-white mb-2">Trading / Financial Platforms</h3>
+        <p class="text-muted text-sm">Real-time market data, execution, and account infrastructure.</p>
       </div>
     </div>
   </section>
@@ -470,113 +412,208 @@
        data-ad-slot="6389519574"
        data-ad-format="auto"
        data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
 
   <!-- Designs -->
-  <section class="block" id="designs">
-    <div class="section-head">
-      <h2>Naqshadaha Aan Sameeyay</h2>
-      <p>Muunado naqshadeed oo aan u sameeyay macaamiisha hore.</p>
+  <section class="reveal fu max-w-6xl mx-auto px-5 md:px-8 py-16">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-3">Our Designs</h2>
+      <p class="text-muted">A look at recent visual and product design work.</p>
     </div>
-    <div class="grid-3">
-      <div class="design-card">
-        <img src="Modern Landing Page.png" alt="Modern Landing Page">
-        <div class="overlay">
+    <div class="grid md:grid-cols-3 gap-6 reveal-stagger in">
+      <div class="group relative rounded-2xl overflow-hidden border border-line cursor-pointer">
+        <img src="Modern Landing Page.png" alt="Modern Landing Page" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex items-end p-5">
           <div>
-            <h3>Modern Landing Page</h3>
-            <p>Bog hore oo nadiif ah, oo ku dhisan mabaadi'da naqshadaynta casriga ah.</p>
+            <span class="text-[0.7rem] text-primary-300 font-semibold">Web Design</span>
+            <h3 class="text-white font-sora font-semibold mt-1">Modern Landing Page</h3>
+            <p class="text-gray-300 text-xs mt-1">A clean, elegant homepage built on modern design principles.</p>
           </div>
         </div>
       </div>
-      <div class="design-card">
-        <img src="portifal.png" alt="Portfolio Template">
-        <div class="overlay">
+      <div class="group relative rounded-2xl overflow-hidden border border-line cursor-pointer">
+        <img src="portifal.png" alt="Portfolio Template" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex items-end p-5">
           <div>
-            <h3>Portfolio Template</h3>
-            <p>Naqshad hal-abuur leh oo lagu soo bandhigo mashruucyada si grid ah.</p>
+            <span class="text-[0.7rem] text-primary-300 font-semibold">Portfolio</span>
+            <h3 class="text-white font-sora font-semibold mt-1">Portfolio Template</h3>
+            <p class="text-gray-300 text-xs mt-1">A creative layout for showcasing projects in a sleek grid.</p>
           </div>
         </div>
       </div>
-      <div class="design-card">
-        <img src="E-commerce.png" alt="E-commerce UI">
-        <div class="overlay">
+      <div class="group relative rounded-2xl overflow-hidden border border-line cursor-pointer">
+        <img src="E-commerce.png" alt="E-commerce UI" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex items-end p-5">
           <div>
-            <h3>E-commerce UI</h3>
-            <p>Interface iib oo diiradda saarta khibradda isticmaalaha iyo fahamka fudud.</p>
+            <span class="text-[0.7rem] text-primary-300 font-semibold">E-commerce</span>
+            <h3 class="text-white font-sora font-semibold mt-1">E-commerce UI</h3>
+            <p class="text-gray-300 text-xs mt-1">An intuitive interface focused on clarity and conversion.</p>
           </div>
         </div>
       </div>
     </div>
-    <div class="view-more">
-      <a href="design.html" class="btn btn-ghost">Arag Naqshado Dheeraad ah</a>
+    <div class="text-center mt-12">
+      <a href="design.html"
+         class="inline-block px-8 py-3.5 bg-primary-500 hover:bg-primary-400 transition-colors text-white font-semibold rounded-full shadow-glow">
+        View More Designs
+      </a>
     </div>
   </section>
 
-  <!-- Comments -->
-  <section class="block" id="comments-section">
-    <div class="section-head">
-      <h2>Faallooyinka Macaamiisha</h2>
-      <p>Wixii aad ka fikirtay shaqadeena, halkan ku qor.</p>
+  <!-- Stats -->
+  <section class="reveal fu max-w-6xl mx-auto px-5 md:px-8 py-16">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-5 reveal-stagger in">
+      <div class="bg-card/60 border border-line rounded-2xl p-7 text-center">
+        <div class="font-sora text-3xl font-bold text-primary-300">05+</div>
+        <div class="text-muted text-sm mt-2">Years Experience</div>
+      </div>
+      <div class="bg-card/60 border border-line rounded-2xl p-7 text-center">
+        <div class="font-sora text-3xl font-bold text-primary-300">20+</div>
+        <div class="text-muted text-sm mt-2">Projects</div>
+      </div>
+      <div class="bg-card/60 border border-line rounded-2xl p-7 text-center">
+        <div class="font-sora text-3xl font-bold text-primary-300">10+</div>
+        <div class="text-muted text-sm mt-2">Technologies</div>
+      </div>
+      <div class="bg-card/60 border border-line rounded-2xl p-7 text-center">
+        <div class="font-sora text-3xl font-bold text-primary-300">15+</div>
+        <div class="text-muted text-sm mt-2">Clients</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials / Comments -->
+  <section id="comments-section" class="reveal fu max-w-6xl mx-auto px-5 md:px-8 py-16">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-3">Faallooyinka Macaamiisha</h2>
+      <p class="text-muted">What clients say after working together.</p>
     </div>
 
-    <div id="comments-list"></div>
+    <div id="comments-list" class="grid md:grid-cols-3 gap-5 mb-12"></div>
 
-    <form id="comment-form">
-      <input id="name" type="text" placeholder="Magacaaga" required />
-      <textarea id="comment" placeholder="Faallo ku qor halkan..." required rows="4"></textarea>
-      <button type="submit">Dir Faallo</button>
+    <form id="comment-form" class="max-w-xl mx-auto bg-card/60 border border-line rounded-2xl p-7">
+      <input
+        id="name"
+        type="text"
+        placeholder="Magacaaga"
+        required
+        class="border border-line bg-surface text-gray-100 placeholder-gray-500 p-3.5 w-full mb-4 rounded-xl focus:outline-none focus:border-primary-400"
+      />
+      <textarea
+        id="comment"
+        placeholder="Faallo ku qor halkan..."
+        required
+        rows="4"
+        class="border border-line bg-surface text-gray-100 placeholder-gray-500 p-3.5 w-full mb-4 rounded-xl resize-none focus:outline-none focus:border-primary-400"
+      ></textarea>
+      <button
+        type="submit"
+        class="bg-primary-500 hover:bg-primary-400 transition-colors text-white font-semibold px-6 py-3.5 rounded-xl w-full"
+      >
+        Dir Faallo
+      </button>
     </form>
   </section>
 
   <!-- CTA -->
-  <section class="block">
-    <div class="cta-panel">
-      <h2>Ma rabtaa bog la mid ah? Samee account cusub.</h2>
-      <a href="/login" class="btn btn-primary">Bilow Hadda</a>
+  <section class="reveal fu max-w-5xl mx-auto px-5 md:px-8 py-10 pb-24">
+    <div class="relative overflow-hidden text-center bg-card/70 border border-line rounded-[28px] p-12 md:p-16">
+      <div class="orb w-72 h-72 bg-primary-500/25 -top-20 left-1/2 -translate-x-1/2"></div>
+      <div class="relative z-10">
+        <h2 class="font-sora text-2xl md:text-3xl font-bold text-white mb-2">Have a project in mind?</h2>
+        <p class="text-muted mb-8 max-w-md mx-auto">Let's turn your idea into a powerful digital product.</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="/Contact" class="bg-primary-500 hover:bg-primary-400 transition-colors shadow-glow text-white font-semibold px-8 py-3.5 rounded-xl">
+            Start a Project
+          </a>
+          <a href="mailto:ahmedcrb1256@gmail.com" class="border border-line hover:border-primary-400 text-gray-200 hover:text-primary-300 transition-colors font-semibold px-8 py-3.5 rounded-xl">
+            Contact Me
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer>
-    <div class="wrap">
-      <div class="social-icons">
-        <a href="https://www.facebook.com/Tarzan.crb.10"><i class="fab fa-facebook-f"></i> Facebook</a>
-        <a href="https://x.com/ahmedcrb125?t=aBmd3Y0iQPay3OYtxx29zA&s=09"><i class="fab fa-twitter"></i> Twitter</a>
-        <a href="https://t.me/Tarzan_Town"><i class="fab fa-telegram"></i> Telegram</a>
-        <a href="https://www.tiktok.com/@ahmett_crb?_t=ZM-8yIKFnwoHU0&_r=1"><i class="fab fa-tiktok"></i> TikTok</a>
-        <a href="mailto:ahmedcrb1256@gmail.com"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+  <footer class="border-t border-line bg-surface/60 pt-16 pb-8 px-5 md:px-8">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-10 mb-12">
+      <div>
+        <div class="font-sora font-bold text-white text-lg mb-3">Ahmed <span class="text-primary-400">Developer</span></div>
+        <p class="text-muted text-sm max-w-xs">Full-Stack Developer & UI/UX Designer building modern, scalable digital products under the Tarzan Town brand.</p>
+        <div class="flex gap-4 mt-5 text-gray-400">
+          <a href="https://www.facebook.com/Tarzan.crb.10" class="hover:text-primary-400 transition-colors"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://x.com/ahmedcrb125?t=aBmd3Y0iQPay3OYtxx29zA&s=09" class="hover:text-primary-400 transition-colors"><i class="fab fa-twitter"></i></a>
+          <a href="https://t.me/Tarzan_Town" class="hover:text-primary-400 transition-colors"><i class="fab fa-telegram"></i></a>
+          <a href="https://www.tiktok.com/@ahmett_crb?_t=ZM-8yIKFnwoHU0&_r=1" class="hover:text-primary-400 transition-colors"><i class="fab fa-tiktok"></i></a>
+          <a href="mailto:ahmedcrb1256@gmail.com" class="hover:text-primary-400 transition-colors"><i class="fab fa-linkedin-in"></i></a>
+        </div>
       </div>
-      <div class="foot-links">
-        <p><a href="/learn">Learn &amp; Support</a> | <a href="/How_Works">How Works Tarzan Town</a> | <a href="/Help Center">Help Center</a> | <a href="/Community">Community</a></p>
-        <p><a href="/terms">Terms &amp; Conditions</a> · <a href="/Privacy-Policy">Privacy Policy</a></p>
+      <div>
+        <h4 class="text-gray-400 text-xs font-semibold uppercase tracking-wide mb-4">Navigate</h4>
+        <div class="flex flex-col gap-2.5 text-sm text-muted">
+          <a href="/index" class="hover:text-primary-300 transition-colors">Home</a>
+          <a href="/About" class="hover:text-primary-300 transition-colors">About Us</a>
+          <a href="/Services" class="hover:text-primary-300 transition-colors">Services</a>
+          <a href="/take" class="hover:text-primary-300 transition-colors">Takes</a>
+          <a href="/my_libary" class="hover:text-primary-300 transition-colors">My Library</a>
+        </div>
       </div>
-      <p class="copyright">&copy; 2025 Tarzan Town. All rights reserved.</p>
+      <div>
+        <h4 class="text-gray-400 text-xs font-semibold uppercase tracking-wide mb-4">Learn &amp; Support</h4>
+        <div class="flex flex-col gap-2.5 text-sm text-muted">
+          <a href="/learn" class="hover:text-primary-300 transition-colors">Learn &amp; Support</a>
+          <a href="/How_Works" class="hover:text-primary-300 transition-colors">How Works Tarzan Town</a>
+          <a href="/Help Center" class="hover:text-primary-300 transition-colors">Help Center</a>
+          <a href="/Community" class="hover:text-primary-300 transition-colors">Community</a>
+          <a href="/login" class="hover:text-primary-300 transition-colors">Log In</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-gray-400 text-xs font-semibold uppercase tracking-wide mb-4">Contact</h4>
+        <div class="flex flex-col gap-2.5 text-sm text-muted">
+          <a href="mailto:ahmedcrb1256@gmail.com" class="hover:text-primary-300 transition-colors">ahmedcrb1256@gmail.com</a>
+          <a href="/Contact" class="hover:text-primary-300 transition-colors">Contact Form</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto border-t border-line pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-gray-500">
+      <p>&copy; 2025 Tarzan Town. All rights reserved.</p>
+      <p class="flex gap-4">
+        <a href="/terms" class="hover:text-primary-300 transition-colors">Terms &amp; Conditions</a>
+        <a href="/Privacy-Policy" class="hover:text-primary-300 transition-colors">Privacy Policy</a>
+      </p>
     </div>
   </footer>
 
+  <script src="script.js"></script>
+
   <script>
-    // Mobile nav toggle
-    const menuBtn = document.getElementById('menu-btn');
-    const navLinks = document.getElementById('nav-links');
-    menuBtn.addEventListener('click', () => navLinks.classList.toggle('show'));
-
-    // One orchestrated hero moment: typewriter reveal of the terminal lines
-    (function typeTerminal(){
-      const lines = document.querySelectorAll('#term-body .line');
-      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (reduced) { lines.forEach(l => l.classList.add('revealed')); return; }
-
-      let i = 0;
-      function revealNext(){
-        if (i >= lines.length) return;
-        lines[i].classList.add('revealed');
-        i++;
-        setTimeout(revealNext, 260);
+    // Mobile nav toggle (defensive — works alongside script.js if present)
+    (function(){
+      const menuBtn = document.getElementById('menu-btn');
+      const navLinks = document.getElementById('nav-links');
+      if (menuBtn && navLinks) {
+        menuBtn.addEventListener('click', () => navLinks.classList.toggle('hidden'));
       }
-      setTimeout(revealNext, 300);
     })();
 
-    // Comments
+    // Scroll reveal
+    (function(){
+      const targets = document.querySelectorAll('.reveal');
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduced) { targets.forEach(t => t.classList.add('in')); return; }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      targets.forEach(t => io.observe(t));
+    })();
+
+    // Comments — same functionality as before, restyled as testimonial cards
     const commentsList = document.getElementById('comments-list');
     const commentForm = document.getElementById('comment-form');
     const nameInput = document.getElementById('name');
@@ -589,30 +626,57 @@
     ];
 
     function escapeHTML(str) {
-      return str.replace(/[&<>"']/g, m => ({
-        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
-      }[m]));
+      return str.replace(/[&<>"']/g, function(m) {
+        return {
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#39;'
+        }[m];
+      });
+    }
+
+    function initials(name) {
+      return name.trim().split(/\s+/).slice(0, 2).map(w => w[0]).join('').toUpperCase();
     }
 
     function renderComments() {
       if (comments.length === 0) {
-        commentsList.innerHTML = '<p class="mono" style="color:var(--text-dim)">Wali faallo ma jiraan.</p>';
+        commentsList.innerHTML = '<p class="text-center text-muted col-span-full">Wali faallo ma jiraan.</p>';
         return;
       }
+
       commentsList.innerHTML = comments.map(c => `
-        <div class="log-entry">
-          <div class="who">&gt; ${escapeHTML(c.name)}</div>
-          <p style="margin:0">${escapeHTML(c.comment)}</p>
+        <div class="bg-card/60 border border-line rounded-2xl p-6">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 rounded-full bg-primary-500/20 border border-primary-500/30 flex items-center justify-center text-primary-300 font-sora font-semibold text-sm">
+              ${escapeHTML(initials(c.name))}
+            </div>
+            <div>
+              <h4 class="font-semibold text-white text-sm">${escapeHTML(c.name)}</h4>
+              <div class="stars">★★★★★</div>
+            </div>
+          </div>
+          <p class="text-muted text-sm leading-relaxed">${escapeHTML(c.comment)}</p>
         </div>
       `).join('');
     }
 
     commentForm.addEventListener('submit', (e) => {
       e.preventDefault();
+
       const name = nameInput.value.trim();
       const comment = commentInput.value.trim();
+
       if (!name || !comment) return;
-      comments.push({ id: Date.now(), name, comment });
+
+      comments.push({
+        id: Date.now(),
+        name,
+        comment
+      });
+
       renderComments();
       commentForm.reset();
     });
@@ -621,4 +685,5 @@
   </script>
 
 </body>
+
 </html>

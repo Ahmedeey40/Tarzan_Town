@@ -2,6 +2,7 @@
 <html lang="en" class="dark">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Learn & Support – Tarzan Town </title>
 
@@ -24,125 +25,243 @@
   <meta name="twitter:description" content="Access tutorials, guides, and support for Tarzan Town's templates, prompts, subdomains, temporary profiles, and tools for website or app building.">
   <meta name="twitter:image" content="https://globamart.online/logo.png">
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css" />
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            ink: '#070707',
+            surface: '#0b0b0f',
+            card: '#111318',
+            line: 'rgba(255,255,255,0.08)',
+            muted: '#9ca3af',
+            primary: { 300:'#a5b4fc', 400:'#818cf8', 500:'#6366f1', 600:'#4f46e5', 700:'#4338ca' },
+            accent2: '#22d3ee'
+          },
+          fontFamily: {
+            sora: ['Sora', 'sans-serif'],
+            sans: ['Inter', 'sans-serif']
+          },
+          boxShadow: {
+            glow: '0 0 40px -8px rgba(99,102,241,0.45)',
+            card: '0 20px 45px -25px rgba(0,0,0,0.7)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root{ --line: rgba(255,255,255,0.08); }
+    html{ scroll-behavior:smooth; }
+    body{ font-family:'Inter', system-ui, sans-serif; background:#070707; }
+    h1,h2,h3,.font-sora{ font-family:'Sora', system-ui, sans-serif; }
+
+    @keyframes fade-up { from{opacity:0; transform:translateY(22px);} to{opacity:1; transform:translateY(0);} }
+    .reveal{ opacity:0; }
+    .reveal.in{ animation: fade-up .7s ease-out both; }
+
+    @media (prefers-reduced-motion: reduce){
+      *{ animation-duration:.01ms !important; animation-iteration-count:1 !important; }
+    }
+
+    .nav-link{ position:relative; color:#9ca3af; font-size:.9rem; font-weight:500; padding:6px 0; transition:color .2s ease; }
+    .nav-link::after{ content:""; position:absolute; left:0; bottom:0; width:0; height:1px; background:#818cf8; transition:width .25s ease; }
+    .nav-link:hover{ color:#f5f5f5; }
+    .nav-link.active{ color:#a5b4fc; }
+    .nav-link.active::after{ width:100%; }
+
+    .orb{ position:absolute; border-radius:9999px; filter:blur(70px); pointer-events:none; }
+
+    .card{
+      border:1px solid var(--line); border-radius:1rem;
+      background: rgba(17,19,24,0.6);
+    }
+
+    .section-heading{
+      position: relative;
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.25rem;
+      display: inline-block;
+    }
+    .section-heading::after{
+      content:"";
+      position:absolute;
+      left:0; bottom:0;
+      width: 48px; height: 2px;
+      background: linear-gradient(90deg, #6366f1, #22d3ee);
+      border-radius: 9999px;
+    }
+  </style>
 </head>
 
-<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-white">
+<body class="bg-ink text-gray-100 antialiased">
 
   <!-- Navbar -->
-    <!-- Navbar -->
-  <nav id="navbar">
-    <div class="nav-content">
-      <div class="logo">Tarzan Town</div>
-      <button id="menu-btn" aria-label="Toggle menu">☰</button>
-      <div class="nav-links" id="nav-links">
-        <a href="/index">Home</a>
-        <a href="/Contact">Contact</a>
-        <a href="About.html">About Us</a>
-        <a href="/Services">Services</a>
-        <a href="/take">Takes</a>
-        <a href="my_libary.html">My Libary</a>
+  <nav id="navbar" class="fixed top-4 inset-x-0 z-50 px-4">
+    <div class="nav-content max-w-5xl mx-auto flex items-center justify-between gap-4 px-5 py-3 rounded-full bg-surface/70 backdrop-blur-xl border border-line shadow-card">
+      <div class="logo font-sora font-bold text-[1.05rem] tracking-tight">
+        Ahmed <span class="text-primary-400">Developer</span>
+      </div>
+      <button id="menu-btn" class="md:hidden text-xl text-gray-200" aria-label="Toggle menu">☰</button>
+      <div class="nav-links hidden md:flex items-center gap-8 md:static absolute top-full inset-x-4 mt-3 md:mt-0 flex-col md:flex-row bg-surface/95 md:bg-transparent border md:border-0 border-line rounded-2xl md:rounded-none p-5 md:p-0 backdrop-blur-xl" id="nav-links">
+        <a href="/index" class="nav-link">Home</a>
+        <a href="/Contact" class="nav-link">Contact</a>
+        <a href="/About" class="nav-link">About Us</a>
+        <a href="/Services" class="nav-link">Services</a>
+        <a href="/take" class="nav-link">Takes</a>
+        <a href="/my_libary" class="nav-link">My Library</a>
       </div>
     </div>
   </nav>
 
-  <main class="flex-grow max-w-4xl mx-auto p-6 bg-gray-800 rounded-lg shadow-lg mt-8 mb-8">
-
-    <section class="mb-12">
-      <h2 class="text-2xl font-semibold mb-4 border-b-2 border-blue-500 pb-2">Learning Resources</h2>
-      <p class="mb-4 leading-relaxed text-gray-300">
-        At Tarzan Town, we believe in continuous learning. Explore our rich library of tutorials, articles, and video guides designed to help you master new skills and stay updated.
+  <!-- Header -->
+  <section class="relative overflow-hidden pt-40 md:pt-48 pb-14 px-5 md:px-8">
+    <div class="orb w-[380px] h-[380px] bg-primary-500/20 -top-32 -right-16"></div>
+    <div class="orb w-[300px] h-[300px] bg-accent2/10 top-32 -left-20"></div>
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image:linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size:44px 44px; mask-image:radial-gradient(700px 500px at 30% 0%, black, transparent 75%);"></div>
+    <div class="max-w-3xl mx-auto text-center relative z-10 reveal in">
+      <span class="inline-flex items-center gap-2 text-xs font-sora font-semibold tracking-wide text-primary-300 bg-primary-500/10 border border-primary-500/30 rounded-full px-4 py-1.5 mb-6">
+        <span class="w-1.5 h-1.5 rounded-full bg-accent2 animate-pulse"></span> RESOURCES
+      </span>
+      <h1 class="text-4xl sm:text-5xl font-bold leading-[1.15] mb-5 text-white">
+        Learn &amp; <span class="bg-gradient-to-r from-primary-400 to-accent2 bg-clip-text text-transparent">Support</span>
+      </h1>
+      <p class="text-muted text-lg leading-relaxed">
+        Tutorials, guides, and help — everything you need to get the most out of Tarzan Town.
       </p>
-      <ul class="list-disc list-inside space-y-2 text-gray-300">
-        <li><strong>Interactive Tutorials:</strong> Step-by-step lessons to help you get started quickly.</li>
-        <li><strong>Expert Articles:</strong> In-depth articles from industry professionals.</li>
-        <li><strong>Video Guides:</strong> Visual learning through engaging videos.</li>
-        <li><strong>Webinars & Workshops:</strong> Live sessions to connect and learn with others.</li>
-      </ul>
-    </section>
+    </div>
+  </section>
 
-    <section class="mb-12">
-      <h2 class="text-2xl font-semibold mb-4 border-b-2 border-blue-500 pb-2">Support Options</h2>
-      <p class="mb-4 leading-relaxed text-gray-300">
-        We are here to help! Whether you have technical questions or need assistance navigating the platform, our support team is ready to assist.
-      </p>
-      <ul class="list-disc list-inside space-y-2 text-gray-300">
-        <li><strong>Help Center:</strong> Browse FAQs and troubleshooting guides.</li>
-        <li><strong>Contact Support:</strong> Reach out via email at <a href="mailto:ahmedcrb1256@gmail.com" class="text-blue-400 hover:underline">ahmedcrb1256@gmail.com</a>.</li>
-        <li><strong>Community Forums:</strong> Connect with fellow users and share tips.</li>
-        <li><strong>Live Chat:</strong> Available during business hours for instant help.</li>
-      </ul>
-    </section>
+  <main class="max-w-4xl mx-auto px-5 md:px-8 pb-20">
+    <div class="card p-8 md:p-10 space-y-12 reveal in">
 
-    <section>
-      <h2 class="text-2xl font-semibold mb-4 border-b-2 border-blue-500 pb-2">Getting the Most Out of Tarzan Town</h2>
-      <p class="mb-4 leading-relaxed text-gray-300">
-        To maximize your experience on Tarzan Town:
-      </p>
-      <ul class="list-disc list-inside space-y-2 text-gray-300">
-        <li>Regularly check our learning resources to stay sharp.</li>
-        <li>Engage actively in forums and community events.</li>
-        <li>Ask questions and provide feedback to help improve the platform.</li>
-        <li>Take advantage of live webinars and workshops.</li>
-        <li>Reach out to support whenever you face challenges.</li>
-      </ul>
-    </section>
+      <section>
+        <h2 class="text-2xl font-bold text-white section-heading">Learning Resources</h2>
+        <p class="mb-4 leading-relaxed text-muted">
+          At Tarzan Town, we believe in continuous learning. Explore our rich library of tutorials, articles, and video guides designed to help you master new skills and stay updated.
+        </p>
+        <ul class="list-disc list-inside space-y-2 text-muted">
+          <li><strong class="text-gray-200">Interactive Tutorials:</strong> Step-by-step lessons to help you get started quickly.</li>
+          <li><strong class="text-gray-200">Expert Articles:</strong> In-depth articles from industry professionals.</li>
+          <li><strong class="text-gray-200">Video Guides:</strong> Visual learning through engaging videos.</li>
+          <li><strong class="text-gray-200">Webinars &amp; Workshops:</strong> Live sessions to connect and learn with others.</li>
+        </ul>
+      </section>
 
+      <section>
+        <h2 class="text-2xl font-bold text-white section-heading">Support Options</h2>
+        <p class="mb-4 leading-relaxed text-muted">
+          We are here to help! Whether you have technical questions or need assistance navigating the platform, our support team is ready to assist.
+        </p>
+        <ul class="list-disc list-inside space-y-2 text-muted">
+          <li><strong class="text-gray-200">Help Center:</strong> Browse FAQs and troubleshooting guides.</li>
+          <li><strong class="text-gray-200">Contact Support:</strong> Reach out via email at <a href="mailto:ahmedcrb1256@gmail.com" class="text-primary-300 hover:text-primary-200 hover:underline">ahmedcrb1256@gmail.com</a>.</li>
+          <li><strong class="text-gray-200">Community Forums:</strong> Connect with fellow users and share tips.</li>
+          <li><strong class="text-gray-200">Live Chat:</strong> Available during business hours for instant help.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-white section-heading">Getting the Most Out of Tarzan Town</h2>
+        <p class="mb-4 leading-relaxed text-muted">
+          To maximize your experience on Tarzan Town:
+        </p>
+        <ul class="list-disc list-inside space-y-2 text-muted">
+          <li>Regularly check our learning resources to stay sharp.</li>
+          <li>Engage actively in forums and community events.</li>
+          <li>Ask questions and provide feedback to help improve the platform.</li>
+          <li>Take advantage of live webinars and workshops.</li>
+          <li>Reach out to support whenever you face challenges.</li>
+        </ul>
+      </section>
+
+    </div>
   </main>
 
-   <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-300 py-8">
-    <div
-      class="container mx-auto text-center space-y-3 max-w-4xl"
-    >
-      <div class="space-x-6 text-gray-400 text-lg">
-        <a
-          href="https://www.facebook.com/Tarzan.crb.10"
-          class="hover:text-indigo-400 transition"
-          ><i class="fab fa-facebook-f mr-1"></i> Facebook</a
-        >
-        <a
-          href="https://x.com/ahmedcrb125?t=aBmd3Y0iQPay3OYtxx29zA&s=09"
-          class="hover:text-indigo-400 transition"
-          ><i class="fab fa-twitter mr-1"></i> Twitter</a
-        >
-        <a
-          href="https://t.me/Tarzan_Town"
-          class="hover:text-indigo-400 transition"
-          ><i class="fab fa-telegram mr-1"></i> Telegram</a
-        >
-        <a
-          href="https://www.tiktok.com/@ahmett_crb?_t=ZM-8yIKFnwoHU0&_r=1"
-          class="hover:text-indigo-400 transition"
-          ><i class="fab fa-tiktok mr-1"></i> TikTok</a
-        >
-        <a
-          href="mailto:ahmedcrb1256@gmail.com"
-          class="hover:text-indigo-400 transition"
-          ><i class="fab fa-linkedin-in mr-1"></i> LinkedIn</a
-        >
+  <!-- Footer -->
+  <footer class="border-t border-line bg-surface/60 pt-16 pb-8 px-5 md:px-8">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-10 mb-12">
+      <div>
+        <div class="font-sora font-bold text-white text-lg mb-3">Ahmed <span class="text-primary-400">Developer</span></div>
+        <p class="text-muted text-sm max-w-xs">Full-Stack Developer & UI/UX Designer building modern, scalable digital products under the Tarzan Town brand.</p>
+        <div class="flex gap-4 mt-5 text-gray-400">
+          <a href="https://www.facebook.com/Tarzan.crb.10" class="hover:text-primary-400 transition-colors"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://x.com/ahmedcrb125?t=aBmd3Y0iQPay3OYtxx29zA&s=09" class="hover:text-primary-400 transition-colors"><i class="fab fa-twitter"></i></a>
+          <a href="https://t.me/Tarzan_Town" class="hover:text-primary-400 transition-colors"><i class="fab fa-telegram"></i></a>
+          <a href="https://www.tiktok.com/@ahmett_crb?_t=ZM-8yIKFnwoHU0&_r=1" class="hover:text-primary-400 transition-colors"><i class="fab fa-tiktok"></i></a>
+          <a href="mailto:ahmedcrb1256@gmail.com" class="hover:text-primary-400 transition-colors"><i class="fab fa-linkedin-in"></i></a>
+        </div>
       </div>
-
-      <div class="mt-4 text-sm">
-        <p><a href="/learn"> Learn & Support</a> |<a href="/How_Works">How Works Tarzan Town</a> |<a href="/Help Center">Help Center</a> | <a href="/Community">Community</a></p>
-        <p>
-          <a href="/terms" class="hover:text-indigo-400">Terms & Conditions</a> ·
-          <a href="/Privacy-Policy" class="hover:text-indigo-400"
-            >Privacy Policy</a
-          >
-        </p>
+      <div>
+        <h4 class="text-gray-400 text-xs font-semibold uppercase tracking-wide mb-4">Navigate</h4>
+        <div class="flex flex-col gap-2.5 text-sm text-muted">
+          <a href="/index" class="hover:text-primary-300 transition-colors">Home</a>
+          <a href="/Contact" class="hover:text-primary-300 transition-colors">Contact</a>
+          <a href="/About" class="hover:text-primary-300 transition-colors">About Us</a>
+          <a href="/Services" class="hover:text-primary-300 transition-colors">Services</a>
+          <a href="/take" class="hover:text-primary-300 transition-colors">Takes</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-gray-400 text-xs font-semibold uppercase tracking-wide mb-4">Learn &amp; Support</h4>
+        <div class="flex flex-col gap-2.5 text-sm text-muted">
+          <a href="/learn" class="hover:text-primary-300 transition-colors">Learn &amp; Support</a>
+          <a href="/How_Works" class="hover:text-primary-300 transition-colors">How Works Tarzan Town</a>
+          <a href="/Help Center" class="hover:text-primary-300 transition-colors">Help Center</a>
+          <a href="/Community" class="hover:text-primary-300 transition-colors">Community</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-gray-400 text-xs font-semibold uppercase tracking-wide mb-4">Contact</h4>
+        <div class="flex flex-col gap-2.5 text-sm text-muted">
+          <a href="mailto:ahmedcrb1256@gmail.com" class="hover:text-primary-300 transition-colors">ahmedcrb1256@gmail.com</a>
+          <a href="/Contact" class="hover:text-primary-300 transition-colors">Contact Form</a>
+        </div>
       </div>
     </div>
-    <p class="mt-4">&copy; 2025 Tarzan Town. All rights reserved.</p>
+
+    <div class="max-w-6xl mx-auto border-t border-line pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-gray-500">
+      <p>&copy; 2025 Tarzan Town. All rights reserved.</p>
+      <p class="flex gap-4">
+        <a href="/terms" class="hover:text-primary-300 transition-colors">Terms &amp; Conditions</a>
+        <a href="/Privacy-Policy" class="hover:text-primary-300 transition-colors">Privacy Policy</a>
+      </p>
+    </div>
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    // Mobile nav toggle (defensive — matches index.html's markup: 'hidden' utility class)
+    (function(){
+      const menuBtn = document.getElementById('menu-btn');
+      const navLinks = document.getElementById('nav-links');
+      if (menuBtn && navLinks) {
+        menuBtn.addEventListener('click', () => navLinks.classList.toggle('hidden'));
+      }
+    })();
 
+    // Scroll reveal
+    (function(){
+      const targets = document.querySelectorAll('.reveal');
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduced) { targets.forEach(t => t.classList.add('in')); return; }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      targets.forEach(t => io.observe(t));
+    })();
+  </script>
 </body>
 </html>
-
-
-

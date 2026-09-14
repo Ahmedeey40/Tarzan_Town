@@ -2,6 +2,7 @@
 <html lang="en" class="dark">
   <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Help Center - Tarzan Town</title>
 
@@ -24,175 +25,288 @@
   <meta name="twitter:description" content="Access the Globamart.online Help Center to get support, guidance, and answers to common questions about templates, prompts, subdomains, and temporary profiles.">
   <meta name="twitter:image" content="https://globamart.online/logo.png">
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="style.css" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            ink: '#070707',
+            surface: '#0b0b0f',
+            card: '#111318',
+            line: 'rgba(255,255,255,0.08)',
+            muted: '#9ca3af',
+            primary: { 300:'#a5b4fc', 400:'#818cf8', 500:'#6366f1', 600:'#4f46e5', 700:'#4338ca' },
+            accent2: '#22d3ee'
+          },
+          fontFamily: {
+            sora: ['Sora', 'sans-serif'],
+            sans: ['Inter', 'sans-serif']
+          },
+          boxShadow: {
+            glow: '0 0 40px -8px rgba(99,102,241,0.45)',
+            card: '0 20px 45px -25px rgba(0,0,0,0.7)'
+          }
+        }
+      }
+    }
+  </script>
 
   <style>
-    body {
-      background-color: #0f172a;
-      color: #e0e7ff;
-      font-family: 'Inter', sans-serif;
-      min-height: 100vh;
+    :root{ --line: rgba(255,255,255,0.08); }
+    html{ scroll-behavior:smooth; }
+    body{ font-family:'Inter', system-ui, sans-serif; background:#070707; }
+    h1,h2,h3,.font-sora{ font-family:'Sora', system-ui, sans-serif; }
+
+    @keyframes fade-up { from{opacity:0; transform:translateY(22px);} to{opacity:1; transform:translateY(0);} }
+    .reveal{ opacity:0; }
+    .reveal.in{ animation: fade-up .7s ease-out both; }
+    .reveal-stagger.in > *{ opacity:0; animation: fade-up .6s ease-out both; }
+    .reveal-stagger.in > *:nth-child(1){ animation-delay:.03s; }
+    .reveal-stagger.in > *:nth-child(2){ animation-delay:.1s; }
+    .reveal-stagger.in > *:nth-child(3){ animation-delay:.17s; }
+
+    @media (prefers-reduced-motion: reduce){
+      *{ animation-duration:.01ms !important; animation-iteration-count:1 !important; }
     }
+
+    .nav-link{ position:relative; color:#9ca3af; font-size:.9rem; font-weight:500; padding:6px 0; transition:color .2s ease; }
+    .nav-link::after{ content:""; position:absolute; left:0; bottom:0; width:0; height:1px; background:#818cf8; transition:width .25s ease; }
+    .nav-link:hover{ color:#f5f5f5; }
+    .nav-link.active{ color:#a5b4fc; }
+    .nav-link.active::after{ width:100%; }
+
+    .orb{ position:absolute; border-radius:9999px; filter:blur(70px); pointer-events:none; }
+
+    .card{
+      border:1px solid var(--line); border-radius:1rem;
+      background: rgba(17,19,24,0.6); transition: box-shadow .25s ease, border-color .25s ease, transform .25s ease;
+    }
+    .card:hover{ box-shadow: 0 0 40px -12px rgba(99,102,241,0.35); border-color: rgba(99,102,241,0.4); transform: translateY(-4px); }
+
+    details.faq{
+      border:1px solid var(--line); border-radius:1rem;
+      background: rgba(17,19,24,0.6);
+      padding: 1.1rem 1.25rem;
+      transition: border-color .2s ease;
+    }
+    details.faq:hover{ border-color: rgba(99,102,241,0.35); }
+    details.faq summary{ list-style:none; }
+    details.faq summary::-webkit-details-marker{ display:none; }
+    details.faq summary::after{
+      content:"+";
+      float:right;
+      color:#818cf8;
+      font-weight:700;
+      transition: transform .2s ease;
+    }
+    details.faq[open] summary::after{ content:"−"; }
   </style>
 </head>
 
-
-<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-white">
+<body class="bg-ink text-gray-100 antialiased">
 
   <!-- Navbar -->
-    <!-- Navbar -->
-  <nav id="navbar">
-    <div class="nav-content">
-      <div class="logo">Tarzan Town</div>
-      <button id="menu-btn" aria-label="Toggle menu">☰</button>
-      <div class="nav-links" id="nav-links">
-        <a href="/index">Home</a>
-        <a href="/Contact">Contact</a>
-        <a href="About.html">About Us</a>
-        <a href="/Services">Services</a>
-        <a href="/take">Takes</a>
-        <a href="/my_libary">My Libary</a>
+  <nav id="navbar" class="fixed top-4 inset-x-0 z-50 px-4">
+    <div class="nav-content max-w-5xl mx-auto flex items-center justify-between gap-4 px-5 py-3 rounded-full bg-surface/70 backdrop-blur-xl border border-line shadow-card">
+      <div class="logo font-sora font-bold text-[1.05rem] tracking-tight">
+        Ahmed <span class="text-primary-400">Developer</span>
+      </div>
+      <button id="menu-btn" class="md:hidden text-xl text-gray-200" aria-label="Toggle menu">☰</button>
+      <div class="nav-links hidden md:flex items-center gap-8 md:static absolute top-full inset-x-4 mt-3 md:mt-0 flex-col md:flex-row bg-surface/95 md:bg-transparent border md:border-0 border-line rounded-2xl md:rounded-none p-5 md:p-0 backdrop-blur-xl" id="nav-links">
+        <a href="/index" class="nav-link">Home</a>
+        <a href="/Contact" class="nav-link">Contact</a>
+        <a href="/About" class="nav-link">About Us</a>
+        <a href="/Services" class="nav-link">Services</a>
+        <a href="/take" class="nav-link">Takes</a>
+        <a href="/my_libary" class="nav-link">My Library</a>
       </div>
     </div>
   </nav>
 
-  <main class="flex-grow container mx-auto px-4 py-8 max-w-5xl">
-<h1 class="text-3xl font-bold text-white">Help Center</h1>
-    <!-- Search Bar -->
-    <div class="mb-10">
+  <!-- Header -->
+  <section class="relative overflow-hidden pt-40 md:pt-48 pb-14 px-5 md:px-8">
+    <div class="orb w-[380px] h-[380px] bg-primary-500/20 -top-32 -right-16"></div>
+    <div class="orb w-[300px] h-[300px] bg-accent2/10 top-32 -left-20"></div>
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image:linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size:44px 44px; mask-image:radial-gradient(700px 500px at 30% 0%, black, transparent 75%);"></div>
+
+    <div class="max-w-3xl mx-auto text-center relative z-10 reveal in">
+      <span class="inline-flex items-center gap-2 text-xs font-sora font-semibold tracking-wide text-primary-300 bg-primary-500/10 border border-primary-500/30 rounded-full px-4 py-1.5 mb-6">
+        <span class="w-1.5 h-1.5 rounded-full bg-accent2 animate-pulse"></span> SUPPORT
+      </span>
+      <h1 class="text-4xl sm:text-5xl font-bold leading-[1.15] mb-8 text-white">
+        Help <span class="bg-gradient-to-r from-primary-400 to-accent2 bg-clip-text text-transparent">Center</span>
+      </h1>
+
+      <!-- Search Bar -->
       <input
         type="search"
         placeholder="Search help articles..."
-        class="w-full rounded-md px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-600"
+        class="w-full rounded-xl px-5 py-3.5 bg-card/60 border border-line text-gray-100 placeholder-gray-500 focus:outline-none focus:border-primary-400 transition-colors"
         id="searchInput"
       />
     </div>
+  </section>
+
+  <main class="max-w-5xl mx-auto px-5 md:px-8 pb-20">
 
     <!-- Categories -->
-    <section class="mb-12">
-      <h2 class="text-2xl font-semibold mb-6 border-b border-blue-600 pb-2">Categories</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-        <div class="bg-[#1e293b] p-6 rounded-lg shadow-md hover:shadow-lg transition cursor-pointer">
-          <h3 class="text-xl font-semibold mb-2 text-white">Account & Profile</h3>
-          <p class="text-gray-400">Manage your account settings and profile information.</p>
+    <section class="reveal fu mb-16">
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-8 text-center">Categories</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 reveal-stagger in">
+        <div class="card p-6 cursor-pointer">
+          <i class="fas fa-user-gear text-primary-400 text-2xl mb-3"></i>
+          <h3 class="text-lg font-sora font-semibold mb-2 text-white">Account &amp; Profile</h3>
+          <p class="text-muted text-sm">Manage your account settings and profile information.</p>
         </div>
-        <div class="bg-[#1e293b] p-6 rounded-lg shadow-md hover:shadow-lg transition cursor-pointer">
-          <h3 class="text-xl font-semibold mb-2 text-white">Payments & Billing</h3>
-          <p class="text-gray-400">Learn about payment methods and billing questions.</p>
+        <div class="card p-6 cursor-pointer">
+          <i class="fas fa-credit-card text-primary-400 text-2xl mb-3"></i>
+          <h3 class="text-lg font-sora font-semibold mb-2 text-white">Payments &amp; Billing</h3>
+          <p class="text-muted text-sm">Learn about payment methods and billing questions.</p>
         </div>
-        <div class="bg-[#1e293b] p-6 rounded-lg shadow-md hover:shadow-lg transition cursor-pointer">
-          <h3 class="text-xl font-semibold mb-2 text-white">Technical Issues</h3>
-          <p class="text-gray-400">Get help with bugs, errors, and troubleshooting.</p>
+        <div class="card p-6 cursor-pointer">
+          <i class="fas fa-screwdriver-wrench text-primary-400 text-2xl mb-3"></i>
+          <h3 class="text-lg font-sora font-semibold mb-2 text-white">Technical Issues</h3>
+          <p class="text-muted text-sm">Get help with bugs, errors, and troubleshooting.</p>
         </div>
       </div>
     </section>
 
     <!-- FAQ Section -->
-<section>
-  <h2 class="text-2xl font-semibold mb-6 border-b border-blue-600 pb-2">Frequently Asked Questions</h2>
-  <div class="space-y-4 max-w-3xl">
-    <details class="bg-[#1e293b] p-4 rounded-lg shadow-md cursor-pointer">
-      <summary class="font-semibold text-white cursor-pointer">How do I reset my password?</summary>
-      <p class="mt-2 text-gray-300">
-        To reset your password, go to the login page and click on "Forgot Password". Follow the instructions sent to your email.
-      </p>
-    </details>
-    <details class="bg-[#1e293b] p-4 rounded-lg shadow-md cursor-pointer">
-      <summary class="font-semibold text-white cursor-pointer">How can I update my billing information?</summary>
-      <p class="mt-2 text-gray-300">
-        You can update your billing information under the Payments & Billing section in your account settings.
-      </p>
-    </details>
-    <details class="bg-[#1e293b] p-4 rounded-lg shadow-md cursor-pointer">
-      <summary class="font-semibold text-white cursor-pointer">Who can I contact for support?</summary>
-      <p class="mt-2 text-gray-300">
-        If you need direct assistance, please visit our Contact page or email <a href="mailto:ahmedcrb1256@gmail.com" class="text-blue-400 underline">ahmedcrb1256@gmail.com</a>.
-      </p>
-    </details>
-    <details class="bg-[#1e293b] p-4 rounded-lg shadow-md cursor-pointer">
-      <summary class="font-semibold text-white cursor-pointer">How can I get the most out of the site?</summary>
-      <p class="mt-2 text-gray-300">
-        Explore courses regularly, join discussions, and participate actively in the community to learn and grow your skills.
-      </p>
-    </details>
-    <details class="bg-[#1e293b] p-4 rounded-lg shadow-md cursor-pointer">
-      <summary class="font-semibold text-white cursor-pointer">How do I add or update my profile image?</summary>
-      <p class="mt-2 text-gray-300">
-        Go to your profile settings and upload a clear picture from your device. Make sure the image is square for best display.
-      </p>
-    </details>
-    <details class="bg-[#1e293b] p-4 rounded-lg shadow-md cursor-pointer">
-      <summary class="font-semibold text-white cursor-pointer">How can I contact support?</summary>
-      <p class="mt-2 text-gray-300">
-        You can contact support by emailing us at <a href="mailto:ahmedcrb1256@gmail.com" class="text-blue-400 underline">ahmedcrb1256@gmail.com</a> or through the Contact page on the site.
-      </p>
-    </details>
-    <details class="bg-[#1e293b] p-4 rounded-lg shadow-md cursor-pointer">
-      <summary class="font-semibold text-white cursor-pointer">How can we assist you?</summary>
-      <p class="mt-2 text-gray-300">
-        Feel free to reach out with any questions or feedback. We're here to help you make the most of your experience.
-      </p>
-    </details>
-  </div>
-</section>
-
+    <section class="reveal fu">
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-8 text-center">Frequently Asked Questions</h2>
+      <div class="space-y-4 max-w-3xl mx-auto">
+        <details class="faq">
+          <summary class="font-sora font-semibold text-white cursor-pointer">How do I reset my password?</summary>
+          <p class="mt-3 text-muted text-sm leading-relaxed">
+            To reset your password, go to the login page and click on "Forgot Password". Follow the instructions sent to your email.
+          </p>
+        </details>
+        <details class="faq">
+          <summary class="font-sora font-semibold text-white cursor-pointer">How can I update my billing information?</summary>
+          <p class="mt-3 text-muted text-sm leading-relaxed">
+            You can update your billing information under the Payments &amp; Billing section in your account settings.
+          </p>
+        </details>
+        <details class="faq">
+          <summary class="font-sora font-semibold text-white cursor-pointer">Who can I contact for support?</summary>
+          <p class="mt-3 text-muted text-sm leading-relaxed">
+            If you need direct assistance, please visit our Contact page or email <a href="mailto:ahmedcrb1256@gmail.com" class="text-primary-300 hover:text-primary-200 underline">ahmedcrb1256@gmail.com</a>.
+          </p>
+        </details>
+        <details class="faq">
+          <summary class="font-sora font-semibold text-white cursor-pointer">How can I get the most out of the site?</summary>
+          <p class="mt-3 text-muted text-sm leading-relaxed">
+            Explore courses regularly, join discussions, and participate actively in the community to learn and grow your skills.
+          </p>
+        </details>
+        <details class="faq">
+          <summary class="font-sora font-semibold text-white cursor-pointer">How do I add or update my profile image?</summary>
+          <p class="mt-3 text-muted text-sm leading-relaxed">
+            Go to your profile settings and upload a clear picture from your device. Make sure the image is square for best display.
+          </p>
+        </details>
+        <details class="faq">
+          <summary class="font-sora font-semibold text-white cursor-pointer">How can I contact support?</summary>
+          <p class="mt-3 text-muted text-sm leading-relaxed">
+            You can contact support by emailing us at <a href="mailto:ahmedcrb1256@gmail.com" class="text-primary-300 hover:text-primary-200 underline">ahmedcrb1256@gmail.com</a> or through the Contact page on the site.
+          </p>
+        </details>
+        <details class="faq">
+          <summary class="font-sora font-semibold text-white cursor-pointer">How can we assist you?</summary>
+          <p class="mt-3 text-muted text-sm leading-relaxed">
+            Feel free to reach out with any questions or feedback. We're here to help you make the most of your experience.
+          </p>
+        </details>
+      </div>
+    </section>
 
   </main>
 
- 
- <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-300 py-8">
-    <div
-      class="container mx-auto text-center space-y-3 max-w-4xl"
-    >
-      <div class="space-x-6 text-gray-400 text-lg">
-        <a
-          href="https://www.facebook.com/Tarzan.crb.10"
-          class="hover:text-indigo-400 transition"
-          ><i class="fab fa-facebook-f mr-1"></i> Facebook</a
-        >
-        <a
-          href="https://x.com/ahmedcrb125?t=aBmd3Y0iQPay3OYtxx29zA&s=09"
-          class="hover:text-indigo-400 transition"
-          ><i class="fab fa-twitter mr-1"></i> Twitter</a
-        >
-        <a
-          href="https://t.me/Tarzan_Town"
-          class="hover:text-indigo-400 transition"
-          ><i class="fab fa-telegram mr-1"></i> Telegram</a
-        >
-        <a
-          href="https://www.tiktok.com/@ahmett_crb?_t=ZM-8yIKFnwoHU0&_r=1"
-          class="hover:text-indigo-400 transition"
-          ><i class="fab fa-tiktok mr-1"></i> TikTok</a
-        >
-        <a
-          href="mailto:ahmedcrb1256@gmail.com"
-          class="hover:text-indigo-400 transition"
-          ><i class="fab fa-linkedin-in mr-1"></i> LinkedIn</a
-        >
+  <!-- Footer -->
+  <footer class="border-t border-line bg-surface/60 pt-16 pb-8 px-5 md:px-8">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-10 mb-12">
+      <div>
+        <div class="font-sora font-bold text-white text-lg mb-3">Ahmed <span class="text-primary-400">Developer</span></div>
+        <p class="text-muted text-sm max-w-xs">Full-Stack Developer & UI/UX Designer building modern, scalable digital products under the Tarzan Town brand.</p>
+        <div class="flex gap-4 mt-5 text-gray-400">
+          <a href="https://www.facebook.com/Tarzan.crb.10" class="hover:text-primary-400 transition-colors"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://x.com/ahmedcrb125?t=aBmd3Y0iQPay3OYtxx29zA&s=09" class="hover:text-primary-400 transition-colors"><i class="fab fa-twitter"></i></a>
+          <a href="https://t.me/Tarzan_Town" class="hover:text-primary-400 transition-colors"><i class="fab fa-telegram"></i></a>
+          <a href="https://www.tiktok.com/@ahmett_crb?_t=ZM-8yIKFnwoHU0&_r=1" class="hover:text-primary-400 transition-colors"><i class="fab fa-tiktok"></i></a>
+          <a href="mailto:ahmedcrb1256@gmail.com" class="hover:text-primary-400 transition-colors"><i class="fab fa-linkedin-in"></i></a>
+        </div>
       </div>
-
-      <div class="mt-4 text-sm">
-        <p><a href="/learn"> Learn & Support</a> |<a href="/How_Works">How Works Tarzan Town</a> |<a href="/Help Center">Help Center</a> | <a href="/Community">Community</a></p>
-        <p>
-          <a href="/terms" class="hover:text-indigo-400">Terms & Conditions</a> ·
-          <a href="/Privacy-Policy" class="hover:text-indigo-400"
-            >Privacy Policy</a
-          >
-        </p>
+      <div>
+        <h4 class="text-gray-400 text-xs font-semibold uppercase tracking-wide mb-4">Navigate</h4>
+        <div class="flex flex-col gap-2.5 text-sm text-muted">
+          <a href="/index" class="hover:text-primary-300 transition-colors">Home</a>
+          <a href="/Contact" class="hover:text-primary-300 transition-colors">Contact</a>
+          <a href="/About" class="hover:text-primary-300 transition-colors">About Us</a>
+          <a href="/Services" class="hover:text-primary-300 transition-colors">Services</a>
+          <a href="/take" class="hover:text-primary-300 transition-colors">Takes</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-gray-400 text-xs font-semibold uppercase tracking-wide mb-4">Learn &amp; Support</h4>
+        <div class="flex flex-col gap-2.5 text-sm text-muted">
+          <a href="/learn" class="hover:text-primary-300 transition-colors">Learn &amp; Support</a>
+          <a href="/How_Works" class="hover:text-primary-300 transition-colors">How Works Tarzan Town</a>
+          <a href="/Help Center" class="hover:text-primary-300 transition-colors">Help Center</a>
+          <a href="/Community" class="hover:text-primary-300 transition-colors">Community</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-gray-400 text-xs font-semibold uppercase tracking-wide mb-4">Contact</h4>
+        <div class="flex flex-col gap-2.5 text-sm text-muted">
+          <a href="mailto:ahmedcrb1256@gmail.com" class="hover:text-primary-300 transition-colors">ahmedcrb1256@gmail.com</a>
+          <a href="/Contact" class="hover:text-primary-300 transition-colors">Contact Form</a>
+        </div>
       </div>
     </div>
-    <p class="mt-4">&copy; 2025 Tarzan Town. All rights reserved.</p>
+
+    <div class="max-w-6xl mx-auto border-t border-line pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-gray-500">
+      <p>&copy; 2025 Tarzan Town. All rights reserved.</p>
+      <p class="flex gap-4">
+        <a href="/terms" class="hover:text-primary-300 transition-colors">Terms &amp; Conditions</a>
+        <a href="/Privacy-Policy" class="hover:text-primary-300 transition-colors">Privacy Policy</a>
+      </p>
+    </div>
   </footer>
 
   <script src="script.js"></script>
-
   <script>
-    // Optional: Simple filter for FAQ or search
+    // Mobile nav toggle (defensive — matches index.html's markup: 'hidden' utility class)
+    (function(){
+      const menuBtn = document.getElementById('menu-btn');
+      const navLinks = document.getElementById('nav-links');
+      if (menuBtn && navLinks) {
+        menuBtn.addEventListener('click', () => navLinks.classList.toggle('hidden'));
+      }
+    })();
+
+    // Scroll reveal
+    (function(){
+      const targets = document.querySelectorAll('.reveal');
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduced) { targets.forEach(t => t.classList.add('in')); return; }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      targets.forEach(t => io.observe(t));
+    })();
+
+    // FAQ / category search filter (same logic as before)
     const searchInput = document.getElementById('searchInput');
     const faqItems = document.querySelectorAll('details');
 
@@ -211,6 +325,3 @@
 
 </body>
 </html>
-
-
-

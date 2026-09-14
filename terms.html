@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Terms & Conditions – Tarzan Town</title>
 
@@ -24,1003 +25,1026 @@
   <meta name="twitter:description" content="Stay informed about the rules and guidelines for using Globamart.online services, templates, prompts, subdomains, and temporary profiles.">
   <meta name="twitter:image" content="https://globamart.online/logo.png">
 
-  <!-- FontAwesome -->
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-  <!-- Tailwind CSS -->
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Custom Styles -->
-    <link rel="stylesheet" href="style.css">
- 
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            ink: '#070707',
+            surface: '#0b0b0f',
+            card: '#111318',
+            line: 'rgba(255,255,255,0.08)',
+            muted: '#9ca3af',
+            primary: { 300:'#a5b4fc', 400:'#818cf8', 500:'#6366f1', 600:'#4f46e5', 700:'#4338ca' },
+            accent2: '#22d3ee'
+          },
+          fontFamily: {
+            sora: ['Sora', 'sans-serif'],
+            sans: ['Inter', 'sans-serif']
+          },
+          boxShadow: {
+            glow: '0 0 40px -8px rgba(99,102,241,0.45)',
+            card: '0 20px 45px -25px rgba(0,0,0,0.7)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root{ --line: rgba(255,255,255,0.08); }
+    html{ scroll-behavior:smooth; }
+    body{ font-family:'Inter', system-ui, sans-serif; background:#070707; }
+    h1,h2,h3,.font-sora{ font-family:'Sora', system-ui, sans-serif; }
+
+    @keyframes fade-up { from{opacity:0; transform:translateY(22px);} to{opacity:1; transform:translateY(0);} }
+    .reveal{ opacity:0; }
+    .reveal.in{ animation: fade-up .7s ease-out both; }
+
+    @media (prefers-reduced-motion: reduce){
+      *{ animation-duration:.01ms !important; animation-iteration-count:1 !important; }
+    }
+
+    .nav-link{ position:relative; color:#9ca3af; font-size:.9rem; font-weight:500; padding:6px 0; transition:color .2s ease; }
+    .nav-link::after{ content:""; position:absolute; left:0; bottom:0; width:0; height:1px; background:#818cf8; transition:width .25s ease; }
+    .nav-link:hover{ color:#f5f5f5; }
+    .nav-link.active{ color:#a5b4fc; }
+    .nav-link.active::after{ width:100%; }
+
+    .orb{ position:absolute; border-radius:9999px; filter:blur(70px); pointer-events:none; }
+
+    .card{
+      border:1px solid var(--line); border-radius:1rem;
+      background: rgba(17,19,24,0.6);
+    }
+
+    /* Legal document typography */
+    .legal-content h2{
+      font-size: 1.6rem; font-weight: 700; color: #fff;
+      margin-bottom: 1rem; text-align:center;
+    }
+    .legal-content h3{
+      font-size: 1.2rem; font-weight: 600; color: #fff;
+      margin-top: 1.5rem; margin-bottom: 0.85rem;
+      position: relative; padding-bottom: 0.5rem;
+    }
+    .legal-content h3::after{
+      content:""; position:absolute; left:0; bottom:0;
+      width: 36px; height: 2px;
+      background: linear-gradient(90deg, #6366f1, #22d3ee);
+      border-radius: 9999px;
+    }
+    .legal-content p{
+      font-size: 0.98rem; margin-bottom: 1.1rem; color: #9ca3af; line-height: 1.9;
+    }
+    .legal-content ul{
+      margin-left: 1.4rem; margin-bottom: 1.1rem; list-style-type: disc; color:#9ca3af;
+    }
+    .legal-content li{ margin-bottom: 0.5rem; font-size: 0.98rem; line-height: 1.8; }
+    .legal-content strong{ color: #e5e7eb; }
+    .legal-content a{ color: #a5b4fc; text-decoration: underline; }
+    .legal-content a:hover{ color: #c7d2fe; }
+  </style>
 </head>
 
-<body style="background-color:#ffffff !important; color:#111827 !important;">
-
+<body class="bg-ink text-gray-100 antialiased">
 
   <!-- Navbar -->
-  <nav id="navbar">
-    <div class="nav-content">
-      <div class="logo1">Tarzan Town</div>
-      <button id="menu-btn" aria-label="Toggle menu">☰</button>
-      <div class="nav-links" id="nav-links">
-        <a href="index.html">Home</a>
-        <a href="Contact.html">Contact</a>
-        <a href="About.html">About Us</a>
-        <a href="Services.html">Services</a>
-        <a href="/take">Takes</a>
-        <a href="/my_libary">My Libary</a>
-     
+  <nav id="navbar" class="fixed top-4 inset-x-0 z-50 px-4">
+    <div class="nav-content max-w-5xl mx-auto flex items-center justify-between gap-4 px-5 py-3 rounded-full bg-surface/70 backdrop-blur-xl border border-line shadow-card">
+      <div class="logo font-sora font-bold text-[1.05rem] tracking-tight">
+        Ahmed <span class="text-primary-400">Developer</span>
+      </div>
+      <button id="menu-btn" class="md:hidden text-xl text-gray-200" aria-label="Toggle menu">☰</button>
+      <div class="nav-links hidden md:flex items-center gap-8 md:static absolute top-full inset-x-4 mt-3 md:mt-0 flex-col md:flex-row bg-surface/95 md:bg-transparent border md:border-0 border-line rounded-2xl md:rounded-none p-5 md:p-0 backdrop-blur-xl" id="nav-links">
+        <a href="/index" class="nav-link">Home</a>
+        <a href="/Contact" class="nav-link">Contact</a>
+        <a href="/About" class="nav-link">About Us</a>
+        <a href="/Services" class="nav-link">Services</a>
+        <a href="/take" class="nav-link">Takes</a>
+        <a href="/my_libary" class="nav-link">My Library</a>
       </div>
     </div>
   </nav>
+
+  <ins class="adsbygoogle my-4 block max-w-4xl mx-auto px-5 pt-40 md:pt-48"
+       style="display:block"
+       data-ad-client="ca-pub-2983718503803918"
+       data-ad-slot="6389519574"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2983718503803918"
      crossorigin="anonymous"></script>
-<!-- Homepage Banner -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-2983718503803918"
-     data-ad-slot="6389519574"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+
+  <!-- Header -->
+  <section class="relative overflow-hidden pt-16 md:pt-20 pb-10 px-5 md:px-8">
+    <div class="orb w-[380px] h-[380px] bg-primary-500/20 -top-32 -right-16"></div>
+    <div class="orb w-[300px] h-[300px] bg-accent2/10 top-32 -left-20"></div>
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image:linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size:44px 44px; mask-image:radial-gradient(700px 500px at 30% 0%, black, transparent 75%);"></div>
+    <div class="max-w-3xl mx-auto text-center relative z-10 reveal in">
+      <span class="inline-flex items-center gap-2 text-xs font-sora font-semibold tracking-wide text-primary-300 bg-primary-500/10 border border-primary-500/30 rounded-full px-4 py-1.5 mb-6">
+        <span class="w-1.5 h-1.5 rounded-full bg-accent2 animate-pulse"></span> LEGAL
+      </span>
+      <h1 class="text-4xl sm:text-5xl font-bold leading-[1.15] text-white">
+        Terms &amp; <span class="bg-gradient-to-r from-primary-400 to-accent2 bg-clip-text text-transparent">Conditions</span>
+      </h1>
+    </div>
+  </section>
+
+  <main class="max-w-4xl mx-auto px-5 md:px-8 pb-20 legal-content">
+
+    <div class="card p-8 md:p-10 mb-8 reveal in">
+      <h2>1. Introduction</h2>
+
+      <p>
+        Welcome to <strong>Globamart.online</strong>, the official platform hosting Tarzan Town's digital services, templates, and creative tools. These Terms & Conditions (hereinafter "Terms") establish a legally binding agreement between you, the user, and Tarzan Town. By accessing, browsing, or using any portion of our website, subdomains, downloadable content, or associated tools, you expressly agree to comply with and be bound by these Terms in their entirety.
+      </p>
+
+      <p>
+        Our goal is to provide a secure, transparent, and structured environment where users can freely create, innovate, and experiment without legal ambiguities or misuse. These Terms clarify your rights, responsibilities, and the acceptable scope of activities within Tarzan Town. They also protect the platform and its intellectual property while ensuring that users understand the consequences of non-compliance.
+      </p>
+
+      <p>
+        Users who fail to read, understand, or adhere to these Terms may expose themselves to account restrictions, content removal, or legal actions. Ignorance of these Terms does not absolve responsibility. By using Globamart.online, you acknowledge that you have read these Terms carefully and agree to comply fully.
+      </p>
+
+      <h3>Purpose of These Terms</h3>
+
+      <p>
+        The primary purpose of this section is to provide clarity on how Tarzan Town functions, what is expected from each user, and how our digital services operate within a legally sound framework. This includes defining:
+      </p>
+
+      <ul>
+        <li>The range of services available, including templates, subdomains, and creative resources.</li>
+        <li>User responsibilities, such as accurate registration, account security, and compliance with intellectual property laws.</li>
+        <li>Platform rights, including the authority to suspend, terminate, or modify services when necessary.</li>
+        <li>Procedures for dispute resolution, legal compliance, and communication with users.</li>
+      </ul>
+
+      <p>
+        By thoroughly understanding these Terms, users can navigate the platform confidently, reduce risk, and utilize the full potential of Tarzan Town's services. These Terms also provide examples of application, guidance for legal compliance, and scenarios illustrating both proper and improper use of the platform.
+      </p>
+    </div>
+
+    <div class="card p-8 md:p-10 mb-8 reveal in">
+      <h3>Scope of Services</h3>
+
+      <p>
+        Tarzan Town offers a broad range of services designed to empower users to create, manage, and deploy digital projects efficiently. The platform includes, but is not limited to:
+      </p>
+
+      <ul>
+        <li>Creation of fully functional websites and web applications hosted on temporary or permanent subdomains.</li>
+        <li>Access to an extensive library of templates, prompts, and design resources for professional or personal projects.</li>
+        <li>Customization and personalization tools allowing integration of multimedia content, APIs, and interactive features.</li>
+        <li>Project management, testing, and deployment tools enabling iterative development and safe experimentation.</li>
+      </ul>
+
+      <p>
+        These services are continuously enhanced to meet evolving user needs. Users are responsible for keeping backups of content and understanding that temporary services may be modified, suspended, or discontinued without notice.
+      </p>
+
+      <h3>User Agreement</h3>
+
+      <p>
+        By accessing or using any part of Tarzan Town, users enter a legally binding agreement to comply with these Terms. Agreement to these Terms constitutes acceptance of all rules, limitations, and responsibilities outlined in this document.
+      </p>
+
+      <p>
+        Failure to adhere to these Terms may result in account suspension, termination, or removal of content without prior notice. Users are urged to read each section carefully, understand the obligations, and seek clarification from support if needed.
+      </p>
+
+      <h3>Examples of Application</h3>
+
+      <p>
+        To illustrate the practical application of these Terms:
+      </p>
+
+      <ul>
+        <li><strong>Temporary Profile Testing:</strong> A student creates a temporary subdomain to showcase a school project. If copyrighted media is uploaded without permission, Tarzan Town may remove the content to comply with copyright law.</li>
+        <li><strong>Paid Template Subscription:</strong> A freelancer purchases premium templates for client projects. These Terms clarify payment obligations, non-refundable fees, and usage rights.</li>
+        <li><strong>Legal Compliance:</strong> Users must not upload illegal content, attempt unauthorized access, or violate copyright laws. Non-compliance may lead to account suspension or legal action.</li>
+      </ul>
+
+      <p>
+        By examining these examples, users can understand the real-world implications of each clause, helping prevent accidental violations and ensuring responsible use of the platform.
+      </p>
+    </div>
+
+    <div class="card p-8 md:p-10 mb-8 reveal in">
+      <h3>User Rights and Responsibilities</h3>
+
+      <p>
+        Every user of Tarzan Town holds specific rights when using the platform, alongside clearly defined responsibilities. Understanding these rights ensures that users can maximize platform benefits while complying with legal and ethical standards.
+      </p>
+
+      <ul>
+        <li><strong>Rights:</strong> Users are entitled to access tools for content creation, utilize templates and prompts, and deploy temporary subdomains within the limits set by these Terms.</li>
+        <li><strong>Responsibilities:</strong> Users must provide accurate registration information, protect account credentials, respect intellectual property, and avoid illegal, harmful, or abusive behavior.</li>
+      </ul>
+
+      <p>
+        By clearly defining rights and responsibilities, Tarzan Town creates a balanced ecosystem where users can innovate confidently, while the platform maintains security, compliance, and fairness.
+      </p>
+
+      <h3>Data and Privacy Considerations</h3>
+
+      <p>
+        Tarzan Town collects specific information to provide and improve its services. This includes personal information, technical data, and activity logs. Users' privacy and data security are top priorities, and all interactions are subject to our <a href="/Privacy-Policy">Privacy Policy</a>.
+      </p>
+
+      <p>
+        Users must be aware of how their data is handled and maintain responsibility for sensitive information they upload or share. For example, confidential client data must be stored securely and never shared publicly without authorization.
+      </p>
+
+      <h3>Importance of Compliance</h3>
+
+      <p>
+        Understanding and following these Terms is critical. Non-compliance can lead to account suspension, content removal, or legal consequences. Users who actively review and adhere to guidelines are better positioned to protect themselves, their content, and their projects.
+      </p>
+
+      <ul>
+        <li>Review account activity regularly to detect unauthorized access.</li>
+        <li>Use legal and licensed resources when creating content.</li>
+        <li>Respect other users and the community standards to avoid disputes.</li>
+      </ul>
+
+      <p>
+        Compliance is not just a legal requirement—it ensures long-term sustainability, protects user reputation, and maintains trust within the Tarzan Town ecosystem.
+      </p>
+    </div>
+
+    <div class="card p-8 md:p-10 mb-8 reveal in">
+      <h3>Practical Scenarios and What-If Cases</h3>
+
+      <p>
+        To help users navigate complex situations, this section provides practical scenarios demonstrating how Tarzan Town Terms & Conditions apply. Each scenario outlines user actions, potential risks, and recommended preventive measures.
+      </p>
+
+      <ul>
+        <li>
+          <strong>Scenario 1 – Temporary Website Testing:</strong> A startup creates multiple temporary subdomains to test marketing campaigns. If copyrighted media is inadvertently uploaded, Tarzan Town may remove the content and issue a warning. Users should verify licensing and ownership before uploading any media.
+        </li>
+        <li>
+          <strong>Scenario 2 – Premium Template Usage:</strong> A freelancer subscribes to premium templates for client projects. Misuse, such as redistribution or claiming ownership, could result in subscription termination. Users are encouraged to maintain documentation of licenses and subscription agreements.
+        </li>
+        <li>
+          <strong>Scenario 3 – Unauthorized Access Attempt:</strong> A user tries to bypass platform security to access another user's subdomain. This violates Terms & Conditions and can lead to immediate account suspension and potential legal action. Users must ensure account security and never attempt hacking.
+        </li>
+        <li>
+          <strong>Scenario 4 – Data Privacy Violation:</strong> A user uploads sensitive client information publicly without encryption. Any breach could result in legal consequences and personal liability. Users should implement secure storage and encryption for confidential data.
+        </li>
+      </ul>
+
+      <h3>Risk Management and Preventative Measures</h3>
+
+      <p>
+        Tarzan Town encourages proactive risk management to prevent violations and ensure platform safety. Recommended measures include:
+      </p>
+
+      <ul>
+        <li>Regularly backing up all content, templates, and project files to prevent accidental loss.</li>
+        <li>Reviewing every upload for compliance with copyright, intellectual property, and legal regulations.</li>
+        <li>Using strong, unique passwords and enabling two-factor authentication where possible.</li>
+        <li>Monitoring account activity and promptly reporting suspicious behavior to Tarzan Town support.</li>
+        <li>Understanding the legal implications of content distribution and platform usage in your jurisdiction.</li>
+      </ul>
+
+      <p>
+        By implementing these preventative measures, users reduce the likelihood of account suspension, content deletion, or legal repercussions, and contribute to a safer, more productive environment for everyone on Tarzan Town.
+      </p>
+    </div>
+
+    <div class="card p-8 md:p-10 mb-8 reveal in">
+      <h3>Comprehensive Summary of Introduction</h3>
+
+      <p>
+        Section 1 – Introduction has provided a complete overview of the foundation for using Tarzan Town. Users have been informed of their legal obligations, rights, responsibilities, and the scope of services available on Globamart.online. By fully understanding this section, users are empowered to:
+      </p>
+
+      <ul>
+        <li>Navigate the platform confidently and efficiently.</li>
+        <li>Protect their projects, content, and accounts from risks and legal issues.</li>
+        <li>Utilize templates, subdomains, and creative tools in compliance with intellectual property laws.</li>
+        <li>Implement best practices for data privacy, security, and content management.</li>
+        <li>Respond appropriately to platform updates, warnings, or required actions to maintain account integrity.</li>
+      </ul>
+
+      <h3>Reinforcement of Compliance</h3>
+
+      <p>
+        Compliance with these Terms is not merely a formality; it safeguards both users and the platform. Violations may result in account suspension, termination, removal of content, or legal repercussions. Understanding each clause and adhering strictly to the rules ensures:
+      </p>
+
+      <ul>
+        <li>Legal and ethical use of digital assets and templates.</li>
+        <li>Protection of personal and client data in accordance with the Privacy Policy.</li>
+        <li>Maintenance of trust and credibility within the Tarzan Town community.</li>
+        <li>Optimal utilization of all features without interruption or risk of sanctions.</li>
+      </ul>
+
+      <h3>Guidance for Real-World Usage</h3>
+
+      <p>
+        Users are encouraged to adopt practical strategies for real-world application:
+      </p>
+
+      <ul>
+        <li>Always verify that content, media, and templates are either owned, licensed, or permitted for use.</li>
+        <li>Maintain secure backups and organize projects systematically to prevent data loss.</li>
+        <li>Regularly check platform notifications, updates, and Terms revisions to stay compliant.</li>
+        <li>Use temporary subdomains for testing and iterative development while respecting privacy and copyright rules.</li>
+        <li>Engage with the Tarzan Town support team for clarification or guidance whenever needed.</li>
+      </ul>
+
+      <p>
+        By following this guidance, users can leverage Tarzan Town to its fullest potential while minimizing risk, ensuring legal compliance, and maintaining professional integrity in every digital project.
+      </p>
+
+      <p>
+        Section 1 – Introduction now serves as a solid foundation for all subsequent sections of the Terms & Conditions, preparing users for Services, User Responsibilities, Account Termination, Intellectual Property, Payment, Limitation of Liability, Privacy, Third-Party Links, Governing Law, Changes to Terms, and Contact procedures.
+      </p>
+    </div>
+
+    <div class="card p-8 md:p-10 mb-8 reveal in">
+      <h2>2. Services</h2>
+
+      <h3>2.1 Website and Application Creation</h3>
+      <p>
+        Tarzan Town enables users to build functional websites and web applications hosted on temporary subdomains. This service is ideal for prototyping, client testing, or educational purposes.
+      </p>
+      <ul>
+        <li>Rapid deployment of test websites or apps without permanent hosting.</li>
+        <li>Practical learning environment for web development and design skills.</li>
+        <li>Testing and iterating ideas before official launch.</li>
+      </ul>
+      <p>Users must ensure that all uploaded content respects copyright and intellectual property laws, and backups should be maintained as temporary content may be removed at any time.</p>
+
+      <h3>2.2 Templates, Prompts, and Design Resources</h3>
+      <p>
+        The platform provides a comprehensive library of templates, prompts, and design assets. These resources streamline project creation and enhance content quality.
+      </p>
+      <ul>
+        <li>Templates are licensed for personal or approved commercial use only.</li>
+        <li>Users may not redistribute, sell, or claim templates as their own.</li>
+        <li>Resources may be updated or deprecated to maintain quality and compliance.</li>
+      </ul>
+      <p>Practical usage: Freelancers can create landing pages efficiently while staying fully compliant with legal usage rights.</p>
+
+      <h3>2.3 Customization and Personalization Tools</h3>
+      <p>
+        Users have access to powerful tools for modifying templates, subdomains, and applications including fonts, colors, layouts, and multimedia integration.
+      </p>
+      <ul>
+        <li>Modify layout, add multimedia, and embed interactive features.</li>
+        <li>Integrate external APIs for extended functionality.</li>
+        <li>Ensure that all external content respects copyright and privacy laws.</li>
+      </ul>
+      <p>Example: Integrating a secure payment gateway while following all compliance guidelines.</p>
+
+      <h3>2.4 Temporary Profiles and Subdomains</h3>
+      <p>
+        Temporary subdomains and profiles provide a safe space for testing without affecting permanent sites, encouraging innovation and iterative learning.
+      </p>
+      <ul>
+        <li>Temporary content may be automatically deleted after a defined period.</li>
+        <li>Subdomains are non-transferable and bound by all platform policies.</li>
+        <li>Users are responsible for saving content they wish to retain.</li>
+      </ul>
+      <p>Example: Testing multiple landing pages for marketing campaigns while maintaining full compliance.</p>
+
+      <h3>2.5 Service Updates and Modifications</h3>
+      <p>
+        Tarzan Town may update, enhance, or discontinue services, tools, or templates at any time. Users should remain vigilant and adapt projects accordingly.
+      </p>
+      <ul>
+        <li>Regularly check the platform for updates.</li>
+        <li>Maintain local backups to prevent data loss.</li>
+        <li>Adapt projects when templates or tools are changed or removed.</li>
+      </ul>
+
+      <h3>2.6 Payment Integration</h3>
+      <p>
+        Services that involve premium templates, subscriptions, or paid features are securely processed through verified payment gateways. Users are expected to comply with all payment obligations.
+      </p>
+      <ul>
+        <li>All fees are non-refundable unless explicitly stated.</li>
+        <li>Users must maintain accurate billing information.</li>
+        <li>Pricing may be updated with prior notification.</li>
+      </ul>
+
+      <h3>2.7 Technical Support and Assistance</h3>
+      <p>
+        Tarzan Town provides customer support for troubleshooting, guidance, and inquiries regarding platform tools, templates, or services.
+      </p>
+      <ul>
+        <li>Support is available via email, phone, or messaging platforms.</li>
+        <li>Users should provide accurate details to facilitate efficient assistance.</li>
+        <li>Support does not override compliance or Terms obligations.</li>
+      </ul>
+
+      <h3>2.8 Service Limitations and Liability</h3>
+      <p>
+        While Tarzan Town strives to provide reliable services, limitations exist. Users accept these limits and are responsible for their own content and actions.
+      </p>
+      <ul>
+        <li>The platform is not liable for downtime, data loss, or third-party integration failures.</li>
+        <li>Users assume responsibility for backups, security, and legal compliance of content.</li>
+        <li>All liabilities are limited to the scope defined in Terms & Conditions.</li>
+      </ul>
+    </div>
+
+    <div class="card p-8 md:p-10 mb-8 reveal in">
+      <h3>3.1 Accuracy of Information</h3>
+      <p>
+        Users are required to provide accurate, complete, and up-to-date information during registration and throughout their use of the platform. This includes personal details, billing information, and any other data requested by Tarzan Town.
+      </p>
+      <ul>
+        <li>Ensures proper communication, verification, and account recovery.</li>
+        <li>Prevents fraud, unauthorized activity, and disputes.</li>
+        <li>Maintains integrity of paid subscriptions and premium features.</li>
+      </ul>
+      <p>Scenario: A user enters an incorrect email. If critical notifications are missed, they cannot access premium content or respond to account issues promptly.</p>
+
+      <h3>3.2 Protection of Account Credentials</h3>
+      <p>
+        All login credentials must remain confidential. Users should not share passwords, API keys, or authentication methods with unauthorized parties.
+      </p>
+      <ul>
+        <li>Prevents unauthorized access and potential misuse.</li>
+        <li>Maintains accountability for all actions performed under the account.</li>
+        <li>Reduces risk of data loss, legal liability, or content violations.</li>
+      </ul>
+      <p>Scenario: Sharing a password with a collaborator leads to accidental copyright infringement. The account owner remains responsible for the violation.</p>
+
+      <h3>3.3 Respect for Intellectual Property</h3>
+      <p>
+        Users must honor the intellectual property of Tarzan Town, other users, and third parties. Unauthorized copying, distribution, or claiming ownership is strictly prohibited.
+      </p>
+      <ul>
+        <li>Ensures compliance with copyright, trademark, and licensing laws.</li>
+        <li>Protects platform resources and community content.</li>
+        <li>Prevents legal disputes or account suspension.</li>
+      </ul>
+      <p>Scenario: Uploading copyrighted stock images without permission can result in content removal and legal claims.</p>
+
+      <h3>3.4 Prohibition of Illegal or Harmful Activity</h3>
+      <p>
+        Users may not use the platform for illegal, abusive, or harmful purposes. This includes hacking, malware distribution, harassment, or defamation.
+      </p>
+      <ul>
+        <li>Maintains a safe and professional environment for all users.</li>
+        <li>Prevents legal consequences and potential civil or criminal liability.</li>
+        <li>Protects the integrity of Tarzan Town services and data.</li>
+      </ul>
+      <p>Scenario: Attempting to hack another user's subdomain leads to immediate suspension and potential legal action.</p>
+
+      <h3>3.5 Compliance with Laws and Regulations</h3>
+      <p>
+        Users must adhere to all applicable local, national, and international laws when using Tarzan Town services.
+      </p>
+      <ul>
+        <li>Ensures lawful use of digital content and services.</li>
+        <li>Protects users from fines, legal action, or account restriction.</li>
+        <li>Supports platform responsibility and cooperation with authorities.</li>
+      </ul>
+      <p>Scenario: Selling prohibited products through temporary subdomains could trigger investigation and penalties.</p>
+
+      <h3>3.6 Responsibility for Content</h3>
+      <p>
+        Users are fully responsible for all content uploaded, published, or shared via the platform, including subdomains, templates, and applications.
+      </p>
+      <ul>
+        <li>Ensures compliance with intellectual property, privacy, and legal standards.</li>
+        <li>Prevents exposure to liability for client or personal content breaches.</li>
+        <li>Encourages proactive content review and management.</li>
+      </ul>
+      <p>Scenario: Uploading confidential client data publicly without encryption may lead to serious consequences.</p>
+
+      <h3>3.7 Ethical Conduct and Community Guidelines</h3>
+      <p>
+        Users must act ethically and respectfully, avoiding spam, scams, harassment, impersonation, or offensive behavior.
+      </p>
+      <ul>
+        <li>Maintains a positive and professional community.</li>
+        <li>Prevents disruption of collaborative projects or workflows.</li>
+        <li>Protects the reputation and credibility of Tarzan Town users.</li>
+      </ul>
+      <p>Scenario: Leaving abusive comments on shared templates may result in content removal or account suspension.</p>
+
+      <h3>3.8 Consequences of Violations</h3>
+      <p>
+        Violating user responsibilities can lead to temporary or permanent account suspension, deletion of content, and potential legal action.
+      </p>
+      <ul>
+        <li>Maintains compliance and accountability.</li>
+        <li>Ensures fairness and safety for all users.</li>
+        <li>Protects the platform from misuse or legal complications.</li>
+      </ul>
+      <p>Scenario Recap: Repeated copyright violations or security breaches can result in permanent account termination and removal of all associated content.</p>
+    </div>
+
+    <div class="card p-8 md:p-10 mb-8 reveal in">
+      <h3>4.1 Reasons for Account Termination</h3>
+      <p>
+        Tarzan Town reserves the right to suspend, restrict, or permanently terminate accounts under specific conditions. Termination protects the platform, its users, and its intellectual property.
+      </p>
+      <ul>
+        <li>Violation of Terms & Conditions including intellectual property misuse or illegal content.</li>
+        <li>Engaging in fraudulent, abusive, or harmful activity.</li>
+        <li>Providing false or misleading registration information or failing to cooperate with verification requests.</li>
+        <li>Attempts to compromise security, such as hacking, malware distribution, or unauthorized access.</li>
+        <li>Non-compliance with applicable local, national, or international laws.</li>
+      </ul>
+      <p>Scenario: Uploading copyrighted content repeatedly despite warnings may trigger permanent account closure.</p>
+
+      <h3>4.2 Temporary Suspension vs Permanent Termination</h3>
+      <p>
+        Accounts may be temporarily suspended to investigate potential violations, prevent further harm, or allow corrective actions.
+      </p>
+      <ul>
+        <li>Temporary suspension limits access while the issue is resolved.</li>
+        <li>Permanent termination occurs for severe, repeated, or high-risk violations.</li>
+        <li>All content, subdomains, and services are lost upon permanent termination.</li>
+      </ul>
+      <p>Scenario: A user repeatedly violates copyright law; after multiple warnings, their account and associated subdomains are permanently deleted.</p>
+
+      <h3>4.3 Notification Procedures</h3>
+      <p>
+        Users may receive alerts or emails regarding potential violations. Immediate termination can occur in urgent cases such as security threats or illegal activity.
+      </p>
+      <ul>
+        <li>Regularly check registered email and platform notifications.</li>
+        <li>Respond promptly to warnings to prevent escalation.</li>
+        <li>Failure to respond or comply may result in suspension or termination.</li>
+      </ul>
+      <p>Scenario: A user is notified about copyright violations with a 72-hour compliance window; ignoring it results in termination.</p>
+
+      <h3>4.4 Consequences of Termination</h3>
+      <p>
+        Termination affects user access, content retention, and legal responsibility.
+      </p>
+      <ul>
+        <li>All subdomains, temporary profiles, and uploaded content become inaccessible.</li>
+        <li>Users remain responsible for illegal or infringing activity performed under their account.</li>
+        <li>Paid services are generally non-refundable unless explicitly stated.</li>
+      </ul>
+      <p>Scenario: After permanent termination, a user loses all content and subdomains. Any illegal actions taken through the account may still have legal consequences.</p>
+
+      <h3>4.5 Preventative Measures</h3>
+      <p>
+        Users are encouraged to proactively maintain compliance to prevent account issues.
+      </p>
+      <ul>
+        <li>Regularly review uploaded content for copyright compliance.</li>
+        <li>Maintain accurate account information.</li>
+        <li>Follow security guidelines and ethical conduct to avoid violations.</li>
+      </ul>
+      <p>Scenario: Periodic audits of templates and subdomains prevent accidental infringement and help maintain uninterrupted access.</p>
+
+      <h3>4.6 Appeal Process</h3>
+      <p>
+        Users may appeal suspensions or terminations by contacting support and providing evidence or corrective actions.
+      </p>
+      <ul>
+        <li>Submit clear, verifiable information to demonstrate compliance.</li>
+        <li>Timely responses can mitigate or reverse temporary suspensions.</li>
+        <li>Appeals do not guarantee reversal of permanent termination for severe violations.</li>
+      </ul>
+
+      <h3>4.7 Summary and User Guidance</h3>
+      <p>
+        Understanding termination policies protects both the user and platform. Proactive compliance ensures continuity, protects content, and minimizes legal risk.
+      </p>
+      <ul>
+        <li>Maintain accurate information and respect intellectual property.</li>
+        <li>Follow ethical conduct and security guidelines.</li>
+        <li>Respond promptly to platform communications regarding violations.</li>
+      </ul>
+    </div>
+
+    <div class="card p-8 md:p-10 mb-8 reveal in">
+      <h3>5.1 Ownership of Content</h3>
+      <p>
+        All content, templates, designs, logos, prompts, and other resources available on Tarzan Town are either owned by Globamart.online or licensed for our use. Users are granted a limited, non-exclusive, non-transferable license for personal or authorized commercial use only.
+      </p>
+      <ul>
+        <li>Prevents unauthorized redistribution, copying, or resale.</li>
+        <li>Protects intellectual property rights of the platform and third parties.</li>
+        <li>Ensures legal clarity regarding content usage.</li>
+      </ul>
+      <p>Scenario: A designer uses a template from Tarzan Town for client work. Selling that template as-is without permission would violate intellectual property rules.</p>
+
+      <h3>5.2 User Permissions</h3>
+      <p>
+        Users are allowed to use Tarzan Town resources strictly for:
+      </p>
+      <ul>
+        <li>Personal projects and learning purposes.</li>
+        <li>Authorized commercial projects where explicit permissions exist.</li>
+        <li>Integration into temporary subdomains, websites, or applications created on the platform.</li>
+      </ul>
+      <p>Scenario: A student using a template for an academic project is compliant; reselling the template as part of a commercial product is not allowed.</p>
+
+      <h3>5.3 Prohibited Activities</h3>
+      <p>
+        Users may not:
+      </p>
+      <ul>
+        <li>Redistribute, copy, or sell any content or templates without permission.</li>
+        <li>Claim ownership or authorship of Tarzan Town resources.</li>
+        <li>Embed malicious scripts or modify content for illegal or harmful purposes.</li>
+      </ul>
+      <p>Scenario: Uploading a Tarzan Town template to another platform for free download is strictly prohibited and can result in termination.</p>
+
+      <h3>5.4 Third-Party Intellectual Property</h3>
+      <p>
+        Some resources may be sourced from third-party providers. Users must respect the licensing terms of these third parties in addition to Tarzan Town's Terms.
+      </p>
+      <ul>
+        <li>Improper use of third-party content can lead to legal consequences.</li>
+        <li>Ensure proper attribution if required.</li>
+        <li>Do not assume Tarzan Town ownership over third-party content.</li>
+      </ul>
+      <p>Scenario: Using a stock photo sourced through the platform without credit or proper licensing may violate copyright laws.</p>
+
+      <h3>5.5 Protection Measures</h3>
+      <p>
+        Tarzan Town actively protects its intellectual property through monitoring, content audits, and automated detection systems.
+      </p>
+      <ul>
+        <li>Users must comply with rules to avoid account suspension.</li>
+        <li>Automated systems may flag or remove unauthorized content immediately.</li>
+        <li>Regularly check updates to terms for new guidelines on content use.</li>
+      </ul>
+      <p>Scenario: A user attempting to upload modified templates for resale will be automatically flagged and receive a warning or account suspension.</p>
+
+      <h3>5.6 Summary</h3>
+      <p>
+        Intellectual property compliance protects both users and the platform. Users should only use resources within the boundaries set by Tarzan Town, respect third-party rights, and avoid redistribution or misrepresentation.
+      </p>
+      <ul>
+        <li>Understand the limits of permitted use.</li>
+        <li>Respect copyrights, trademarks, and licenses.</li>
+        <li>Ensure all commercial usage is properly authorized.</li>
+      </ul>
+    </div>
+
+    <div class="card p-8 md:p-10 mb-8 reveal in">
+      <h3>6.1 Overview</h3>
+      <p>
+        Payment and subscription policies at Tarzan Town are designed to ensure transparency, fairness, and security for all users engaging in commercial or premium services. These terms outline how payments are processed, how subscriptions operate, and what users must know before purchasing or renewing any service.
+      </p>
+      <p>
+        All users agree to abide by these payment rules when making any transaction through Globamart.online. Transactions may include premium template purchases, website deployment fees, domain upgrades, or professional support packages.
+      </p>
+
+      <h3>6.2 Accepted Payment Methods</h3>
+      <p>
+        We accept a wide range of payment methods to accommodate global users. Secure gateways ensure that personal and financial data remain protected.
+      </p>
+      <ul>
+        <li>Credit and Debit Cards (Visa, MasterCard, American Express)</li>
+        <li>PayPal and Stripe for international users</li>
+        <li>Mobile payment services in supported countries</li>
+        <li>Cryptocurrency payments (where legally allowed)</li>
+        <li>Manual invoice-based transfers for enterprise clients</li>
+      </ul>
+      <p>
+        All payments are processed via encrypted channels using SSL security to prevent unauthorized access or misuse.
+      </p>
+
+      <h3>6.3 Subscription Models</h3>
+      <p>
+        Tarzan Town offers multiple subscription plans depending on usage level, features, and duration. Users may choose from monthly, quarterly, or annual subscriptions. Each plan comes with distinct benefits such as additional storage, premium templates, or faster deployment speeds.
+      </p>
+      <ul>
+        <li><strong>Basic Plan:</strong> Suitable for personal projects or small portfolios.</li>
+        <li><strong>Professional Plan:</strong> Includes custom subdomains, premium designs, and priority support.</li>
+        <li><strong>Enterprise Plan:</strong> Offers extended resources for large-scale organizations and agencies.</li>
+      </ul>
+      <p>Scenario: A small business subscribing to a Professional Plan can access exclusive templates and deploy their website faster using additional build credits.</p>
+
+      <h3>6.4 Automatic Renewals</h3>
+      <p>
+        Most subscriptions automatically renew to prevent service interruption. Users can cancel auto-renewal at any time through their account settings. Notification emails are sent prior to renewal to allow sufficient time for decision-making.
+      </p>
+      <p>
+        If a payment method fails, Tarzan Town may temporarily suspend access until successful renewal. Failure to renew after multiple reminders may lead to data loss or deletion of temporary subdomains.
+      </p>
+
+      <h3>6.5 Refunds and Cancellations</h3>
+      <p>
+        Refunds are only available under specific conditions, ensuring fairness for all users. As most services involve instant digital delivery, refunds are limited.
+      </p>
+      <ul>
+        <li>Refunds apply if a technical error prevents service delivery within the first 48 hours.</li>
+        <li>Refunds do not apply to successful template downloads or active deployments.</li>
+        <li>Manual review may be required before processing refunds.</li>
+      </ul>
+      <p>Scenario: If a user purchases a plan and the system fails to deliver access due to a technical error, they may request a refund by submitting a support ticket within 48 hours.</p>
+
+      <h3>6.6 Currency and Pricing</h3>
+      <p>
+        All prices are displayed in the platform's default currency unless specified otherwise. Exchange rate fluctuations may affect the final charged amount depending on the user's payment provider.
+      </p>
+      <p>
+        Tarzan Town reserves the right to adjust pricing to reflect inflation, market demand, or feature expansion. Users will receive prior notice before any significant price modification.
+      </p>
+
+      <h3>6.7 Security and Fraud Prevention</h3>
+      <p>
+        Tarzan Town implements strict anti-fraud and verification measures to protect both users and the platform. Suspicious payment activities are flagged and reviewed immediately.
+      </p>
+      <ul>
+        <li>Multiple failed transactions may trigger a temporary account hold.</li>
+        <li>Chargebacks initiated without valid cause may result in permanent suspension.</li>
+        <li>All verified transactions are encrypted and logged for auditing purposes.</li>
+      </ul>
+      <p>Scenario: If a user attempts to use multiple stolen payment cards, the system automatically freezes their account and alerts security staff for investigation.</p>
+
+      <h3>6.8 Summary and User Obligations</h3>
+      <p>
+        By making payments or subscribing to any plan, users confirm their understanding and acceptance of these rules. Users must ensure that payment details are valid, timely, and authorized.
+      </p>
+      <ul>
+        <li>Keep payment information up to date to avoid disruptions.</li>
+        <li>Understand refund limitations before purchasing services.</li>
+        <li>Do not engage in chargeback fraud or misuse of digital goods.</li>
+      </ul>
+      <p>
+        These guidelines guarantee fairness, transparency, and a secure digital commerce experience for all Tarzan Town users.
+      </p>
+    </div>
+
+    <div class="card p-8 md:p-10 mb-8 reveal in">
+      <h3>7.1 Overview</h3>
+      <p>
+        The Limitation of Liability clause defines the extent of responsibility that Tarzan Town and its parent platform, Globamart.online, hold toward users. While every effort is made to maintain quality, uptime, and safety, certain risks are beyond the company's control. By using the platform, users agree to these limitations as part of the mutual agreement governing digital service use.
+      </p>
+      <p>
+        This policy ensures fair distribution of accountability between the service provider and users while safeguarding both parties from unreasonable legal or financial claims.
+      </p>
+
+      <h3>7.2 General Disclaimer</h3>
+      <p>
+        Tarzan Town operates on an "as is" and "as available" basis. The platform does not guarantee uninterrupted service, error-free templates, or permanent data availability. While high reliability is a priority, no digital system can promise absolute perfection.
+      </p>
+      <ul>
+        <li>The company is not liable for temporary downtime caused by maintenance, system upgrades, or force majeure events.</li>
+        <li>Users are encouraged to back up all important data independently.</li>
+        <li>Performance results may vary depending on individual devices, browsers, or internet conditions.</li>
+      </ul>
+
+      <h3>7.3 Data and Content Responsibility</h3>
+      <p>
+        Users are solely responsible for the content, media, or data they upload or publish through Tarzan Town. The platform provides hosting and design tools but does not monitor or verify every user submission unless a violation is reported.
+      </p>
+      <p>
+        If a user posts illegal, offensive, or infringing material, they bear full legal liability. Tarzan Town reserves the right to remove or restrict such content without prior notice to protect the community and comply with legal obligations.
+      </p>
+
+      <h3>7.4 Technical Failures and System Interruptions</h3>
+      <p>
+        Technical interruptions may occur due to server updates, security maintenance, or third-party provider issues. Tarzan Town works diligently to restore access swiftly, but the company is not responsible for damages resulting from such interruptions.
+      </p>
+      <ul>
+        <li>Planned maintenance windows are communicated whenever possible.</li>
+        <li>Unexpected downtimes caused by data center failures or natural events are treated as force majeure.</li>
+        <li>Users should avoid conducting critical transactions during maintenance notifications.</li>
+      </ul>
+
+      <h3>7.5 Indirect or Consequential Damages</h3>
+      <p>
+        Under no circumstances shall Tarzan Town be held liable for indirect, incidental, or consequential damages, including loss of revenue, data, reputation, or opportunities. The platform's purpose is to provide tools and digital environments, not to guarantee business outcomes.
+      </p>
+      <p>
+        Example: If a user's website temporarily goes offline during maintenance, the platform is not responsible for any lost visitors or potential sales that occur during that period.
+      </p>
+
+      <h3>7.6 User Negligence</h3>
+      <p>
+        Users are expected to maintain proper digital hygiene and security practices. The company cannot be held liable for incidents caused by user negligence, such as weak passwords, unprotected accounts, or unverified links.
+      </p>
+      <ul>
+        <li>Unauthorized access resulting from poor password management is the user's responsibility.</li>
+        <li>Users must keep browser extensions and systems secure to prevent malware or data theft.</li>
+        <li>Failing to follow recommended security updates may expose the account to risks beyond Tarzan Town's control.</li>
+      </ul>
+
+      <h3>7.7 Legal and Financial Limits</h3>
+      <p>
+        Tarzan Town's total liability under any legal theory is strictly limited to the total amount the user paid within the last 12 months for the specific service in question. This limitation ensures predictable and balanced legal exposure for both parties.
+      </p>
+      <p>
+        This clause applies regardless of whether the claim is based on contract breach, negligence, warranty, or other grounds. Users acknowledge and agree that this limitation forms a core condition of the service agreement.
+      </p>
+
+      <h3>7.8 Summary and User Acknowledgment</h3>
+      <p>
+        By continuing to use Tarzan Town, users explicitly acknowledge that digital platforms carry inherent risks. While Globamart.online takes extensive preventive measures, no provider can eliminate all risk. Users therefore agree to accept these reasonable limitations as a condition of service use.
+      </p>
+      <ul>
+        <li>Understand that all services are offered in good faith without guaranteed outcomes.</li>
+        <li>Recognize that downtime, data loss, or third-party disruptions may occur.</li>
+        <li>Maintain self-responsibility for backups and safe content storage.</li>
+      </ul>
+      <p>
+        This section builds trust and clarity between Tarzan Town and its global user base, ensuring fair, secure, and transparent interactions under realistic expectations.
+      </p>
+    </div>
+
+    <div class="card p-8 md:p-10 mb-8 reveal in">
+      <h3>8.1 Overview</h3>
+      <p>
+        Privacy is a cornerstone of trust at Tarzan Town by Globamart.online. This section outlines how we collect, store, and protect user data, ensuring transparency, compliance, and ethical handling of personal information. Every visitor, whether registered or not, has rights under this Privacy Policy.
+      </p>
+      <p>
+        Our privacy framework follows international best practices, including GDPR principles, user consent protocols, and secure data management. We collect information only for operational purposes, not for resale or intrusive advertising.
+      </p>
+
+      <h3>8.2 Information We Collect</h3>
+      <p>
+        Tarzan Town collects minimal and relevant data to operate efficiently. Information types include:
+      </p>
+      <ul>
+        <li><strong>Personal details:</strong> name, email, phone number, and billing details during registration or purchases.</li>
+        <li><strong>Account activity:</strong> templates, subdomains, or tools used for project creation.</li>
+        <li><strong>Technical data:</strong> IP address, browser type, operating system, and device information for analytics and security.</li>
+        <li><strong>Communication data:</strong> messages exchanged via support tickets, email, or Telegram channels.</li>
+      </ul>
+      <p>
+        We do not collect unnecessary or sensitive data without explicit consent.
+      </p>
+
+      <h3>8.3 How We Use Information</h3>
+      <p>
+        The information collected is used solely for service delivery, quality improvement, and security enhancement. Examples include:
+      </p>
+      <ul>
+        <li>Creating and customizing websites or temporary profiles.</li>
+        <li>Providing design tools, templates, and updates.</li>
+        <li>Enhancing platform usability, stability, and protection against misuse.</li>
+        <li>Responding to user inquiries, technical support, or verification requests.</li>
+      </ul>
+      <p>
+        Tarzan Town never sells or trades personal information with third parties for marketing purposes.
+      </p>
+
+      <h3>8.4 Data Sharing and Disclosure</h3>
+      <p>
+        Personal data may only be shared in the following limited circumstances:
+      </p>
+      <ul>
+        <li><strong>Legal requirements:</strong> when compliance with law or government requests is mandatory.</li>
+        <li><strong>Trusted service providers:</strong> such as hosting or analytics partners, bound by strict confidentiality agreements.</li>
+        <li><strong>Security and fraud prevention:</strong> to prevent harm or protect platform integrity.</li>
+      </ul>
+      <p>
+        Under no condition will user data be publicly exposed without consent.
+      </p>
+
+      <h3>8.5 Data Storage and Security</h3>
+      <p>
+        Tarzan Town uses encrypted servers, layered authentication, and continuous monitoring to safeguard all information. Although no online platform is 100% risk-free, we employ state-of-the-art protections, including:
+      </p>
+      <ul>
+        <li>SSL encryption for all data transfers.</li>
+        <li>Regular security audits and malware scans.</li>
+        <li>Restricted staff access to user databases.</li>
+        <li>Real-time monitoring for suspicious or unauthorized activity.</li>
+      </ul>
+      <p>
+        Users are encouraged to maintain strong passwords and log out after each session to further enhance security.
+      </p>
+
+      <h3>8.6 User Rights and Control</h3>
+      <p>
+        Every user has rights over their personal information, including:
+      </p>
+      <ul>
+        <li>Requesting a copy of stored data.</li>
+        <li>Correcting inaccurate or outdated details.</li>
+        <li>Requesting data deletion when it's no longer required for operations.</li>
+        <li>Opting out of non-essential communications.</li>
+      </ul>
+      <p>
+        Such requests are handled promptly within a reasonable timeframe and in compliance with applicable privacy regulations.
+      </p>
+
+      <h3>8.7 Cookies and Tracking</h3>
+      <p>
+        Tarzan Town utilizes cookies to improve usability, remember preferences, and analyze platform performance. Users can disable cookies in their browsers, but some features may not function optimally.
+      </p>
+      <ul>
+        <li>Cookies help store session information for faster navigation.</li>
+        <li>Analytics cookies track performance without identifying personal details.</li>
+        <li>Advertising cookies are not used for third-party promotions without consent.</li>
+      </ul>
+      <p>
+        All tracking activities are conducted ethically, with transparency and user control in mind.
+      </p>
+
+      <h3>8.8 Summary and Policy Updates</h3>
+      <p>
+        This Privacy section ensures that user information is handled responsibly and transparently. Tarzan Town may update its privacy policies periodically to reflect evolving technology and legal standards.
+      </p>
+      <p>
+        Users are encouraged to review this section regularly to stay informed of any modifications. Continued use of the platform signifies acceptance of updated terms.
+      </p>
+      <p>
+        By trusting Tarzan Town, users can build and innovate confidently, knowing that their personal data and creative assets are protected under strict, ethical, and lawful privacy standards.
+      </p>
+    </div>
+
+  </main>
 
-<h1
-        style="font-size:32px; color:#222; text-align:center; font-weight:700; margin-bottom:30px; font-family:'Segoe UI', Arial, sans-serif;">
-        Terms & Conditions
-    </h1>   
-
-  
-<section style="max-width:900px;margin:40px auto;padding:40px;background:#ffffff;border-radius:15px;box-shadow:0 0 20px rgba(0,0,0,0.1);font-family:'Segoe UI',sans-serif;line-height:1.9;color:#222;">
-
-
-  <h2 style="font-size:24px;font-weight:700;margin-bottom:15px;color:#111;">1. Introduction</h2>
-
-  <p style="font-size:17px;margin-bottom:20px;">
-    Welcome to <strong>Globamart.online</strong>, the official platform hosting Tarzan Town’s digital services, templates, and creative tools. These Terms & Conditions (hereinafter "Terms") establish a legally binding agreement between you, the user, and Tarzan Town. By accessing, browsing, or using any portion of our website, subdomains, downloadable content, or associated tools, you expressly agree to comply with and be bound by these Terms in their entirety.
-  </p>
-
-  <p style="font-size:17px;margin-bottom:20px;">
-    Our goal is to provide a secure, transparent, and structured environment where users can freely create, innovate, and experiment without legal ambiguities or misuse. These Terms clarify your rights, responsibilities, and the acceptable scope of activities within Tarzan Town. They also protect the platform and its intellectual property while ensuring that users understand the consequences of non-compliance.
-  </p>
-
-  <p style="font-size:17px;margin-bottom:20px;">
-    Users who fail to read, understand, or adhere to these Terms may expose themselves to account restrictions, content removal, or legal actions. Ignorance of these Terms does not absolve responsibility. By using Globamart.online, you acknowledge that you have read these Terms carefully and agree to comply fully.
-  </p>
-
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">Purpose of These Terms</h3>
-
-  <p style="font-size:17px;margin-bottom:20px;">
-    The primary purpose of this section is to provide clarity on how Tarzan Town functions, what is expected from each user, and how our digital services operate within a legally sound framework. This includes defining:
-  </p>
-
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>The range of services available, including templates, subdomains, and creative resources.</li>
-    <li>User responsibilities, such as accurate registration, account security, and compliance with intellectual property laws.</li>
-    <li>Platform rights, including the authority to suspend, terminate, or modify services when necessary.</li>
-    <li>Procedures for dispute resolution, legal compliance, and communication with users.</li>
-  </ul>
-
-  <p style="font-size:17px;margin-bottom:20px;">
-    By thoroughly understanding these Terms, users can navigate the platform confidently, reduce risk, and utilize the full potential of Tarzan Town’s services. These Terms also provide examples of application, guidance for legal compliance, and scenarios illustrating both proper and improper use of the platform.
-  </p>
-</section>
-
-
-<section style="max-width:900px;margin:40px auto;padding:40px;background:#ffffff;border-radius:15px;box-shadow:0 0 20px rgba(0,0,0,0.1);font-family:'Segoe UI',sans-serif;line-height:1.9;color:#222;">
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">Scope of Services</h3>
-
-  <p style="font-size:17px;margin-bottom:20px;">
-    Tarzan Town offers a broad range of services designed to empower users to create, manage, and deploy digital projects efficiently. The platform includes, but is not limited to:
-  </p>
-
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>Creation of fully functional websites and web applications hosted on temporary or permanent subdomains.</li>
-    <li>Access to an extensive library of templates, prompts, and design resources for professional or personal projects.</li>
-    <li>Customization and personalization tools allowing integration of multimedia content, APIs, and interactive features.</li>
-    <li>Project management, testing, and deployment tools enabling iterative development and safe experimentation.</li>
-  </ul>
-
-  <p style="font-size:17px;margin-bottom:20px;">
-    These services are continuously enhanced to meet evolving user needs. Users are responsible for keeping backups of content and understanding that temporary services may be modified, suspended, or discontinued without notice.
-  </p>
-
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">User Agreement</h3>
-
-  <p style="font-size:17px;margin-bottom:20px;">
-    By accessing or using any part of Tarzan Town, users enter a legally binding agreement to comply with these Terms. Agreement to these Terms constitutes acceptance of all rules, limitations, and responsibilities outlined in this document.
-  </p>
-
-  <p style="font-size:17px;margin-bottom:20px;">
-    Failure to adhere to these Terms may result in account suspension, termination, or removal of content without prior notice. Users are urged to read each section carefully, understand the obligations, and seek clarification from support if needed.
-  </p>
-
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">Examples of Application</h3>
-
-  <p style="font-size:17px;margin-bottom:20px;">
-    To illustrate the practical application of these Terms:
-  </p>
-
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li><strong>Temporary Profile Testing:</strong> A student creates a temporary subdomain to showcase a school project. If copyrighted media is uploaded without permission, Tarzan Town may remove the content to comply with copyright law.</li>
-    <li><strong>Paid Template Subscription:</strong> A freelancer purchases premium templates for client projects. These Terms clarify payment obligations, non-refundable fees, and usage rights.</li>
-    <li><strong>Legal Compliance:</strong> Users must not upload illegal content, attempt unauthorized access, or violate copyright laws. Non-compliance may lead to account suspension or legal action.</li>
-  </ul>
-
-  <p style="font-size:17px;margin-bottom:20px;">
-    By examining these examples, users can understand the real-world implications of each clause, helping prevent accidental violations and ensuring responsible use of the platform.
-  </p>
-</section>
-
-<section style="max-width:900px;margin:40px auto;padding:40px;background:#ffffff;border-radius:15px;box-shadow:0 0 20px rgba(0,0,0,0.1);font-family:'Segoe UI',sans-serif;line-height:1.9;color:#222;">
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">User Rights and Responsibilities</h3>
-
-  <p style="font-size:17px;margin-bottom:20px;">
-    Every user of Tarzan Town holds specific rights when using the platform, alongside clearly defined responsibilities. Understanding these rights ensures that users can maximize platform benefits while complying with legal and ethical standards.
-  </p>
-
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li><strong>Rights:</strong> Users are entitled to access tools for content creation, utilize templates and prompts, and deploy temporary subdomains within the limits set by these Terms.</li>
-    <li><strong>Responsibilities:</strong> Users must provide accurate registration information, protect account credentials, respect intellectual property, and avoid illegal, harmful, or abusive behavior.</li>
-  </ul>
-
-  <p style="font-size:17px;margin-bottom:20px;">
-    By clearly defining rights and responsibilities, Tarzan Town creates a balanced ecosystem where users can innovate confidently, while the platform maintains security, compliance, and fairness.
-  </p>
-
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">Data and Privacy Considerations</h3>
-
-  <p style="font-size:17px;margin-bottom:20px;">
-    Tarzan Town collects specific information to provide and improve its services. This includes personal information, technical data, and activity logs. Users’ privacy and data security are top priorities, and all interactions are subject to our <a href="/Privacy-Policy" style="color:#2563eb;text-decoration:underline;">Privacy Policy</a>.
-  </p>
-
-  <p style="font-size:17px;margin-bottom:20px;">
-    Users must be aware of how their data is handled and maintain responsibility for sensitive information they upload or share. For example, confidential client data must be stored securely and never shared publicly without authorization.
-  </p>
-
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">Importance of Compliance</h3>
-
-  <p style="font-size:17px;margin-bottom:20px;">
-    Understanding and following these Terms is critical. Non-compliance can lead to account suspension, content removal, or legal consequences. Users who actively review and adhere to guidelines are better positioned to protect themselves, their content, and their projects.
-  </p>
-
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>Review account activity regularly to detect unauthorized access.</li>
-    <li>Use legal and licensed resources when creating content.</li>
-    <li>Respect other users and the community standards to avoid disputes.</li>
-  </ul>
-
-  <p style="font-size:17px;margin-bottom:20px;">
-    Compliance is not just a legal requirement—it ensures long-term sustainability, protects user reputation, and maintains trust within the Tarzan Town ecosystem.
-  </p>
-</section>
-
-<section style="max-width:900px;margin:40px auto;padding:40px;background:#ffffff;border-radius:15px;box-shadow:0 0 20px rgba(0,0,0,0.1);font-family:'Segoe UI',sans-serif;line-height:1.9;color:#222;">
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">Practical Scenarios and What-If Cases</h3>
-
-  <p style="font-size:17px;margin-bottom:20px;">
-    To help users navigate complex situations, this section provides practical scenarios demonstrating how Tarzan Town Terms & Conditions apply. Each scenario outlines user actions, potential risks, and recommended preventive measures.
-  </p>
-
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>
-      <strong>Scenario 1 – Temporary Website Testing:</strong> A startup creates multiple temporary subdomains to test marketing campaigns. If copyrighted media is inadvertently uploaded, Tarzan Town may remove the content and issue a warning. Users should verify licensing and ownership before uploading any media.
-    </li>
-    <li>
-      <strong>Scenario 2 – Premium Template Usage:</strong> A freelancer subscribes to premium templates for client projects. Misuse, such as redistribution or claiming ownership, could result in subscription termination. Users are encouraged to maintain documentation of licenses and subscription agreements.
-    </li>
-    <li>
-      <strong>Scenario 3 – Unauthorized Access Attempt:</strong> A user tries to bypass platform security to access another user’s subdomain. This violates Terms & Conditions and can lead to immediate account suspension and potential legal action. Users must ensure account security and never attempt hacking.
-    </li>
-    <li>
-      <strong>Scenario 4 – Data Privacy Violation:</strong> A user uploads sensitive client information publicly without encryption. Any breach could result in legal consequences and personal liability. Users should implement secure storage and encryption for confidential data.
-    </li>
-  </ul>
-
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">Risk Management and Preventative Measures</h3>
-
-  <p style="font-size:17px;margin-bottom:20px;">
-    Tarzan Town encourages proactive risk management to prevent violations and ensure platform safety. Recommended measures include:
-  </p>
-
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>Regularly backing up all content, templates, and project files to prevent accidental loss.</li>
-    <li>Reviewing every upload for compliance with copyright, intellectual property, and legal regulations.</li>
-    <li>Using strong, unique passwords and enabling two-factor authentication where possible.</li>
-    <li>Monitoring account activity and promptly reporting suspicious behavior to Tarzan Town support.</li>
-    <li>Understanding the legal implications of content distribution and platform usage in your jurisdiction.</li>
-  </ul>
-
-  <p style="font-size:17px;margin-bottom:20px;">
-    By implementing these preventative measures, users reduce the likelihood of account suspension, content deletion, or legal repercussions, and contribute to a safer, more productive environment for everyone on Tarzan Town.
-  </p>
-</section>
-
-<section style="max-width:900px;margin:40px auto;padding:40px;background:#ffffff;border-radius:15px;box-shadow:0 0 20px rgba(0,0,0,0.1);font-family:'Segoe UI',sans-serif;line-height:1.9;color:#222;">
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">Comprehensive Summary of Introduction</h3>
-
-  <p style="font-size:17px;margin-bottom:20px;">
-    Section 1 – Introduction has provided a complete overview of the foundation for using Tarzan Town. Users have been informed of their legal obligations, rights, responsibilities, and the scope of services available on Globamart.online. By fully understanding this section, users are empowered to:
-  </p>
-
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>Navigate the platform confidently and efficiently.</li>
-    <li>Protect their projects, content, and accounts from risks and legal issues.</li>
-    <li>Utilize templates, subdomains, and creative tools in compliance with intellectual property laws.</li>
-    <li>Implement best practices for data privacy, security, and content management.</li>
-    <li>Respond appropriately to platform updates, warnings, or required actions to maintain account integrity.</li>
-  </ul>
-
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">Reinforcement of Compliance</h3>
-
-  <p style="font-size:17px;margin-bottom:20px;">
-    Compliance with these Terms is not merely a formality; it safeguards both users and the platform. Violations may result in account suspension, termination, removal of content, or legal repercussions. Understanding each clause and adhering strictly to the rules ensures:
-  </p>
-
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>Legal and ethical use of digital assets and templates.</li>
-    <li>Protection of personal and client data in accordance with the Privacy Policy.</li>
-    <li>Maintenance of trust and credibility within the Tarzan Town community.</li>
-    <li>Optimal utilization of all features without interruption or risk of sanctions.</li>
-  </ul>
-
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">Guidance for Real-World Usage</h3>
-
-  <p style="font-size:17px;margin-bottom:20px;">
-    Users are encouraged to adopt practical strategies for real-world application:
-  </p>
-
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>Always verify that content, media, and templates are either owned, licensed, or permitted for use.</li>
-    <li>Maintain secure backups and organize projects systematically to prevent data loss.</li>
-    <li>Regularly check platform notifications, updates, and Terms revisions to stay compliant.</li>
-    <li>Use temporary subdomains for testing and iterative development while respecting privacy and copyright rules.</li>
-    <li>Engage with the Tarzan Town support team for clarification or guidance whenever needed.</li>
-  </ul>
-
-  <p style="font-size:17px;margin-bottom:20px;">
-    By following this guidance, users can leverage Tarzan Town to its fullest potential while minimizing risk, ensuring legal compliance, and maintaining professional integrity in every digital project.
-  </p>
-
-  <p style="font-size:17px;margin-bottom:20px;">
-    Section 1 – Introduction now serves as a solid foundation for all subsequent sections of the Terms & Conditions, preparing users for Services, User Responsibilities, Account Termination, Intellectual Property, Payment, Limitation of Liability, Privacy, Third-Party Links, Governing Law, Changes to Terms, and Contact procedures.
-  </p>
-</section>
-
-<section style="max-width:900px;margin:40px auto;padding:40px;background:#ffffff;border-radius:15px;box-shadow:0 0 20px rgba(0,0,0,0.1);font-family:'Segoe UI',sans-serif;line-height:1.9;color:#222;">
-
-  <h2 style="font-size:28px;font-weight:700;margin-bottom:25px;text-align:center;">2. Services</h2>
-
-  <!-- 2.1 Website and Application Creation -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">2.1 Website and Application Creation</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Tarzan Town enables users to build functional websites and web applications hosted on temporary subdomains. This service is ideal for prototyping, client testing, or educational purposes.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:15px;list-style-type:disc;">
-    <li>Rapid deployment of test websites or apps without permanent hosting.</li>
-    <li>Practical learning environment for web development and design skills.</li>
-    <li>Testing and iterating ideas before official launch.</li>
-  </ul>
-  <p style="font-size:17px;margin-bottom:20px;">Users must ensure that all uploaded content respects copyright and intellectual property laws, and backups should be maintained as temporary content may be removed at any time.</p>
-
-  <!-- 2.2 Templates, Prompts, and Design Resources -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">2.2 Templates, Prompts, and Design Resources</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    The platform provides a comprehensive library of templates, prompts, and design assets. These resources streamline project creation and enhance content quality.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:15px;list-style-type:disc;">
-    <li>Templates are licensed for personal or approved commercial use only.</li>
-    <li>Users may not redistribute, sell, or claim templates as their own.</li>
-    <li>Resources may be updated or deprecated to maintain quality and compliance.</li>
-  </ul>
-  <p style="font-size:17px;margin-bottom:20px;">Practical usage: Freelancers can create landing pages efficiently while staying fully compliant with legal usage rights.</p>
-
-  <!-- 2.3 Customization and Personalization Tools -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">2.3 Customization and Personalization Tools</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Users have access to powerful tools for modifying templates, subdomains, and applications including fonts, colors, layouts, and multimedia integration.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:15px;list-style-type:disc;">
-    <li>Modify layout, add multimedia, and embed interactive features.</li>
-    <li>Integrate external APIs for extended functionality.</li>
-    <li>Ensure that all external content respects copyright and privacy laws.</li>
-  </ul>
-  <p style="font-size:17px;margin-bottom:20px;">Example: Integrating a secure payment gateway while following all compliance guidelines.</p>
-
-  <!-- 2.4 Temporary Profiles and Subdomains -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">2.4 Temporary Profiles and Subdomains</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Temporary subdomains and profiles provide a safe space for testing without affecting permanent sites, encouraging innovation and iterative learning.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:15px;list-style-type:disc;">
-    <li>Temporary content may be automatically deleted after a defined period.</li>
-    <li>Subdomains are non-transferable and bound by all platform policies.</li>
-    <li>Users are responsible for saving content they wish to retain.</li>
-  </ul>
-  <p style="font-size:17px;margin-bottom:20px;">Example: Testing multiple landing pages for marketing campaigns while maintaining full compliance.</p>
-
-  <!-- 2.5 Service Updates and Modifications -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">2.5 Service Updates and Modifications</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Tarzan Town may update, enhance, or discontinue services, tools, or templates at any time. Users should remain vigilant and adapt projects accordingly.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:15px;list-style-type:disc;">
-    <li>Regularly check the platform for updates.</li>
-    <li>Maintain local backups to prevent data loss.</li>
-    <li>Adapt projects when templates or tools are changed or removed.</li>
-  </ul>
-
-  <!-- 2.6 Payment Integration -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">2.6 Payment Integration</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Services that involve premium templates, subscriptions, or paid features are securely processed through verified payment gateways. Users are expected to comply with all payment obligations.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:15px;list-style-type:disc;">
-    <li>All fees are non-refundable unless explicitly stated.</li>
-    <li>Users must maintain accurate billing information.</li>
-    <li>Pricing may be updated with prior notification.</li>
-  </ul>
-
-  <!-- 2.7 Technical Support and Assistance -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">2.7 Technical Support and Assistance</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Tarzan Town provides customer support for troubleshooting, guidance, and inquiries regarding platform tools, templates, or services.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:15px;list-style-type:disc;">
-    <li>Support is available via email, phone, or messaging platforms.</li>
-    <li>Users should provide accurate details to facilitate efficient assistance.</li>
-    <li>Support does not override compliance or Terms obligations.</li>
-  </ul>
-
-  <!-- 2.8 Service Limitations and Liability -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">2.8 Service Limitations and Liability</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    While Tarzan Town strives to provide reliable services, limitations exist. Users accept these limits and are responsible for their own content and actions.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:15px;list-style-type:disc;">
-    <li>The platform is not liable for downtime, data loss, or third-party integration failures.</li>
-    <li>Users assume responsibility for backups, security, and legal compliance of content.</li>
-    <li>All liabilities are limited to the scope defined in Terms & Conditions.</li>
-  </ul>
-
-</section>
-
-
-<section style="max-width:900px;margin:40px auto;padding:40px;background:#ffffff;border-radius:15px;box-shadow:0 0 20px rgba(0,0,0,0.1);font-family:'Segoe UI',sans-serif;line-height:1.9;color:#222;">
-
-  <!-- 3.1 Accuracy of Information -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">3.1 Accuracy of Information</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Users are required to provide accurate, complete, and up-to-date information during registration and throughout their use of the platform. This includes personal details, billing information, and any other data requested by Tarzan Town.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>Ensures proper communication, verification, and account recovery.</li>
-    <li>Prevents fraud, unauthorized activity, and disputes.</li>
-    <li>Maintains integrity of paid subscriptions and premium features.</li>
-  </ul>
-  <p style="font-size:17px;margin-bottom:20px;">Scenario: A user enters an incorrect email. If critical notifications are missed, they cannot access premium content or respond to account issues promptly.</p>
-
-  <!-- 3.2 Protection of Account Credentials -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">3.2 Protection of Account Credentials</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    All login credentials must remain confidential. Users should not share passwords, API keys, or authentication methods with unauthorized parties.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>Prevents unauthorized access and potential misuse.</li>
-    <li>Maintains accountability for all actions performed under the account.</li>
-    <li>Reduces risk of data loss, legal liability, or content violations.</li>
-  </ul>
-  <p style="font-size:17px;margin-bottom:20px;">Scenario: Sharing a password with a collaborator leads to accidental copyright infringement. The account owner remains responsible for the violation.</p>
-
-  <!-- 3.3 Respect for Intellectual Property -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">3.3 Respect for Intellectual Property</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Users must honor the intellectual property of Tarzan Town, other users, and third parties. Unauthorized copying, distribution, or claiming ownership is strictly prohibited.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>Ensures compliance with copyright, trademark, and licensing laws.</li>
-    <li>Protects platform resources and community content.</li>
-    <li>Prevents legal disputes or account suspension.</li>
-  </ul>
-  <p style="font-size:17px;margin-bottom:20px;">Scenario: Uploading copyrighted stock images without permission can result in content removal and legal claims.</p>
-
-  <!-- 3.4 Prohibition of Illegal or Harmful Activity -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">3.4 Prohibition of Illegal or Harmful Activity</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Users may not use the platform for illegal, abusive, or harmful purposes. This includes hacking, malware distribution, harassment, or defamation.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>Maintains a safe and professional environment for all users.</li>
-    <li>Prevents legal consequences and potential civil or criminal liability.</li>
-    <li>Protects the integrity of Tarzan Town services and data.</li>
-  </ul>
-  <p style="font-size:17px;margin-bottom:20px;">Scenario: Attempting to hack another user's subdomain leads to immediate suspension and potential legal action.</p>
-
-  <!-- 3.5 Compliance with Laws and Regulations -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">3.5 Compliance with Laws and Regulations</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Users must adhere to all applicable local, national, and international laws when using Tarzan Town services.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>Ensures lawful use of digital content and services.</li>
-    <li>Protects users from fines, legal action, or account restriction.</li>
-    <li>Supports platform responsibility and cooperation with authorities.</li>
-  </ul>
-  <p style="font-size:17px;margin-bottom:20px;">Scenario: Selling prohibited products through temporary subdomains could trigger investigation and penalties.</p>
-
-  <!-- 3.6 Responsibility for Content -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">3.6 Responsibility for Content</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Users are fully responsible for all content uploaded, published, or shared via the platform, including subdomains, templates, and applications.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>Ensures compliance with intellectual property, privacy, and legal standards.</li>
-    <li>Prevents exposure to liability for client or personal content breaches.</li>
-    <li>Encourages proactive content review and management.</li>
-  </ul>
-  <p style="font-size:17px;margin-bottom:20px;">Scenario: Uploading confidential client data publicly without encryption may lead to serious consequences.</p>
-
-  <!-- 3.7 Ethical Conduct and Community Guidelines -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">3.7 Ethical Conduct and Community Guidelines</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Users must act ethically and respectfully, avoiding spam, scams, harassment, impersonation, or offensive behavior.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>Maintains a positive and professional community.</li>
-    <li>Prevents disruption of collaborative projects or workflows.</li>
-    <li>Protects the reputation and credibility of Tarzan Town users.</li>
-  </ul>
-  <p style="font-size:17px;margin-bottom:20px;">Scenario: Leaving abusive comments on shared templates may result in content removal or account suspension.</p>
-
-  <!-- 3.8 Consequences of Violations -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">3.8 Consequences of Violations</h3>
-  <p style="font-size:17px;margin-bottom:20px;">
-    Violating user responsibilities can lead to temporary or permanent account suspension, deletion of content, and potential legal action.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>Maintains compliance and accountability.</li>
-    <li>Ensures fairness and safety for all users.</li>
-    <li>Protects the platform from misuse or legal complications.</li>
-  </ul>
-  <p style="font-size:17px;margin-bottom:20px;">Scenario Recap: Repeated copyright violations or security breaches can result in permanent account termination and removal of all associated content.</p>
-
-</section>
-
-
-<section style="max-width:900px;margin:40px auto;padding:40px;background:#ffffff;border-radius:15px;box-shadow:0 0 20px rgba(0,0,0,0.1);font-family:'Segoe UI',sans-serif;line-height:1.9;color:#222;">
-
-  <!-- 4.1 Reasons for Account Termination -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">4.1 Reasons for Account Termination</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Tarzan Town reserves the right to suspend, restrict, or permanently terminate accounts under specific conditions. Termination protects the platform, its users, and its intellectual property.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>Violation of Terms & Conditions including intellectual property misuse or illegal content.</li>
-    <li>Engaging in fraudulent, abusive, or harmful activity.</li>
-    <li>Providing false or misleading registration information or failing to cooperate with verification requests.</li>
-    <li>Attempts to compromise security, such as hacking, malware distribution, or unauthorized access.</li>
-    <li>Non-compliance with applicable local, national, or international laws.</li>
-  </ul>
-  <p style="font-size:17px;margin-bottom:20px;">Scenario: Uploading copyrighted content repeatedly despite warnings may trigger permanent account closure.</p>
-
-  <!-- 4.2 Temporary Suspension vs Permanent Termination -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">4.2 Temporary Suspension vs Permanent Termination</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Accounts may be temporarily suspended to investigate potential violations, prevent further harm, or allow corrective actions.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>Temporary suspension limits access while the issue is resolved.</li>
-    <li>Permanent termination occurs for severe, repeated, or high-risk violations.</li>
-    <li>All content, subdomains, and services are lost upon permanent termination.</li>
-  </ul>
-  <p style="font-size:17px;margin-bottom:20px;">Scenario: A user repeatedly violates copyright law; after multiple warnings, their account and associated subdomains are permanently deleted.</p>
-
-  <!-- 4.3 Notification Procedures -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">4.3 Notification Procedures</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Users may receive alerts or emails regarding potential violations. Immediate termination can occur in urgent cases such as security threats or illegal activity.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>Regularly check registered email and platform notifications.</li>
-    <li>Respond promptly to warnings to prevent escalation.</li>
-    <li>Failure to respond or comply may result in suspension or termination.</li>
-  </ul>
-  <p style="font-size:17px;margin-bottom:20px;">Scenario: A user is notified about copyright violations with a 72-hour compliance window; ignoring it results in termination.</p>
-
-  <!-- 4.4 Consequences of Termination -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">4.4 Consequences of Termination</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Termination affects user access, content retention, and legal responsibility.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>All subdomains, temporary profiles, and uploaded content become inaccessible.</li>
-    <li>Users remain responsible for illegal or infringing activity performed under their account.</li>
-    <li>Paid services are generally non-refundable unless explicitly stated.</li>
-  </ul>
-  <p style="font-size:17px;margin-bottom:20px;">Scenario: After permanent termination, a user loses all content and subdomains. Any illegal actions taken through the account may still have legal consequences.</p>
-
-  <!-- 4.5 Preventative Measures -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">4.5 Preventative Measures</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Users are encouraged to proactively maintain compliance to prevent account issues.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>Regularly review uploaded content for copyright compliance.</li>
-    <li>Maintain accurate account information.</li>
-    <li>Follow security guidelines and ethical conduct to avoid violations.</li>
-  </ul>
-  <p style="font-size:17px;margin-bottom:20px;">Scenario: Periodic audits of templates and subdomains prevent accidental infringement and help maintain uninterrupted access.</p>
-
-  <!-- 4.6 Appeal Process -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">4.6 Appeal Process</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Users may appeal suspensions or terminations by contacting support and providing evidence or corrective actions.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>Submit clear, verifiable information to demonstrate compliance.</li>
-    <li>Timely responses can mitigate or reverse temporary suspensions.</li>
-    <li>Appeals do not guarantee reversal of permanent termination for severe violations.</li>
-  </ul>
-
-  <!-- 4.7 Summary and User Guidance -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">4.7 Summary and User Guidance</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Understanding termination policies protects both the user and platform. Proactive compliance ensures continuity, protects content, and minimizes legal risk.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>Maintain accurate information and respect intellectual property.</li>
-    <li>Follow ethical conduct and security guidelines.</li>
-    <li>Respond promptly to platform communications regarding violations.</li>
-  </ul>
-
-</section>
-
-<section style="max-width:900px;margin:40px auto;padding:40px;background:#ffffff;border-radius:15px;box-shadow:0 0 20px rgba(0,0,0,0.1);font-family:'Segoe UI',sans-serif;line-height:1.9;color:#222;">
-
-  <!-- 5.1 Ownership of Content -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">5.1 Ownership of Content</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    All content, templates, designs, logos, prompts, and other resources available on Tarzan Town are either owned by Globamart.online or licensed for our use. Users are granted a limited, non-exclusive, non-transferable license for personal or authorized commercial use only.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>Prevents unauthorized redistribution, copying, or resale.</li>
-    <li>Protects intellectual property rights of the platform and third parties.</li>
-    <li>Ensures legal clarity regarding content usage.</li>
-  </ul>
-  <p style="font-size:17px;margin-bottom:20px;">Scenario: A designer uses a template from Tarzan Town for client work. Selling that template as-is without permission would violate intellectual property rules.</p>
-
-  <!-- 5.2 User Permissions -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">5.2 User Permissions</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Users are allowed to use Tarzan Town resources strictly for:
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>Personal projects and learning purposes.</li>
-    <li>Authorized commercial projects where explicit permissions exist.</li>
-    <li>Integration into temporary subdomains, websites, or applications created on the platform.</li>
-  </ul>
-  <p style="font-size:17px;margin-bottom:20px;">Scenario: A student using a template for an academic project is compliant; reselling the template as part of a commercial product is not allowed.</p>
-
-  <!-- 5.3 Prohibited Activities -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">5.3 Prohibited Activities</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Users may not:
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>Redistribute, copy, or sell any content or templates without permission.</li>
-    <li>Claim ownership or authorship of Tarzan Town resources.</li>
-    <li>Embed malicious scripts or modify content for illegal or harmful purposes.</li>
-  </ul>
-  <p style="font-size:17px;margin-bottom:20px;">Scenario: Uploading a Tarzan Town template to another platform for free download is strictly prohibited and can result in termination.</p>
-
-  <!-- 5.4 Third-Party Intellectual Property -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">5.4 Third-Party Intellectual Property</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Some resources may be sourced from third-party providers. Users must respect the licensing terms of these third parties in addition to Tarzan Town’s Terms.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>Improper use of third-party content can lead to legal consequences.</li>
-    <li>Ensure proper attribution if required.</li>
-    <li>Do not assume Tarzan Town ownership over third-party content.</li>
-  </ul>
-  <p style="font-size:17px;margin-bottom:20px;">Scenario: Using a stock photo sourced through the platform without credit or proper licensing may violate copyright laws.</p>
-
-  <!-- 5.5 Protection Measures -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">5.5 Protection Measures</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Tarzan Town actively protects its intellectual property through monitoring, content audits, and automated detection systems.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>Users must comply with rules to avoid account suspension.</li>
-    <li>Automated systems may flag or remove unauthorized content immediately.</li>
-    <li>Regularly check updates to terms for new guidelines on content use.</li>
-  </ul>
-  <p style="font-size:17px;margin-bottom:20px;">Scenario: A user attempting to upload modified templates for resale will be automatically flagged and receive a warning or account suspension.</p>
-
-  <!-- 5.6 Summary -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">5.6 Summary</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Intellectual property compliance protects both users and the platform. Users should only use resources within the boundaries set by Tarzan Town, respect third-party rights, and avoid redistribution or misrepresentation.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>Understand the limits of permitted use.</li>
-    <li>Respect copyrights, trademarks, and licenses.</li>
-    <li>Ensure all commercial usage is properly authorized.</li>
-  </ul>
-
-</section>
-
-
-<section style="max-width:900px;margin:40px auto;padding:40px;background:#ffffff;border-radius:15px;box-shadow:0 0 20px rgba(0,0,0,0.1);font-family:'Segoe UI',sans-serif;line-height:1.9;color:#222;">
-
-  <!-- 6.1 Overview -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">6.1 Overview</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Payment and subscription policies at Tarzan Town are designed to ensure transparency, fairness, and security for all users engaging in commercial or premium services. These terms outline how payments are processed, how subscriptions operate, and what users must know before purchasing or renewing any service.
-  </p>
-  <p style="font-size:17px;margin-bottom:15px;">
-    All users agree to abide by these payment rules when making any transaction through Globamart.online. Transactions may include premium template purchases, website deployment fees, domain upgrades, or professional support packages.
-  </p>
-
-  <!-- 6.2 Accepted Payment Methods -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">6.2 Accepted Payment Methods</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    We accept a wide range of payment methods to accommodate global users. Secure gateways ensure that personal and financial data remain protected.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>Credit and Debit Cards (Visa, MasterCard, American Express)</li>
-    <li>PayPal and Stripe for international users</li>
-    <li>Mobile payment services in supported countries</li>
-    <li>Cryptocurrency payments (where legally allowed)</li>
-    <li>Manual invoice-based transfers for enterprise clients</li>
-  </ul>
-  <p style="font-size:17px;margin-bottom:20px;">
-    All payments are processed via encrypted channels using SSL security to prevent unauthorized access or misuse.
-  </p>
-
-  <!-- 6.3 Subscription Models -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">6.3 Subscription Models</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Tarzan Town offers multiple subscription plans depending on usage level, features, and duration. Users may choose from monthly, quarterly, or annual subscriptions. Each plan comes with distinct benefits such as additional storage, premium templates, or faster deployment speeds.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li><strong>Basic Plan:</strong> Suitable for personal projects or small portfolios.</li>
-    <li><strong>Professional Plan:</strong> Includes custom subdomains, premium designs, and priority support.</li>
-    <li><strong>Enterprise Plan:</strong> Offers extended resources for large-scale organizations and agencies.</li>
-  </ul>
-  <p style="font-size:17px;margin-bottom:20px;">Scenario: A small business subscribing to a Professional Plan can access exclusive templates and deploy their website faster using additional build credits.</p>
-
-  <!-- 6.4 Automatic Renewals -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">6.4 Automatic Renewals</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Most subscriptions automatically renew to prevent service interruption. Users can cancel auto-renewal at any time through their account settings. Notification emails are sent prior to renewal to allow sufficient time for decision-making.
-  </p>
-  <p style="font-size:17px;margin-bottom:20px;">
-    If a payment method fails, Tarzan Town may temporarily suspend access until successful renewal. Failure to renew after multiple reminders may lead to data loss or deletion of temporary subdomains.
-  </p>
-
-  <!-- 6.5 Refunds and Cancellations -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">6.5 Refunds and Cancellations</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Refunds are only available under specific conditions, ensuring fairness for all users. As most services involve instant digital delivery, refunds are limited.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>Refunds apply if a technical error prevents service delivery within the first 48 hours.</li>
-    <li>Refunds do not apply to successful template downloads or active deployments.</li>
-    <li>Manual review may be required before processing refunds.</li>
-  </ul>
-  <p style="font-size:17px;margin-bottom:20px;">Scenario: If a user purchases a plan and the system fails to deliver access due to a technical error, they may request a refund by submitting a support ticket within 48 hours.</p>
-
-  <!-- 6.6 Currency and Pricing -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">6.6 Currency and Pricing</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    All prices are displayed in the platform’s default currency unless specified otherwise. Exchange rate fluctuations may affect the final charged amount depending on the user’s payment provider.
-  </p>
-  <p style="font-size:17px;margin-bottom:20px;">
-    Tarzan Town reserves the right to adjust pricing to reflect inflation, market demand, or feature expansion. Users will receive prior notice before any significant price modification.
-  </p>
-
-  <!-- 6.7 Security and Fraud Prevention -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">6.7 Security and Fraud Prevention</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Tarzan Town implements strict anti-fraud and verification measures to protect both users and the platform. Suspicious payment activities are flagged and reviewed immediately.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>Multiple failed transactions may trigger a temporary account hold.</li>
-    <li>Chargebacks initiated without valid cause may result in permanent suspension.</li>
-    <li>All verified transactions are encrypted and logged for auditing purposes.</li>
-  </ul>
-  <p style="font-size:17px;margin-bottom:20px;">Scenario: If a user attempts to use multiple stolen payment cards, the system automatically freezes their account and alerts security staff for investigation.</p>
-
-  <!-- 6.8 Summary and User Obligations -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">6.8 Summary and User Obligations</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    By making payments or subscribing to any plan, users confirm their understanding and acceptance of these rules. Users must ensure that payment details are valid, timely, and authorized.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>Keep payment information up to date to avoid disruptions.</li>
-    <li>Understand refund limitations before purchasing services.</li>
-    <li>Do not engage in chargeback fraud or misuse of digital goods.</li>
-  </ul>
-  <p style="font-size:17px;margin-bottom:20px;">
-    These guidelines guarantee fairness, transparency, and a secure digital commerce experience for all Tarzan Town users.
-  </p>
-
-</section>
-
-
-<section style="max-width:900px;margin:40px auto;padding:40px;background:#ffffff;border-radius:15px;box-shadow:0 0 20px rgba(0,0,0,0.1);font-family:'Segoe UI',sans-serif;line-height:1.9;color:#222;">
-
-  <!-- 7.1 Overview -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">7.1 Overview</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    The Limitation of Liability clause defines the extent of responsibility that Tarzan Town and its parent platform, Globamart.online, hold toward users. While every effort is made to maintain quality, uptime, and safety, certain risks are beyond the company’s control. By using the platform, users agree to these limitations as part of the mutual agreement governing digital service use.
-  </p>
-  <p style="font-size:17px;margin-bottom:20px;">
-    This policy ensures fair distribution of accountability between the service provider and users while safeguarding both parties from unreasonable legal or financial claims.
-  </p>
-
-  <!-- 7.2 General Disclaimer -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">7.2 General Disclaimer</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Tarzan Town operates on an “as is” and “as available” basis. The platform does not guarantee uninterrupted service, error-free templates, or permanent data availability. While high reliability is a priority, no digital system can promise absolute perfection.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>The company is not liable for temporary downtime caused by maintenance, system upgrades, or force majeure events.</li>
-    <li>Users are encouraged to back up all important data independently.</li>
-    <li>Performance results may vary depending on individual devices, browsers, or internet conditions.</li>
-  </ul>
-
-  <!-- 7.3 Data and Content Responsibility -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">7.3 Data and Content Responsibility</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Users are solely responsible for the content, media, or data they upload or publish through Tarzan Town. The platform provides hosting and design tools but does not monitor or verify every user submission unless a violation is reported.
-  </p>
-  <p style="font-size:17px;margin-bottom:20px;">
-    If a user posts illegal, offensive, or infringing material, they bear full legal liability. Tarzan Town reserves the right to remove or restrict such content without prior notice to protect the community and comply with legal obligations.
-  </p>
-
-  <!-- 7.4 Technical Failures and System Interruptions -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">7.4 Technical Failures and System Interruptions</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Technical interruptions may occur due to server updates, security maintenance, or third-party provider issues. Tarzan Town works diligently to restore access swiftly, but the company is not responsible for damages resulting from such interruptions.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>Planned maintenance windows are communicated whenever possible.</li>
-    <li>Unexpected downtimes caused by data center failures or natural events are treated as force majeure.</li>
-    <li>Users should avoid conducting critical transactions during maintenance notifications.</li>
-  </ul>
-
-  <!-- 7.5 Indirect or Consequential Damages -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">7.5 Indirect or Consequential Damages</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Under no circumstances shall Tarzan Town be held liable for indirect, incidental, or consequential damages, including loss of revenue, data, reputation, or opportunities. The platform’s purpose is to provide tools and digital environments, not to guarantee business outcomes.
-  </p>
-  <p style="font-size:17px;margin-bottom:20px;">
-    Example: If a user’s website temporarily goes offline during maintenance, the platform is not responsible for any lost visitors or potential sales that occur during that period.
-  </p>
-
-  <!-- 7.6 User Negligence -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">7.6 User Negligence</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Users are expected to maintain proper digital hygiene and security practices. The company cannot be held liable for incidents caused by user negligence, such as weak passwords, unprotected accounts, or unverified links.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>Unauthorized access resulting from poor password management is the user’s responsibility.</li>
-    <li>Users must keep browser extensions and systems secure to prevent malware or data theft.</li>
-    <li>Failing to follow recommended security updates may expose the account to risks beyond Tarzan Town’s control.</li>
-  </ul>
-
-  <!-- 7.7 Legal and Financial Limits -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">7.7 Legal and Financial Limits</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Tarzan Town’s total liability under any legal theory is strictly limited to the total amount the user paid within the last 12 months for the specific service in question. This limitation ensures predictable and balanced legal exposure for both parties.
-  </p>
-  <p style="font-size:17px;margin-bottom:20px;">
-    This clause applies regardless of whether the claim is based on contract breach, negligence, warranty, or other grounds. Users acknowledge and agree that this limitation forms a core condition of the service agreement.
-  </p>
-
-  <!-- 7.8 Summary and User Acknowledgment -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">7.8 Summary and User Acknowledgment</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    By continuing to use Tarzan Town, users explicitly acknowledge that digital platforms carry inherent risks. While Globamart.online takes extensive preventive measures, no provider can eliminate all risk. Users therefore agree to accept these reasonable limitations as a condition of service use.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>Understand that all services are offered in good faith without guaranteed outcomes.</li>
-    <li>Recognize that downtime, data loss, or third-party disruptions may occur.</li>
-    <li>Maintain self-responsibility for backups and safe content storage.</li>
-  </ul>
-  <p style="font-size:17px;margin-bottom:15px;">
-    This section builds trust and clarity between Tarzan Town and its global user base, ensuring fair, secure, and transparent interactions under realistic expectations.
-  </p>
-
-</section>
-
-
-
-<section style="max-width:900px;margin:40px auto;padding:40px;background:#ffffff;border-radius:15px;box-shadow:0 0 20px rgba(0,0,0,0.1);font-family:'Segoe UI',sans-serif;line-height:1.9;color:#222;">
-
-  <!-- 8.1 Overview -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">8.1 Overview</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Privacy is a cornerstone of trust at Tarzan Town by Globamart.online. This section outlines how we collect, store, and protect user data, ensuring transparency, compliance, and ethical handling of personal information. Every visitor, whether registered or not, has rights under this Privacy Policy.
-  </p>
-  <p style="font-size:17px;margin-bottom:20px;">
-    Our privacy framework follows international best practices, including GDPR principles, user consent protocols, and secure data management. We collect information only for operational purposes, not for resale or intrusive advertising.
-  </p>
-
-  <!-- 8.2 Information We Collect -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">8.2 Information We Collect</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Tarzan Town collects minimal and relevant data to operate efficiently. Information types include:
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li><strong>Personal details:</strong> name, email, phone number, and billing details during registration or purchases.</li>
-    <li><strong>Account activity:</strong> templates, subdomains, or tools used for project creation.</li>
-    <li><strong>Technical data:</strong> IP address, browser type, operating system, and device information for analytics and security.</li>
-    <li><strong>Communication data:</strong> messages exchanged via support tickets, email, or Telegram channels.</li>
-  </ul>
-  <p style="font-size:17px;margin-bottom:20px;">
-    We do not collect unnecessary or sensitive data without explicit consent.
-  </p>
-
-  <!-- 8.3 How We Use Information -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">8.3 How We Use Information</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    The information collected is used solely for service delivery, quality improvement, and security enhancement. Examples include:
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>Creating and customizing websites or temporary profiles.</li>
-    <li>Providing design tools, templates, and updates.</li>
-    <li>Enhancing platform usability, stability, and protection against misuse.</li>
-    <li>Responding to user inquiries, technical support, or verification requests.</li>
-  </ul>
-  <p style="font-size:17px;margin-bottom:20px;">
-    Tarzan Town never sells or trades personal information with third parties for marketing purposes.
-  </p>
-
-  <!-- 8.4 Data Sharing and Disclosure -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">8.4 Data Sharing and Disclosure</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Personal data may only be shared in the following limited circumstances:
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li><strong>Legal requirements:</strong> when compliance with law or government requests is mandatory.</li>
-    <li><strong>Trusted service providers:</strong> such as hosting or analytics partners, bound by strict confidentiality agreements.</li>
-    <li><strong>Security and fraud prevention:</strong> to prevent harm or protect platform integrity.</li>
-  </ul>
-  <p style="font-size:17px;margin-bottom:20px;">
-    Under no condition will user data be publicly exposed without consent.
-  </p>
-
-  <!-- 8.5 Data Storage and Security -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">8.5 Data Storage and Security</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Tarzan Town uses encrypted servers, layered authentication, and continuous monitoring to safeguard all information. Although no online platform is 100% risk-free, we employ state-of-the-art protections, including:
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>SSL encryption for all data transfers.</li>
-    <li>Regular security audits and malware scans.</li>
-    <li>Restricted staff access to user databases.</li>
-    <li>Real-time monitoring for suspicious or unauthorized activity.</li>
-  </ul>
-  <p style="font-size:17px;margin-bottom:20px;">
-    Users are encouraged to maintain strong passwords and log out after each session to further enhance security.
-  </p>
-
-  <!-- 8.6 User Rights and Control -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">8.6 User Rights and Control</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Every user has rights over their personal information, including:
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>Requesting a copy of stored data.</li>
-    <li>Correcting inaccurate or outdated details.</li>
-    <li>Requesting data deletion when it’s no longer required for operations.</li>
-    <li>Opting out of non-essential communications.</li>
-  </ul>
-  <p style="font-size:17px;margin-bottom:20px;">
-    Such requests are handled promptly within a reasonable timeframe and in compliance with applicable privacy regulations.
-  </p>
-
-  <!-- 8.7 Cookies and Tracking -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">8.7 Cookies and Tracking</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Tarzan Town utilizes cookies to improve usability, remember preferences, and analyze platform performance. Users can disable cookies in their browsers, but some features may not function optimally.
-  </p>
-  <ul style="margin-left:25px;font-size:17px;margin-bottom:20px;list-style-type:disc;">
-    <li>Cookies help store session information for faster navigation.</li>
-    <li>Analytics cookies track performance without identifying personal details.</li>
-    <li>Advertising cookies are not used for third-party promotions without consent.</li>
-  </ul>
-  <p style="font-size:17px;margin-bottom:20px;">
-    All tracking activities are conducted ethically, with transparency and user control in mind.
-  </p>
-
-  <!-- 8.8 Summary and Policy Updates -->
-  <h3 style="font-size:20px;font-weight:600;margin-top:25px;margin-bottom:15px;">8.8 Summary and Policy Updates</h3>
-  <p style="font-size:17px;margin-bottom:15px;">
-    This Privacy section ensures that user information is handled responsibly and transparently. Tarzan Town may update its privacy policies periodically to reflect evolving technology and legal standards.
-  </p>
-  <p style="font-size:17px;margin-bottom:15px;">
-    Users are encouraged to review this section regularly to stay informed of any modifications. Continued use of the platform signifies acceptance of updated terms.
-  </p>
-  <p style="font-size:17px;margin-bottom:20px;">
-    By trusting Tarzan Town, users can build and innovate confidently, knowing that their personal data and creative assets are protected under strict, ethical, and lawful privacy standards.
-  </p>
-
-</section>
-
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
-
-  
-
-    <!-- Footer -->
   <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-300 py-8">
-    <div
-      class="container mx-auto text-center space-y-3 max-w-4xl"
-    >
-      <div class="space-x-6 text-gray-400 text-lg">
-        <a
-          href="https://www.facebook.com/Tarzan.crb.10"
-          class="hover:text-indigo-400 transition"
-          ><i class="fab fa-facebook-f mr-1"></i> Facebook</a
-        >
-        <a
-          href="https://x.com/ahmedcrb125?t=aBmd3Y0iQPay3OYtxx29zA&s=09"
-          class="hover:text-indigo-400 transition"
-          ><i class="fab fa-twitter mr-1"></i> Twitter</a
-        >
-        <a
-          href="https://t.me/Tarzan_Town"
-          class="hover:text-indigo-400 transition"
-          ><i class="fab fa-telegram mr-1"></i> Telegram</a
-        >
-        <a
-          href="https://www.tiktok.com/@ahmett_crb?_t=ZM-8yIKFnwoHU0&_r=1"
-          class="hover:text-indigo-400 transition"
-          ><i class="fab fa-tiktok mr-1"></i> TikTok</a
-        >
-        <a
-          href="mailto:ahmedcrb1256@gmail.com"
-          class="hover:text-indigo-400 transition"
-          ><i class="fab fa-linkedin-in mr-1"></i> LinkedIn</a
-        >
+  <footer class="border-t border-line bg-surface/60 pt-16 pb-8 px-5 md:px-8">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-10 mb-12">
+      <div>
+        <div class="font-sora font-bold text-white text-lg mb-3">Ahmed <span class="text-primary-400">Developer</span></div>
+        <p class="text-muted text-sm max-w-xs">Full-Stack Developer & UI/UX Designer building modern, scalable digital products under the Tarzan Town brand.</p>
+        <div class="flex gap-4 mt-5 text-gray-400">
+          <a href="https://www.facebook.com/Tarzan.crb.10" class="hover:text-primary-400 transition-colors"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://x.com/ahmedcrb125?t=aBmd3Y0iQPay3OYtxx29zA&s=09" class="hover:text-primary-400 transition-colors"><i class="fab fa-twitter"></i></a>
+          <a href="https://t.me/Tarzan_Town" class="hover:text-primary-400 transition-colors"><i class="fab fa-telegram"></i></a>
+          <a href="https://www.tiktok.com/@ahmett_crb?_t=ZM-8yIKFnwoHU0&_r=1" class="hover:text-primary-400 transition-colors"><i class="fab fa-tiktok"></i></a>
+          <a href="mailto:ahmedcrb1256@gmail.com" class="hover:text-primary-400 transition-colors"><i class="fab fa-linkedin-in"></i></a>
+        </div>
       </div>
-
-      <div class="mt-4 text-sm">
-        <p><a href="/learn"> Learn & Support</a> |<a href="/How_Works">How Works Tarzan Town</a> |<a href="/Help Center">Help Center</a> | <a href="/Community">Community</a></p>
-        <p>
-          <a href="/terms" class="hover:text-indigo-400">Terms & Conditions</a> ·
-          <a href="/Privacy-Policy" class="hover:text-indigo-400"
-            >Privacy Policy</a
-          >
-        </p>
+      <div>
+        <h4 class="text-gray-400 text-xs font-semibold uppercase tracking-wide mb-4">Navigate</h4>
+        <div class="flex flex-col gap-2.5 text-sm text-muted">
+          <a href="/index" class="hover:text-primary-300 transition-colors">Home</a>
+          <a href="/Contact" class="hover:text-primary-300 transition-colors">Contact</a>
+          <a href="/About" class="hover:text-primary-300 transition-colors">About Us</a>
+          <a href="/Services" class="hover:text-primary-300 transition-colors">Services</a>
+          <a href="/take" class="hover:text-primary-300 transition-colors">Takes</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-gray-400 text-xs font-semibold uppercase tracking-wide mb-4">Learn &amp; Support</h4>
+        <div class="flex flex-col gap-2.5 text-sm text-muted">
+          <a href="/learn" class="hover:text-primary-300 transition-colors">Learn &amp; Support</a>
+          <a href="/How_Works" class="hover:text-primary-300 transition-colors">How Works Tarzan Town</a>
+          <a href="/Help Center" class="hover:text-primary-300 transition-colors">Help Center</a>
+          <a href="/Community" class="hover:text-primary-300 transition-colors">Community</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-gray-400 text-xs font-semibold uppercase tracking-wide mb-4">Contact</h4>
+        <div class="flex flex-col gap-2.5 text-sm text-muted">
+          <a href="mailto:ahmedcrb1256@gmail.com" class="hover:text-primary-300 transition-colors">ahmedcrb1256@gmail.com</a>
+          <a href="/Contact" class="hover:text-primary-300 transition-colors">Contact Form</a>
+        </div>
       </div>
     </div>
-    <p class="mt-4">&copy; 2025 Tarzan Town. All rights reserved.</p>
+
+    <div class="max-w-6xl mx-auto border-t border-line pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-gray-500">
+      <p>&copy; 2025 Tarzan Town. All rights reserved.</p>
+      <p class="flex gap-4">
+        <a href="/terms" class="hover:text-primary-300 transition-colors">Terms &amp; Conditions</a>
+        <a href="/Privacy-Policy" class="hover:text-primary-300 transition-colors">Privacy Policy</a>
+      </p>
+    </div>
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    // Mobile nav toggle (defensive — matches index.html's markup: 'hidden' utility class)
+    (function(){
+      const menuBtn = document.getElementById('menu-btn');
+      const navLinks = document.getElementById('nav-links');
+      if (menuBtn && navLinks) {
+        menuBtn.addEventListener('click', () => navLinks.classList.toggle('hidden'));
+      }
+    })();
+
+    // Scroll reveal
+    (function(){
+      const targets = document.querySelectorAll('.reveal');
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduced) { targets.forEach(t => t.classList.add('in')); return; }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      targets.forEach(t => io.observe(t));
+    })();
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
